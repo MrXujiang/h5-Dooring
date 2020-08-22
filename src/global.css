@@ -1,0 +1,10 @@
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+@import '~react-grid-layout/css/styles.css'; 
+@import '~react-resizable/css/styles.css';

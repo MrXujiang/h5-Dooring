@@ -1,0 +1,235 @@
+.layout{
+  .editorWrap {
+    background-color: rgba(245,245,245,1);
+    .header {
+      position: relative;
+      z-index: 10;
+      padding-left: 30px;
+      padding-right: 30px;
+      display: flex;
+      align-items: center;
+      height: 80px;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      .logoArea {
+        width: 300px;
+        .backBtn {
+          display: inline-block;
+          padding: 12px 10px;
+          margin-right: 26px;
+          background-color: rgba(222, 224, 230, 0.3);
+          cursor: pointer;
+        }
+        .logo {
+          display: inline-block;
+          width: 105px;
+          font-size: 24px;
+          font-weight: bold;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .controlArea {
+        flex: 1;
+        text-align: center;
+        .tit {
+          font-size: 18px;
+          color: #000;
+        }
+      }
+      .btnArea {
+        width: 400px;
+        text-align: right;
+      }
+    }
+  }
+  .container {
+    width: 100vw;
+    // height: 100vh;
+    display: flex;
+    .list{
+      width: 380px;
+      height: 100vh;
+      padding: 20px;
+      box-shadow: 2px 0px 10px rgba(0,0,0,0.2);
+      display: inline-block;
+      background-color: #fff;
+      overflow: scroll;
+      .searchBar {
+        margin-bottom: 20px;
+      }
+      .module{
+        position: relative;
+        margin-bottom: 12px;
+        width: 100%;
+        overflow: hidden;
+        user-select: none;
+        border: 2px solid transparent;
+        transition: border .3s;
+        &:hover {
+          border: 2px solid #06c;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          z-index: 99;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+    .tickMark{
+      width: calc(100% - 780px);
+      overflow: hidden;
+      height: 100vh;
+      position: relative;
+      .tickMarkTop {
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .tickMarkLeft {
+        width: 50px;
+        height: calc(100% - 50px);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .canvasBox{
+        width: 375px;
+        min-height: 664px;
+        height: 664px;
+        position: relative;
+        left: 50%;
+        margin-left: -200px;
+        top: 100px;
+        .canvas{
+          position: relative;
+          width: 375px;
+          min-height: 664px;
+          background-color: #fff;
+          box-shadow: 2px 0px 10px rgba(0,0,0,0.2);
+          position: absolute;
+          left: 0;
+          top: 0;
+          transition: transform 300ms ease-out;
+          .dragItem {
+            display: inline-block; 
+            position: absolute;
+            z-index: 2;
+            border: 2px solid transparent;
+            cursor: move;
+            &:hover {
+              border: 2px solid #06c;
+            }
+          }
+        }
+      }
+      .sliderWrap {
+        position: absolute;
+        width: 200px;
+        right: 60px;
+        bottom: 90px;
+        .slider {
+          width: 120px;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .sliderBtn {
+          cursor: pointer;
+          user-select:none;
+        }
+        span {
+          margin: 0 12px;
+          display: inline-block;
+          font-size: 18px;
+        }
+      }
+      .backSize {
+        position: absolute;
+        right: 30px;
+        bottom: 95px;
+        cursor: pointer;
+      }
+    }
+    .attrSetting {
+      width: 400px;
+      padding: 20px 0 20px 20px;
+      background:#fff;
+      height: 100vh;
+      box-shadow:-2px 0px 4px 0px rgba(0,0,0,0.1);
+      .tit {
+        margin-bottom: 16px;
+        font-size: 18px;
+        color: #000;
+      }
+      .posWrap {
+        padding: 20px;
+        .posItem {
+          margin-bottom: 12px;
+          font-size: 14px;
+          color: rgba(0,0,0, .5);
+          .posTit {
+            margin-right: 50px;
+          }
+          .pos {
+            margin-right: 40px;
+            color: #000;
+            &::before {
+              content: attr(data-flag);
+              color: rgba(0,0,0,.4);
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+      .graphWrap {
+        .graphTable {
+          .iptControl {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+            .iptLabel {
+              width: 108px;
+              flex-shrink: 0;
+              color: rgba(0,0,0,.5);
+            }
+            .cpSelector {
+              img {
+                width: 100%;
+              }
+            }
+            .colorSelector {
+              span {
+                display: inline-block;
+                margin-right: 10px;
+                width: 42px;
+                height: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.saveForm {
+  padding-top: 10px;
+  .formIpt {
+    span {
+      display: block;
+      line-height: 2.4em;
+    }
+  }
+}
+
+
+
+
+
