@@ -4,6 +4,8 @@ import { PlusOutlined } from '@ant-design/icons';
 import ImgCrop from 'antd-img-crop';
 import styles from './index.less';
 
+const isDev = process.env.NODE_ENV === 'development'
+
 function getBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -62,8 +64,8 @@ class PicturesWall extends React.Component {
   render() {
     const { previewVisible, previewImage, fileList, previewTitle } = this.state;
     const {
-      // action换上你的服务器接口地址
-      action = '',
+      // 配置自己的服务器地址
+      action = isDev ? 'http://192.168.1.6:3000/api/xxx' : 'http://xxxx',
       headers,
       withCredentials = true,
       maxLen = 1

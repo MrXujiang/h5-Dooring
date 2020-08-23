@@ -14,13 +14,13 @@ export function getRoutes() {
         "exact": true
       },
       {
-        "path": "/preview",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__editor__preview' */'/Users/apple/Desktop/github/zhiku.tec/h5-visible-tool/src/pages/editor/preview'), loading: LoadingComponent}),
+        "path": "/login",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__login' */'/Users/apple/Desktop/github/zhiku.tec/h5-visible-tool/src/pages/login'), loading: LoadingComponent}),
         "exact": true
       },
       {
-        "path": "/prevH5",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__editor__preH5' */'/Users/apple/Desktop/github/zhiku.tec/h5-visible-tool/src/pages/editor/preH5'), loading: LoadingComponent}),
+        "path": "/preview",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__editor__preview' */'/Users/apple/Desktop/github/zhiku.tec/h5-visible-tool/src/pages/editor/preview'), loading: LoadingComponent}),
         "exact": true
       }
     ]

@@ -34,7 +34,7 @@ const PreviewPage = memo((props) => {
   useEffect(() => {
     const  { tid } = props.location.query
     req.get('/visible/preview/get', { params: { tid } }).then(res => {
-      setPointData(res)
+      setPointData(res.map(item => ({...item, point: {...item.point, isDraggable: false, isResizable: false } })))
     }).catch(err => {
       setTimeout(() => {
         window.close()

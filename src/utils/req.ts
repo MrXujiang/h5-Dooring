@@ -4,7 +4,8 @@ import { message } from 'antd'
 const isDev = process.env.NODE_ENV === 'development'
 
 const instance = axios.create({
-    baseURL: 'xxxxxxx',
+    // 服务器地址需要自己配置和开发
+    baseURL: isDev ? 'http://localhost:3000/xxx' : 'http://xxxxx',
     timeout: 10000,
     withCredentials: true
 });
@@ -24,8 +25,8 @@ instance.interceptors.request.use(function (config) {
 
 // 添加响应拦截器
 instance.interceptors.response.use(function (response) {
-    // 对响应数据做点什么, 这里是自定义的信息头，用来给前端说明展示的信息
-    if(response.headers['x-x-x'] === 'xxx') {
+    // 对响应数据做点什么
+    if(response.headers['x-show-msg'] === 'zxzk_msg_200') {
         message.success(response.data.msg);
     }
     return response.data.result;

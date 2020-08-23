@@ -41,7 +41,28 @@ export default {
     }
   },
   effects: {
-    
+    // 更新一条数据模型信息
+    // *modifyDataModel({ payload }, { call, put }) {
+    //   const modifyDataModel = yield call(mesService.modifyDataModel, payload)
+    //   const activate = yield call(mesService.activateModifiedTableDataModel, modifyDataModel.dataModelId)
+    //   const responseMessage = yield call(mesService.getDetailDataModel, { dataModelId: activate.dataModelId, showDataModelFieldFlag: true })
+    //   yield put({
+    //     type: 'receiveDetailDataModel',
+    //     payload: responseMessage && responseMessage
+    //   })
+    // },
+
+    // 创建一条数据模型
+    // *createDataModel({ payload }, { call, put }) {
+    //   const responseMessage = yield call(mesService.createDataModel, payload)
+    //   if (responseMessage.dataModelId) {
+
+    //     router.push({
+    //       pathname: '/dataModel/view',
+    //       query: { id: responseMessage.dataModelId }
+    //     })
+    //   }
+    // },
   },
   subscriptions: {
     setup({ dispatch, history }) {

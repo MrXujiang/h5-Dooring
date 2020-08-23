@@ -91,7 +91,7 @@ const List = memo((props) => {
             sourceData.map((item, i) => {
               return <div className={styles.sourceItem} key={i}>
                       <div className={styles.imgWrap}>
-                        <img src={item.imgUrl[0] ? item.imgUrl[0].url : 'http://io.nainor.com/uploads/01_173e15d3493.png'} alt={item.desc} style={{width: imgSize, height: imgSize, objectFit: 'cover', borderRadius: round}} />
+                        <img src={item.imgUrl[0] ? item.imgUrl[0].url : ''} alt={item.desc} style={{width: imgSize, height: imgSize, objectFit: 'cover', borderRadius: round}} />
                       </div>
                       <div className={styles.content}>
                         <a className={styles.tit} style={{fontSize, color}} href={item.link ? item.link : '#'}>

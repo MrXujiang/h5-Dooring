@@ -6,11 +6,33 @@ const { Panel } = Tabs;
 
 const XTab = (props) => {
   const {
-    tabs,
+    tabs = ['分类一', '分类二'],
     activeColor,
     color,
     fontSize,
-    sourceData
+    sourceData = [
+      {
+        "title": "趣谈小课",
+        "desc": "致力于打造优质小课程",
+        "link": "xxxxx",
+        "type": 0,
+        "imgUrl": "http://io.nainor.com/uploads/01_173e15d3493.png"
+      },
+      {
+        "title": "趣谈小课",
+        "desc": "致力于打造优质小课程",
+        "link": "xxxxx",
+        "type": 1,
+        "imgUrl": "http://io.nainor.com/uploads/01_173e15d3493.png"
+      },
+      {
+        "title": "趣谈小课",
+        "desc": "致力于打造优质小课程",
+        "link": "xxxxx",
+        "type": 0,
+        "imgUrl": "http://io.nainor.com/uploads/01_173e15d3493.png"
+      }
+    ]
   } = props
 
   const tabWrapRef = useRef(null)
