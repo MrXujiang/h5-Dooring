@@ -24,4 +24,4 @@ H5-Dooring是一款功能强大，开源免费的H5可视化页面配置解决�
 
 ## 技术反馈和交流
 微信：beautifulFront
-<img src="http://io.nainor.com/uploads/code_1741c445027.png" />
+<img src="http://io.nainor.com/uploads/code_1741c445027.png" width="180px" />
