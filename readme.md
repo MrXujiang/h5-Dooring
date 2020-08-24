@@ -182,8 +182,8 @@ const Header = memo((props) => {
 
 ### 实现预览功能
 预览功能这块比较简单, 我们只需要将用户生成的json数据丢进H5渲染器中即可, 这里我们需要做一个渲染页面单独用来预览组件. 先来看看几个预览效果:
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/582e67cb0a874bee947efb05af622a55~tplv-k3u1fbpfcp-zoom-1.image)
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c50d89f770f4ae5b4c5c4ec9f0052c1~tplv-k3u1fbpfcp-zoom-1.image)
+<img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/582e67cb0a874bee947efb05af622a55~tplv-k3u1fbpfcp-zoom-1.image" alt="h5-editor" />
+<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c50d89f770f4ae5b4c5c4ec9f0052c1~tplv-k3u1fbpfcp-zoom-1.image" alt="h5-editor" />
 前面的渲染器原理已经介绍了, 这里就不一一介绍了,感兴趣的可以交流讨论.
 
 ### 实现在线下载功能
