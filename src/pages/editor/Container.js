@@ -14,7 +14,6 @@ import FormEditor from 'components/FormEditor'
 import template from 'components/DynamicEngine/template'
 import mediaTpl from 'components/DynamicEngine/mediaTpl'
 import schema from 'components/DynamicEngine/schema'
-import req from '@/utils/req'
 
 import styles from './index.less'
 
@@ -63,13 +62,10 @@ const Container = memo((props) => {
     })
   }
 
-  const savePreview = () => {
-    const { tid } = props.location.query || ''
-    req.post('/visible/preview', { tid, tpl: pointData })
-  }
-
   useEffect(() => {
-
+    if(window.innerWidth < 1024) {
+      props.history.push('/mobileTip')
+    }
   }, [])
 
   return (

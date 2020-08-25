@@ -14,6 +14,9 @@ export default defineConfig({
   },
   title: '趣谈前端-h5-visible-tool',
   exportStatic: {},
+  base: 'h5_plus',
+  publicPath: '/h5_plus/',
+  outputPath: '../server/static/h5_plus',
   routes: [
     {
       path: '/',
@@ -24,12 +27,16 @@ export default defineConfig({
           component: '../pages/editor',
         },
         {
-          path: '/preview',
-          component: '../pages/editor/preview',
+          path: '/login',
+          component: '../pages/login',
         },
         {
-          path: '/prevH5',
-          component: '../pages/editor/preH5',
+          path: '/mobileTip',
+          component: '../pages/mobileTip',
+        },
+        {
+          path: '/preview',
+          component: '../pages/editor/preview',
         }
       ]
     } 
