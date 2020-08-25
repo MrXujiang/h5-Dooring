@@ -7,8 +7,10 @@ import styles from './index.less'
 // 可视化组件类型
 // const componentTypes = ['Column', 'Pie']
 
+const isMac = navigator.platform.indexOf('Mac') === 0
+
 const pcStyle = {
-  width: 395,
+  width: isMac ? 395 : 412,
   margin: '20px auto', 
   border: '10px solid #000', 
   borderRadius: '20px', 
@@ -50,6 +52,7 @@ const PreviewPage = memo((props) => {
         rowHeight={2} 
         width={vw > 800 ? 375 :vw }
         margin={[0,0]}
+        id="xx"
       >
         {
           pointData.map(value => 

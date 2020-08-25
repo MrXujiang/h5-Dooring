@@ -13,6 +13,7 @@ import DynamicEngine from 'components/DynamicEngine'
 import FormEditor from 'components/FormEditor'
 import template from 'components/DynamicEngine/template'
 import mediaTpl from 'components/DynamicEngine/mediaTpl'
+import graphTpl from 'components/DynamicEngine/graphTpl'
 import schema from 'components/DynamicEngine/schema'
 
 import styles from './index.less'
@@ -97,7 +98,13 @@ const Container = memo((props) => {
               }
             </Panel>
             <Panel header={generateHeader("可视化组件")} key="3">
-              正在开发中...
+              {
+                graphTpl.map((value,i) => 
+                  <TargetBox item={value} key={i} canvasId={canvasId}>
+                    <DynamicEngine {...value} config={schema[value.type].config} />
+                  </TargetBox>
+                )
+              }
             </Panel>
           </Collapse>
           </div>

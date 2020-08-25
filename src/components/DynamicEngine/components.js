@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { NoticeBar } from 'zarm'
+import { NoticeBar, Progress } from 'zarm'
 import styles from './components.less'
 
 const Header = memo((props) => {
@@ -91,7 +91,7 @@ const List = memo((props) => {
             sourceData.map((item, i) => {
               return <div className={styles.sourceItem} key={i}>
                       <div className={styles.imgWrap}>
-                        <img src={item.imgUrl[0] ? item.imgUrl[0].url : ''} alt={item.desc} style={{width: imgSize, height: imgSize, objectFit: 'cover', borderRadius: round}} />
+                        <img src={item.imgUrl[0] ? item.imgUrl[0].url : 'http://io.nainor.com/uploads/01_173e15d3493.png'} alt={item.desc} style={{width: imgSize, height: imgSize, objectFit: 'cover', borderRadius: round}} />
                       </div>
                       <div className={styles.content}>
                         <a className={styles.tit} style={{fontSize, color}} href={item.link ? item.link : '#'}>
@@ -106,6 +106,25 @@ const List = memo((props) => {
   </div> 
 })
 
+const XProgress = memo((props) => {
+  const { 
+    theme,
+    size,
+    shape,
+    percent,
+    strokeWidth
+  } = props
+  return <div className={styles.textWrap} style={{textAlign: 'center'}}>
+      <Progress
+        shape={shape}
+        size={size}
+        percent={percent}
+        theme={theme}
+        strokeWidth={strokeWidth}
+      />
+  </div>
+})
+
 export {
   Header,
   Text,
@@ -113,5 +132,6 @@ export {
   Qrcode,
   Footer,
   Image,
-  List
+  List,
+  XProgress
 }
