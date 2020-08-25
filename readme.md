@@ -230,4 +230,6 @@ FileSaver.saveAs(blob, "hello world.txt");
 
 ## 技术反馈和交流
 微信：beautifulFront
+
+
 <img src="http://io.nainor.com/uploads/code_1741c445027.png" width="180px" />
