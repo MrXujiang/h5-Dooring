@@ -2,6 +2,7 @@ import React, { memo, useEffect, useState } from 'react'
 import { useDrop } from 'react-dnd'
 import Draggable from 'react-draggable'
 import GridLayout from 'react-grid-layout'
+import { Tooltip } from 'antd'
 import { connect } from 'dva'
 import DynamicEngine from 'components/DynamicEngine'
 import styles from './index.less'
@@ -9,6 +10,7 @@ import styles from './index.less'
 const SourceBox = memo((props) => {
   const { pointData, scaleNum, canvasId, dispatch } = props
   const [canvasRect, setCanvasRect] = useState([])
+  const [isShowTip, setIsShowTip] = useState(true)
   const [{ isOver }, drop] = useDrop({
     accept: [],
     collect: (monitor) => ({
@@ -47,6 +49,12 @@ const SourceBox = memo((props) => {
     setCanvasRect([width, height])
   }, [canvasId])
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsShowTip(false)
+    }, 3000)
+  }, [])
+
   const opacity = isOver ? 0.7 : 1
   const backgroundColor = isOver ? 1 : 0.7
 
@@ -63,21 +71,23 @@ const SourceBox = memo((props) => {
             }} 
             ref={drop} 
           >
-          <div 
-            className="js_box" 
-            style={{
-              width: '12px',
-              height: '100%',
-              position: 'absolute',
-              borderRadius: '0 6px 6px 0',
-              backgroundColor: '#2f54eb',
-              right: '-12px',
-              top: '0',
-              color: '#fff',
-              cursor: 'move'
-            }}
-          >  
-          </div>
+            <Tooltip placement="right" title="鼠标按住此处拖拽画布" visible={isShowTip}>
+              <div 
+                className="js_box" 
+                style={{
+                  width: '12px',
+                  height: '100%',
+                  position: 'absolute',
+                  borderRadius: '0 6px 6px 0',
+                  backgroundColor: '#2f54eb',
+                  right: '-12px',
+                  top: '0',
+                  color: '#fff',
+                  cursor: 'move'
+                }}
+              /> 
+            </Tooltip>
+           
             {
               pointData.length > 0 ?
               <GridLayout 
