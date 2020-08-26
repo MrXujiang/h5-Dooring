@@ -1,9 +1,36 @@
-## H5-Dooring
+<h1 align="center">Welcome to H5-Dooring 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.2-blue.svg?cacheSeconds=2592000" />
+  <a href="https://juejin.im/post/6864410873709592584/" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
+
+> H5-Dooring是一款功能强大，开源免费的H5可视化页面配置解决方案，致力于提供一套简单方便、专业可靠、无限可能的H5落地页最佳实践。技术栈以react为主， 后台采用nodejs开发。
+
+### 🏠 [Homepage](http://io.nainor.com/h5_visible)
+
+### ✨ [Demo](http://io.nainor.com/h5_plus/editor?tid=123456)
+
 <img src="http://io.nainor.com/uploads/56_1741c466be0.png" alt="H5可视化编辑器" />
 
-H5-Dooring是一款功能强大，开源免费的H5可视化页面配置解决方案，致力于提供一套简单方便、专业可靠、无限可能的H5落地页最佳实践。技术栈以react为主， 后台采用nodejs开发。
+## Author
 
-* 预览地址：http://io.nainor.com/h5_visible
+👤 **徐小夕**
+
+* Website: http://io.nainor.com/h5_visible
+* Github: [@MrXujiang](https://github.com/MrXujiang)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/MrXujiang/h5-Dooring/issues). 
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
 
 ## 技术栈
 * **React** 前端主流框架(react,vue,angular)之一,更适合开发灵活度高且复杂的应用
@@ -224,6 +251,18 @@ FileSaver.saveAs(blob, "hello world.txt");
 * 添加配置交互功能
 * 组件细分和代码优化
 * 添加typescript支持和单元测试
+
+## Install(安装)
+
+```sh
+yarn install
+```
+
+## Usage
+
+```sh
+yarn run start
+```
 
 ## 持续升级
 正在升级1.1版本，敬请期待...

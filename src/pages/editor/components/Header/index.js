@@ -87,6 +87,10 @@ const HeaderComponent = memo((props) => {
     req.post('/visible/preview', { tid, tpl: pointData })
   }
 
+  const handleSaveCode = () => {
+    
+  }
+
   return (
     <div className={styles.header}>
         <div className={styles.logoArea}>
@@ -98,7 +102,8 @@ const HeaderComponent = memo((props) => {
         </div>
         <div className={styles.btnArea}>
           <Button type="primary" style={{marginRight: '9px'}} onClick={useTemplate}>使用模版库</Button>
-          <Button type="primary" style={{marginRight: '9px'}} onClick={handleSaveTpl} disabled={!pointData.length}><DownloadOutlined />保存</Button>
+          <Button type="primary" style={{marginRight: '9px'}} onClick={handleSaveTpl} disabled={!pointData.length}><DownloadOutlined />保存模版</Button>
+          <Button style={{marginRight: '9px'}} onClick={handleSaveCode} disabled={!pointData.length}><DownloadOutlined /></Button>
           <Button style={{marginRight: '9px'}} title="下载json文件" onClick={downLoadJson} disabled={!pointData.length}><CopyOutlined /></Button>
           <Popover placement="bottom" title={null} content={content} trigger="click">
             <Button style={{marginRight: '9px'}} onClick={savePreview} disabled={!pointData.length}><MobileOutlined /></Button>
