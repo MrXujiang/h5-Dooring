@@ -1,5 +1,7 @@
-// import * as mesService from '../services/editorService'
-// import { router } from 'umi'
+// 将用户数据存贮到localstorage中
+function overSave(name, data) {
+  localStorage.setItem(name, JSON.stringify(data))
+}
 
 export default {
   namespace: 'editorModal',
