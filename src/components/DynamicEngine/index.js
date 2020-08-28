@@ -1,5 +1,5 @@
 import { dynamic } from 'umi';
-import { Spin } from 'antd';
+import Loading from '../LoadingCp';
 import { useMemo, memo } from 'react';
 
 const needList = ['Tab', 'Carousel', 'Upload', 'Video']
@@ -21,7 +21,7 @@ const DynamicFunc = (type) => dynamic({
     }
   },
   loading: () => <div style={{ paddingTop: 10, textAlign: 'center' }}>
-                  <Spin size="large" />
+                  <Loading />
                 </div>
 })
 

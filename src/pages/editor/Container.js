@@ -1,8 +1,10 @@
 import React, { useState, useEffect, memo } from 'react'
-import { Input, Collapse, Slider, Empty } from 'antd'
+import { Input, Slider, Result, Tabs } from 'antd'
 import {
   PieChartOutlined,
-  ExpandOutlined
+  ExpandOutlined,
+  PlayCircleOutlined,
+  HighlightOutlined
 } from '@ant-design/icons'
 import { connect } from 'dva'
 import HeaderComponent from './components/Header'
@@ -19,7 +21,7 @@ import schema from 'components/DynamicEngine/schema'
 import styles from './index.less'
 
 const { Search } = Input;
-const { Panel } = Collapse;
+const { TabPane } = Tabs;
 
 const Container = memo((props) => {
   const [ scaleNum , setScale ] = useState(1)
@@ -33,8 +35,14 @@ const Container = memo((props) => {
     setScale(1)
   }
 
-  const generateHeader = (text) => {
-    return <div><PieChartOutlined /> { text }</div>
+  const CpIcon = {
+    base: <HighlightOutlined />,
+    media: <PlayCircleOutlined />,
+    visible: <PieChartOutlined />
+  }
+
+  const generateHeader = (type, text) => {
+    return <div>{ CpIcon[type] } { text }</div>
   }
 
   const handleSliderChange = (v) => {
@@ -78,35 +86,35 @@ const Container = memo((props) => {
             <Search placeholder="搜索组件" onSearch={value => console.log(value)} enterButton />
           </div>
           <div className={styles.componentList}>
-          <Collapse accordion ghost expandIconPosition="right">
-            <Panel header={generateHeader("基础组件")} key="1">
-              {
-                template.map((value,i) => 
-                  <TargetBox item={value} key={i} canvasId={canvasId}>
-                    <DynamicEngine {...value} config={schema[value.type].config} />
-                  </TargetBox>
-                )
-              }
-            </Panel>
-            <Panel header={generateHeader("媒体组件")} key="2">
-              {
-                mediaTpl.map((value,i) => 
-                  <TargetBox item={value} key={i} canvasId={canvasId}>
-                    <DynamicEngine {...value} config={schema[value.type].config} />
-                  </TargetBox>
-                )
-              }
-            </Panel>
-            <Panel header={generateHeader("可视化组件")} key="3">
-              {
-                graphTpl.map((value,i) => 
-                  <TargetBox item={value} key={i} canvasId={canvasId}>
-                    <DynamicEngine {...value} config={schema[value.type].config} />
-                  </TargetBox>
-                )
-              }
-            </Panel>
-          </Collapse>
+            <Tabs defaultActiveKey="1">
+              <TabPane tab={generateHeader("base","基础组件")} key="1">
+                {
+                  template.map((value,i) => 
+                    <TargetBox item={value} key={i} canvasId={canvasId}>
+                      <DynamicEngine {...value} config={schema[value.type].config} />
+                    </TargetBox>
+                  )
+                }
+              </TabPane>
+              <TabPane tab={generateHeader("media","媒体组件")} key="2">
+                {
+                  mediaTpl.map((value,i) => 
+                    <TargetBox item={value} key={i} canvasId={canvasId}>
+                      <DynamicEngine {...value} config={schema[value.type].config} />
+                    </TargetBox>
+                  )
+                }
+              </TabPane>
+              <TabPane tab={generateHeader("visible","可视化组件")} key="3">
+                {
+                  graphTpl.map((value,i) => 
+                    <TargetBox item={value} key={i} canvasId={canvasId}>
+                      <DynamicEngine {...value} config={schema[value.type].config} />
+                    </TargetBox>
+                  )
+                }
+              </TabPane>
+            </Tabs>
           </div>
         </div>
         <div className={styles.tickMark} id='calibration'>
@@ -118,9 +126,9 @@ const Container = memo((props) => {
           </div>
           <SourceBox scaleNum={scaleNum} canvasId={canvasId} />
           <div className={styles.sliderWrap}>
-            <span className={styles.sliderBtn} onClick={handleSlider.bind(this, 0)}>-</span>
-            <Slider defaultValue={100} className={styles.slider} onChange={handleSliderChange} min={50} max={150} value={scaleNum * 100} />
             <span className={styles.sliderBtn} onClick={handleSlider.bind(this, 1)}>+</span>
+            <Slider vertical defaultValue={100} className={styles.slider} onChange={handleSliderChange} min={50} max={150} value={scaleNum * 100} />
+            <span className={styles.sliderBtn} onClick={handleSlider.bind(this, 0)}>-</span>
           </div>
           <div className={styles.backSize}><ExpandOutlined onClick={backSize} /></div>
         </div>
@@ -137,9 +145,14 @@ const Container = memo((props) => {
                 onDel={handleDel}
               />
             </> :
-            <div style={{paddingTop: '100px'}}><Empty /></div>
+            <div style={{paddingTop: '100px'}}>
+              <Result
+                status="404"
+                title="还没有数据哦"
+                subTitle="赶快拖拽组件来生成你的H5页面吧～"
+              />
+            </div>
           }
-          
         </div>
       </div>
 

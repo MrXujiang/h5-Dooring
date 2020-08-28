@@ -15,7 +15,7 @@
 
 ### ✨ [Demo](http://io.nainor.com/h5_plus/editor?tid=123456)
 
-<img src="http://io.nainor.com/uploads/56_1741c466be0.png" alt="H5可视化编辑器" />
+<img src="http://io.nainor.com/uploads/55_174302afefd.png" alt="H5可视化编辑器" />
 
 ## Author
 
@@ -48,7 +48,7 @@ Give a ⭐️ if this project helped you!
 
 ## 需求分析
 在思考需求分析之前我们先来看看**Dooring**的使用演示：
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e7000035ac7f44898d3450c24468cc65~tplv-k3u1fbpfcp-zoom-1.image)
+![](http://io.nainor.com/uploads/55_174302afefd.png)
 由上面的gif图我们可以分析出，可视化编辑器主要有以下几部分组成：
 * 可拖拽的组件库 draggable components
 * 盛放组件的画布 canvas

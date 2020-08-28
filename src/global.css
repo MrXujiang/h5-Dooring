@@ -6,5 +6,10 @@ body {
   margin: 0;
 }
 
+:root {
+  --sk-size: 40px;
+  --sk-color: #06c;
+}
+
 @import '~react-grid-layout/css/styles.css'; 
 @import '~react-resizable/css/styles.css';
