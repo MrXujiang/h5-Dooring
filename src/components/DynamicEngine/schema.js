@@ -135,6 +135,11 @@ export default {
         "type": "Number"
       },
       {
+        "key": "imgSize",
+        "name": "图片大小",
+        "type": "Number"
+      },
+      {
         "key": "sourceData",
         "name": "数据源",
         "type": "DataList"
@@ -145,6 +150,7 @@ export default {
       "color": "rgba(153,153,153,1)",
       "activeColor": "rgba(0,102,204,1)",
       "fontSize": 16,
+      "imgSize": 100,
       "sourceData": [
         {
           "id": 1,
@@ -472,6 +478,7 @@ export default {
     "config": {
       "sourceData": [
         {
+          "id": "1",
           "title": "趣谈小课",
           "desc": "致力于打造优质小课程",
           "link": "xxxxx",
@@ -485,12 +492,13 @@ export default {
           ]
         },
         {
+          "id": "2",
           "title": "趣谈小课",
           "desc": "致力于打造优质小课程",
           "link": "xxxxx",
           "imgUrl": [
             {
-              "uid": "001",
+              "uid": "002",
               "name": "image.png",
               "status": "done",
               "url": "http://io.nainor.com/uploads/1_1740c6fbcd9.png",
