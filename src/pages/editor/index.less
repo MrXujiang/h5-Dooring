@@ -1,57 +1,15 @@
 .layout{
   .editorWrap {
     background-color: rgba(245,245,245,1);
-    .header {
-      position: relative;
-      z-index: 10;
-      padding-left: 30px;
-      padding-right: 30px;
-      display: flex;
-      align-items: center;
-      height: 80px;
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      .logoArea {
-        width: 300px;
-        .backBtn {
-          display: inline-block;
-          padding: 12px 10px;
-          margin-right: 26px;
-          background-color: rgba(222, 224, 230, 0.3);
-          cursor: pointer;
-        }
-        .logo {
-          display: inline-block;
-          width: 105px;
-          font-size: 24px;
-          font-weight: bold;
-          img {
-            width: 100%;
-          }
-        }
-      }
-      .controlArea {
-        flex: 1;
-        text-align: center;
-        .tit {
-          font-size: 18px;
-          color: #000;
-        }
-      }
-      .btnArea {
-        width: 400px;
-        text-align: right;
-      }
-    }
   }
   .container {
     width: 100vw;
     // height: 100vh;
     display: flex;
     .list{
-      width: 380px;
+      width: 350px;
       height: 100vh;
-      padding: 20px;
+      padding: 10px 16px 16px;
       box-shadow: 2px 0px 10px rgba(0,0,0,0.2);
       display: inline-block;
       background-color: #fff;
@@ -82,7 +40,7 @@
       }
     }
     .tickMark{
-      width: calc(100% - 780px);
+      width: calc(100% - 750px);
       overflow: hidden;
       height: 100vh;
       position: relative;
@@ -107,7 +65,7 @@
         position: relative;
         left: 50%;
         margin-left: -200px;
-        top: 100px;
+        top: 80px;
         .canvas{
           position: relative;
           width: 375px;
@@ -128,6 +86,7 @@
               border: 2px solid #06c;
             }
             :global(a) {
+              display: block;
               pointer-events: none;
             }
           }
@@ -135,11 +94,11 @@
       }
       .sliderWrap {
         position: absolute;
-        width: 200px;
-        right: 60px;
-        bottom: 90px;
+        width: 30px;
+        right: 10px;
+        bottom: 130px;
         .slider {
-          width: 120px;
+          height: 120px;
           display: inline-block;
           vertical-align: middle;
         }
@@ -155,7 +114,7 @@
       }
       .backSize {
         position: absolute;
-        right: 30px;
+        right: 18px;
         bottom: 95px;
         cursor: pointer;
       }

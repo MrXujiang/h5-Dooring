@@ -46,7 +46,7 @@ export default memo(function MutiText(props) {
                         <Popconfirm
                           title="确定要删除吗?"
                           onConfirm={handleDel.bind(this, i)}
-                          placement="leftTop "
+                          placement="leftTop"
                           okText="确定"
                           cancelText="取消"
                         >
