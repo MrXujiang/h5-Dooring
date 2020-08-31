@@ -17,8 +17,8 @@ const DynamicFunc = type =>
       }
 
       return props => {
-        const { config } = props;
-        return <Component {...config} />;
+        const { config, isTpl } = props;
+        return <Component {...config} isTpl={isTpl} />;
       };
     },
     loading: () => (
@@ -29,11 +29,11 @@ const DynamicFunc = type =>
   });
 
 const DynamicEngine = memo(props => {
-  const { type, config } = props;
+  const { type, config, isTpl } = props;
   const Dynamic = useMemo(() => {
     return DynamicFunc(type);
   }, [type, config]);
-  return <Dynamic type={type} config={config} />;
+  return <Dynamic type={type} config={config} isTpl={isTpl} />;
 });
 
 export default DynamicEngine;
