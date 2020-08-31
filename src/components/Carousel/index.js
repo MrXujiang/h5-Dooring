@@ -15,6 +15,8 @@ const XCarousel = memo(props => {
     });
   };
 
+  console.log(isTpl);
+
   return (
     <div style={{ width: '100%', overflow: 'hidden' }}>
       {isTpl ? (
