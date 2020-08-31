@@ -69,9 +69,12 @@ const SourceBox = memo(props => {
   }, [canvasId]);
 
   useEffect(() => {
-    setTimeout(() => {
+    let timer = window.setTimeout(() => {
       setIsShowTip(false);
     }, 3000);
+    return () => {
+      window.clearTimeout(timer);
+    };
   }, []);
 
   const opacity = isOver ? 0.7 : 1;

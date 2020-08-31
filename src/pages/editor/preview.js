@@ -38,7 +38,7 @@ const PreviewPage = memo(props => {
 
   useEffect(() => {
     const { tid } = props.location.query;
-    const timer = null;
+    let timer = null;
     req
       .get('/visible/preview/get', { params: { tid } })
       .then(res => {
@@ -55,7 +55,7 @@ const PreviewPage = memo(props => {
         }, 3000);
       });
     return () => {
-      clearTimeout(timer);
+      window.clearTimeout(timer);
     };
   }, []);
 
