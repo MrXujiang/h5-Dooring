@@ -1,11 +1,12 @@
-import React, { useState, useEffect, memo } from 'react'
-import { Input, Slider, Result, Tabs } from 'antd'
+import React, { useState, useEffect, useCallback, memo } from 'react'
+import { Slider, Result, Tabs, Alert } from 'antd'
 import {
   PieChartOutlined,
   ExpandOutlined,
   PlayCircleOutlined,
   HighlightOutlined
 } from '@ant-design/icons'
+import TextLoop from 'react-text-loop'
 import { connect } from 'dva'
 import HeaderComponent from './components/Header'
 import SourceBox  from './SourceBox'
@@ -17,10 +18,10 @@ import template from 'components/DynamicEngine/template'
 import mediaTpl from 'components/DynamicEngine/mediaTpl'
 import graphTpl from 'components/DynamicEngine/graphTpl'
 import schema from 'components/DynamicEngine/schema'
+import { uuid } from 'utils/tool'
 
 import styles from './index.less'
 
-const { Search } = Input;
 const { TabPane } = Tabs;
 
 const Container = memo((props) => {
@@ -64,6 +65,10 @@ const Container = memo((props) => {
     })
   }
 
+  const clearData = useCallback(() => {
+    dispatch({ type: 'editorModal/clearAll' })
+  }, [])
+
   const handleDel = (id) => {
     dispatch({
       type: 'editorModal/delPointData',
@@ -75,15 +80,30 @@ const Container = memo((props) => {
     if(window.innerWidth < 1024) {
       props.history.push('/mobileTip')
     }
+    // 存储用户唯一信息
+    if(!localStorage.getItem('uid') || !sessionStorage.getItem('sid')) {
+      localStorage.setItem('uid', uuid(8, 10))
+      sessionStorage.setItem('sid', uuid(5, 10))
+    }
   }, [])
 
   return (
     <div className={styles.editorWrap}>
-      <HeaderComponent pointData={pointData} location={props.location} />
+      <HeaderComponent pointData={pointData} clearData={clearData} location={props.location} />
       <div className={styles.container}>
         <div className={styles.list} >
           <div className={styles.searchBar}>
-            <Search placeholder="搜索组件" onSearch={value => console.log(value)} enterButton />
+          <Alert
+            banner
+            message={
+              <TextLoop mask>
+                <div>Dooring升级啦！</div>
+                <div>Dooring添加自动保存功能</div>
+                <div>已有500+人使用</div>
+                <div>持续迭代中...</div>
+              </TextLoop>
+            }
+          />
           </div>
           <div className={styles.componentList}>
             <Tabs defaultActiveKey="1">
@@ -91,7 +111,7 @@ const Container = memo((props) => {
                 {
                   template.map((value,i) => 
                     <TargetBox item={value} key={i} canvasId={canvasId}>
-                      <DynamicEngine {...value} config={schema[value.type].config} />
+                      <DynamicEngine {...value} config={schema[value.type].config} isTpl={true} />
                     </TargetBox>
                   )
                 }
@@ -100,7 +120,7 @@ const Container = memo((props) => {
                 {
                   mediaTpl.map((value,i) => 
                     <TargetBox item={value} key={i} canvasId={canvasId}>
-                      <DynamicEngine {...value} config={schema[value.type].config} />
+                      <DynamicEngine {...value} config={schema[value.type].config} isTpl={true} />
                     </TargetBox>
                   )
                 }
@@ -109,7 +129,7 @@ const Container = memo((props) => {
                 {
                   graphTpl.map((value,i) => 
                     <TargetBox item={value} key={i} canvasId={canvasId}>
-                      <DynamicEngine {...value} config={schema[value.type].config} />
+                      <DynamicEngine {...value} config={schema[value.type].config} isTpl={true} />
                     </TargetBox>
                   )
                 }

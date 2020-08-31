@@ -6,7 +6,10 @@ const XCarousel = memo(props => {
   const {
     direction,
     swipeable,
-    imgList
+    autoPlay,
+    isTpl,
+    imgList,
+    tplImg
   } = props
   
   const contentRender = () => {
@@ -20,17 +23,23 @@ const XCarousel = memo(props => {
   }
 
   return <div style={{width: '100%', overflow: 'hidden'}}>
-          <Carousel
-            onChange={(index) => {
-              // console.log(`onChange: ${index}`);
-            }}
-            direction={direction}
-            swipeable={swipeable}
-            autoPlay
-            loop
-          >
-            {contentRender()}
-          </Carousel>
+          {
+            isTpl ? <div className={styles.carousel__item__pic}>
+                      <img src={tplImg} alt="" />
+                    </div>
+                  :
+                    <Carousel
+                      onChange={(index) => {
+                        // console.log(`onChange: ${index}`);
+                      }}
+                      direction={direction}
+                      swipeable={swipeable}
+                      autoPlay={autoPlay}
+                      loop
+                    >
+                      {contentRender()}
+                    </Carousel>
+          }
         </div>
 })
 

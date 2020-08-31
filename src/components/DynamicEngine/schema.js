@@ -22,6 +22,11 @@ export default {
         "type": "Switch",
       },
       {
+        "key": "autoPlay",
+        "name": "是否自动播放",
+        "type": "Switch",
+      },
+      {
         "key": "imgList",
         "name": "图片列表",
         "type": "DataList",
@@ -30,6 +35,7 @@ export default {
     "config": {
       "direction": "left",
       "swipeable": false,
+      "autoPlay": false,
       "imgList": [
         {
           "id": 1,
@@ -59,7 +65,8 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      "tplImg": "http://io.nainor.com/uploads/carousal_17442e1420f.png"
     }
   },
   "Text": {
