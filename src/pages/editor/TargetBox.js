@@ -1,5 +1,5 @@
 import React, { useMemo, memo } from 'react';
-import { useDrag, DragPreviewImage } from 'react-dnd';
+import { useDrag } from 'react-dnd';
 import { connect } from 'dva';
 import schema from 'components/DynamicEngine/schema';
 
@@ -30,12 +30,6 @@ const TargetBox = memo(props => {
   return (
     <div className={styles.module} style={{ ...containerStyle }} ref={drag}>
       {props.children}
-      {item.type === 'Carousel' && (
-        <DragPreviewImage
-          connect={preview}
-          src={'https://www.easyicon.net/api/resizeApi.php?id=1200841&size=32'}
-        ></DragPreviewImage>
-      )}
     </div>
   );
 });

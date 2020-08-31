@@ -76,7 +76,6 @@ const SourceBox = memo(props => {
 
   const opacity = isOver ? 0.7 : 1;
   const backgroundColor = isOver ? 1 : 0.7;
-
   return (
     <Draggable handle=".js_box">
       <div className={styles.canvasBox}>
@@ -101,12 +100,12 @@ const SourceBox = memo(props => {
               <div
                 className="js_box"
                 style={{
-                  width: '12px',
+                  width: '10px',
                   height: '100%',
                   position: 'absolute',
                   borderRadius: '0 6px 6px 0',
                   backgroundColor: '#2f54eb',
-                  right: '-12px',
+                  right: '-10px',
                   top: '0',
                   color: '#fff',
                   cursor: 'move',
@@ -127,7 +126,7 @@ const SourceBox = memo(props => {
               >
                 {pointData.map(value => (
                   <div className={styles.dragItem} key={value.id} data-grid={value.point}>
-                    <DynamicEngine {...value.item} />
+                    <DynamicEngine {...value.item} isTpl={false} />
                   </div>
                 ))}
               </GridLayout>
