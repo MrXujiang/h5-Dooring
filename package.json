@@ -21,6 +21,7 @@
   "dependencies": {
     "@ant-design/charts": "^0.9.9",
     "@ant-design/icons": "^4.2.1",
+    "@types/node": "^14.6.2",
     "@umijs/plugin-sass": "^1.1.1",
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.0.12",

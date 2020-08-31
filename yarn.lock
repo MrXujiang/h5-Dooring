@@ -2263,6 +2263,11 @@
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.0.23.tgz?cache=0&sync_timestamp=1597673176468&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.0.23.tgz#676fa0883450ed9da0bb24156213636290892806"
   integrity sha1-Z2+giDRQ7Z2guyQVYhNjYpCJKAY=
 
+"@types/node@^14.6.2":
+  version "14.6.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.2.tgz#264b44c5a28dfa80198fc2f7b6d3c8a054b9491f"
+  integrity sha512-onlIwbaeqvZyniGPfdw/TEhKIh79pz66L1q06WUQqJLnAb6wbjvOtepLYTGHTqzdXgBYIE3ZdmqHDGsRsbBz7A==
+
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
   resolved "https://registry.npm.taobao.org/@types/normalize-package-data/download/@types/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
