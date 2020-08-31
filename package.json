@@ -3,6 +3,7 @@
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
+    "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
@@ -19,11 +20,10 @@
     ]
   },
   "dependencies": {
-    "@ant-design/charts": "^0.9.9",
     "@ant-design/icons": "^4.2.1",
     "@umijs/plugin-sass": "^1.1.1",
     "@umijs/preset-react": "1.x",
-    "@umijs/test": "^3.0.12",
+    "@umijs/test": "^3.2.19",
     "antd": "^4.2.3",
     "antd-img-crop": "^3.10.0",
     "axios": "^0.19.2",
@@ -40,8 +40,10 @@
     "react-dom": "^16.12.0",
     "react-draggable": "^4.4.3",
     "react-grid-layout": "^1.0.0",
+    "react-text-loop": "^2.3.0",
     "sass-loader": "^9.0.3",
-    "umi": "^3.0.12",
+    "socket.io-client": "^2.3.0",
+    "umi": "^3.2.19",
     "video-react": "^0.14.1",
     "yorkie": "^2.0.0",
     "zarm": "^2.5.1"
