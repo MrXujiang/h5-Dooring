@@ -18,7 +18,7 @@ const SourceBox = memo(props => {
         pointRect = parentDiv.getBoundingClientRect(),
         top = pointRect.top,
         pointEnd = monitor.getSourceClientOffset(),
-        y = pointEnd.y - top,
+        y = pointEnd.y < top ? 0 : pointEnd.y - top,
         col = 24, // 网格列数
         cellHeight = 2;
       // 转换成网格规则的坐标和大小
