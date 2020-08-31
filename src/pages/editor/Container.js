@@ -99,11 +99,6 @@ const Container = memo(props => {
     });
     return arr;
   }, []);
-  // 存储用户唯一信息
-  if (!localStorage.getItem('uid') || !sessionStorage.getItem('sid')) {
-    localStorage.setItem('uid', uuid(8, 10));
-    sessionStorage.setItem('sid', uuid(5, 10));
-  }
 
   return (
     <div className={styles.editorWrap}>
