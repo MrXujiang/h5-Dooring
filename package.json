@@ -23,6 +23,13 @@
       "prettier --parser=typescript --write"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrXujiang/h5-Dooring.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MrXujiang/h5-Dooring/issues"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@umijs/plugin-sass": "^1.1.1",
