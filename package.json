@@ -1,4 +1,9 @@
 {
+  "name": "h5-Dooring",
+  "version": "1.2.0",
+  "description": "",
+  "private": false,
+  "license": "MIT",
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
