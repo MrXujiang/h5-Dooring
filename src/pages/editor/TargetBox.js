@@ -6,7 +6,7 @@ import schema from 'components/DynamicEngine/schema';
 import styles from './index.less';
 
 const TargetBox = memo(props => {
-  const { item, dispatch, canvasId, pointData } = props;
+  const { item, dispatch, pointData } = props;
   const [{ isDragging }, drag, preview] = useDrag({
     item: {
       type: item.type,
