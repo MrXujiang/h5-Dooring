@@ -20,7 +20,8 @@ const SourceBox = memo(props => {
         pointEnd = monitor.getSourceClientOffset(),
         y = pointEnd.y < top ? 0 : pointEnd.y - top,
         col = 24, // 网格列数
-        cellHeight = 2;
+        cellHeight = 2,
+        w = item.type === 'Icon' ? 3 : col;
       // 转换成网格规则的坐标和大小
       let gridY = Math.ceil(y / cellHeight);
       dispatch({
@@ -28,7 +29,7 @@ const SourceBox = memo(props => {
         payload: {
           id: uuid(6, 10),
           item,
-          point: { i: `x-${pointData.length}`, x: 0, y: gridY, w: col, h: item.h, isBounded: true },
+          point: { i: `x-${pointData.length}`, x: 0, y: gridY, w, h: item.h, isBounded: true },
         },
       });
     },
