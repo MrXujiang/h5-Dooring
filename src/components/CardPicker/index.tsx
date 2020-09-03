@@ -2,19 +2,20 @@ import { useState, useEffect, memo } from 'react';
 import classnames from 'classnames';
 import Icon from '../Icon';
 import styles from './index.less';
+import { IconTypes } from '../DynamicEngine/schema';
 
 interface CardPickerType {
-  type: string;
-  icons: Array<string>;
-  onChange: (v: string) => void;
+  type?: IconTypes;
+  icons: Array<IconTypes>;
+  onChange?: (v: string) => void;
 }
 
 export default memo((props: CardPickerType) => {
   const { type, icons, onChange } = props;
 
-  const [selected, setSelected] = useState(type);
+  const [selected, setSelected] = useState<IconTypes>(type);
 
-  const handlePicker = v => {
+  const handlePicker = (v: IconTypes) => {
     if (onChange) {
       onChange(v);
       return;

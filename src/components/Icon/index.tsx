@@ -3,13 +3,12 @@ import * as Icon from '@ant-design/icons';
 import IconImg from 'assets/icon.png';
 import { TwoToneColor } from '@ant-design/icons';
 import { AntdIconProps } from '@ant-design/icons/lib/components/AntdIcon';
+import { IconTypes, IconConfigType } from '../DynamicEngine/schema';
 
-interface IconType {
-  color?: TwoToneColor;
-  size?: number;
-  type?: string;
-  spin?: boolean;
-  isTpl?: string;
+interface IconType extends Omit<IconConfigType, 'spin' | 'color'> {
+  isTpl?: boolean;
+  spin?: IconConfigType['spin'];
+  color?: IconConfigType['color'];
 }
 
 export type AntdIconType =

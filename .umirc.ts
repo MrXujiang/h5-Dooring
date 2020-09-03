@@ -6,7 +6,7 @@ export default defineConfig({
     loading: '@/components/LoadingCp',
   },
   dva: {
-    immer: true
+    immer: true,
   },
   antd: {},
   sass: {
@@ -37,22 +37,19 @@ export default defineConfig({
         {
           path: '/preview',
           component: '../pages/editor/preview',
-        }
-      ]
-    } 
+        },
+      ],
+    },
   ],
   theme: {
-    "primary-color": "#2F54EB",
+    'primary-color': '#2F54EB',
     // "btn-primary-bg": "#2F54EB"
   },
-  extraBabelPlugins: [
-    ['import', { libraryName: "zarm", style: true }],
-  ],
+  extraBabelPlugins: [['import', { libraryName: 'zarm', style: true }]],
   // sass: {},
   alias: {
     components: path.resolve(__dirname, 'src/components/'),
     utils: path.resolve(__dirname, 'src/utils/'),
-    assets: path.resolve(__dirname, 'src/assets/')
-  }
+    assets: path.resolve(__dirname, 'src/assets/'),
+  },
 });
-
