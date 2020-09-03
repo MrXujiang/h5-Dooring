@@ -18,7 +18,6 @@ import template from 'components/DynamicEngine/template';
 import mediaTpl from 'components/DynamicEngine/mediaTpl';
 import graphTpl from 'components/DynamicEngine/graphTpl';
 import schema from 'components/DynamicEngine/schema';
-import { uuid } from 'utils/tool';
 
 import styles from './index.less';
 
