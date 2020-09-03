@@ -1,10 +1,15 @@
-import React, { memo } from 'react';
+import React, { memo, PropsWithChildren } from 'react';
 import { Carousel } from 'zarm';
 import styles from './index.less';
+import { CarouselConfigType } from '../DynamicEngine/schema';
 
-const XCarousel = memo(props => {
+interface CarouselTypes extends CarouselConfigType {
+  isTpl: boolean;
+}
+
+const XCarousel = memo((props: PropsWithChildren<CarouselTypes>) => {
   const { direction, swipeable, autoPlay, isTpl, imgList, tplImg } = props;
-
+  console.log(direction);
   const contentRender = () => {
     return imgList.map((item, i) => {
       return (
@@ -14,8 +19,6 @@ const XCarousel = memo(props => {
       );
     });
   };
-
-  console.log(isTpl);
 
   return (
     <div style={{ width: '100%', overflow: 'hidden' }}>

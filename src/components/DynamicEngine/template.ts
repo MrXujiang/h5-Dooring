@@ -1,4 +1,20 @@
-const template = [
+import { BasicTemplateItem } from './schema';
+
+export type TemplateKeyType =
+  | 'Text'
+  | 'Carousel'
+  | 'Tab'
+  | 'Notice'
+  | 'Qrcode'
+  | 'Icon'
+  | 'Image'
+  | 'Header'
+  | 'List'
+  | 'Footer';
+
+export type TemplateType = Array<BasicTemplateItem<TemplateKeyType>>;
+
+const template: TemplateType = [
   {
     type: 'Text',
     h: 20,
