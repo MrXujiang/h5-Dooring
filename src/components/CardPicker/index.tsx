@@ -4,9 +4,9 @@ import Icon from '../Icon';
 import styles from './index.less';
 
 interface CardPickerType {
-  type: any;
-  icons: Array<any>;
-  onChange: any;
+  type: string;
+  icons: Array<string>;
+  onChange: (v: string) => void;
 }
 
 export default memo((props: CardPickerType) => {

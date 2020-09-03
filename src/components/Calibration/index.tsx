@@ -6,8 +6,12 @@ export interface calibrationTypes {
   width: number;
   height: number;
 }
+export type CalibrationTypes = {
+  direction: 'up' | 'left';
+  multiple: number;
+};
 
-export default function Calibration(props) {
+export default function Calibration(props: CalibrationTypes) {
   const { direction, multiple } = props;
   const [calibrationLength, setCalibration] = useState<calibrationTypes>({ width: 0, height: 0 });
   const calibrationRef = useRef<HTMLDivElement>(null);
@@ -69,7 +73,7 @@ export default function Calibration(props) {
     let arr = [...calibrationRef.current.querySelectorAll('.calibrationLine')];
     if (arr.length) {
       if (direction === 'up') {
-        calibrationRef.current.style.width = multiple.toFixed(1) * width + 'px';
+        calibrationRef.current.style.width = parseFloat(multiple.toFixed(1)) * width + 'px';
         arr.forEach(el => {
           let dom = [...el.querySelectorAll('.calibrationNumber')][0] as HTMLElement;
           if (dom) {
@@ -79,7 +83,7 @@ export default function Calibration(props) {
           }
         });
       } else {
-        calibrationRef.current.style.height = multiple.toFixed(1) * height + 'px';
+        calibrationRef.current.style.height = parseFloat(multiple.toFixed(1)) * height + 'px';
         arr.forEach(el => {
           let dom = [...el.querySelectorAll('.calibrationNumber')][0] as HTMLElement;
           if (dom) {
