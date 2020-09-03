@@ -1,3 +1,6 @@
 {
-  "extends": "eslint-config-umi"
+  "extends": "react-app",
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
 }
