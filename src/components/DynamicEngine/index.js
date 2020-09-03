@@ -2,7 +2,7 @@ import { dynamic } from 'umi';
 import Loading from '../LoadingCp';
 import { useMemo, memo } from 'react';
 
-const needList = ['Tab', 'Carousel', 'Upload', 'Video'];
+const needList = ['Tab', 'Carousel', 'Upload', 'Video', 'Icon'];
 
 const DynamicFunc = type =>
   dynamic({
