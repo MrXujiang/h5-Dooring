@@ -2,7 +2,7 @@ import { dynamic } from 'umi';
 import Loading from '../LoadingCp';
 import { useMemo, memo } from 'react';
 
-const needList = ['Tab', 'Carousel', 'Upload', 'Video'];
+const needList = ['Tab', 'Carousel', 'Upload', 'Video', 'Icon'];
 
 const DynamicFunc = type =>
   dynamic({
@@ -32,6 +32,7 @@ const DynamicEngine = memo(props => {
   const { type, config, isTpl } = props;
   const Dynamic = useMemo(() => {
     return DynamicFunc(type);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type, config]);
   return <Dynamic type={type} config={config} isTpl={isTpl} />;
 });

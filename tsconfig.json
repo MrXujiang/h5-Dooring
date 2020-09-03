@@ -8,6 +8,7 @@
     "strict": true,
     "importHelpers": true,
     "sourceMap": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
     "paths": {
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"],
@@ -15,6 +16,10 @@
       "utils/*": ["src/utils/*"],
       "assets/*": ["src/assets/*"]
     },
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "skipLibCheck": true
   }
 }
