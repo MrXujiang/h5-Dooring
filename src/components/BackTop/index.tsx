@@ -8,7 +8,7 @@ const themeObj = {
   primary: { bgColor: '#00bc71', color: '#fff' },
   blue: { bgColor: '#06c', color: '#fff' },
 };
-const BackTop = memo((props: { theme: any }) => {
+const BackTop = memo((props: { theme: keyof typeof themeObj }) => {
   const { theme = 'simple' } = props;
 
   return (

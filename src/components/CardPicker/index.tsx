@@ -3,7 +3,13 @@ import classnames from 'classnames';
 import Icon from '../Icon';
 import styles from './index.less';
 
-export default memo(props => {
+interface CardPickerType {
+  type: any;
+  icons: Array<any>;
+  onChange: any;
+}
+
+export default memo((props: CardPickerType) => {
   const { type, icons, onChange } = props;
 
   const [selected, setSelected] = useState(type);
