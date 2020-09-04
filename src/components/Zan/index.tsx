@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { Button, Popover } from 'antd';
 import styles from './index.less';
 

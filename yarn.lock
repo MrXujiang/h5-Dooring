@@ -1830,6 +1830,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/classnames@^2.2.10":
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.10.tgz#cc658ca319b6355399efc1f5b9e818f1a24bf999"
+  integrity sha512-1UzDldn9GfYYEsWWnn/P4wkTlkZDH7lDb0wBMGbtIQc9zXEQq7FlKBdZUn6OBqD8sKZZ2RQO2mAjGpXiDGoRmQ==
+
 "@types/color-convert@*":
   version "1.9.0"
   resolved "https://registry.npm.taobao.org/@types/color-convert/download/@types/color-convert-1.9.0.tgz#bfa8203e41e7c65471e9841d7e306a7cd8b5172d"
@@ -2126,6 +2131,14 @@
   resolved "https://registry.npm.taobao.org/@types/range-parser/download/@types/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
   integrity sha1-fuMwunyq+5gJC+zoal7kQRWQTCw=
 
+"@types/react-color@^3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@types/react-color/-/react-color-3.0.4.tgz#c63daf012ad067ac0127bdd86725f079d02082bd"
+  integrity sha512-EswbYJDF1kkrx93/YU+BbBtb46CCtDMvTiGmcOa/c5PETnwTiSWoseJ1oSWeRl/4rUXkhME9bVURvvPg0W5YQw==
+  dependencies:
+    "@types/react" "*"
+    "@types/reactcss" "*"
+
 "@types/react-dom@^16.9.8":
   version "16.9.8"
   resolved "https://registry.npm.taobao.org/@types/react-dom/download/@types/react-dom-16.9.8.tgz#fe4c1e11dfc67155733dfa6aa65108b4971cb423"
@@ -2183,6 +2196,13 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
+
+"@types/reactcss@*":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@types/reactcss/-/reactcss-1.2.3.tgz#af28ae11bbb277978b99d04d1eedfd068ca71834"
+  integrity sha512-d2gQQ0IL6hXLnoRfVYZukQNWHuVsE75DzFTLPUuyyEhJS8G2VvlE+qfQQ91SJjaMqlURRCNIsX7Jcsw6cEuJlA==
+  dependencies:
+    "@types/react" "*"
 
 "@types/resolve@1.17.1":
   version "1.17.1"

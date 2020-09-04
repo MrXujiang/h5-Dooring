@@ -3,54 +3,69 @@ import { Upload, Modal, message } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import ImgCrop from 'antd-img-crop';
 import styles from './index.less';
+import { UploadFile, UploadChangeParam, RcFile } from 'antd/lib/upload/interface';
 
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development';
 
-function getBase64(file) {
-  return new Promise((resolve, reject) => {
+function getBase64(file: File | Blob) {
+  return new Promise<string>((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
+    reader.onload = () => resolve(reader.result as string);
     reader.onerror = error => reject(error);
   });
 }
+interface PicturesWallType {
+  fileList?: UploadFile<any>[];
+  action?: string;
+  headers?: any;
+  withCredentials?: boolean;
+  maxLen?: number;
+  onChange?: (v: any) => void;
+  cropRate?: boolean;
+  isCrop?: boolean;
+}
 
-class PicturesWall extends React.Component {
+class PicturesWall extends React.Component<PicturesWallType> {
   state = {
     previewVisible: false,
     previewImage: '',
     previewTitle: '',
-    fileList: this.props.fileList || []
+    fileList: this.props.fileList || [],
   };
 
   handleCancel = () => this.setState({ previewVisible: false });
 
-  handlePreview = async file => {
+  handlePreview = async (file: UploadFile<any>) => {
     if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.originFileObj);
+      file.preview = await getBase64(file.originFileObj!);
     }
 
     this.setState({
       previewImage: file.url || file.preview,
       previewVisible: true,
-      previewTitle: file.name || file.url.substring(file.url.lastIndexOf('/') + 1),
-    })
-  }
+      previewTitle: file.name || file.url!.substring(file.url!.lastIndexOf('/') + 1),
+    });
+  };
 
-  handleChange = ({ file, fileList }) => {
-    this.setState({ fileList })
-    if(file.status === 'done') {
+  handleChange = ({ file, fileList }: UploadChangeParam<UploadFile<any>>) => {
+    this.setState({ fileList });
+    if (file.status === 'done') {
       const files = fileList.map(item => {
-        const { uid, name, status } = item
-        const url = item.url || item.response.result.url
-        return { uid, name, status, url }
-      })
-      this.props.onChange && this.props.onChange(files)
+        const { uid, name, status } = item;
+        const url = item.url || item.response.result.url;
+        return { uid, name, status, url };
+      });
+      this.props.onChange && this.props.onChange(files);
     }
-  }
+  };
 
-  handleBeforeUpload = (file) => {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/jpg' || file.type === 'image/gif';
+  handleBeforeUpload = (file: RcFile) => {
+    const isJpgOrPng =
+      file.type === 'image/jpeg' ||
+      file.type === 'image/png' ||
+      file.type === 'image/jpg' ||
+      file.type === 'image/gif';
     if (!isJpgOrPng) {
       message.error('只能上传格式为jpeg/png/gif的图片');
     }
@@ -59,7 +74,7 @@ class PicturesWall extends React.Component {
       message.error('图片必须小于2MB!');
     }
     return isJpgOrPng && isLt2M;
-  }
+  };
 
   render() {
     const { previewVisible, previewImage, fileList, previewTitle } = this.state;
@@ -68,8 +83,8 @@ class PicturesWall extends React.Component {
       action = isDev ? 'http://192.168.1.6:3000/api/xxx' : 'http://xxxx',
       headers,
       withCredentials = true,
-      maxLen = 1
-  } = this.props
+      maxLen = 1,
+    } = this.props;
 
     const uploadButton = (
       <div>
@@ -79,7 +94,13 @@ class PicturesWall extends React.Component {
     );
 
     return (
-      <ImgCrop modalTitle="裁剪图片" modalOk="确定" modalCancel="取消" rotate={true} aspect={375/158}>
+      <ImgCrop
+        modalTitle="裁剪图片"
+        modalOk="确定"
+        modalCancel="取消"
+        rotate={true}
+        aspect={375 / 158}
+      >
         <Upload
           fileList={fileList}
           onPreview={this.handlePreview}
@@ -91,8 +112,8 @@ class PicturesWall extends React.Component {
           withCredentials={withCredentials}
           headers={{
             'x-requested-with': localStorage.getItem('user') || '',
-            'authorization': localStorage.getItem('token') || '',
-            ...headers
+            authorization: localStorage.getItem('token') || '',
+            ...headers,
           }}
           beforeUpload={this.handleBeforeUpload}
         >
@@ -111,4 +132,4 @@ class PicturesWall extends React.Component {
   }
 }
 
-export default PicturesWall
+export default PicturesWall;

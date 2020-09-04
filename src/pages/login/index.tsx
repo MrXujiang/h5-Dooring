@@ -1,8 +1,10 @@
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
 import http from '@/utils/req';
 import { history } from 'umi';
 import styles from './index.less';
-
+import React from 'react';
+import { ValidateErrorEntity, Store } from 'rc-field-form/lib/interface';
+import { RouteComponentProps } from 'react-router-dom';
 const layout = {
   labelCol: { span: 6 },
   wrapperCol: { span: 16 },
@@ -11,16 +13,18 @@ const tailLayout = {
   wrapperCol: { offset: 6, span: 16 },
 };
 
-const Login = (props) => {
-  const onFinish = values => {
-    http.post('/login', {...values}).then(res => {
-      localStorage.setItem('token', res.token)
-      localStorage.setItem('user', values.username)
-      history.push('/')
-    })
+const Login = (props: RouteComponentProps) => {
+  const onFinish = (values: Store) => {
+    http
+      .post<Store, { token: string }>('/login', { ...values })
+      .then(res => {
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('user', values.username);
+        history.push('/');
+      });
   };
 
-  const onFinishFailed = errorInfo => {
+  const onFinishFailed = (errorInfo: ValidateErrorEntity) => {
     console.log('Failed:', errorInfo);
   };
 
@@ -34,7 +38,10 @@ const Login = (props) => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
       >
-        <div className={styles.tit}>Doring开放平台<span style={{marginLeft: '20px',fontSize: '18px',color: '#06c'}}>登录</span></div>
+        <div className={styles.tit}>
+          Doring开放平台
+          <span style={{ marginLeft: '20px', fontSize: '18px', color: '#06c' }}>登录</span>
+        </div>
         <Form.Item
           label="用户名"
           name="username"
@@ -57,14 +64,13 @@ const Login = (props) => {
           </Button>
         </Form.Item>
         <Form.Item {...tailLayout}>
-          <Button block onClick={() => props.history.push(`/editor?tid=${props.location.query.tid}`)}>
+          <Button block onClick={() => props.history.push(`/editor?tid=${123456}`)}>
             直接使用
           </Button>
         </Form.Item>
-    </Form>
+      </Form>
     </div>
-    
   );
 };
 
-export default Login
+export default Login;
