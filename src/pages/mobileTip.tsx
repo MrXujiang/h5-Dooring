@@ -1,7 +1,7 @@
 import React from 'react';
 import { Result } from 'antd';
 
-function MobileTip(props) {
+function MobileTip() {
   return (
     <div>
       <Result

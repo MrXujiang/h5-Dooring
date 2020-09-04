@@ -9,7 +9,6 @@ interface CarouselTypes extends CarouselConfigType {
 
 const XCarousel = memo((props: PropsWithChildren<CarouselTypes>) => {
   const { direction, swipeable, autoPlay, isTpl, imgList, tplImg } = props;
-  console.log(direction);
   const contentRender = () => {
     return imgList.map((item, i) => {
       return (

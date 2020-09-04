@@ -78,6 +78,8 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/react-color": "^3.0.4",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
     "babel-eslint": "10.x",

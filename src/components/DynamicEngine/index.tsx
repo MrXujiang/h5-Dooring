@@ -1,22 +1,25 @@
 import { dynamic } from 'umi';
 import Loading from '../LoadingCp';
-import { useMemo, memo } from 'react';
-
+import { useMemo, memo, FC } from 'react';
+import React from 'react';
+import { UnionData, AllTemplateType } from './schema';
 const needList = ['Tab', 'Carousel', 'Upload', 'Video', 'Icon'];
 
-const DynamicFunc = type =>
+const DynamicFunc = (type: AllTemplateType) =>
   dynamic({
     loader: async function() {
-      let Component;
+      let Component: FC<{ isTpl: boolean }>;
       if (needList.includes(type)) {
         const { default: Graph } = await import(`@/components/${type}`);
         Component = Graph;
       } else {
-        const Components = await import(`@/components/DynamicEngine/components`);
+        const Components = ((await import(`@/components/DynamicEngine/components`)) as unknown) as {
+          [key: string]: FC;
+        };
         Component = Components[type];
       }
 
-      return props => {
+      return (props: DynamicType) => {
         const { config, isTpl } = props;
         return <Component {...config} isTpl={isTpl} />;
       };
@@ -28,10 +31,15 @@ const DynamicFunc = type =>
     ),
   });
 
-const DynamicEngine = memo(props => {
+type DynamicType = {
+  isTpl: boolean;
+  config: UnionData<'config'>;
+  type: AllTemplateType;
+};
+const DynamicEngine = memo((props: DynamicType) => {
   const { type, config, isTpl } = props;
   const Dynamic = useMemo(() => {
-    return DynamicFunc(type);
+    return (DynamicFunc(type) as unknown) as FC<DynamicType>;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type, config]);
   return <Dynamic type={type} config={config} isTpl={isTpl} />;

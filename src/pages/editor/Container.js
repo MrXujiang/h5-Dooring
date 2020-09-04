@@ -27,7 +27,6 @@ const Container = memo(props => {
   const [scaleNum, setScale] = useState(1);
 
   const { pointData, curPoint, dispatch } = props;
-
   // 指定画布的id
   let canvasId = 'js_canvas';
 

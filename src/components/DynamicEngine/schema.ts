@@ -472,6 +472,20 @@ export interface SchemaType extends SchemaImplement {
   XProgress: XProgressSchema;
 }
 
+export type UnionData<T extends keyof SchemaBasicImplement> =
+  | CarouselSchema[T]
+  | TextSchema[T]
+  | TabSchema[T]
+  | NoticeSchema[T]
+  | QRCodeSchema[T]
+  | FooterSchema[T]
+  | ImageSchema[T]
+  | HeaderSchema[T]
+  | ListSchema[T]
+  | IconSchema[T]
+  | VideoSchema[T]
+  | XProgressSchema[T];
+
 const schema: SchemaType = {
   Carousel: {
     editData: [

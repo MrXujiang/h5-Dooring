@@ -1,15 +1,17 @@
 import React, { memo, useState, useEffect } from 'react';
 import { Form, Select, InputNumber, Input, Switch, Radio, Button } from 'antd';
-import Upload from '@/components/Upload';
-import DataList from '@/components/DataList';
-import MutiText from '@/components/MutiText';
-import Color from '@/components/Color';
-import CardPicker from '@/components/CardPicker';
-
+import Upload from '../Upload';
+import DataList from '../DataList';
+import MutiText from '../MutiText';
+import Color from '../Color';
+import CardPicker from '../CardPicker';
+import { Store } from 'antd/lib/form/interface';
+import { UnionData, BasicRangeType, IconSchema } from '../DynamicEngine/schema';
 // import styles from './index.less';
-const normFile = e => {
+const normFile = (e: any) => {
   console.log('Upload event:', e);
   if (Array.isArray(e)) {
+    //待修改
     return e;
   }
   return e && e.fileList;
@@ -22,10 +24,18 @@ const formItemLayout = {
   wrapperCol: { span: 16 },
 };
 
-const FormEditor = props => {
-  const { config, defaultValue, onSave, onDel, uid } = props;
+interface FormEditorProps {
+  uid: string;
+  onSave: Function;
+  onDel: Function;
+  defaultValue: { [key: string]: any };
+  config: Array<any>;
+}
 
-  const onFinish = values => {
+const FormEditor = (props: FormEditorProps) => {
+  const { config, defaultValue, onSave, onDel, uid } = props;
+  console.log(config, defaultValue, uid);
+  const onFinish = (values: Store) => {
     onSave && onSave(values);
   };
 
@@ -80,7 +90,7 @@ const FormEditor = props => {
             {item.type === 'Select' && (
               <Form.Item label={item.name} name={item.key}>
                 <Select placeholder="请选择">
-                  {item.range.map((v, i) => {
+                  {item.range.map((v: BasicRangeType<string>, i: number) => {
                     return (
                       <Option value={v.key} key={i}>
                         {v.text}
@@ -93,7 +103,7 @@ const FormEditor = props => {
             {item.type === 'Radio' && (
               <Form.Item label={item.name} name={item.key}>
                 <Radio.Group>
-                  {item.range.map((v, i) => {
+                  {item.range.map((v: BasicRangeType<string>, i: number) => {
                     return (
                       <Radio value={v.key} key={i}>
                         {v.text}
@@ -120,7 +130,10 @@ const FormEditor = props => {
             )}
             {item.type === 'CardPicker' && (
               <Form.Item label={item.name} name={item.key} valuePropName="type">
-                <CardPicker icons={item.icons} />
+                <CardPicker
+                  icons={item.icons}
+                  type={defaultValue['type'] as IconSchema['config']['type']}
+                />
               </Form.Item>
             )}
           </React.Fragment>
@@ -130,7 +143,7 @@ const FormEditor = props => {
         <Button type="primary" htmlType="submit">
           保存
         </Button>
-        <Button type="danger" style={{ marginLeft: '20px' }} onClick={handleDel}>
+        <Button danger style={{ marginLeft: '20px' }} onClick={handleDel}>
           删除
         </Button>
       </Form.Item>

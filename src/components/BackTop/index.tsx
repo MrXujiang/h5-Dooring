@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { BackToTop, Icon } from 'zarm';
-
+import React from 'react';
 const themeObj = {
   simple: { bgColor: '#fff', color: '#999' },
   black: { bgColor: '#000', color: '#fff' },
