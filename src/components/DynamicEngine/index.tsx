@@ -2,7 +2,7 @@ import { dynamic } from 'umi';
 import Loading from '../LoadingCp';
 import { useMemo, memo, FC } from 'react';
 import React from 'react';
-import { UnionData, AllTemplateType } from './schema';
+import { AllTemplateType } from './schema';
 const needList = ['Tab', 'Carousel', 'Upload', 'Video', 'Icon'];
 
 const DynamicFunc = (type: AllTemplateType) =>
@@ -33,11 +33,12 @@ const DynamicFunc = (type: AllTemplateType) =>
 
 type DynamicType = {
   isTpl: boolean;
-  config: UnionData<'config'>;
+  config: { [key: string]: any };
   type: AllTemplateType;
 };
 const DynamicEngine = memo((props: DynamicType) => {
   const { type, config, isTpl } = props;
+  console.log(config);
   const Dynamic = useMemo(() => {
     return (DynamicFunc(type) as unknown) as FC<DynamicType>;
     // eslint-disable-next-line react-hooks/exhaustive-deps

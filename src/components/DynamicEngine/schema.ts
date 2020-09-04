@@ -75,12 +75,7 @@ export type CarouselImgTypeItem = BasicDataImgUrl;
 
 export type CarouselImgType = BasicDataSource;
 export interface CarouselSchema extends SchemaBasicImplement {
-  editData: [
-    CarouselEditItem<'direction'>,
-    CarouselEditItem<'swipeable'>,
-    CarouselEditItem<'autoPlay'>,
-    CarouselEditItem<'imgList'>,
-  ];
+  editData: Array<CarouselEditItem<CraouselKeyType>>;
   config: CarouselConfigType;
 }
 //__________________________________________
@@ -104,13 +99,7 @@ export interface TextEditItem<T extends TextKeyType> {
 }
 
 export interface TextSchema extends SchemaBasicImplement {
-  editData: [
-    TextEditItem<'text'>,
-    TextEditItem<'color'>,
-    TextEditItem<'fontSize'>,
-    TextEditItem<'align'>,
-    TextEditItem<'lineHeight'>,
-  ];
+  editData: Array<TextEditItem<TextKeyType>>;
   config: TextConfigType;
 }
 
@@ -140,14 +129,7 @@ export type TabEditItem<T extends TabKeyType> = {
 };
 
 export interface TabSchema extends SchemaBasicImplement {
-  editData: [
-    TabEditItem<'tabs'>,
-    TabEditItem<'activeColor'>,
-    TabEditItem<'color'>,
-    TabEditItem<'fontSize'>,
-    TabEditItem<'imgSize'>,
-    TabEditItem<'sourceData'>,
-  ];
+  editData: Array<TabEditItem<TabKeyType>>;
   config: TabConfigType;
 }
 //__________________________________________
@@ -173,12 +155,7 @@ export type NoticeEditItem<T extends NoticeKeyType> = {
   range?: Array<NoticeThemeRageItem>;
 };
 export interface NoticeSchema extends SchemaBasicImplement {
-  editData: [
-    NoticeEditItem<'text'>,
-    NoticeEditItem<'speed'>,
-    NoticeEditItem<'theme'>,
-    NoticeEditItem<'isClose'>,
-  ];
+  editData: Array<NoticeEditItem<NoticeKeyType>>;
   config: NoticeConfigType;
 }
 
@@ -202,12 +179,7 @@ export type QRCodeEditItem<T extends QRCodeKeyType> = {
 };
 
 export interface QRCodeSchema extends SchemaBasicImplement {
-  editData: [
-    QRCodeEditItem<'qrcode'>,
-    QRCodeEditItem<'text'>,
-    QRCodeEditItem<'color'>,
-    QRCodeEditItem<'fontSize'>,
-  ];
+  editData: Array<QRCodeEditItem<QRCodeKeyType>>;
   config: QRCodeConfigType;
 }
 
@@ -233,14 +205,7 @@ export type FooterEditItem<T extends FooterKeyType> = {
 };
 
 export interface FooterSchema extends SchemaBasicImplement {
-  editData: [
-    FooterEditItem<'bgColor'>,
-    FooterEditItem<'height'>,
-    FooterEditItem<'text'>,
-    FooterEditItem<'fontSize'>,
-    FooterEditItem<'color'>,
-    FooterEditItem<'align'>,
-  ];
+  editData: Array<FooterEditItem<FooterKeyType>>;
   config: FooterConfigType;
 }
 
@@ -262,7 +227,7 @@ export type ImageEditItem<T extends ImageKeyType> = {
 };
 
 export interface ImageSchema extends SchemaBasicImplement {
-  editData: [ImageEditItem<'imgUrl'>, ImageEditItem<'round'>];
+  editData: Array<ImageEditItem<ImageKeyType>>;
   config: ImageConfigType;
 }
 
@@ -289,14 +254,7 @@ export type HeaderEditItem<T extends HeaderKeyType> = {
 };
 
 export interface HeaderSchema extends SchemaBasicImplement {
-  editData: [
-    HeaderEditItem<'bgColor'>,
-    HeaderEditItem<'height'>,
-    HeaderEditItem<'logo'>,
-    HeaderEditItem<'logoText'>,
-    HeaderEditItem<'color'>,
-    HeaderEditItem<'fontSize'>,
-  ];
+  editData: Array<HeaderEditItem<HeaderKeyType>>;
   config: HeaderConfigType;
 }
 
@@ -320,13 +278,7 @@ export type ListEditItem<T extends ListKeyType> = {
 };
 
 export interface ListSchema extends SchemaBasicImplement {
-  editData: [
-    ListEditItem<'sourceData'>,
-    ListEditItem<'round'>,
-    ListEditItem<'imgSize'>,
-    ListEditItem<'fontSize'>,
-    ListEditItem<'color'>,
-  ];
+  editData: Array<ListEditItem<ListKeyType>>;
   config: ListConfigType;
 }
 //__________________________________________
@@ -392,12 +344,7 @@ export type IconEditItem<T extends IconKeyType> = {
 };
 
 export interface IconSchema extends SchemaBasicImplement {
-  editData: [
-    IconEditItem<'color'>,
-    IconEditItem<'size'>,
-    IconEditItem<'spin'>,
-    IconEditItem<'type'>,
-  ];
+  editData: Array<IconEditItem<IconKeyType>>;
   config: IconConfigType;
 }
 
@@ -418,7 +365,7 @@ export type VideoEditItem<T extends VideoKeyType> = {
 };
 
 export interface VideoSchema extends SchemaBasicImplement {
-  editData: [VideoEditItem<'poster'>, VideoEditItem<'url'>];
+  editData: Array<VideoEditItem<VideoKeyType>>;
   config: VideoConfigType;
 }
 
@@ -444,13 +391,7 @@ export type XProgressEditItem<T extends XProgressKeyType> = {
 };
 
 export interface XProgressSchema extends SchemaBasicImplement {
-  editData: [
-    XProgressEditItem<'theme'>,
-    XProgressEditItem<'shape'>,
-    XProgressEditItem<'size'>,
-    XProgressEditItem<'percent'>,
-    XProgressEditItem<'strokeWidth'>,
-  ];
+  editData: Array<XProgressEditItem<XProgressKeyType>>;
   config: XProgressConfigType;
 }
 
@@ -471,20 +412,6 @@ export interface SchemaType extends SchemaImplement {
   Video: VideoSchema;
   XProgress: XProgressSchema;
 }
-
-export type UnionData<T extends keyof SchemaBasicImplement> =
-  | CarouselSchema[T]
-  | TextSchema[T]
-  | TabSchema[T]
-  | NoticeSchema[T]
-  | QRCodeSchema[T]
-  | FooterSchema[T]
-  | ImageSchema[T]
-  | HeaderSchema[T]
-  | ListSchema[T]
-  | IconSchema[T]
-  | VideoSchema[T]
-  | XProgressSchema[T];
 
 const schema: SchemaType = {
   Carousel: {

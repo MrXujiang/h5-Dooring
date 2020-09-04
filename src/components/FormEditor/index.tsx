@@ -6,7 +6,7 @@ import MutiText from '../MutiText';
 import Color from '../Color';
 import CardPicker from '../CardPicker';
 import { Store } from 'antd/lib/form/interface';
-import { UnionData, BasicRangeType, IconSchema } from '../DynamicEngine/schema';
+import { BasicRangeType, IconSchema } from '../DynamicEngine/schema';
 // import styles from './index.less';
 const normFile = (e: any) => {
   console.log('Upload event:', e);
@@ -34,7 +34,6 @@ interface FormEditorProps {
 
 const FormEditor = (props: FormEditorProps) => {
   const { config, defaultValue, onSave, onDel, uid } = props;
-  console.log(config, defaultValue, uid);
   const onFinish = (values: Store) => {
     onSave && onSave(values);
   };
