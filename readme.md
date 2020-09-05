@@ -253,13 +253,22 @@ FileSaver.saveAs(blob, "hello world.txt");
 * 添加typescript支持和单元测试
 
 ## Install(安装)
+1. 下载代码
+```sh
+git clone https://github.com/MrXujiang/h5-Dooring.git
+```
+2. 进入项目目录
+```sh
+cd ./h5-Dooring
+```
 
+3. 安装依赖包
 ```sh
 yarn install
 ```
 
 ## Usage
-
+启动应用
 ```sh
 yarn run start
 ```
