@@ -69,6 +69,7 @@
     "react-draggable": "^4.4.3",
     "react-grid-layout": "^1.0.0",
     "react-text-loop": "^2.3.0",
+    "redux-undo": "^1.0.1",
     "sass-loader": "^9.0.3",
     "socket.io-client": "^2.3.0",
     "umi": "^3.2.19",
@@ -80,6 +81,7 @@
   "devDependencies": {
     "@types/classnames": "^2.2.10",
     "@types/react-color": "^3.0.4",
+    "@types/redux-logger": "^3.0.8",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
     "babel-eslint": "10.x",
@@ -89,6 +91,7 @@
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
-    "eslint-plugin-react-hooks": "2.x"
+    "eslint-plugin-react-hooks": "2.x",
+    "redux-logger": "^3.0.6"
   }
 }

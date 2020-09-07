@@ -18,15 +18,19 @@ import template from 'components/DynamicEngine/template';
 import mediaTpl from 'components/DynamicEngine/mediaTpl';
 import graphTpl from 'components/DynamicEngine/graphTpl';
 import schema from 'components/DynamicEngine/schema';
+import { ActionCreators } from 'redux-undo';
 
 import styles from './index.less';
 
 const { TabPane } = Tabs;
 
-const Container = memo(props => {
+const Container = props => {
   const [scaleNum, setScale] = useState(1);
 
-  const { pointData, curPoint, dispatch } = props;
+  const { pstate, dispatch } = props;
+
+  const pointData = pstate ? pstate.pointData : {};
+  const curPoint = pstate ? pstate.curPoint : {};
   // 指定画布的id
   let canvasId = 'js_canvas';
 
@@ -67,9 +71,9 @@ const Container = memo(props => {
     });
   };
 
-  const clearData = useCallback(() => {
+  const clearData = () => {
     dispatch({ type: 'editorModal/clearAll' });
-  }, []);
+  };
 
   const handleDel = id => {
     dispatch({
@@ -77,7 +81,12 @@ const Container = memo(props => {
       payload: { id },
     });
   };
-
+  const redohandler = () => {
+    dispatch(ActionCreators.redo());
+  };
+  const undohandler = () => {
+    dispatch(ActionCreators.undo());
+  };
   useEffect(() => {
     if (window.innerWidth < 1024) {
       props.history.push('/mobileTip');
@@ -100,7 +109,13 @@ const Container = memo(props => {
 
   return (
     <div className={styles.editorWrap}>
-      <HeaderComponent pointData={pointData} clearData={clearData} location={props.location} />
+      <HeaderComponent
+        redohandler={redohandler}
+        undohandler={undohandler}
+        pointData={pointData}
+        clearData={clearData}
+        location={props.location}
+      />
       <div className={styles.container}>
         <div className={styles.list}>
           <div className={styles.searchBar}>
@@ -196,9 +211,8 @@ const Container = memo(props => {
       </div>
     </div>
   );
-});
+};
 
-export default connect(({ editorModal: { pointData, curPoint } }) => ({
-  pointData,
-  curPoint,
-}))(Container);
+export default connect(state => {
+  return { pstate: state.present.editorModal };
+})(Container);
