@@ -103,8 +103,5 @@ dist
 # TernJS port file
 .tern-port
 
-<<<<<<< HEAD
-/**/*.umi
-=======
 .umi/
->>>>>>> upstream/master
+.umi-production/

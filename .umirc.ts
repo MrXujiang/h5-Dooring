@@ -9,9 +9,6 @@ export default defineConfig({
     immer: true,
   },
   antd: {},
-  sass: {
-    implementation: require('node-sass'),
-  },
   title: '趣谈前端-h5-visible-tool',
   exportStatic: {},
   base: 'h5_plus',
