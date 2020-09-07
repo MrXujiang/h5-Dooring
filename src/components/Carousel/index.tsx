@@ -13,7 +13,7 @@ const XCarousel = memo((props: PropsWithChildren<CarouselTypes>) => {
     return imgList.map((item, i) => {
       return (
         <div className={styles.carousel__item__pic} key={+i}>
-          <img src={item.imgUrl[0].url} alt="" />
+          <img src={item.imgUrl.length > 0 ? item.imgUrl[0].url : ''} alt="" />
         </div>
       );
     });

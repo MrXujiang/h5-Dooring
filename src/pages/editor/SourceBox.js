@@ -8,7 +8,9 @@ import DynamicEngine from 'components/DynamicEngine';
 import styles from './index.less';
 import { uuid } from '@/utils/tool';
 const SourceBox = memo(props => {
-  const { pointData, scaleNum, canvasId, allType, dispatch } = props;
+  const { pstate, scaleNum, canvasId, allType, dispatch } = props;
+
+  const pointData = pstate ? pstate.pointData : {};
   const [canvasRect, setCanvasRect] = useState([]);
   const [isShowTip, setIsShowTip] = useState(true);
   const [{ isOver }, drop] = useDrop({
@@ -142,6 +144,4 @@ const SourceBox = memo(props => {
   );
 });
 
-export default connect(({ editorModal: { pointData } }) => ({
-  pointData,
-}))(SourceBox);
+export default connect(state => ({ pstate: state.present.editorModal }))(SourceBox);

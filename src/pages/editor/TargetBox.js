@@ -1,13 +1,12 @@
 import React, { useMemo, memo } from 'react';
 import { useDrag } from 'react-dnd';
-import { connect } from 'dva';
 import schema from 'components/DynamicEngine/schema';
 
 import styles from './index.less';
 
 const TargetBox = memo(props => {
-  const { item, dispatch, pointData } = props;
-  const [{ isDragging }, drag, preview] = useDrag({
+  const { item } = props;
+  const [{ isDragging }, drag] = useDrag({
     item: {
       type: item.type,
       config: schema[item.type].config,
@@ -34,6 +33,4 @@ const TargetBox = memo(props => {
   );
 });
 
-export default connect(({ editorModal: { pointData } }) => ({
-  pointData,
-}))(TargetBox);
+export default TargetBox;

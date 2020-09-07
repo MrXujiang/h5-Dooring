@@ -6,13 +6,14 @@ import {
   DownloadOutlined,
   CopyOutlined,
   DeleteOutlined,
+  UndoOutlined,
+  RedoOutlined,
 } from '@ant-design/icons';
 import QRCode from 'qrcode.react';
 import { saveAs } from 'file-saver';
 import Zan from 'components/Zan';
 import req from '@/utils/req';
 import Code from '@/assets/code.png';
-
 import styles from './index.less';
 
 const { confirm } = Modal;
@@ -20,7 +21,7 @@ const { confirm } = Modal;
 const isDev = process.env.NODE_ENV === 'development';
 
 const HeaderComponent = memo(props => {
-  const { pointData, location, clearData } = props;
+  const { pointData, location, clearData, undohandler, redohandler } = props;
   const iptRef = useRef(null);
 
   const toPreview = () => {
@@ -100,7 +101,6 @@ const HeaderComponent = memo(props => {
     const { tid } = props.location.query || '';
     req.post('/visible/preview', { tid, tpl: pointData });
   };
-
   const handleSaveCode = () => {};
 
   return (
@@ -158,6 +158,12 @@ const HeaderComponent = memo(props => {
           disabled={!pointData.length}
         >
           <DeleteOutlined />
+        </Button>
+        <Button type="link" style={{ marginRight: '9px' }} title="撤销" onClick={undohandler}>
+          <UndoOutlined />
+        </Button>
+        <Button type="link" style={{ marginRight: '9px' }} title="重做" onClick={redohandler}>
+          <RedoOutlined />
         </Button>
         <Button type="link" onClick={toPreview} disabled={!pointData.length}>
           预览
