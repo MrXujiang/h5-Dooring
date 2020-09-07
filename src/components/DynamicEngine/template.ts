@@ -2,6 +2,7 @@ import { BasicTemplateItem } from './schema';
 
 export type TemplateKeyType =
   | 'Text'
+  | 'LongText'
   | 'Carousel'
   | 'Tab'
   | 'Notice'
@@ -18,6 +19,10 @@ const template: TemplateType = [
   {
     type: 'Text',
     h: 20,
+  },
+  {
+    type: 'LongText',
+    h: 36,
   },
   {
     type: 'Carousel',

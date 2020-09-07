@@ -9,6 +9,8 @@ export type BasicSchemaType =
   | 'Switch'
   | 'DataList'
   | 'Text'
+  | 'LongText'
+  | 'TextArea'
   | 'Color'
   | 'Number'
   | 'Select'
@@ -101,6 +103,30 @@ export interface TextEditItem<T extends TextKeyType> {
 export interface TextSchema extends SchemaBasicImplement {
   editData: Array<TextEditItem<TextKeyType>>;
   config: TextConfigType;
+}
+//__________________________________________
+//________________LongText________________________
+export type LongTextConfigType = {
+  text: string;
+  fontSize: number;
+  color: string;
+  indent: number;
+  lineHeight: number;
+};
+
+export type LongTextKeyType = keyof LongTextConfigType;
+
+export interface LongTextEditItem<T extends LongTextKeyType> {
+  key: T;
+  name: string;
+  type: BasicSchemaType;
+  range?: Array<number>;
+  step?: number;
+}
+
+export interface LongTextSchema extends SchemaBasicImplement {
+  editData: Array<LongTextEditItem<LongTextKeyType>>;
+  config: LongTextConfigType;
 }
 
 //__________________________________________
@@ -401,6 +427,7 @@ export interface XProgressSchema extends SchemaBasicImplement {
 export interface SchemaType extends SchemaImplement {
   Carousel: CarouselSchema;
   Text: TextSchema;
+  LongText: LongTextSchema;
   Tab: TabSchema;
   Notice: NoticeSchema;
   Qrcode: QRCodeSchema;
@@ -532,6 +559,44 @@ const schema: SchemaType = {
       fontSize: 18,
       align: 'center',
       lineHeight: 2,
+    },
+  },
+  LongText: {
+    editData: [
+      {
+        key: 'text',
+        name: '文字',
+        type: 'TextArea',
+      },
+      {
+        key: 'color',
+        name: '标题颜色',
+        type: 'Color',
+      },
+      {
+        key: 'fontSize',
+        name: '字体大小',
+        type: 'Number',
+      },
+      {
+        key: 'indent',
+        name: '首行缩进',
+        type: 'Number',
+        range: [0, 100],
+      },
+      {
+        key: 'lineHeight',
+        name: '行高',
+        type: 'Number',
+        step: 0.1,
+      },
+    ],
+    config: {
+      text: '我是长文本有一段故事，dooring可视化编辑器无限可能，赶快来体验吧，骚年们，奥利给~',
+      color: 'rgba(60,60,60,1)',
+      fontSize: 14,
+      indent: 20,
+      lineHeight: 1.8,
     },
   },
   Tab: {

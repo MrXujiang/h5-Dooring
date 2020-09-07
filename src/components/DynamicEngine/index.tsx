@@ -38,7 +38,6 @@ type DynamicType = {
 };
 const DynamicEngine = memo((props: DynamicType) => {
   const { type, config, isTpl } = props;
-  console.log(config);
   const Dynamic = useMemo(() => {
     return (DynamicFunc(type) as unknown) as FC<DynamicType>;
     // eslint-disable-next-line react-hooks/exhaustive-deps

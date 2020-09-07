@@ -5,6 +5,7 @@ import React from 'react';
 import {
   HeaderConfigType,
   TextConfigType,
+  LongTextConfigType,
   NoticeConfigType,
   QRCodeConfigType,
   FooterConfigType,
@@ -51,6 +52,18 @@ const Qrcode = memo((props: QRCodeConfigType) => {
     <div style={{ width: '240px', margin: '16px auto' }}>
       <img src={qrcode && qrcode[0].url} alt={text} style={{ width: '100%' }} />
       <div style={{ textAlign: 'center', color, fontSize, paddingTop: '8px' }}>{text}</div>
+    </div>
+  );
+});
+
+const LongText = memo((props: LongTextConfigType) => {
+  const { text, fontSize, color, indent, lineHeight } = props;
+  return (
+    <div
+      className={styles.textWrap}
+      style={{ color, textIndent: indent + 'px', fontSize, lineHeight }}
+    >
+      {text}
     </div>
   );
 });
@@ -144,4 +157,4 @@ const XProgress = memo((props: XProgressConfigType) => {
   );
 });
 
-export { Header, Text, Notice, Qrcode, Footer, Image, List, XProgress };
+export { Header, Text, LongText, Notice, Qrcode, Footer, Image, List, XProgress };
