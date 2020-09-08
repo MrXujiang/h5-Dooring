@@ -1,6 +1,6 @@
 import { useState, useEffect, memo } from 'react';
 import classnames from 'classnames';
-import Icon from '../Icon';
+import Icon from '../Icon/icon';
 import styles from './index.less';
 import { IconTypes } from '../DynamicEngine/schema';
 import React from 'react';

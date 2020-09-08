@@ -8,6 +8,7 @@ export default defineConfig({
   dva: {
     immer: true,
   },
+  devtool: 'source-map',
   antd: {},
   title: '趣谈前端-h5-visible-tool',
   exportStatic: {},

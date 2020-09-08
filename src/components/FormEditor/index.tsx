@@ -18,6 +18,7 @@ const normFile = (e: any) => {
 };
 
 const { Option } = Select;
+const { TextArea } = Input;
 
 const formItemLayout = {
   labelCol: { span: 6 },
@@ -69,6 +70,11 @@ const FormEditor = (props: FormEditorProps) => {
             {item.type === 'Text' && (
               <Form.Item label={item.name} name={item.key}>
                 <Input />
+              </Form.Item>
+            )}
+            {item.type === 'TextArea' && (
+              <Form.Item label={item.name} name={item.key}>
+                <TextArea rows={4} />
               </Form.Item>
             )}
             {item.type === 'DataList' && (
