@@ -18,25 +18,23 @@ export default defineConfig({
   routes: [
     {
       path: '/',
-      // component: '@/layouts',
-      routes: [
-        {
-          path: '/editor',
-          component: '../pages/editor',
-        },
-        {
-          path: '/login',
-          component: '../pages/login',
-        },
-        {
-          path: '/mobileTip',
-          component: '../pages/mobileTip',
-        },
-        {
-          path: '/preview',
-          component: '../pages/editor/preview',
-        },
-      ],
+      component: '../pages/home',
+    },
+    {
+      path: '/editor',
+      component: '../pages/editor',
+    },
+    {
+      path: '/login',
+      component: '../pages/login',
+    },
+    {
+      path: '/mobileTip',
+      component: '../pages/mobileTip',
+    },
+    {
+      path: '/preview',
+      component: '../pages/editor/preview',
     },
   ],
   theme: {

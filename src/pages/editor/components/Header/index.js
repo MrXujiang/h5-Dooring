@@ -8,7 +8,9 @@ import {
   DeleteOutlined,
   UndoOutlined,
   RedoOutlined,
+  FileAddOutlined,
 } from '@ant-design/icons';
+import { history } from 'umi';
 import QRCode from 'qrcode.react';
 import { saveAs } from 'file-saver';
 import Zan from 'components/Zan';
@@ -97,6 +99,20 @@ const HeaderComponent = memo(props => {
     window.location.href = `/h5_plus/login?tid=${tid}`;
   };
 
+  const toBack = () => {
+    history.push('/');
+  };
+
+  const newPage = () => {
+    let prev = localStorage.getItem('myH5');
+    try {
+      localStorage.setItem('myH5', JSON.stringify(prev ? [...prev, pointData] : [pointData]));
+    } catch (err) {
+      throw error(err);
+    }
+    clearData();
+  };
+
   const savePreview = () => {
     const { tid } = props.location.query || '';
     req.post('/visible/preview', { tid, tpl: pointData });
@@ -106,7 +122,7 @@ const HeaderComponent = memo(props => {
   return (
     <div className={styles.header}>
       <div className={styles.logoArea}>
-        <div className={styles.backBtn} onClick={toLogin}>
+        <div className={styles.backBtn} onClick={toBack}>
           <ArrowLeftOutlined />
         </div>
         <div className={styles.logo}>Dooring</div>
@@ -140,6 +156,15 @@ const HeaderComponent = memo(props => {
         >
           <CopyOutlined />
         </Button>
+        <Button
+          type="link"
+          style={{ marginRight: '9px' }}
+          title="新建页面"
+          onClick={newPage}
+          disabled={!pointData.length}
+        >
+          <FileAddOutlined />
+        </Button>
         <Popover placement="bottom" title={null} content={content} trigger="click">
           <Button
             type="link"
@@ -159,10 +184,22 @@ const HeaderComponent = memo(props => {
         >
           <DeleteOutlined />
         </Button>
-        <Button type="link" style={{ marginRight: '9px' }} title="撤销" onClick={undohandler}>
+        <Button
+          type="link"
+          style={{ marginRight: '9px' }}
+          title="撤销"
+          onClick={undohandler}
+          disabled={!pointData.length}
+        >
           <UndoOutlined />
         </Button>
-        <Button type="link" style={{ marginRight: '9px' }} title="重做" onClick={redohandler}>
+        <Button
+          type="link"
+          style={{ marginRight: '9px' }}
+          title="重做"
+          onClick={redohandler}
+          disabled={!pointData.length}
+        >
           <RedoOutlined />
         </Button>
         <Button type="link" onClick={toPreview} disabled={!pointData.length}>
