@@ -112,15 +112,21 @@ export type LongTextConfigType = {
   color: string;
   indent: number;
   lineHeight: number;
+  textAlign: TextAlignRangeType;
 };
 
 export type LongTextKeyType = keyof LongTextConfigType;
+
+export type LongTextRageItem = {
+  key: string;
+  text: string;
+};
 
 export interface LongTextEditItem<T extends LongTextKeyType> {
   key: T;
   name: string;
   type: BasicSchemaType;
-  range?: Array<number>;
+  range?: Array<LongTextRageItem | number>;
   step?: number;
 }
 
@@ -585,6 +591,25 @@ const schema: SchemaType = {
         range: [0, 100],
       },
       {
+        key: 'textAlign',
+        name: '对齐方式',
+        type: 'Select',
+        range: [
+          {
+            key: 'left',
+            text: '左对齐',
+          },
+          {
+            key: 'center',
+            text: '居中对齐',
+          },
+          {
+            key: 'right',
+            text: '右对齐',
+          },
+        ],
+      },
+      {
         key: 'lineHeight',
         name: '行高',
         type: 'Number',
@@ -597,6 +622,7 @@ const schema: SchemaType = {
       fontSize: 14,
       indent: 20,
       lineHeight: 1.8,
+      textAlign: 'left',
     },
   },
   Tab: {

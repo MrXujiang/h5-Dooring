@@ -10,7 +10,7 @@ export default defineConfig({
   },
   devtool: 'source-map',
   antd: {},
-  title: '趣谈前端-h5-visible-tool',
+  title: '趣谈前端-h5-dooring',
   exportStatic: {},
   base: 'h5_plus',
   publicPath: '/h5_plus/',

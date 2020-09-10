@@ -57,11 +57,11 @@ const Qrcode = memo((props: QRCodeConfigType) => {
 });
 
 const LongText = memo((props: LongTextConfigType) => {
-  const { text, fontSize, color, indent, lineHeight } = props;
+  const { text, fontSize, color, indent, lineHeight, textAlign } = props;
   return (
     <div
       className={styles.textWrap}
-      style={{ color, textIndent: indent + 'px', fontSize, lineHeight }}
+      style={{ color, textIndent: indent + 'px', fontSize, lineHeight, textAlign }}
     >
       {text}
     </div>
