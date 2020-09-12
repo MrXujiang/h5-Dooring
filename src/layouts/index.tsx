@@ -1,9 +1,15 @@
 import React, { useCallback, useState } from 'react';
 import { library, generateRespones, RenderList, useRegister } from 'chatbot-antd';
 import { IRouteComponentProps } from 'umi';
-import { Button } from 'antd';
+import { Button, Avatar, Input, Modal, Popconfirm } from 'antd';
 import { CustomerServiceOutlined } from '@ant-design/icons';
-import 'antd/dist/antd.css';
+// 如果直接引入antd的css，会导致umi设置的对应组件的主题色失效
+// import 'antd/lib/button/style/index.css';
+// import 'antd/lib/avatar/style/index.css';
+// import 'antd/lib/input/style/index.css';
+// import 'antd/lib/modal/style/index.css';
+// import 'antd/lib/popconfirm/style/index.css';
+
 library.push(
   //语料库，push进去，也可以不用
   {
@@ -11,7 +17,12 @@ library.push(
     reg: '你是谁',
   },
   {
-    text: 'author is yehuozhili',
+    text: (
+      <div>
+        <a href="https://github.com/MrXujiang">@徐小夕</a>
+        <a href="https://github.com/yehuozhili/learnsinglespa">@yehuozhili</a>
+      </div>
+    ),
     useReg: /(.*?)作者是谁(.*?)/,
   },
 );
@@ -39,7 +50,7 @@ export default function Layout({ children }: IRouteComponentProps) {
       title: 'h5-Dooring机器人客服',
     },
     {},
-    <div>welcome!欢迎使用h5-Dooring</div>,
+    <div>welcome!欢迎使用h5-Dooring，你有任何问题，都可以咨询我哦～</div>,
   );
   return (
     <div>
@@ -47,7 +58,7 @@ export default function Layout({ children }: IRouteComponentProps) {
         style={{
           position: 'fixed',
           right: `${modalOpen ? '-100%' : '10px'}`,
-          top: '40%',
+          bottom: '80px',
           transition: 'all 0.5s ease-in-out',
           zIndex: 2,
         }}
