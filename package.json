@@ -56,6 +56,7 @@
     "antd-img-crop": "^3.10.0",
     "axios": "^0.19.2",
     "babel-plugin-import": "^1.13.0",
+    "chatbot-antd": "^0.2.0",
     "file-saver": "^2.0.2",
     "lint-staged": "^10.0.7",
     "node-sass": "^4.14.1",

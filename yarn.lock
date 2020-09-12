@@ -4225,6 +4225,11 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
+chatbot-antd@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/chatbot-antd/-/chatbot-antd-0.2.0.tgz#5bb35d80779d0f44f78fdcfef6e3bcfc3e2d4a2f"
+  integrity sha512-wKIFYYxCybMqQDnZj/Z7aYu1JTQuQVYMC3JCnw1ByP7TgNczClR/qQ2VDRO99Gg2QL6WecwoRVQp1ve8OyuinA==
+
 check-types@^8.0.3:
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/check-types/-/check-types-8.0.3.tgz#3356cca19c889544f2d7a95ed49ce508a0ecf552"

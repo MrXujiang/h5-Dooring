@@ -15,26 +15,34 @@ export default defineConfig({
   base: 'h5_plus',
   publicPath: '/h5_plus/',
   outputPath: '../server/static/h5_plus',
+
   routes: [
     {
+      exact: false,
       path: '/',
-      component: '../pages/home',
-    },
-    {
-      path: '/editor',
-      component: '../pages/editor',
-    },
-    {
-      path: '/login',
-      component: '../pages/login',
-    },
-    {
-      path: '/mobileTip',
-      component: '../pages/mobileTip',
-    },
-    {
-      path: '/preview',
-      component: '../pages/editor/preview',
+      component: '@/layouts/index',
+      routes: [
+        {
+          path: '/',
+          component: '../pages/home',
+        },
+        {
+          path: '/editor',
+          component: '../pages/editor',
+        },
+        {
+          path: '/login',
+          component: '../pages/login',
+        },
+        {
+          path: '/mobileTip',
+          component: '../pages/mobileTip',
+        },
+        {
+          path: '/preview',
+          component: '../pages/editor/preview',
+        },
+      ],
     },
   ],
   theme: {
