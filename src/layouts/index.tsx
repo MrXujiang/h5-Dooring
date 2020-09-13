@@ -1,14 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { library, generateRespones, RenderList, useRegister } from 'chatbot-antd';
 import { IRouteComponentProps } from 'umi';
-import { Button, Avatar, Input, Modal, Popconfirm } from 'antd';
+import { Button } from 'antd';
 import { CustomerServiceOutlined } from '@ant-design/icons';
-// 如果直接引入antd的css，会导致umi设置的对应组件的主题色失效
-// import 'antd/lib/button/style/index.css';
-// import 'antd/lib/avatar/style/index.css';
-// import 'antd/lib/input/style/index.css';
-// import 'antd/lib/modal/style/index.css';
-// import 'antd/lib/popconfirm/style/index.css';
 
 library.push(
   //语料库，push进去，也可以不用
