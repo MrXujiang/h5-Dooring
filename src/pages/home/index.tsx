@@ -1,7 +1,12 @@
 import React from 'react';
 import { Tabs, message } from 'antd';
 import { history } from 'umi';
-import { MobileOutlined, ConsoleSqlOutlined, GithubOutlined } from '@ant-design/icons';
+import {
+  MobileOutlined,
+  ConsoleSqlOutlined,
+  GithubOutlined,
+  CodeOutlined,
+} from '@ant-design/icons';
 import styles from './index.less';
 
 const { TabPane } = Tabs;
@@ -10,8 +15,10 @@ const Home = () => {
   const handleGo = (type: string) => {
     if (type === 'H5') {
       history.push('/editor?tid=123456');
-    } else {
+    } else if (type === 'PC') {
       message.error('该功能暂未开放, 敬请关注...');
+    } else {
+      history.push('/ide');
     }
   };
   return (
@@ -60,6 +67,10 @@ const Home = () => {
           <div className={styles.card} onClick={() => handleGo('H5')}>
             <MobileOutlined />
             <div>制作H5页面</div>
+          </div>
+          <div className={styles.card} onClick={() => handleGo('online')}>
+            <CodeOutlined />
+            <div>在线编程</div>
           </div>
           <div className={styles.card} onClick={() => handleGo('PC')}>
             <ConsoleSqlOutlined />

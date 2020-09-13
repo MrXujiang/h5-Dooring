@@ -275,6 +275,11 @@ yarn install
 yarn run start
 ```
 
+## 更新日志
+1. 添加在线编程模块（在执行代码前先启动node服务 npm run server）
+2. 添加客服机器人模块[chatbot-antd](https://www.npmjs.com/package/chatbot-antd)
+
+
 ## 持续升级
 正在升级1.3版本，敬请期待...
 
