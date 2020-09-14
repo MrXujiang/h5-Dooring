@@ -15,7 +15,7 @@
 
 ### ✨ [Demo](http://io.nainor.com/h5_plus/editor?tid=123456)
 
-<img src="http://io.nainor.com/uploads/bg_1745d84dbc4.png" alt="H5可视化编辑器" />
+<img src="http://io.nainor.com/uploads/demo_1748b27f0e4.png" alt="H5可视化编辑器" />
 
 ## Author
 
@@ -282,6 +282,9 @@ yarn run start
 
 ## 持续升级
 正在升级1.3版本，敬请期待...
+
+## 赞助
+开源不易, 有了您的赞助, 我们会做的更好~
 
 ## 技术反馈和交流
 微信：beautifulFront
