@@ -13,7 +13,7 @@ export default memo(function ZanPao() {
     <div className={styles.takeCat}>
       <Popover placement="top" title={null} content={content} trigger="hover">
         <Button type="primary" danger>
-          请作者喝茶🍵～
+          赞助作者
         </Button>
       </Popover>
     </div>

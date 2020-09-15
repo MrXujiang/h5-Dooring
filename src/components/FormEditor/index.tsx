@@ -5,6 +5,7 @@ import DataList from '../DataList';
 import MutiText from '../MutiText';
 import Color from '../Color';
 import CardPicker from '../CardPicker';
+import Table from '../Table';
 import { Store } from 'antd/lib/form/interface';
 import { BasicRangeType, IconSchema } from '../DynamicEngine/schema';
 // import styles from './index.less';
@@ -139,6 +140,11 @@ const FormEditor = (props: FormEditorProps) => {
                   icons={item.icons}
                   type={defaultValue['type'] as IconSchema['config']['type']}
                 />
+              </Form.Item>
+            )}
+            {item.type === 'Table' && (
+              <Form.Item label={item.name} name={item.key} valuePropName="data">
+                <Table data={item.data} />
               </Form.Item>
             )}
           </React.Fragment>

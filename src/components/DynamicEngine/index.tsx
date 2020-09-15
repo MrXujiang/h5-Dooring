@@ -3,7 +3,7 @@ import Loading from '../LoadingCp';
 import { useMemo, memo, FC } from 'react';
 import React from 'react';
 import { AllTemplateType } from './schema';
-const needList = ['Tab', 'Carousel', 'Upload', 'Video', 'Icon'];
+const needList = ['Tab', 'Carousel', 'Upload', 'Video', 'Icon', 'Chart'];
 
 const DynamicFunc = (type: AllTemplateType) =>
   dynamic({
