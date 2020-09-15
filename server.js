@@ -4,7 +4,6 @@ const staticServer = require('koa-static');
 const koaBody = require('koa-body');
 const cors = require('koa2-cors');
 const logger = require('koa-logger');
-const fs = require('fs');
 
 const app = new Koa();
 
@@ -48,4 +47,4 @@ app.use(async (ctx, next) => {
   }
 });
 
-app.listen(80);
+app.listen(3000);
