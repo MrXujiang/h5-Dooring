@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, memo, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Slider, Result, Tabs, Alert } from 'antd';
 import {
   PieChartOutlined,
@@ -91,6 +91,7 @@ const Container = props => {
     if (window.innerWidth < 1024) {
       props.history.push('/mobileTip');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const allType = useMemo(() => {

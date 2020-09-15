@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { RGBColor } from 'react-color';
 
 // 生成uuid
@@ -38,3 +39,16 @@ function rgba2Obj(rgba = '') {
 }
 
 export { uuid, rgba2Obj };
+
+export const isDev = process.env.NODE_ENV === 'development';
+
+export function useGetRect() {
+  const [rect, setRect] = useState({ width: 0, height: 0 });
+  useEffect(() => {
+    setRect({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  }, []);
+  return rect;
+}

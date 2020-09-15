@@ -1,25 +1,17 @@
-import React from 'react';
-import { UnControlled as CodeMirror } from 'react-codemirror2';
-import { useState, useEffect } from 'react';
-import { Button } from 'antd';
+import React, { useMemo } from 'react';
+import { Controlled } from 'react-codemirror2';
+import { useState } from 'react';
+import { Button, message } from 'antd';
 import { saveAs } from 'file-saver';
-import { history } from 'umi';
 import Logo from '@/assets/logo.png';
 import styles from './index.less';
-
+import { isDev, useGetRect } from 'utils/tool';
+import { SaveOutlined } from '@ant-design/icons';
+import { useHotkeys } from 'react-hotkeys-hook';
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/javascript/javascript');
 
-interface CursorData {
-  line: number;
-  ch: number;
-  [property: string]: number;
-}
-
-const isDev = process.env.NODE_ENV === 'development';
 const serverUrl = isDev ? 'http://localhost:3000' : 'http://localhost:3000';
-
-let timer: any = null;
 
 let html = `<!DOCTYPE html>
 <html lang="en">
@@ -58,38 +50,86 @@ let html = `<!DOCTYPE html>
 
 export default function() {
   const [isUpdate, setUpdate] = useState(false);
-  const [cursor, setCursor] = useState<CursorData>({ line: 1, ch: 1 });
-
-  const handleChange = (editor: any, data: any, value: string) => {
-    // codeStr = value
-    fetchPage(value);
+  const [cursor, setCursor] = useState<CodeMirror.Position>({ line: 1, ch: 1 });
+  const [data, setData] = useState<{ data: string }>({ data: html });
+  const handleChange = (
+    _editor: CodeMirror.Editor,
+    _data: CodeMirror.EditorChange,
+    value: string,
+  ) => {
+    setData({ data: value });
   };
-
-  const fetchPage = (v: string) => {
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(() => {
-      fetch(`${serverUrl}/dooring/render`, { method: 'POST', body: v }).then(res => {
-        html = v;
+  const fetchPage = useMemo(() => {
+    return (v?: string) => {
+      let res = v ?? data.data;
+      fetch(`${serverUrl}/dooring/render`, { method: 'POST', body: res }).then(() => {
+        html = res;
+        message.success('已保存');
         setUpdate(prev => !prev);
       });
-    }, 1000);
-  };
-
+    };
+  }, [data]);
   const downLoadHtml = () => {
-    var file = new File([html], `${Date.now()}.html`, { type: 'text/html;charset=utf-8' });
+    var file = new File([data.data], `${Date.now()}.html`, { type: 'text/html;charset=utf-8' });
     saveAs(file);
   };
 
-  const onCursorChange = (editor: any, data: CursorData) => {
-    const { line, ch } = data;
+  const onCursorChange = (_editor: CodeMirror.Editor, data1: CodeMirror.Position) => {
+    const { line, ch } = data1;
     setCursor({ line, ch });
   };
 
-  useEffect(() => {
-    fetch(`${serverUrl}/dooring/render`, { method: 'POST', body: html }).then(res => {
-      setUpdate(prev => !prev);
-    });
+  useHotkeys<HTMLDivElement>(
+    'ctrl+s',
+    event => {
+      fetchPage();
+      event.preventDefault();
+    },
+    [data],
+  );
+
+  const editHotKey = useMemo(() => {
+    return (editor: CodeMirror.Editor, event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key === 's') {
+        fetchPage(editor.getValue());
+        event.preventDefault();
+      }
+    };
+  }, [fetchPage]);
+
+  const CodeMirrorRender = useMemo(() => {
+    return (
+      <Controlled
+        className={styles.codeWrap}
+        value={data.data}
+        options={{
+          mode: 'xml',
+          theme: 'material',
+          lineNumbers: true,
+        }}
+        onBeforeChange={handleChange}
+        cursor={cursor}
+        onCursor={onCursorChange}
+        onKeyDown={editHotKey}
+      />
+    );
+  }, [cursor, data.data, editHotKey]);
+
+  const rect = useGetRect();
+  const height = useMemo(() => {
+    let res = rect.height - 42 - 1; //-1防止差值产生滚动条
+    return res < 694 ? 694 : res;
+  }, [rect.height]);
+
+  const phoneHeight = useMemo(() => {
+    //let res = rect.height - 42 - 30 - 1; //30是其上边距
+    //return res < 694 ? 694 : res;
+    return 694; //大屏幕过长，维持高度，需要变高另外处理
   }, []);
+  const iframeHeight = useMemo(() => {
+    return phoneHeight - 30 - 12 - 12; //上边距30 上下padding 12
+  }, [phoneHeight]);
+
   return (
     <div className={styles.wrap}>
       <div className={styles.header}>
@@ -102,6 +142,14 @@ export default function() {
           &nbsp;&nbsp;| 在线代码编辑器
         </div>
         <div className={styles.operationBar}>
+          <Button
+            type="primary"
+            title="保存（ctrl+s）"
+            onClick={() => fetchPage()}
+            style={{ marginRight: '10px' }}
+          >
+            <SaveOutlined />
+          </Button>
           <Button type="primary" onClick={downLoadHtml} style={{ marginRight: '10px' }}>
             下载页面
           </Button>
@@ -110,26 +158,22 @@ export default function() {
           </Button>
         </div>
       </div>
-      <div className={styles.contentWrap}>
-        <div className={styles.codeWrap}>
-          <CodeMirror
-            className={styles.codeWrap}
-            value={html}
-            options={{
-              mode: 'xml',
-              theme: 'material',
-              lineNumbers: true,
-            }}
-            onChange={handleChange}
-            cursor={cursor}
-            onCursor={onCursorChange}
-          />
+      <div className={styles.contentWrap} style={{ height: `${height}px`, position: 'relative' }}>
+        <div className={styles.codeWrap} style={{ height: `${height}px`, position: 'relative' }}>
+          {CodeMirrorRender}
         </div>
 
-        <div className={styles.previewWrap}>
+        <div className={styles.previewWrap} style={{ height: `${phoneHeight}px` }}>
           <iframe
+            title="preview"
             src={`${serverUrl}/html?flag=${isUpdate}`}
-            style={{ width: '100%', height: '100%', margin: 0, padding: 0, border: 'none' }}
+            style={{
+              width: '100%',
+              height: `${iframeHeight}px`,
+              margin: 0,
+              padding: 0,
+              border: 'none',
+            }}
           ></iframe>
         </div>
       </div>

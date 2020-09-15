@@ -108,7 +108,7 @@ const HeaderComponent = memo(props => {
     try {
       localStorage.setItem('myH5', JSON.stringify(prev ? [...prev, pointData] : [pointData]));
     } catch (err) {
-      throw error(err);
+      console.error(err);
     }
     clearData();
   };
