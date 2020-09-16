@@ -48,8 +48,11 @@ Give a ⭐️ if this project helped you!
 
 ### 预览功能
 预览功能这块比较简单, 我们只需要将用户生成的json数据丢进H5渲染器中即可, 这里我们需要做一个渲染页面单独用来预览组件. 先来看看几个预览效果:
+
 <img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/582e67cb0a874bee947efb05af622a55~tplv-k3u1fbpfcp-zoom-1.image" alt="h5-editor" width="375px" />
+<br />
 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c50d89f770f4ae5b4c5c4ec9f0052c1~tplv-k3u1fbpfcp-zoom-1.image" alt="h5-editor" width="375px" />
+
 前面的渲染器原理已经介绍了, 这里就不一一介绍了,感兴趣的可以交流讨论.
 
 ### 实现在线下载功能
@@ -79,18 +82,18 @@ FileSaver.saveAs(blob, "hello world.txt");
 * [Form Editor(动态表单设计器)](https://github.com/MrXujiang/h5-Dooring/wiki/Form-Editor(%E5%8A%A8%E6%80%81%E8%A1%A8%E5%8D%95%E8%AE%BE%E8%AE%A1%E5%99%A8))
 
 ## 已完成功能
-* 1. 组件库拖拽和显示
-* 2. 组件库动态编辑
-* 3. H5页面预览功能
-* 4. 保存H5页面配置文件
-* 5. 保存为模版
-* 6. 移动端跨端适配
-* 7. 媒体组件
-* 8. 在线下载网站代码功能
-* 9. 添加typescript支持
-* 10. 表单设计器/自定义表单组件
-* 11. 可视化组件Chart实现
-* 12. 在线编程模块(Mini Web IDE)
+1. 组件库拖拽和显示
+2. 组件库动态编辑
+3. H5页面预览功能
+4. 保存H5页面配置文件
+5. 保存为模版
+6. 移动端跨端适配
+7. 媒体组件
+8. 在线下载网站代码功能
+9. 添加typescript支持
+10. 表单设计器/自定义表单组件
+11. 可视化组件Chart实现
+12. 在线编程模块(Mini Web IDE)
 
 ## 正在完成功能
 * 升级模版库
