@@ -13,7 +13,7 @@ import SourceBox from './SourceBox';
 import TargetBox from './TargetBox';
 import Calibration from 'components/Calibration';
 import DynamicEngine from 'components/DynamicEngine';
-import FormEditor from 'components/FormEditor';
+import FormEditor from 'components/PanelComponents/FormEditor';
 import template from 'components/DynamicEngine/template';
 import mediaTpl from 'components/DynamicEngine/mediaTpl';
 import graphTpl from 'components/DynamicEngine/graphTpl';
@@ -137,21 +137,36 @@ const Container = props => {
               <TabPane tab={generateHeader('base', '基础组件')} key="1">
                 {template.map((value, i) => (
                   <TargetBox item={value} key={i} canvasId={canvasId}>
-                    <DynamicEngine {...value} config={schema[value.type].config} isTpl={true} />
+                    <DynamicEngine
+                      {...value}
+                      config={schema[value.type].config}
+                      componentsType="base"
+                      isTpl={true}
+                    />
                   </TargetBox>
                 ))}
               </TabPane>
               <TabPane tab={generateHeader('media', '媒体组件')} key="2">
                 {mediaTpl.map((value, i) => (
                   <TargetBox item={value} key={i} canvasId={canvasId}>
-                    <DynamicEngine {...value} config={schema[value.type].config} isTpl={true} />
+                    <DynamicEngine
+                      {...value}
+                      config={schema[value.type].config}
+                      componentsType="media"
+                      isTpl={true}
+                    />
                   </TargetBox>
                 ))}
               </TabPane>
               <TabPane tab={generateHeader('visible', '可视化组件')} key="3">
                 {graphTpl.map((value, i) => (
                   <TargetBox item={value} key={i} canvasId={canvasId}>
-                    <DynamicEngine {...value} config={schema[value.type].config} isTpl={true} />
+                    <DynamicEngine
+                      {...value}
+                      config={schema[value.type].config}
+                      componentsType="visible"
+                      isTpl={true}
+                    />
                   </TargetBox>
                 ))}
               </TabPane>
