@@ -3,22 +3,23 @@ import Loading from '../LoadingCp';
 import { useMemo, memo, FC } from 'react';
 import React from 'react';
 import { AllTemplateType } from './schema';
-const needList = ['Tab', 'Carousel', 'Upload', 'Video', 'Icon', 'Chart'];
 
-const DynamicFunc = (type: AllTemplateType) =>
+export type componentsType = 'media' | 'base' | 'visible';
+
+const DynamicFunc = (type: AllTemplateType, componentsType: componentsType) =>
   dynamic({
     loader: async function() {
       let Component: FC<{ isTpl: boolean }>;
-      if (needList.includes(type)) {
-        const { default: Graph } = await import(`@/components/${type}`);
+      if (componentsType === 'base') {
+        const { default: Graph } = await import(`@/components/BasicShop/BasicComponents/${type}`);
+        Component = Graph;
+      } else if (componentsType === 'media') {
+        const { default: Graph } = await import(`@/components/BasicShop/MediaComponents/${type}`);
         Component = Graph;
       } else {
-        const Components = ((await import(`@/components/DynamicEngine/components`)) as unknown) as {
-          [key: string]: FC;
-        };
-        Component = Components[type];
+        const { default: Graph } = await import(`@/components/BasicShop/VisualComponents/${type}`);
+        Component = Graph;
       }
-
       return (props: DynamicType) => {
         const { config, isTpl } = props;
         return <Component {...config} isTpl={isTpl} />;
@@ -35,14 +36,17 @@ type DynamicType = {
   isTpl: boolean;
   config: { [key: string]: any };
   type: AllTemplateType;
+  componentsType: componentsType;
+  category: componentsType;
 };
 const DynamicEngine = memo((props: DynamicType) => {
-  const { type, config, isTpl } = props;
+  const { type, config, category } = props;
   const Dynamic = useMemo(() => {
-    return (DynamicFunc(type) as unknown) as FC<DynamicType>;
+    return (DynamicFunc(type, category) as unknown) as FC<DynamicType>;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type, config]);
-  return <Dynamic type={type} config={config} isTpl={isTpl} />;
+
+  return <Dynamic {...props} />;
 });
 
 export default DynamicEngine;

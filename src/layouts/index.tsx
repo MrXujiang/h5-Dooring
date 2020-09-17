@@ -14,7 +14,7 @@ library.push(
     text: (
       <div>
         <a href="https://github.com/MrXujiang">@徐小夕</a>
-        <a href="https://github.com/yehuozhili/learnsinglespa">@yehuozhili</a>
+        <a href="https://github.com/yehuozhili">@yehuozhili</a>
       </div>
     ),
     useReg: /(.*?)作者是谁(.*?)/,

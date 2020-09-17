@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { ErrorInfo, PropsWithChildren } from 'react';
 
-class ErrorBoundary extends React.Component<any, any> {
-  constructor(props: any) {
+interface ErrorBoundaryState {
+  hasError: boolean;
+}
+
+class ErrorBoundary extends React.Component<PropsWithChildren<{}>, ErrorBoundaryState> {
+  constructor(props: PropsWithChildren<{}>) {
     super(props);
     this.state = { hasError: false };
   }
 
-  componentDidCatch(error: any, info: any) {
+  componentDidCatch(_error: Error, _info: ErrorInfo) {
     // Display fallback UI
     this.setState({ hasError: true });
     // You can also log the error to an error reporting service
