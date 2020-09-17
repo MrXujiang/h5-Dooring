@@ -2,11 +2,11 @@ import React, { memo, useState, useEffect } from 'react';
 import { Input, Button, Popconfirm } from 'antd';
 import { MinusCircleOutlined } from '@ant-design/icons';
 import styles from './index.less';
-import { TabConfigType } from '../../DynamicEngine/schema';
+import { TMutiTextDefaultType } from '../FormEditor/types';
 
 type MultiTextProps = {
-  onChange?: (v: TabConfigType['tabs']) => void;
-  value?: TabConfigType['tabs'];
+  onChange?: (v: TMutiTextDefaultType) => void;
+  value?: TMutiTextDefaultType;
 };
 
 export default memo(function MutiText(props: MultiTextProps) {

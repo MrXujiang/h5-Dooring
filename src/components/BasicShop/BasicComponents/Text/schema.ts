@@ -1,4 +1,31 @@
-const Text = {
+import {
+  IColorConfigType,
+  INumberConfigType,
+  ISelectConfigType,
+  ITextConfigType,
+  TColorDefaultType,
+  TNumberDefaultType,
+  TSelectDefaultType,
+  TTextDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type TTextSelectKeyType = 'left' | 'right' | 'center';
+export type TTextEditData = Array<
+  ITextConfigType | IColorConfigType | INumberConfigType | ISelectConfigType<TTextSelectKeyType>
+>;
+export interface ITextConfig {
+  text: TTextDefaultType;
+  color: TColorDefaultType;
+  fontSize: TNumberDefaultType;
+  align: TSelectDefaultType<TTextSelectKeyType>;
+  lineHeight: TNumberDefaultType;
+}
+
+export interface ITextSchema {
+  editData: TTextEditData;
+  config: ITextConfig;
+}
+const Text: ITextSchema = {
   editData: [
     {
       key: 'text',

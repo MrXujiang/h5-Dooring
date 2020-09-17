@@ -1,4 +1,32 @@
-const Header = {
+import {
+  IColorConfigType,
+  INumberConfigType,
+  ITextConfigType,
+  IUploadConfigType,
+  TColorDefaultType,
+  TNumberDefaultType,
+  TTextDefaultType,
+  TUploadDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type THeaderEditData = Array<
+  IColorConfigType | INumberConfigType | IUploadConfigType | ITextConfigType
+>;
+export interface IHeaderConfig {
+  bgColor: TColorDefaultType;
+  logo: TUploadDefaultType;
+  logoText: TTextDefaultType;
+  fontSize: TNumberDefaultType;
+  color: TColorDefaultType;
+  height: TNumberDefaultType;
+}
+
+export interface IHeaderSchema {
+  editData: THeaderEditData;
+  config: IHeaderConfig;
+}
+
+const Header: IHeaderSchema = {
   editData: [
     {
       key: 'bgColor',

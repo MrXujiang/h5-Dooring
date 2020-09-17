@@ -1,13 +1,10 @@
 import React, { memo, useEffect, FC } from 'react';
 import { Form, Select, Input, Modal } from 'antd';
 import Upload from '../Upload';
-import { BasicDataSource } from '../../DynamicEngine/schema';
 import { Store } from 'antd/lib/form/interface';
-
+import { TDataListDefaultTypeItem } from '../FormEditor/types';
 // import styles from './index.less';
 const normFile = (e: any) => {
-  console.log('Upload event:', e);
-  console.log('ffffffffff'); //待修改？
   if (Array.isArray(e)) {
     return e;
   }
@@ -24,7 +21,7 @@ const formItemLayout = {
 export type EditorModalProps = {
   visible: boolean;
   onCancel: ((e: React.MouseEvent<HTMLElement, MouseEvent>) => void) | undefined;
-  item?: BasicDataSource;
+  item?: TDataListDefaultTypeItem;
   onSave: Function;
 };
 

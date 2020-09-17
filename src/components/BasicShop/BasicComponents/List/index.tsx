@@ -1,7 +1,7 @@
-import { ListConfigType } from '@/components/DynamicEngine/schema';
 import React, { memo } from 'react';
 import styles from './index.less';
-const List = memo((props: ListConfigType) => {
+import { IListConfig } from './schema';
+const List = memo((props: IListConfig) => {
   const { round, sourceData, imgSize, fontSize, color } = props;
   return (
     <div className={styles.list}>
@@ -18,7 +18,7 @@ const List = memo((props: ListConfigType) => {
                   }
                   alt={item.desc}
                   style={{
-                    width: imgSize,
+                    width: parseFloat(imgSize),
                     height: imgSize,
                     objectFit: 'cover',
                     borderRadius: round,

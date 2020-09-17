@@ -1,6 +1,6 @@
-import { FooterConfigType } from '@/components/DynamicEngine/schema';
 import React, { memo } from 'react';
-const Footer = memo((props: FooterConfigType) => {
+import { IFooterConfig } from './schema';
+const Footer = memo((props: IFooterConfig) => {
   const { bgColor, text, color, align, fontSize, height } = props;
   return (
     <footer

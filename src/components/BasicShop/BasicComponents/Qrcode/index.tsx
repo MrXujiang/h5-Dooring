@@ -1,7 +1,7 @@
-import { QRCodeConfigType } from '@/components/DynamicEngine/schema';
 import React, { memo } from 'react';
+import { IQrcodeConfig } from './schema';
 
-const Qrcode = memo((props: QRCodeConfigType) => {
+const Qrcode = memo((props: IQrcodeConfig) => {
   const { qrcode, text, color, fontSize = 14 } = props;
   return (
     <div style={{ width: '240px', margin: '16px auto' }}>

@@ -1,4 +1,22 @@
-const Image = {
+import {
+  INumberConfigType,
+  IUploadConfigType,
+  TNumberDefaultType,
+  TUploadDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type TImageEditData = Array<IUploadConfigType | INumberConfigType>;
+export interface IImageConfig {
+  imgUrl: TUploadDefaultType;
+  round: TNumberDefaultType;
+}
+
+export interface IImageSchema {
+  editData: TImageEditData;
+  config: IImageConfig;
+}
+
+const Image: IImageSchema = {
   editData: [
     {
       key: 'imgUrl',

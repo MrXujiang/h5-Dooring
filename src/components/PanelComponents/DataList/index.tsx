@@ -18,7 +18,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import EditorModal from './editorModal';
 import { uuid } from '@/utils/tool';
 import styles from './index.less';
-import { BasicDataSource } from '../../DynamicEngine/schema';
+import { TDataListDefaultType, TDataListDefaultTypeItem } from '../FormEditor/types';
 
 type ListItemProps = DndItemProps & {
   isDragging: boolean;
@@ -66,7 +66,7 @@ function ListItem(props: ListItemProps) {
   );
 }
 
-type DndItemProps = BasicDataSource & {
+type DndItemProps = TDataListDefaultTypeItem & {
   onDel: Function;
   onEdit: Function;
   key: number;
@@ -127,8 +127,8 @@ const DndItem = DropTarget(
 )(DragSource(type, dragSpec, dragCollect)(ListItem));
 
 export type DataListMemo = {
-  onChange?: (v: BasicDataSource[]) => void;
-  value?: BasicDataSource[];
+  onChange?: (v: TDataListDefaultType) => void;
+  value?: TDataListDefaultType;
 };
 
 export type DataListType = DataListMemo & {
@@ -139,7 +139,7 @@ const List = function(props: DataListType) {
   const { onChange, value, connectDropTarget } = props;
   const [list, setList] = useState(value);
   const [visible, setVisible] = useState(false);
-  const [curItem, setCurItem] = useState<BasicDataSource>();
+  const [curItem, setCurItem] = useState<TDataListDefaultTypeItem>();
 
   const handleDel = (id: string) => {
     if (value && onChange) {
@@ -172,13 +172,13 @@ const List = function(props: DataListType) {
     setVisible(false);
   }, []);
 
-  const handleEdit = useCallback((item: BasicDataSource) => {
+  const handleEdit = useCallback((item: TDataListDefaultTypeItem) => {
     setVisible(true);
     setCurItem(item);
   }, []);
 
   const handleSave = useCallback(
-    (item: BasicDataSource) => {
+    (item: TDataListDefaultTypeItem) => {
       setVisible(false);
       if (onChange) {
         onChange(list!.map(p => (p.id === item.id ? item : p)));

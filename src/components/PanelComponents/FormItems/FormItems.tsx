@@ -1,14 +1,13 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo, useState } from 'react';
 import BaseForm from '../../BasicShop/BasicComponents/Form/BaseForm';
 import EditorModal from './EditorModal';
-
 import { EditOutlined, MinusCircleOutlined } from '@ant-design/icons';
+import styles from './formItems.less';
+import { baseFormUnion, TFormItemsDefaultType } from '../FormEditor/types';
 
 // import { Popconfirm } from 'antd';
 
-import styles from './formItems.less';
-
-const formTpl = [
+const formTpl: TFormItemsDefaultType = [
   {
     id: '1',
     type: 'Text',
@@ -50,29 +49,35 @@ const formTpl = [
     id: '6',
     type: 'Date',
     label: '日期框',
+    placeholder: '',
   },
 ];
 
-const FormItems = props => {
-  const { formList, onChange } = props;
-  console.log(props);
-  const [formData, setFormData] = useState(formList || []);
-  const [visible, setVisible] = useState(false);
-  const [curItem, setCurItem] = useState();
+interface FormItemsProps {
+  formList?: TFormItemsDefaultType;
+  onChange?: (v: TFormItemsDefaultType) => void;
+  data: any;
+}
 
-  const handleAddItem = item => {
+const FormItems = (props: FormItemsProps) => {
+  const { formList, onChange } = props;
+  const [formData, setFormData] = useState<TFormItemsDefaultType>(formList || []);
+  const [visible, setVisible] = useState(false);
+  const [curItem, setCurItem] = useState<baseFormUnion>();
+
+  const handleAddItem = (item: baseFormUnion) => {
     let tpl = formTpl.find(v => v.type === item.type);
-    let newData = [...formData, tpl];
+    let newData = [...formData, tpl!];
     setFormData(newData);
     onChange && onChange(newData);
   };
 
-  const handleEditItem = item => {
+  const handleEditItem = (item: baseFormUnion) => {
     setVisible(true);
     setCurItem(item);
   };
 
-  const handleDelItem = item => {
+  const handleDelItem = (item: baseFormUnion) => {
     let newData = formData.filter(v => v.type !== item.type);
     setFormData(newData);
     onChange && onChange(newData);
@@ -82,7 +87,7 @@ const FormItems = props => {
     setVisible(false);
   };
 
-  const handleSaveItem = data => {
+  const handleSaveItem = (data: baseFormUnion) => {
     let newData = formData.map(v => (v.type === data.type ? data : v));
     setFormData(newData);
     onChange && onChange(newData);
@@ -91,7 +96,7 @@ const FormItems = props => {
   return (
     <div className={styles.formItemWrap}>
       <div className={styles.editForm}>
-        {formData.map((item, i) => {
+        {formData.map((item: baseFormUnion, i: number) => {
           let FormItem = BaseForm[item.type];
           return (
             <div className={styles.formItem} key={i}>

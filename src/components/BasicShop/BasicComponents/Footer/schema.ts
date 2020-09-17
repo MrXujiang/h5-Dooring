@@ -1,4 +1,34 @@
-const Footer = {
+import {
+  IColorConfigType,
+  INumberConfigType,
+  ISelectConfigType,
+  ITextConfigType,
+  TColorDefaultType,
+  TNumberDefaultType,
+  TSelectDefaultType,
+  TTextDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type TfooterSelectKeyType = 'left' | 'center' | 'right';
+
+export type TFooterEditData = Array<
+  IColorConfigType | INumberConfigType | ITextConfigType | ISelectConfigType<TfooterSelectKeyType>
+>;
+export interface IFooterConfig {
+  bgColor: TColorDefaultType;
+  text: TTextDefaultType;
+  color: TColorDefaultType;
+  align: TSelectDefaultType<TfooterSelectKeyType>;
+  fontSize: TNumberDefaultType;
+  height: TNumberDefaultType;
+}
+
+export interface IFooterSchema {
+  editData: TFooterEditData;
+  config: IFooterConfig;
+}
+
+const Footer: IFooterSchema = {
   editData: [
     {
       key: 'bgColor',

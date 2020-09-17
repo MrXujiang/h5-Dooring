@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { Form, Select, InputNumber, Input, Switch, Radio, Button } from 'antd';
 import Upload from '../Upload';
 import DataList from '../DataList';
@@ -7,7 +7,6 @@ import Color from '../Color';
 import CardPicker from '../CardPicker';
 import Table from '../Table';
 import { Store } from 'antd/lib/form/interface';
-import { BasicRangeType, IconSchema } from '../../DynamicEngine/schema';
 import FormItems from '../FormItems';
 // import styles from './index.less';
 const normFile = (e: any) => {
@@ -37,6 +36,7 @@ interface FormEditorProps {
 
 const FormEditor = (props: FormEditorProps) => {
   const { config, defaultValue, onSave, onDel, uid } = props;
+  console.log(defaultValue, config);
   const onFinish = (values: Store) => {
     onSave && onSave(values);
   };
@@ -51,7 +51,7 @@ const FormEditor = (props: FormEditorProps) => {
     return () => {
       form.resetFields();
     };
-  }, [defaultValue]);
+  }, [defaultValue, form]);
   return (
     <Form
       form={form}
@@ -96,7 +96,7 @@ const FormEditor = (props: FormEditorProps) => {
             {item.type === 'Select' && (
               <Form.Item label={item.name} name={item.key}>
                 <Select placeholder="请选择">
-                  {item.range.map((v: BasicRangeType<string>, i: number) => {
+                  {item.range.map((v: any, i: number) => {
                     return (
                       <Option value={v.key} key={i}>
                         {v.text}
@@ -109,7 +109,7 @@ const FormEditor = (props: FormEditorProps) => {
             {item.type === 'Radio' && (
               <Form.Item label={item.name} name={item.key}>
                 <Radio.Group>
-                  {item.range.map((v: BasicRangeType<string>, i: number) => {
+                  {item.range.map((v: any, i: number) => {
                     return (
                       <Radio value={v.key} key={i}>
                         {v.text}
@@ -136,10 +136,7 @@ const FormEditor = (props: FormEditorProps) => {
             )}
             {item.type === 'CardPicker' && (
               <Form.Item label={item.name} name={item.key} valuePropName="type">
-                <CardPicker
-                  icons={item.icons}
-                  type={defaultValue['type'] as IconSchema['config']['type']}
-                />
+                <CardPicker icons={item.icons} type={defaultValue['type']} />
               </Form.Item>
             )}
             {item.type === 'Table' && (

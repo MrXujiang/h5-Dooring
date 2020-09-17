@@ -1,4 +1,36 @@
-const LongText = {
+import {
+  IColorConfigType,
+  INumberConfigType,
+  ISelectConfigType,
+  ITextAreaConfigType,
+  TColorDefaultType,
+  TNumberDefaultType,
+  TSelectDefaultType,
+  TTextAreaDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+export type TLongTextSelectKeyType = 'left' | 'center' | 'right';
+
+export type TLongTextEditData = Array<
+  | ITextAreaConfigType
+  | IColorConfigType
+  | INumberConfigType
+  | ISelectConfigType<TLongTextSelectKeyType>
+>;
+export interface ILongTextConfig {
+  text: TTextAreaDefaultType;
+  color: TColorDefaultType;
+  fontSize: TNumberDefaultType;
+  indent: TNumberDefaultType;
+  lineHeight: TNumberDefaultType;
+  textAlign: TSelectDefaultType<TLongTextSelectKeyType>;
+}
+
+export interface ILongTextSchema {
+  editData: TLongTextEditData;
+  config: ILongTextConfig;
+}
+
+const LongText: ILongTextSchema = {
   editData: [
     {
       key: 'text',

@@ -1,9 +1,9 @@
-import { VideoConfigType } from '@/components/DynamicEngine/schema';
 import React, { memo } from 'react';
 import { Player, BigPlayButton } from 'video-react';
 import './index.css';
+import { IVideoConfig } from './schema';
 
-const VideoPlayer = memo((props: VideoConfigType) => {
+const VideoPlayer = memo((props: IVideoConfig) => {
   const { poster, url } = props;
   return (
     <div>

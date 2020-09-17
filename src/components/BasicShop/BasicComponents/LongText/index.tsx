@@ -1,7 +1,7 @@
-import { LongTextConfigType } from '@/components/DynamicEngine/schema';
 import React, { memo } from 'react';
 import styles from './index.less';
-const LongText = memo((props: LongTextConfigType) => {
+import { ILongTextConfig } from './schema';
+const LongText = memo((props: ILongTextConfig) => {
   const { text, fontSize, color, indent, lineHeight, textAlign } = props;
   return (
     <div

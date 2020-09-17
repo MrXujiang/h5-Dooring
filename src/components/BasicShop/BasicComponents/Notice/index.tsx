@@ -1,7 +1,7 @@
 import { NoticeBar } from 'zarm';
 import React, { memo } from 'react';
-import { NoticeConfigType } from '@/components/DynamicEngine/schema';
-const Notice = memo((props: NoticeConfigType) => {
+import { INoticeConfig } from './schema';
+const Notice = memo((props: INoticeConfig) => {
   const { text, speed, theme, isClose = false } = props;
   return (
     <NoticeBar theme={theme === 'default' ? undefined : theme} closable={isClose} speed={speed}>

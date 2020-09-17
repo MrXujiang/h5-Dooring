@@ -1,4 +1,30 @@
-const Qrcode = {
+import {
+  IColorConfigType,
+  INumberConfigType,
+  ITextConfigType,
+  IUploadConfigType,
+  TColorDefaultType,
+  TNumberDefaultType,
+  TTextDefaultType,
+  TUploadDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type TQrcodeEditData = Array<
+  IUploadConfigType | ITextConfigType | IColorConfigType | INumberConfigType
+>;
+export interface IQrcodeConfig {
+  qrcode: TUploadDefaultType;
+  text: TTextDefaultType;
+  color: TColorDefaultType;
+  fontSize: TNumberDefaultType;
+}
+
+export interface IQrcodeSchema {
+  editData: TQrcodeEditData;
+  config: IQrcodeConfig;
+}
+
+const Qrcode: IQrcodeSchema = {
   editData: [
     {
       key: 'qrcode',

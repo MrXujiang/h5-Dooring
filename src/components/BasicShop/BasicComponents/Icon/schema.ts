@@ -1,3 +1,29 @@
+import {
+  ICardPickerConfigType,
+  IColorConfigType,
+  INumberConfigType,
+  ISwitchConfigType,
+  TCardPickerDefaultType,
+  TColorDefaultType,
+  TNumberDefaultType,
+  TSwitchDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type TIconEditData = Array<
+  IColorConfigType | INumberConfigType | ISwitchConfigType | ICardPickerConfigType<IconTypes>
+>;
+export interface IIconConfig {
+  color: TColorDefaultType;
+  size: TNumberDefaultType;
+  spin: TSwitchDefaultType;
+  type: TCardPickerDefaultType<IconTypes>;
+}
+
+export interface IIconSchema {
+  editData: TIconEditData;
+  config: IIconConfig;
+}
+
 export type IconTypes =
   | 'AccountBookTwoTone'
   | 'AlertTwoTone'
@@ -41,7 +67,7 @@ export type IconTypes =
   | 'SettingTwoTone'
   | 'RocketTwoTone';
 
-const Icon = {
+const Icon: IIconSchema = {
   editData: [
     {
       key: 'color',

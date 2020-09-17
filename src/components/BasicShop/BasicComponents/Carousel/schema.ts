@@ -1,4 +1,31 @@
-const Carousel = {
+import {
+  IDataListConfigType,
+  IRadioConfigType,
+  ISwitchConfigType,
+  TDataListDefaultType,
+  TRadioDefaultType,
+  TSwitchDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type CarouselDirectionKeyType = 'down' | 'left';
+
+export type TCarouselEditData = Array<
+  IRadioConfigType<CarouselDirectionKeyType> | ISwitchConfigType | IDataListConfigType
+>;
+export interface ICarouselConfig {
+  direction: TRadioDefaultType<CarouselDirectionKeyType>;
+  swipeable: TSwitchDefaultType;
+  autoPlay: TSwitchDefaultType;
+  imgList: TDataListDefaultType;
+  tplImg: string;
+}
+
+export interface ICarouselSchema {
+  editData: TCarouselEditData;
+  config: ICarouselConfig;
+}
+
+const Carousel: ICarouselSchema = {
   editData: [
     {
       key: 'direction',

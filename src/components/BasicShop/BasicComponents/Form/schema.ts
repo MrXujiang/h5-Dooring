@@ -1,4 +1,34 @@
-const Form = {
+import {
+  IColorConfigType,
+  IFormItemsConfigType,
+  INumberConfigType,
+  ITextConfigType,
+  TColorDefaultType,
+  TFormItemsDefaultType,
+  TNumberDefaultType,
+  TTextDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type TFormEditData = Array<
+  ITextConfigType | INumberConfigType | IColorConfigType | ITextConfigType | IFormItemsConfigType
+>;
+export interface IFormConfig {
+  title: TTextDefaultType;
+  fontSize: TNumberDefaultType;
+  titColor: TColorDefaultType;
+  bgColor: TColorDefaultType;
+  btnColor: TColorDefaultType;
+  btnTextColor: TColorDefaultType;
+  api: TTextDefaultType;
+  formControls: TFormItemsDefaultType;
+}
+
+export interface IFormSchema {
+  editData: TFormEditData;
+  config: IFormConfig;
+}
+
+const Form: IFormSchema = {
   editData: [
     {
       key: 'title',

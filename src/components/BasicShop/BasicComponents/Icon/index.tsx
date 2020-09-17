@@ -2,13 +2,11 @@ import React, { memo } from 'react';
 import * as Icon from '@ant-design/icons';
 import IconImg from 'assets/icon.png';
 import { AntdIconProps } from '@ant-design/icons/lib/components/AntdIcon';
-import { IconConfigType } from '../../../DynamicEngine/schema';
 import { AntdIconType } from './icon';
+import { IIconConfig } from './schema';
 
-interface IconType extends Omit<IconConfigType, 'spin' | 'color'> {
+interface IconType extends IIconConfig {
   isTpl?: boolean;
-  spin?: IconConfigType['spin'];
-  color?: IconConfigType['color'];
 }
 const XIcon = memo((props: IconType) => {
   const { color, size, type, spin, isTpl } = props;

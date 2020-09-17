@@ -1,4 +1,22 @@
-const Video = {
+import {
+  ITextConfigType,
+  IUploadConfigType,
+  TTextDefaultType,
+  TUploadDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type TVideoEditData = Array<IUploadConfigType | ITextConfigType>;
+export interface IVideoConfig {
+  poster: TUploadDefaultType;
+  url: TTextDefaultType;
+}
+
+export interface IVideoSchema {
+  editData: TVideoEditData;
+  config: IVideoConfig;
+}
+
+const Video: IVideoSchema = {
   editData: [
     {
       key: 'poster',

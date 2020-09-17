@@ -1,4 +1,31 @@
-const Notice = {
+import {
+  INumberConfigType,
+  ISelectConfigType,
+  ISwitchConfigType,
+  ITextConfigType,
+  TNumberDefaultType,
+  TSelectDefaultType,
+  TSwitchDefaultType,
+  TTextDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type TNoticeSelectKeyType = 'default' | 'warning' | 'primary' | 'success' | 'danger';
+export type TNoticeEditData = Array<
+  ITextConfigType | INumberConfigType | ISelectConfigType<TNoticeSelectKeyType> | ISwitchConfigType
+>;
+export interface INoticeConfig {
+  text: TTextDefaultType;
+  speed: TNumberDefaultType;
+  theme: TSelectDefaultType<TNoticeSelectKeyType>;
+  isClose: TSwitchDefaultType;
+}
+
+export interface INoticeSchema {
+  editData: TNoticeEditData;
+  config: INoticeConfig;
+}
+
+const Notice: INoticeSchema = {
   editData: [
     {
       key: 'text',
@@ -45,7 +72,6 @@ const Notice = {
   ],
   config: {
     text: '通知栏: 趣谈前端上线啦',
-    link: '',
     speed: 50,
     theme: 'warning',
     isClose: false,

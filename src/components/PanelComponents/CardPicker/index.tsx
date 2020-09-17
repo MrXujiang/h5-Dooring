@@ -2,18 +2,17 @@ import { useState, useEffect, memo } from 'react';
 import classnames from 'classnames';
 import Icon from '../../BasicShop/BasicComponents/Icon';
 import styles from './index.less';
-import { IconTypes } from '../../DynamicEngine/schema';
 import React from 'react';
+import { IconTypes } from '@/components/BasicShop/BasicComponents/Icon/schema';
+import { ICardPickerConfigType } from '../FormEditor/types';
 
-interface CardPickerType {
-  type: IconTypes;
-  icons: Array<IconTypes>;
+interface CardPickerType extends Omit<ICardPickerConfigType<IconTypes>, 'type' | 'key' | 'name'> {
   onChange?: (v: string) => void;
+  type: IconTypes;
 }
 
 export default memo((props: CardPickerType) => {
   const { type, icons, onChange } = props;
-  console.log(type);
   const [selected, setSelected] = useState<IconTypes>(type);
 
   const handlePicker = (v: IconTypes) => {
@@ -37,7 +36,7 @@ export default memo((props: CardPickerType) => {
             onClick={() => handlePicker(item)}
             key={i}
           >
-            <Icon type={item} size={20} />
+            <Icon type={item} size={20} color={'#4091f7'} spin={false} />
           </span>
         );
       })}

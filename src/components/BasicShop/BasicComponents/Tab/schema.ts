@@ -1,4 +1,32 @@
-const Tab = {
+import {
+  IColorConfigType,
+  IDataListConfigType,
+  IMutiTextConfigType,
+  INumberConfigType,
+  TColorDefaultType,
+  TDataListDefaultType,
+  TMutiTextDefaultType,
+  TNumberDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type TTabEditData = Array<
+  IMutiTextConfigType | IColorConfigType | INumberConfigType | IDataListConfigType
+>;
+export interface ITabConfig {
+  tabs: TMutiTextDefaultType;
+  color: TColorDefaultType;
+  activeColor: TColorDefaultType;
+  fontSize: TNumberDefaultType;
+  imgSize: TNumberDefaultType;
+  sourceData: TDataListDefaultType;
+}
+
+export interface ITabSchema {
+  editData: TTabEditData;
+  config: ITabConfig;
+}
+
+const Tab: ITabSchema = {
   editData: [
     {
       key: 'tabs',

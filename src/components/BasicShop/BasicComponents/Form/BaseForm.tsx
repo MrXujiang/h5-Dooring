@@ -1,9 +1,23 @@
 import { Input, Cell, DateSelect, Radio, Select } from 'zarm';
 import styles from './baseForm.less';
 import React from 'react';
+import {
+  baseFormDateTpl,
+  baseFormMyRadioTpl,
+  baseFormMySelectTpl,
+  baseFormNumberTpl,
+  baseFormTextAreaTpl,
+  baseFormTextTpl,
+  baseFormUnionType,
+} from '@/components/PanelComponents/FormEditor/types';
 // 维护表单控件， 提高form渲染性能
-const BaseForm = {
-  Text: props => {
+
+type TBaseForm = {
+  [key in baseFormUnionType]: any;
+};
+
+const BaseForm: TBaseForm = {
+  Text: (props: baseFormTextTpl & { onChange: (v: string | undefined) => void }) => {
     const { label, placeholder, onChange } = props;
     return (
       <Cell title={label}>
@@ -11,7 +25,7 @@ const BaseForm = {
       </Cell>
     );
   },
-  Textarea: props => {
+  Textarea: (props: baseFormTextAreaTpl & { onChange: (v: string | undefined) => void }) => {
     const { label, placeholder, onChange } = props;
     return (
       <Cell title={label}>
@@ -26,7 +40,7 @@ const BaseForm = {
       </Cell>
     );
   },
-  Number: props => {
+  Number: (props: baseFormNumberTpl & { onChange: (v: string | undefined | number) => void }) => {
     const { label, placeholder, onChange } = props;
     return (
       <Cell title={label}>
@@ -34,7 +48,7 @@ const BaseForm = {
       </Cell>
     );
   },
-  MyRadio: props => {
+  MyRadio: (props: baseFormMyRadioTpl & { onChange: (v: string | undefined | number) => void }) => {
     const { label, options, onChange } = props;
     return (
       <div className={styles.radioWrap}>
@@ -53,7 +67,7 @@ const BaseForm = {
       </div>
     );
   },
-  Date: props => {
+  Date: (props: baseFormDateTpl & { onChange: (v: Date) => void }) => {
     const { label, placeholder, onChange } = props;
     return (
       <Cell title={label}>
@@ -67,7 +81,9 @@ const BaseForm = {
       </Cell>
     );
   },
-  MySelect: props => {
+  MySelect: (
+    props: baseFormMySelectTpl & { onChange: ((v: Record<string, any>) => void) | undefined },
+  ) => {
     const { label, options, onChange } = props;
     return (
       <Cell title={label}>

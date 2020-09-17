@@ -1,9 +1,9 @@
-import { CarouselConfigType } from '@/components/DynamicEngine/schema';
 import React, { memo, PropsWithChildren } from 'react';
 import { Carousel } from 'zarm';
 import styles from './index.less';
+import { ICarouselConfig } from './schema';
 
-interface CarouselTypes extends CarouselConfigType {
+interface CarouselTypes extends ICarouselConfig {
   isTpl: boolean;
 }
 

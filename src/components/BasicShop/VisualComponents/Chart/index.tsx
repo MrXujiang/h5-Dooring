@@ -1,25 +1,16 @@
 import { Chart } from '@antv/f2';
-import React, { memo, PropsWithChildren, useEffect, useRef } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 // import { uuid } from 'utils/tool';
 import ChartImg from '@/assets/chart.png';
 
 import styles from './index.less';
+import { IChartConfig } from './schema';
 
-type DataItem = {
-  name: string;
-  value: number;
-};
-
-interface XChartProps {
+interface XChartProps extends IChartConfig {
   isTpl: boolean;
-  title: string;
-  color: string;
-  size: number;
-  paddingTop: number;
-  data: Array<DataItem>;
 }
 
-const XChart = (props: PropsWithChildren<XChartProps>) => {
+const XChart = (props: XChartProps) => {
   const { isTpl, data, color, size, paddingTop, title } = props;
   const chartRef = useRef(null);
   useEffect(() => {
@@ -44,7 +35,7 @@ const XChart = (props: PropsWithChildren<XChartProps>) => {
       // Step 4: 渲染图表
       chart.render();
     }
-  }, []);
+  }, [data, isTpl]);
   return (
     <div className={styles.chartWrap}>
       <div className={styles.chartTitle} style={{ color, fontSize: size, paddingTop }}>

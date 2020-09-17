@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import styles from './index.less';
 import React from 'react';
-import { HeaderConfigType } from '@/components/DynamicEngine/schema';
+import { IHeaderConfig } from './schema';
 
-const Header = memo((props: HeaderConfigType) => {
+const Header = memo((props: IHeaderConfig) => {
   const { bgColor, logo, logoText, fontSize, color } = props;
   return (
     <header className={styles.header} style={{ backgroundColor: bgColor }}>

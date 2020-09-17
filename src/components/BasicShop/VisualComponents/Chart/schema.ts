@@ -1,4 +1,31 @@
-const Chart = {
+import {
+  IColorConfigType,
+  INumberConfigType,
+  ITableConfigType,
+  ITextConfigType,
+  TColorDefaultType,
+  TNumberDefaultType,
+  TTableDefaultType,
+  TTextDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+
+export type TChartEditData = Array<
+  ITextConfigType | INumberConfigType | IColorConfigType | ITableConfigType
+>;
+export interface IChartConfig {
+  title: TTextDefaultType;
+  size: TNumberDefaultType;
+  color: TColorDefaultType;
+  paddingTop: TNumberDefaultType;
+  data: TTableDefaultType;
+}
+
+export interface IChartSchema {
+  editData: TChartEditData;
+  config: IChartConfig;
+}
+
+const Chart: IChartSchema = {
   editData: [
     {
       key: 'title',

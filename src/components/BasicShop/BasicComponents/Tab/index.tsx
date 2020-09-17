@@ -1,11 +1,11 @@
-import { TabConfigType } from '@/components/DynamicEngine/schema';
 import React, { useEffect, useRef } from 'react';
 import { Tabs } from 'zarm';
 import styles from './index.less';
+import { ITabConfig } from './schema';
 
 const { Panel } = Tabs;
 
-const XTab = (props: TabConfigType) => {
+const XTab = (props: ITabConfig) => {
   const { tabs = ['分类一', '分类二'], activeColor, color, fontSize, sourceData } = props;
 
   const tabWrapRef = useRef<HTMLDivElement>(null);

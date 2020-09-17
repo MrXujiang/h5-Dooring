@@ -1,4 +1,32 @@
-const XProgress = {
+import {
+  INumberConfigType,
+  IRadioConfigType,
+  ISelectConfigType,
+  TNumberDefaultType,
+  TRadioDefaultType,
+  TSelectDefaultType,
+} from '@/components/PanelComponents/FormEditor/types';
+export type TXProgressSelectKeyType = 'success' | 'warning' | 'danger';
+export type TXProgressRadiotKeyType = 'circle' | 'line' | 'semi-circle';
+export type TXProgressEditData = Array<
+  | ISelectConfigType<TXProgressSelectKeyType>
+  | IRadioConfigType<TXProgressRadiotKeyType>
+  | INumberConfigType
+>;
+export interface IXProgressConfig {
+  theme: TSelectDefaultType<TXProgressSelectKeyType>;
+  shape: TRadioDefaultType<TXProgressRadiotKeyType>;
+  size: TNumberDefaultType;
+  percent: TNumberDefaultType;
+  strokeWidth: TNumberDefaultType;
+}
+
+export interface IXProgressSchema {
+  editData: TXProgressEditData;
+  config: IXProgressConfig;
+}
+
+const XProgress: IXProgressSchema = {
   editData: [
     {
       key: 'theme',

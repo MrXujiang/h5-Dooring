@@ -1,20 +1,12 @@
-import React, { memo, useState, useEffect, useMemo, useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Button } from 'zarm';
 import BaseForm from './BaseForm';
-import req from 'utils/req';
 import styles from './index.less';
+import { IFormConfig } from './schema';
 
-function unParams(params = '?a=1&b=2&c=3') {
-  let obj = {};
-  params &&
-    params.replace(/((\w*)=([\.a-z0-9A-Z]*)?)?/g, (m, a, b, c) => {
-      if (b || c) obj[b] = c;
-    });
-  return obj;
-}
-const FormComponent = props => {
+const FormComponent = (props: IFormConfig) => {
   const { title, bgColor, fontSize, titColor, btnColor, btnTextColor, api, formControls } = props;
-  const formData = {};
+  const formData: Record<string, any> = {};
   const handleChange = useCallback(
     (item, v) => {
       if (item.options) {
