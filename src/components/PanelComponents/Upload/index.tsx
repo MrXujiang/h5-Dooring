@@ -4,9 +4,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import ImgCrop from 'antd-img-crop';
 import styles from './index.less';
 import { UploadFile, UploadChangeParam, RcFile } from 'antd/lib/upload/interface';
-
-const isDev = process.env.NODE_ENV === 'development';
-
+import { isDev } from '@/utils/tool';
 function getBase64(file: File | Blob) {
   return new Promise<string>((resolve, reject) => {
     const reader = new FileReader();

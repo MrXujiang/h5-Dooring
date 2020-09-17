@@ -8,6 +8,7 @@ import CardPicker from '../CardPicker';
 import Table from '../Table';
 import { Store } from 'antd/lib/form/interface';
 import { BasicRangeType, IconSchema } from '../../DynamicEngine/schema';
+import FormItems from '../FormItems';
 // import styles from './index.less';
 const normFile = (e: any) => {
   console.log('Upload event:', e);
@@ -51,7 +52,6 @@ const FormEditor = (props: FormEditorProps) => {
       form.resetFields();
     };
   }, [defaultValue]);
-
   return (
     <Form
       form={form}
@@ -145,6 +145,11 @@ const FormEditor = (props: FormEditorProps) => {
             {item.type === 'Table' && (
               <Form.Item label={item.name} name={item.key} valuePropName="data">
                 <Table data={item.data} />
+              </Form.Item>
+            )}
+            {item.type === 'FormItems' && (
+              <Form.Item label={item.name} name={item.key} valuePropName="formList">
+                <FormItems data={item.data} />
               </Form.Item>
             )}
           </React.Fragment>

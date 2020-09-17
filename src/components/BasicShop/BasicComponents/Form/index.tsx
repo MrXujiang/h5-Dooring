@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo, useState, useEffect, useMemo, useCallback } from 'react';
 import { Button } from 'zarm';
 import BaseForm from './BaseForm';
 import req from 'utils/req';
@@ -14,17 +14,17 @@ function unParams(params = '?a=1&b=2&c=3') {
 }
 const FormComponent = props => {
   const { title, bgColor, fontSize, titColor, btnColor, btnTextColor, api, formControls } = props;
-
   const formData = {};
-
-  const handleChange = (item, v) => {
-    if (item.options) {
-      formData[item.label] = v[0].label;
-      return;
-    }
-    formData[item.label] = v;
-  };
-
+  const handleChange = useCallback(
+    (item, v) => {
+      if (item.options) {
+        formData[item.label] = v[0].label;
+        return;
+      }
+      formData[item.label] = v;
+    },
+    [formData],
+  );
   const handleSubmit = () => {
     if (api) {
       fetch(api, {
@@ -38,7 +38,6 @@ const FormComponent = props => {
       });
     }
   };
-
   return (
     <div className={styles.formWrap} style={{ backgroundColor: bgColor }}>
       {title && (

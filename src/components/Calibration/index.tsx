@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 import styles from './index.less';
 
@@ -16,6 +16,45 @@ export default function Calibration(props: CalibrationTypes) {
   const [calibrationLength, setCalibration] = useState<calibrationTypes>({ width: 0, height: 0 });
   const calibrationRef = useRef<HTMLDivElement>(null);
 
+  const generateElement = useCallback(
+    (item?: boolean, num?: number) => {
+      if (calibrationRef.current) {
+        let createSpan = document.createElement('div');
+        createSpan.className = 'calibrationLine';
+        createSpan.style.backgroundColor = '#ccc';
+        calibrationRef.current.style.display = 'flex';
+        calibrationRef.current.style.justifyContent = 'space-between';
+        if (direction === 'up') {
+          calibrationRef.current.style.marginLeft = '50px';
+          createSpan.style.width = '1px';
+          createSpan.style.height = '6px';
+          createSpan.style.display = 'inline-block';
+        } else {
+          calibrationRef.current.style.flexDirection = 'column';
+          createSpan.style.height = '1px';
+          createSpan.style.width = '6px';
+        }
+        if (item) {
+          let createSpanContent = document.createElement('span');
+          if (direction === 'up') {
+            createSpan.style.height = '12px';
+            createSpanContent.style.transform = 'translate3d(-4px, 20px, 0px)';
+            createSpan.style.transform = 'translateY(0px)';
+          } else {
+            createSpan.style.width = '12px';
+            createSpanContent.style.paddingLeft = '20px';
+          }
+          createSpanContent.style.display = 'block';
+          createSpanContent.className = 'calibrationNumber';
+          createSpanContent.innerHTML = num! * 5 + '';
+          createSpan.appendChild(createSpanContent);
+        }
+        calibrationRef.current.appendChild(createSpan);
+      }
+    },
+    [direction],
+  );
+
   useEffect(() => {
     if (calibrationRef.current) {
       let calibration = calibrationRef.current.getBoundingClientRect();
@@ -29,43 +68,7 @@ export default function Calibration(props: CalibrationTypes) {
         }
       }
     }
-  }, [direction]);
-
-  const generateElement = (item?: boolean, num?: number) => {
-    if (calibrationRef.current) {
-      let createSpan = document.createElement('div');
-      createSpan.className = 'calibrationLine';
-      createSpan.style.backgroundColor = '#ccc';
-      calibrationRef.current.style.display = 'flex';
-      calibrationRef.current.style.justifyContent = 'space-between';
-      if (direction === 'up') {
-        calibrationRef.current.style.marginLeft = '50px';
-        createSpan.style.width = '1px';
-        createSpan.style.height = '6px';
-        createSpan.style.display = 'inline-block';
-      } else {
-        calibrationRef.current.style.flexDirection = 'column';
-        createSpan.style.height = '1px';
-        createSpan.style.width = '6px';
-      }
-      if (item) {
-        let createSpanContent = document.createElement('span');
-        if (direction === 'up') {
-          createSpan.style.height = '12px';
-          createSpanContent.style.transform = 'translate3d(-4px, 20px, 0px)';
-          createSpan.style.transform = 'translateY(0px)';
-        } else {
-          createSpan.style.width = '12px';
-          createSpanContent.style.paddingLeft = '20px';
-        }
-        createSpanContent.style.display = 'block';
-        createSpanContent.className = 'calibrationNumber';
-        createSpanContent.innerHTML = num! * 5 + '';
-        createSpan.appendChild(createSpanContent);
-      }
-      calibrationRef.current.appendChild(createSpan);
-    }
-  };
+  }, [direction, generateElement]);
 
   useEffect(() => {
     if (calibrationRef.current) {

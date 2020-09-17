@@ -1,7 +1,6 @@
 import React, { useMemo, memo } from 'react';
 import { useDrag } from 'react-dnd';
-import schema from 'components/DynamicEngine/schema';
-
+import schema from 'components/BasicShop/schema';
 import styles from './index.less';
 
 const TargetBox = memo(props => {
@@ -12,6 +11,7 @@ const TargetBox = memo(props => {
       config: schema[item.type].config,
       h: item.h,
       editableEl: schema[item.type].editData,
+      category: item.category,
     },
     collect: monitor => ({
       isDragging: monitor.isDragging(),

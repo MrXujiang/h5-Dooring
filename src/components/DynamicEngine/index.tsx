@@ -20,7 +20,6 @@ const DynamicFunc = (type: AllTemplateType, componentsType: componentsType) =>
         const { default: Graph } = await import(`@/components/BasicShop/VisualComponents/${type}`);
         Component = Graph;
       }
-
       return (props: DynamicType) => {
         const { config, isTpl } = props;
         return <Component {...config} isTpl={isTpl} />;
@@ -38,14 +37,16 @@ type DynamicType = {
   config: { [key: string]: any };
   type: AllTemplateType;
   componentsType: componentsType;
+  category: componentsType;
 };
 const DynamicEngine = memo((props: DynamicType) => {
-  const { type, config, isTpl, componentsType } = props;
+  const { type, config, category } = props;
   const Dynamic = useMemo(() => {
-    return (DynamicFunc(type, componentsType) as unknown) as FC<DynamicType>;
+    return (DynamicFunc(type, category) as unknown) as FC<DynamicType>;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type, config]);
-  return <Dynamic type={type} config={config} isTpl={isTpl} componentsType={componentsType} />;
+
+  return <Dynamic {...props} />;
 });
 
 export default DynamicEngine;

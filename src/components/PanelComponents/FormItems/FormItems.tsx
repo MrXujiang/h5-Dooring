@@ -1,5 +1,5 @@
 import React, { memo, useState, useEffect } from 'react';
-import BaseForm from './BaseForm';
+import BaseForm from '../../BasicShop/BasicComponents/Form/BaseForm';
 import EditorModal from './EditorModal';
 
 import { EditOutlined, MinusCircleOutlined } from '@ant-design/icons';
@@ -55,6 +55,7 @@ const formTpl = [
 
 const FormItems = props => {
   const { formList, onChange } = props;
+  console.log(props);
   const [formData, setFormData] = useState(formList || []);
   const [visible, setVisible] = useState(false);
   const [curItem, setCurItem] = useState();

@@ -134,13 +134,14 @@ class EditableTable extends React.Component<any, any> {
         render: (text: string, record) =>
           this.state.dataSource.length >= 1 ? (
             <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
-              <span>删除</span>
+              <Button type="link">删除</Button>
             </Popconfirm>
           ) : null,
       },
     ];
 
-    const dataSource = props.data.map((item: any, i: number) => ({ key: i + '', ...item }));
+    const dataSource =
+      props.data && props.data.map((item: any, i: number) => ({ key: i + '', ...item }));
 
     this.state = {
       dataSource: dataSource,

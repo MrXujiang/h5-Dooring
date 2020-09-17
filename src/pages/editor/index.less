@@ -1,30 +1,30 @@
-.layout{
+.layout {
   .editorWrap {
-    background-color: rgba(245,245,245,1);
+    background-color: rgba(245, 245, 245, 1);
   }
   .container {
     width: 100vw;
     // height: 100vh;
     display: flex;
-    .list{
+    .list {
       width: 350px;
       height: 100vh;
       padding: 10px 16px 16px;
-      box-shadow: 2px 0px 10px rgba(0,0,0,0.2);
+      box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
       display: inline-block;
       background-color: #fff;
       overflow: scroll;
       .searchBar {
         margin-bottom: 20px;
       }
-      .module{
+      .module {
         position: relative;
         margin-bottom: 12px;
         width: 100%;
         overflow: hidden;
         user-select: none;
         border: 2px solid transparent;
-        transition: border .3s;
+        transition: border 0.3s;
         &:hover {
           border: 2px solid #06c;
         }
@@ -39,7 +39,7 @@
         }
       }
     }
-    .tickMark{
+    .tickMark {
       width: calc(100% - 750px);
       overflow: hidden;
       height: 100vh;
@@ -58,7 +58,7 @@
         bottom: 0;
         left: 0;
       }
-      .canvasBox{
+      .canvasBox {
         width: 375px;
         min-height: 664px;
         height: 664px;
@@ -66,18 +66,18 @@
         left: 50%;
         margin-left: -200px;
         top: 80px;
-        .canvas{
+        .canvas {
           position: relative;
           width: 375px;
           min-height: 664px;
           background-color: #fff;
-          box-shadow: 2px 0px 10px rgba(0,0,0,0.2);
+          box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
           position: absolute;
           left: 0;
           top: 0;
           transition: transform 300ms ease-out;
           .dragItem {
-            display: inline-block; 
+            display: inline-block;
             position: absolute;
             z-index: 2;
             border: 2px solid transparent;
@@ -104,7 +104,7 @@
         }
         .sliderBtn {
           cursor: pointer;
-          user-select:none;
+          user-select: none;
         }
         span {
           margin: 0 12px;
@@ -122,9 +122,10 @@
     .attrSetting {
       width: 400px;
       padding: 20px 0 20px 20px;
-      background:#fff;
+      background: #fff;
       height: 100vh;
-      box-shadow:-2px 0px 4px 0px rgba(0,0,0,0.1);
+      box-shadow: -2px 0px 4px 0px rgba(0, 0, 0, 0.1);
+      overflow: scroll;
       .tit {
         margin-bottom: 16px;
         font-size: 18px;
@@ -135,7 +136,7 @@
         .posItem {
           margin-bottom: 12px;
           font-size: 14px;
-          color: rgba(0,0,0, .5);
+          color: rgba(0, 0, 0, 0.5);
           .posTit {
             margin-right: 50px;
           }
@@ -144,7 +145,7 @@
             color: #000;
             &::before {
               content: attr(data-flag);
-              color: rgba(0,0,0,.4);
+              color: rgba(0, 0, 0, 0.4);
               margin-right: 8px;
             }
           }
@@ -159,7 +160,7 @@
             .iptLabel {
               width: 108px;
               flex-shrink: 0;
-              color: rgba(0,0,0,.5);
+              color: rgba(0, 0, 0, 0.5);
             }
             .cpSelector {
               img {
@@ -190,8 +191,3 @@
     }
   }
 }
-
-
-
-
-

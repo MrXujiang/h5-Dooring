@@ -14,10 +14,10 @@ import TargetBox from './TargetBox';
 import Calibration from 'components/Calibration';
 import DynamicEngine from 'components/DynamicEngine';
 import FormEditor from 'components/PanelComponents/FormEditor';
-import template from 'components/DynamicEngine/template';
-import mediaTpl from 'components/DynamicEngine/mediaTpl';
-import graphTpl from 'components/DynamicEngine/graphTpl';
-import schema from 'components/DynamicEngine/schema';
+import template from 'components/BasicShop/BasicComponents/template';
+import mediaTpl from 'components/BasicShop/MediaComponents/template';
+import graphTpl from 'components/BasicShop/VisualComponents/template';
+import schema from 'components/BasicShop/schema';
 import { ActionCreators } from 'redux-undo';
 
 import styles from './index.less';
@@ -63,7 +63,6 @@ const Container = props => {
       setScale(prev => (prev <= 0.5 ? 0.5 : prev - 0.1));
     }
   };
-
   const handleFormSave = data => {
     dispatch({
       type: 'editorModal/modPointData',
@@ -90,7 +89,7 @@ const Container = props => {
   useEffect(() => {
     if (window.innerWidth < 1024) {
       props.history.push('/mobileTip');
-    }
+    } //待修改
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -135,16 +134,18 @@ const Container = props => {
           <div className={styles.componentList}>
             <Tabs defaultActiveKey="1">
               <TabPane tab={generateHeader('base', '基础组件')} key="1">
-                {template.map((value, i) => (
-                  <TargetBox item={value} key={i} canvasId={canvasId}>
-                    <DynamicEngine
-                      {...value}
-                      config={schema[value.type].config}
-                      componentsType="base"
-                      isTpl={true}
-                    />
-                  </TargetBox>
-                ))}
+                {template.map((value, i) => {
+                  return (
+                    <TargetBox item={value} key={i} canvasId={canvasId}>
+                      <DynamicEngine
+                        {...value}
+                        config={schema[value.type].config}
+                        componentsType="base"
+                        isTpl={true}
+                      />
+                    </TargetBox>
+                  );
+                })}
               </TabPane>
               <TabPane tab={generateHeader('media', '媒体组件')} key="2">
                 {mediaTpl.map((value, i) => (

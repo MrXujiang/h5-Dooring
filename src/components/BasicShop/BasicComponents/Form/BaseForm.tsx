@@ -30,14 +30,7 @@ const BaseForm = {
     const { label, placeholder, onChange } = props;
     return (
       <Cell title={label}>
-        <Input
-          type="number"
-          rows={3}
-          autoHeight
-          showLength
-          placeholder={placeholder}
-          onChange={onChange}
-        />
+        <Input type="number" placeholder={placeholder} onChange={onChange} />
       </Cell>
     );
   },

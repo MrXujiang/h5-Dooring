@@ -18,7 +18,6 @@ const XCarousel = memo((props: PropsWithChildren<CarouselTypes>) => {
       );
     });
   };
-
   return (
     <div style={{ width: '100%', overflow: 'hidden' }}>
       {isTpl ? (

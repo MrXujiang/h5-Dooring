@@ -79,7 +79,6 @@ const SourceBox = memo(props => {
       window.clearTimeout(timer);
     };
   }, []);
-
   const opacity = isOver ? 0.7 : 1;
   const backgroundColor = isOver ? 1 : 0.7;
   return (

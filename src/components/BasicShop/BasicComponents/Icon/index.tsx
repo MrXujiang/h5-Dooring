@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import * as Icon from '@ant-design/icons';
 import IconImg from 'assets/icon.png';
 import { AntdIconProps } from '@ant-design/icons/lib/components/AntdIcon';
-import { IconConfigType } from '../DynamicEngine/schema';
+import { IconConfigType } from '../../../DynamicEngine/schema';
 import { AntdIconType } from './icon';
 
 interface IconType extends Omit<IconConfigType, 'spin' | 'color'> {

@@ -2,9 +2,10 @@ import React, { memo } from 'react';
 import { Button, Popover } from 'antd';
 import styles from './index.less';
 
+///这组件写的有问题  popover会重定位
 const content = (
   <div className={styles.imgWrap}>
-    <img src="http://io.nainor.com/uploads/WechatIMG2_1742b586c3d.jpeg" />
+    <img src="http://io.nainor.com/uploads/WechatIMG2_1742b586c3d.jpeg" alt="sponsorship" />
   </div>
 );
 
