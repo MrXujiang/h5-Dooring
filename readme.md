@@ -141,4 +141,4 @@ yarn run start
 <img src="http://io.nainor.com/uploads/code_1741c445027.png" width="180px" />
 
 ## 技术交流群
-<img src="http://io.nainor.com/uploads/qun_1745d823bb8.png" width="180px" />
+<img src="http://io.nainor.com/uploads/i_1749a2713f0.png" width="180px" />
