@@ -2,11 +2,11 @@ import { dynamic } from 'umi';
 import Loading from '../LoadingCp';
 import { useMemo, memo, FC } from 'react';
 import React from 'react';
-import { AllTemplateType } from './schema';
+// import { AllTemplateType } from './schema';
 
 export type componentsType = 'media' | 'base' | 'visible';
 
-const DynamicFunc = (type: AllTemplateType, componentsType: componentsType) =>
+const DynamicFunc = (type: any, componentsType: componentsType) =>
   dynamic({
     loader: async function() {
       let Component: FC<{ isTpl: boolean }>;
@@ -35,7 +35,7 @@ const DynamicFunc = (type: AllTemplateType, componentsType: componentsType) =>
 type DynamicType = {
   isTpl: boolean;
   config: { [key: string]: any };
-  type: AllTemplateType;
+  type: any;
   componentsType: componentsType;
   category: componentsType;
 };
