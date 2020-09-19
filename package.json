@@ -76,6 +76,7 @@
     "socket.io-client": "^2.3.0",
     "umi": "^3.2.19",
     "video-react": "^0.14.1",
+    "xlsx": "^0.16.7",
     "yorkie": "^2.0.0",
     "zarm": "^2.5.1"
   },

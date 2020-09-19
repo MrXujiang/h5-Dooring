@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect, useRef, memo, RefObject } from 'react';
-import { Table, Input, Button, Popconfirm, Form, Modal } from 'antd';
+import { Table, Input, Button, Popconfirm, Form, Modal, Upload } from 'antd';
+import { ColumnsType } from 'antd/lib/table';
+import XLSX from 'xlsx';
 // 下方样式主要为全局样式，暂时不可删
 import styles from './index.less';
-import { ColumnsType } from 'antd/lib/table';
 
 const EditableContext = React.createContext<any>(null);
 
@@ -227,6 +228,45 @@ class EditableTable extends React.Component<any, any> {
         }),
       };
     });
+    const _this = this;
+    const props = {
+      name: 'file',
+      // action: '',
+      showUploadList: false,
+      beforeUpload(file: File, fileList: Array<File>) {
+        // 解析并提取excel数据
+        let reader = new FileReader();
+        reader.onload = function(e: any) {
+          let data = e.target.result;
+          let workbook = XLSX.read(data, { type: 'binary' });
+          let sheetNames = workbook.SheetNames; // 工作表名称集合
+          let draftArr: any = {};
+          sheetNames.forEach(name => {
+            let worksheet = workbook.Sheets[name]; // 只能通过工作表名称来获取指定工作表
+            for (let key in worksheet) {
+              // v是读取单元格的原始值
+              if (key[0] !== '!') {
+                if (draftArr[key[0]]) {
+                  draftArr[key[0]].push(worksheet[key].v);
+                } else {
+                  draftArr[key[0]] = [worksheet[key].v];
+                }
+              }
+            }
+          });
+          let sourceData = Object.values(draftArr).map((item: any, i) => ({
+            key: i + '',
+            name: item[0],
+            value: item[1],
+          }));
+          _this.setState({
+            dataSource: sourceData,
+          });
+          _this.props.onChange && _this.props.onChange(sourceData);
+        };
+        reader.readAsBinaryString(file);
+      },
+    };
     return (
       <div>
         <Button type="primary" onClick={this.showModal}>
@@ -240,12 +280,18 @@ class EditableTable extends React.Component<any, any> {
           okText="确定"
           cancelText="取消"
         >
-          <Button onClick={this.handleAdd} type="primary" style={{ marginBottom: 16 }}>
+          <Button
+            onClick={this.handleAdd}
+            type="primary"
+            style={{ marginBottom: 16, marginRight: 16 }}
+          >
             添加行
           </Button>
-          <Button onClick={this.handleAdd} type="primary" ghost>
-            导入Excel
-          </Button>
+          <Upload {...props}>
+            <Button type="primary" ghost>
+              导入Excel
+            </Button>
+          </Upload>
           <Table
             components={components}
             rowClassName={() => 'editable-row'}
