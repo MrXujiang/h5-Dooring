@@ -193,13 +193,7 @@ const HeaderComponent = memo(props => {
         >
           <UndoOutlined />
         </Button>
-        <Button
-          type="link"
-          style={{ marginRight: '9px' }}
-          title="重做"
-          onClick={redohandler}
-          disabled={!pointData.length}
-        >
+        <Button type="link" style={{ marginRight: '9px' }} title="重做" onClick={redohandler}>
           <RedoOutlined />
         </Button>
         <Button type="link" onClick={toPreview} disabled={!pointData.length}>

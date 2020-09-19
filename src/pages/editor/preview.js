@@ -4,9 +4,6 @@ import DynamicEngine from 'components/DynamicEngine';
 import req from '@/utils/req';
 import styles from './index.less';
 
-// 可视化组件类型
-// const componentTypes = ['Column', 'Pie']
-
 const isMac = navigator.platform.indexOf('Mac') === 0;
 
 const pcStyle = {

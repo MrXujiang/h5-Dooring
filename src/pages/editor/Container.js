@@ -124,8 +124,7 @@ const Container = props => {
               message={
                 <TextLoop mask>
                   <div>Dooring升级啦！</div>
-                  <div>Dooring添加自动保存功能</div>
-                  <div>已有500+人使用</div>
+                  <div>已有1000+人使用</div>
                   <div>持续迭代中...</div>
                 </TextLoop>
               }

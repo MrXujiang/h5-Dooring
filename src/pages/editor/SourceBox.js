@@ -7,6 +7,7 @@ import { connect } from 'dva';
 import DynamicEngine from 'components/DynamicEngine';
 import styles from './index.less';
 import { uuid } from '@/utils/tool';
+
 const SourceBox = memo(props => {
   const { pstate, scaleNum, canvasId, allType, dispatch } = props;
 
@@ -123,7 +124,7 @@ const SourceBox = memo(props => {
                 className={styles.layout}
                 cols={24}
                 rowHeight={2}
-                width={canvasRect[0]}
+                width={canvasRect[0] || 0}
                 margin={[0, 0]}
                 onDragStop={dragStop}
                 onDragStart={onDragStart}

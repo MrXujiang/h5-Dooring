@@ -4,6 +4,7 @@ import EditorModal from './EditorModal';
 import { EditOutlined, MinusCircleOutlined } from '@ant-design/icons';
 import styles from './formItems.less';
 import { baseFormUnion, TFormItemsDefaultType } from '../FormEditor/types';
+import { uuid } from '@/utils/tool';
 
 // import { Popconfirm } from 'antd';
 
@@ -67,7 +68,7 @@ const FormItems = (props: FormItemsProps) => {
 
   const handleAddItem = (item: baseFormUnion) => {
     let tpl = formTpl.find(v => v.type === item.type);
-    let newData = [...formData, tpl!];
+    let newData = [...formData, { ...tpl!, id: uuid(6, 10) }];
     setFormData(newData);
     onChange && onChange(newData);
   };

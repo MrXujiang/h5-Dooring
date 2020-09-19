@@ -26,6 +26,12 @@ body {
   border-color: #2F54EB !important;
 }
 
+.ant-btn-link[disabled], .ant-btn-link[disabled]:active, .ant-btn-link[disabled]:focus, .ant-btn-link[disabled]:hover {
+  color: rgba(0,0,0,.25) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
 @import '~react-grid-layout/css/styles.css'; 
 @import '~react-resizable/css/styles.css';
 @import '~zarm/dist/zarm.min.css';
