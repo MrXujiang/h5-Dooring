@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, useRef, memo, RefObject } from 'react';
 import { Table, Input, Button, Popconfirm, Form, Modal, Upload } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
+import { uuid } from '@/utils/tool';
 import XLSX from 'xlsx';
 // 下方样式主要为全局样式，暂时不可删
 import styles from './index.less';
@@ -146,7 +147,6 @@ class EditableTable extends React.Component<any, any> {
 
     this.state = {
       dataSource: dataSource,
-      count: 2,
       visible: false,
     };
   }
@@ -159,16 +159,16 @@ class EditableTable extends React.Component<any, any> {
   };
 
   handleAdd = () => {
-    const { count, dataSource } = this.state;
+    const { dataSource } = this.state;
+    const uid = uuid(8, 10);
     const newData = {
-      key: count,
-      name: `dooring ${count}`,
+      key: uid,
+      name: `dooring ${dataSource.length + 1}`,
       value: 32,
     };
     const newDataSource = [...dataSource, newData];
     this.setState({
       dataSource: newDataSource,
-      count: count + 1,
     });
     this.props.onChange && this.props.onChange(newDataSource);
   };
