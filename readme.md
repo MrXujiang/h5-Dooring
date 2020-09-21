@@ -95,6 +95,7 @@ FileSaver.saveAs(blob, "hello world.txt");
 10. 表单设计器/自定义表单组件
 11. 可视化组件Chart实现
 12. 在线编程模块(Mini Web IDE)
+13. 新增图表组件 面积图，折线图， 饼图
 
 ## 正在完成功能
 * 升级模版库
