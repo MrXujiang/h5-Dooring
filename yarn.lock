@@ -2217,6 +2217,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-grid-layout@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@types/react-grid-layout/-/react-grid-layout-1.1.0.tgz#6592d391d64b9efebd5588a6a8fbbb9040c30998"
+  integrity sha512-lnt4YEXRHWimtbrghVSq+Ug7ByQl9cROM/xJewjLNeuqrT4tnKGe4tXX/3+/xYANG96L57F4+G0qf8jCgvDxWA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-helmet@^6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-6.1.0.tgz#af586ed685f4905e2adc7462d1d65ace52beee7a"
