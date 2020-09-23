@@ -1,7 +1,6 @@
 import React, { FC, memo, useEffect } from 'react';
 import { Form, Select, Input, Modal } from 'antd';
-import { baseFormOptionsType, baseFormUnion } from '../FormEditor/types';
-import { Store } from 'antd/lib/form/interface';
+import { baseFormOptionsType } from '../FormEditor/types';
 
 const { Option } = Select;
 

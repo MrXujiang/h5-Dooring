@@ -8,11 +8,12 @@ import {
   TNumberDefaultType,
   TTextDefaultType,
 } from '@/components/PanelComponents/FormEditor/types';
+import { baseConfig, baseDefault, ICommonBaseType } from '../../common';
 
 export type TFormEditData = Array<
   ITextConfigType | INumberConfigType | IColorConfigType | ITextConfigType | IFormItemsConfigType
 >;
-export interface IFormConfig {
+export interface IFormConfig extends ICommonBaseType {
   title: TTextDefaultType;
   fontSize: TNumberDefaultType;
   titColor: TColorDefaultType;
@@ -30,6 +31,7 @@ export interface IFormSchema {
 
 const Form: IFormSchema = {
   editData: [
+    ...baseConfig,
     {
       key: 'title',
       name: '标题',
@@ -103,6 +105,7 @@ const Form: IFormSchema = {
         ],
       },
     ],
+    ...baseDefault,
   },
 };
 export default Form;

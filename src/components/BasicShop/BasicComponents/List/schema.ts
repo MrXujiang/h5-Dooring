@@ -8,11 +8,12 @@ import {
   TNumberDefaultType,
   TSelectDefaultType,
 } from '@/components/PanelComponents/FormEditor/types';
+import { baseConfig, baseDefault, ICommonBaseType } from '../../common';
 export type TListSelectKeyType = '60' | '80' | '100' | '120' | '150';
 export type TListEditData = Array<
   IColorConfigType | IDataListConfigType | INumberConfigType | ISelectConfigType<TListSelectKeyType>
 >;
-export interface IListConfig {
+export interface IListConfig extends ICommonBaseType {
   sourceData: TDataListDefaultType;
   round: TNumberDefaultType;
   imgSize: TSelectDefaultType<TListSelectKeyType>;
@@ -27,6 +28,7 @@ export interface IListSchema {
 
 const List: IListSchema = {
   editData: [
+    ...baseConfig,
     {
       key: 'sourceData',
       name: '数据源',
@@ -110,6 +112,7 @@ const List: IListSchema = {
     imgSize: '80',
     fontSize: 16,
     color: 'rgba(153,153,153,1)',
+    ...baseDefault,
   },
 };
 

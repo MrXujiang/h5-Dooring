@@ -58,7 +58,6 @@ export function useGetScrollBarWidth(ref: RefObject<HTMLElement>) {
   useLayoutEffect(() => {
     if (ref.current) {
       const diff = ref.current.offsetWidth - ref.current.clientWidth;
-      console.log(diff);
       setWidth(diff);
     }
   }, [ref]);

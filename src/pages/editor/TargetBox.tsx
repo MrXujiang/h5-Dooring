@@ -1,16 +1,22 @@
-import React, { useMemo, memo } from 'react';
+import React, { useMemo, memo, ReactNode } from 'react';
 import { useDrag } from 'react-dnd';
 import schema from 'components/BasicShop/schema';
 import styles from './index.less';
 
-const TargetBox = memo(props => {
+interface TargetBoxProps {
+  item: any;
+  children: ReactNode;
+  canvasId: string;
+}
+
+const TargetBox = memo((props: TargetBoxProps) => {
   const { item } = props;
   const [{ isDragging }, drag] = useDrag({
     item: {
       type: item.type,
-      config: schema[item.type].config,
+      config: schema[item.type as keyof typeof schema].config,
       h: item.h,
-      editableEl: schema[item.type].editData,
+      editableEl: schema[item.type as keyof typeof schema].editData,
       category: item.category,
     },
     collect: monitor => ({

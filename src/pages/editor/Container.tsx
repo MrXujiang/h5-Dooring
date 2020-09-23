@@ -12,23 +12,23 @@ import HeaderComponent from './components/Header';
 import SourceBox from './SourceBox';
 import TargetBox from './TargetBox';
 import Calibration from 'components/Calibration';
-import DynamicEngine from 'components/DynamicEngine';
+import DynamicEngine, { componentsType } from 'components/DynamicEngine';
 import FormEditor from 'components/PanelComponents/FormEditor';
 import template from 'components/BasicShop/BasicComponents/template';
 import mediaTpl from 'components/BasicShop/MediaComponents/template';
 import graphTpl from 'components/BasicShop/VisualComponents/template';
 import schema from 'components/BasicShop/schema';
 import { ActionCreators } from 'redux-undo';
-
+import { StateWithHistory } from 'redux-undo';
 import styles from './index.less';
 
 const { TabPane } = Tabs;
 
-const Container = props => {
+const Container = (props: { history?: any; location?: any; pstate?: any; dispatch?: any }) => {
   const [scaleNum, setScale] = useState(1);
 
   const { pstate, dispatch } = props;
-
+  console.log(props);
   const pointData = pstate ? pstate.pointData : {};
   const curPoint = pstate ? pstate.curPoint : {};
   // 指定画布的id
@@ -44,7 +44,7 @@ const Container = props => {
     visible: <PieChartOutlined />,
   };
 
-  const generateHeader = (type, text) => {
+  const generateHeader = (type: componentsType, text: string) => {
     return (
       <div>
         {CpIcon[type]} {text}
@@ -52,18 +52,18 @@ const Container = props => {
     );
   };
 
-  const handleSliderChange = v => {
+  const handleSliderChange = (v: number) => {
     setScale(prev => (v >= 150 ? 1.5 : v / 100));
   };
 
-  const handleSlider = type => {
+  const handleSlider = (type: any) => {
     if (type) {
       setScale(prev => (prev >= 1.5 ? 1.5 : prev + 0.1));
     } else {
       setScale(prev => (prev <= 0.5 ? 0.5 : prev - 0.1));
     }
   };
-  const handleFormSave = data => {
+  const handleFormSave = (data: any) => {
     dispatch({
       type: 'editorModal/modPointData',
       payload: { ...curPoint, item: { ...curPoint.item, config: data } },
@@ -74,7 +74,7 @@ const Container = props => {
     dispatch({ type: 'editorModal/clearAll' });
   };
 
-  const handleDel = id => {
+  const handleDel = (id: any) => {
     dispatch({
       type: 'editorModal/delPointData',
       payload: { id },
@@ -94,7 +94,7 @@ const Container = props => {
   }, []);
 
   const allType = useMemo(() => {
-    let arr = [];
+    let arr: string[] = [];
     template.forEach(v => {
       arr.push(v.type);
     });
@@ -138,7 +138,7 @@ const Container = props => {
                     <TargetBox item={value} key={i} canvasId={canvasId}>
                       <DynamicEngine
                         {...value}
-                        config={schema[value.type].config}
+                        config={schema[value.type as keyof typeof schema].config}
                         componentsType="base"
                         isTpl={true}
                       />
@@ -151,7 +151,7 @@ const Container = props => {
                   <TargetBox item={value} key={i} canvasId={canvasId}>
                     <DynamicEngine
                       {...value}
-                      config={schema[value.type].config}
+                      config={schema[value.type as keyof typeof schema].config}
                       componentsType="media"
                       isTpl={true}
                     />
@@ -163,8 +163,8 @@ const Container = props => {
                   <TargetBox item={value} key={i} canvasId={canvasId}>
                     <DynamicEngine
                       {...value}
-                      config={schema[value.type].config}
-                      componentsType="visible"
+                      config={schema[value.type as keyof typeof schema].config}
+                      componentsType={'visible' as componentsType}
                       isTpl={true}
                     />
                   </TargetBox>
@@ -229,6 +229,6 @@ const Container = props => {
   );
 };
 
-export default connect(state => {
+export default connect((state: StateWithHistory<any>) => {
   return { pstate: state.present.editorModal };
 })(Container);

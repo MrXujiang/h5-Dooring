@@ -38,3 +38,7 @@ body {
 
 @import '~codemirror/lib/codemirror.css';
 @import '~codemirror/theme/material.css';
+
+.react-grid-item{
+  overflow: hidden;
+}

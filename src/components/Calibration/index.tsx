@@ -7,8 +7,9 @@ export interface calibrationTypes {
   height: number;
 }
 export type CalibrationTypes = {
-  direction: 'up' | 'left';
+  direction: 'up' | 'left' | 'right';
   multiple: number;
+  id: string;
 };
 
 export default function Calibration(props: CalibrationTypes) {

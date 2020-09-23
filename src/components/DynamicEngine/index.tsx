@@ -6,7 +6,7 @@ import React from 'react';
 
 export type componentsType = 'media' | 'base' | 'visible';
 
-const DynamicFunc = (type: any, componentsType: componentsType) =>
+const DynamicFunc = (type: any, componentsType: string) =>
   dynamic({
     loader: async function() {
       let Component: FC<{ isTpl: boolean }>;
@@ -37,7 +37,7 @@ type DynamicType = {
   config: { [key: string]: any };
   type: any;
   componentsType: componentsType;
-  category: componentsType;
+  category: string;
 };
 const DynamicEngine = memo((props: DynamicType) => {
   const { type, config, category } = props;

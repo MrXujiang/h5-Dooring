@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useMemo } from 'react';
 import { Form, Select, InputNumber, Input, Switch, Radio, Button } from 'antd';
 import Upload from '../Upload';
 import DataList from '../DataList';
@@ -36,7 +36,6 @@ interface FormEditorProps {
 
 const FormEditor = (props: FormEditorProps) => {
   const { config, defaultValue, onSave, onDel, uid } = props;
-  console.log(defaultValue, config);
   const onFinish = (values: Store) => {
     onSave && onSave(values);
   };
@@ -65,7 +64,7 @@ const FormEditor = (props: FormEditorProps) => {
           <React.Fragment key={i}>
             {item.type === 'Number' && (
               <Form.Item label={item.name} name={item.key}>
-                <InputNumber min={1} max={item.range && item.range[1]} />
+                <InputNumber max={item.range && item.range[1]} />
               </Form.Item>
             )}
             {item.type === 'Text' && (

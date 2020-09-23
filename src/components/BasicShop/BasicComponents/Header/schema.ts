@@ -8,11 +8,12 @@ import {
   TTextDefaultType,
   TUploadDefaultType,
 } from '@/components/PanelComponents/FormEditor/types';
+import { baseConfig, baseDefault, ICommonBaseType } from '../../common';
 
 export type THeaderEditData = Array<
   IColorConfigType | INumberConfigType | IUploadConfigType | ITextConfigType
 >;
-export interface IHeaderConfig {
+export interface IHeaderConfig extends ICommonBaseType {
   bgColor: TColorDefaultType;
   logo: TUploadDefaultType;
   logoText: TTextDefaultType;
@@ -28,6 +29,7 @@ export interface IHeaderSchema {
 
 const Header: IHeaderSchema = {
   editData: [
+    ...baseConfig,
     {
       key: 'bgColor',
       name: '背景色',
@@ -75,6 +77,7 @@ const Header: IHeaderSchema = {
     fontSize: 20,
     color: 'rgba(255,255,255,1)',
     height: 50,
+    ...baseDefault,
   },
 };
 

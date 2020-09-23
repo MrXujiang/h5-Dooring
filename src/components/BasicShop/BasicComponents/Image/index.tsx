@@ -3,7 +3,15 @@ import { IImageConfig } from './schema';
 const Image = memo((props: IImageConfig) => {
   const { imgUrl, round = 0 } = props;
   return (
-    <div style={{ borderRadius: round, width: '100%', textAlign: 'center', overflow: 'hidden' }}>
+    <div
+      style={{
+        borderRadius: round,
+        width: '100%',
+        textAlign: 'center',
+        overflow: 'hidden',
+        position: 'absolute',
+      }}
+    >
       <img src={imgUrl && imgUrl[0].url} alt="" style={{ width: '100%' }} />
     </div>
   );

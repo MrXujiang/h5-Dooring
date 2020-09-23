@@ -1,18 +1,23 @@
 import {
   IDataListConfigType,
+  INumberConfigType,
   IRadioConfigType,
   ISwitchConfigType,
   TDataListDefaultType,
   TRadioDefaultType,
   TSwitchDefaultType,
 } from '@/components/PanelComponents/FormEditor/types';
+import { baseConfig, baseDefault, ICommonBaseType } from '../../common';
 
 export type CarouselDirectionKeyType = 'down' | 'left';
 
 export type TCarouselEditData = Array<
-  IRadioConfigType<CarouselDirectionKeyType> | ISwitchConfigType | IDataListConfigType
+  | INumberConfigType
+  | IRadioConfigType<CarouselDirectionKeyType>
+  | ISwitchConfigType
+  | IDataListConfigType
 >;
-export interface ICarouselConfig {
+export interface ICarouselConfig extends ICommonBaseType {
   direction: TRadioDefaultType<CarouselDirectionKeyType>;
   swipeable: TSwitchDefaultType;
   autoPlay: TSwitchDefaultType;
@@ -27,6 +32,8 @@ export interface ICarouselSchema {
 
 const Carousel: ICarouselSchema = {
   editData: [
+    ...baseConfig,
+
     {
       key: 'direction',
       name: '方向',
@@ -92,6 +99,7 @@ const Carousel: ICarouselSchema = {
         ],
       },
     ],
+    ...baseDefault,
     tplImg: 'http://io.nainor.com/uploads/carousal_17442e1420f.png',
   },
 };

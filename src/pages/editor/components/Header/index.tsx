@@ -22,9 +22,17 @@ const { confirm } = Modal;
 
 const isDev = process.env.NODE_ENV === 'development';
 
-const HeaderComponent = memo(props => {
+interface HeaderComponentProps {
+  pointData: any;
+  location: any;
+  clearData: any;
+  undohandler: any;
+  redohandler: any;
+}
+
+const HeaderComponent = memo((props: HeaderComponentProps) => {
   const { pointData, location, clearData, undohandler, redohandler } = props;
-  const iptRef = useRef(null);
+  const iptRef = useRef<Input>(null);
 
   const toPreview = () => {
     localStorage.setItem('pointData', JSON.stringify(pointData));
@@ -65,7 +73,7 @@ const HeaderComponent = memo(props => {
       okText: '保存',
       cancelText: '取消',
       onOk() {
-        let name = iptRef.current.state.value;
+        let name = iptRef.current!.state.value;
         req.post('/visible/tpl/save', { name, tpl: pointData }).then(res => {
           console.log(res);
         });

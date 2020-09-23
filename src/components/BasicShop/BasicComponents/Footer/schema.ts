@@ -8,13 +8,14 @@ import {
   TSelectDefaultType,
   TTextDefaultType,
 } from '@/components/PanelComponents/FormEditor/types';
+import { baseConfig, baseDefault, ICommonBaseType } from '../../common';
 
 export type TfooterSelectKeyType = 'left' | 'center' | 'right';
 
 export type TFooterEditData = Array<
   IColorConfigType | INumberConfigType | ITextConfigType | ISelectConfigType<TfooterSelectKeyType>
 >;
-export interface IFooterConfig {
+export interface IFooterConfig extends ICommonBaseType {
   bgColor: TColorDefaultType;
   text: TTextDefaultType;
   color: TColorDefaultType;
@@ -30,6 +31,7 @@ export interface IFooterSchema {
 
 const Footer: IFooterSchema = {
   editData: [
+    ...baseConfig,
     {
       key: 'bgColor',
       name: '背景色',
@@ -82,6 +84,7 @@ const Footer: IFooterSchema = {
     align: 'center',
     fontSize: 16,
     height: 48,
+    ...baseDefault,
   },
 };
 export default Footer;

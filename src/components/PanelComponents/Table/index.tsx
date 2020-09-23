@@ -265,6 +265,7 @@ class EditableTable extends React.Component<any, any> {
           _this.props.onChange && _this.props.onChange(sourceData);
         };
         reader.readAsBinaryString(file);
+        return true;
       },
     };
     return (
