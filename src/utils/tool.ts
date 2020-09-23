@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { RefObject, useEffect, useLayoutEffect, useState } from 'react';
 import { RGBColor } from 'react-color';
 
 // 生成uuid
@@ -51,4 +51,16 @@ export function useGetRect() {
     });
   }, []);
   return rect;
+}
+
+export function useGetScrollBarWidth(ref: RefObject<HTMLElement>) {
+  const [width, setWidth] = useState(0);
+  useLayoutEffect(() => {
+    if (ref.current) {
+      const diff = ref.current.offsetWidth - ref.current.clientWidth;
+      console.log(diff);
+      setWidth(diff);
+    }
+  }, [ref]);
+  return width;
 }
