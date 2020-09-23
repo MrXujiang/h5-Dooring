@@ -6,5 +6,39 @@ body {
   margin: 0;
 }
 
+:root {
+  --sk-size: 40px;
+  --sk-color: #06c;
+}
+
+.ant-btn-primary {
+  color: #fff;
+  background: #2F54EB !important;
+  border-color: #2F54EB !important;
+}
+
+.ant-btn.ant-btn-link {
+  color: #2F54EB !important;
+}
+
+.ant-btn-background-ghost.ant-btn-primary {
+  color: #2F54EB !important;
+  border-color: #2F54EB !important;
+}
+
+.ant-btn-link[disabled], .ant-btn-link[disabled]:active, .ant-btn-link[disabled]:focus, .ant-btn-link[disabled]:hover {
+  color: rgba(0,0,0,.25) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
 @import '~react-grid-layout/css/styles.css'; 
 @import '~react-resizable/css/styles.css';
+@import '~zarm/dist/zarm.min.css';
+
+@import '~codemirror/lib/codemirror.css';
+@import '~codemirror/theme/material.css';
+
+.react-grid-item{
+  overflow: hidden;
+}

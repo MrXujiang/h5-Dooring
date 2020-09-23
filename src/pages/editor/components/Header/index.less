@@ -1,42 +1,37 @@
 .header {
-    position: relative;
-    z-index: 10;
-    padding-left: 30px;
-    padding-right: 30px;
-    display: flex;
-    align-items: center;
-    height: 80px;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    .logoArea {
-      width: 300px;
-      .backBtn {
-        display: inline-block;
-        padding: 12px 10px;
-        margin-right: 26px;
-        background-color: rgba(222, 224, 230, 0.3);
-        cursor: pointer;
-      }
-      .logo {
-        display: inline-block;
-        width: 105px;
-        font-size: 24px;
-        font-weight: bold;
-        img {
-          width: 100%;
-        }
-      }
+  position: relative;
+  z-index: 10;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .logoArea {
+    width: 300px;
+    .backBtn {
+      display: inline-block;
+      padding: 12px 10px;
+      margin-right: 22px;
+      cursor: pointer;
     }
-    .controlArea {
-      flex: 1;
-      text-align: center;
-      .tit {
-        font-size: 18px;
-        color: #000;
-      }
-    }
-    .btnArea {
-      width: 400px;
-      text-align: right;
+    .logo {
+      display: inline-block;
+      width: 100px;
+      overflow: hidden;
+      border-radius: 3px;
+      vertical-align: middle;
+      font-size: 20px;
+      font-weight: bold;
     }
   }
+  .controlArea {
+    flex: 1;
+    text-align: center;
+  }
+  .btnArea {
+    width: 320px;
+    text-align: right;
+  }
+}

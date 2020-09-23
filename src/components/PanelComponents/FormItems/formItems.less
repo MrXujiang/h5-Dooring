@@ -1,0 +1,56 @@
+.formItemWrap {
+  .editForm {
+    .formItem {
+      position: relative;
+      &:hover {
+        .operationWrap {
+          display: inline-block;
+        }
+      }
+      .operationWrap {
+        position: absolute;
+        display: none;
+        right: 0;
+        top: 16px;
+        box-shadow: 0 0 20px #fff;
+        background-color: #fff;
+        .operationBtn {
+          margin-right: 15px;
+          display: inline-block;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .formTpl {
+    margin-top: 12px;
+    border-top: 1px dashed #ccc;
+    padding-top: 16px;
+    .formItem {
+      position: relative;
+      border: 1px solid #ccc;
+      margin-bottom: 2px;
+      .disClick {
+        pointer-events: none;
+      }
+      &:hover {
+        border-color: #2f54eb;
+        .addBtn {
+          display: inline-block;
+        }
+      }
+      .addBtn {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none;
+        padding: 3px 6px;
+        color: #fff;
+        border-radius: 3px;
+        background-color: #2f54eb;
+        cursor: pointer;
+      }
+    }
+  }
+}
