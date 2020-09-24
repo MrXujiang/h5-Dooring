@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
 import { useDrop } from 'react-dnd';
-import Draggable from 'react-draggable';
+import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import GridLayout, { ItemCallback } from 'react-grid-layout';
 import { Tooltip } from 'antd';
 import { connect } from 'dva';
@@ -9,17 +9,23 @@ import styles from './index.less';
 import { uuid } from '@/utils/tool';
 import { Dispatch } from 'umi';
 import { StateWithHistory } from 'redux-undo';
-
 interface SourceBoxProps {
   pstate: { pointData: { id: string; item: any; point: any }[] };
   scaleNum: number;
   canvasId: string;
   allType: string[];
   dispatch: Dispatch;
+  dragState: { x: number; y: number };
+  setDragState: React.Dispatch<
+    React.SetStateAction<{
+      x: number;
+      y: number;
+    }>
+  >;
 }
 
 const SourceBox = memo((props: SourceBoxProps) => {
-  const { pstate, scaleNum, canvasId, allType, dispatch } = props;
+  const { pstate, scaleNum, canvasId, allType, dispatch, dragState, setDragState } = props;
 
   const pointData = pstate ? pstate.pointData : [];
   const [canvasRect, setCanvasRect] = useState<number[]>([]);
@@ -92,8 +98,14 @@ const SourceBox = memo((props: SourceBoxProps) => {
   }, []);
   const opacity = isOver ? 0.7 : 1;
   // const backgroundColor = isOver ? 1 : 0.7;
+
   return (
-    <Draggable handle=".js_box">
+    <Draggable
+      position={dragState}
+      onStop={(e: DraggableEvent, data: DraggableData) => {
+        setDragState({ x: data.x, y: data.y });
+      }}
+    >
       <div className={styles.canvasBox}>
         <div
           style={{

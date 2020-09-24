@@ -11789,6 +11789,13 @@ react-dom@^16.12.0, react-dom@^16.13.1:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
+react-draggable-ball@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-draggable-ball/-/react-draggable-ball-0.1.0.tgz#c23dc28a4f3daa1fb47f7461c70a2bd8533954ef"
+  integrity sha512-ihcyqS30QJKbXP4mb9wYWDV96yF9sq6ZDo+6ntcVFpVhD64BLe6AHwQFMyt9By+pMtuutrsxzhs5fs+XsZ7U9A==
+  dependencies:
+    react-draggable "^4.4.3"
+
 react-draggable@^4.0.0, react-draggable@^4.0.3, react-draggable@^4.4.3:
   version "4.4.3"
   resolved "https://registry.yarnpkg.com/react-draggable/-/react-draggable-4.4.3.tgz#0727f2cae5813e36b0e4962bf11b2f9ef2b406f3"
