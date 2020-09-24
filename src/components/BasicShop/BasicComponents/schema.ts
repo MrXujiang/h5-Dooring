@@ -3,6 +3,7 @@ import Footer from './Footer/schema';
 import Form from './Form/schema';
 import Header from './Header/schema';
 import Icon from './Icon/schema';
+import WhiteTpl from './WhiteTpl/schema';
 import Image from './Image/schema';
 import List from './List/schema';
 import LongText from './LongText/schema';
@@ -20,6 +21,7 @@ const basicSchema = {
   Image,
   List,
   LongText,
+  WhiteTpl,
   Notice,
   Qrcode,
   Tab,
