@@ -21,6 +21,7 @@ import schema from 'components/BasicShop/schema';
 import { ActionCreators } from 'redux-undo';
 import { StateWithHistory } from 'redux-undo';
 import styles from './index.less';
+import { useGetBall } from 'react-draggable-ball';
 
 const { TabPane } = Tabs;
 
@@ -28,7 +29,6 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
   const [scaleNum, setScale] = useState(1);
 
   const { pstate, dispatch } = props;
-  console.log(props);
   const pointData = pstate ? pstate.pointData : {};
   const curPoint = pstate ? pstate.curPoint : {};
   // 指定画布的id
@@ -107,6 +107,12 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
     return arr;
   }, []);
 
+  const [dragstate, setDragState] = useState({ x: 0, y: 0 });
+  const [render] = useGetBall(setDragState, {
+    innerStyle: { top: '10px', left: '10px', cursor: 'pointer' },
+    ratioSpeed: { x: 1.2, y: 1.2 },
+  });
+
   return (
     <div className={styles.editorWrap}>
       <HeaderComponent
@@ -180,7 +186,14 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
           <div className={styles.tickMarkLeft}>
             <Calibration direction="right" id="calibrationRight" multiple={scaleNum} />
           </div>
-          <SourceBox scaleNum={scaleNum} canvasId={canvasId} allType={allType} />
+          <SourceBox
+            dragState={dragstate}
+            setDragState={setDragState}
+            scaleNum={scaleNum}
+            canvasId={canvasId}
+            allType={allType}
+          />
+          <div className={styles.controllBall}>{render}</div>
           <div className={styles.sliderWrap}>
             <span className={styles.sliderBtn} onClick={handleSlider.bind(this, 1)}>
               +
