@@ -102,6 +102,7 @@ const SourceBox = memo((props: SourceBoxProps) => {
   return (
     <Draggable
       position={dragState}
+      handle=".js_box"
       onStop={(e: DraggableEvent, data: DraggableData) => {
         setDragState({ x: data.x, y: data.y });
       }}

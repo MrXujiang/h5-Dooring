@@ -6,7 +6,7 @@ import React from 'react';
 
 export type componentsType = 'media' | 'base' | 'visible';
 
-const DynamicFunc = (type: any, componentsType: string) =>
+const DynamicFunc = (type: string, componentsType: string) =>
   dynamic({
     loader: async function() {
       let Component: FC<{ isTpl: boolean }>;
@@ -35,7 +35,7 @@ const DynamicFunc = (type: any, componentsType: string) =>
 type DynamicType = {
   isTpl: boolean;
   config: { [key: string]: any };
-  type: any;
+  type: string;
   componentsType: componentsType;
   category: string;
 };
@@ -44,7 +44,7 @@ const DynamicEngine = memo((props: DynamicType) => {
   const Dynamic = useMemo(() => {
     return (DynamicFunc(type, category) as unknown) as FC<DynamicType>;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [type, config]);
+  }, [config]);
 
   return <Dynamic {...props} />;
 });
