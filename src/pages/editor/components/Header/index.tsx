@@ -49,9 +49,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
   const content = () => {
     const { tid } = location.query || '';
     return (
-      <QRCode
-        value={`${window.location.protocol}//${window.location.host}/h5_plus/preview?tid=${tid}`}
-      />
+      <QRCode value={`${window.location.protocol}//${window.location.host}/preview?tid=${tid}`} />
     );
   };
 
