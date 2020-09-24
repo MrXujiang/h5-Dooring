@@ -79,12 +79,12 @@ export default function Calibration(props: CalibrationTypes) {
       let height = calibrationLength.height
         ? calibrationLength.height
         : calibrationRef.current.getBoundingClientRect().height;
-      let arr = [...calibrationRef.current.querySelectorAll('.calibrationLine')];
+      let arr = [...Array.from(calibrationRef.current.querySelectorAll('.calibrationLine'))];
       if (arr.length) {
         if (direction === 'up') {
           calibrationRef.current.style.width = parseFloat(multiple.toFixed(1)) * width + 'px';
           arr.forEach(el => {
-            let dom = [...el.querySelectorAll('.calibrationNumber')][0] as HTMLElement;
+            let dom = [...Array.from(el.querySelectorAll('.calibrationNumber'))][0] as HTMLElement;
             if (dom) {
               dom.style.transform = `translate3d(-4px, 16px, 0px) scale(${(multiple + 0.1).toFixed(
                 1,
@@ -94,7 +94,7 @@ export default function Calibration(props: CalibrationTypes) {
         } else {
           calibrationRef.current.style.height = parseFloat(multiple.toFixed(1)) * height + 'px';
           arr.forEach(el => {
-            let dom = [...el.querySelectorAll('.calibrationNumber')][0] as HTMLElement;
+            let dom = [...Array.from(el.querySelectorAll('.calibrationNumber'))][0] as HTMLElement;
             if (dom) {
               dom.style.transform = `translate3d(-4px, -8px, 0px) scale(${(multiple + 0.1).toFixed(
                 1,

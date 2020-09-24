@@ -12,9 +12,11 @@ export default defineConfig({
   antd: {},
   title: '趣谈前端-h5-dooring',
   exportStatic: {},
-  base: 'h5_plus',
-  publicPath: '/h5_plus/',
-  outputPath: '../server/static/h5_plus',
+  base: '/',
+  publicPath: './',
+  outputPath: 'dist',
+
+  esbuild: {},
 
   routes: [
     {

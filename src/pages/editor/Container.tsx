@@ -111,6 +111,7 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
   const [render] = useGetBall(setDragState, {
     innerStyle: { top: '10px', left: '10px', cursor: 'pointer' },
     ratioSpeed: { x: 1.2, y: 1.2 },
+    intervalDelay: 5,
   });
 
   return (
