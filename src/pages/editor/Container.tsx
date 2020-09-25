@@ -5,6 +5,7 @@ import {
   ExpandOutlined,
   PlayCircleOutlined,
   HighlightOutlined,
+  ReloadOutlined,
 } from '@ant-design/icons';
 import TextLoop from 'react-text-loop';
 import { connect } from 'dva';
@@ -194,7 +195,11 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
             canvasId={canvasId}
             allType={allType}
           />
+          <div className={styles.resetBall}>
+            <ReloadOutlined onClick={() => setDragState({ x: 0, y: 0 })} />
+          </div>
           <div className={styles.controllBall}>{render}</div>
+
           <div className={styles.sliderWrap}>
             <span className={styles.sliderBtn} onClick={handleSlider.bind(this, 1)}>
               +

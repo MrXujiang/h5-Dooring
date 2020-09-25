@@ -1,19 +1,24 @@
 .layout {
+  height: 100%;
+  width: 100%;
   .editorWrap {
     background-color: rgba(245, 245, 245, 1);
+    height: 100%;
+    width: 100%;
   }
   .container {
-    width: 100vw;
+    width: 100%; //写vw产生滚动条会出现横向滚动条
     // height: 100vh;
+    height: calc(100% - 56px);
     display: flex;
     .list {
       width: 350px;
-      height: 100vh;
+      height: 100%;
       padding: 10px 16px 16px;
       box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
       display: inline-block;
       background-color: #fff;
-      overflow: scroll;
+      overflow: auto;
       .searchBar {
         margin-bottom: 20px;
       }
@@ -42,7 +47,7 @@
     .tickMark {
       width: calc(100% - 750px);
       overflow: hidden;
-      height: 100vh;
+      height: 100%;
       position: relative;
       .tickMarkTop {
         width: 100%;
@@ -92,6 +97,11 @@
           }
         }
       }
+      .resetBall {
+        position: absolute;
+        right: 24px;
+        bottom: 445px;
+      }
       .controllBall {
         position: absolute;
         bottom: 380px;
@@ -128,9 +138,9 @@
       width: 400px;
       padding: 20px 0 20px 20px;
       background: #fff;
-      height: 100vh;
+      height: 100%;
       box-shadow: -2px 0px 4px 0px rgba(0, 0, 0, 0.1);
-      overflow: scroll;
+      overflow: auto;
       .tit {
         margin-bottom: 16px;
         font-size: 18px;

@@ -47,7 +47,7 @@ export default function Layout({ children }: IRouteComponentProps) {
     <div>welcome!欢迎使用h5-Dooring，你有任何问题，都可以咨询我哦～</div>,
   );
   return (
-    <div>
+    <div style={{ height: '100%', width: '100%' }}>
       <div
         style={{
           position: 'fixed',
