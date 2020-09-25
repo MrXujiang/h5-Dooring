@@ -56,7 +56,7 @@ const PreviewPage = memo((props: PreviewPageProps) => {
   const width = useGetScrollBarWidth(ref);
   const pcStyle = useMemo(() => {
     return {
-      width: isMac ? 395 : 375 + width,
+      width: isMac ? 395 : 375 + width + 1, //小数会有偏差
       margin: '20px auto',
       border: '10px solid #000',
       borderRadius: '20px',

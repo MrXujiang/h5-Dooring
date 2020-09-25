@@ -41,7 +41,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
       window.open(
         isDev
           ? `/preview?tid=${props.location.query.tid}`
-          : `http://io.nainor.com/h5_plus/preview?tid=${props.location.query.tid}`,
+          : `/preview?tid=${props.location.query.tid}`,
       );
     }, 600);
   };
@@ -49,9 +49,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
   const content = () => {
     const { tid } = location.query || '';
     return (
-      <QRCode
-        value={`${window.location.protocol}//${window.location.host}/h5_plus/preview?tid=${tid}`}
-      />
+      <QRCode value={`${window.location.protocol}//${window.location.host}/preview?tid=${tid}`} />
     );
   };
 
@@ -114,7 +112,10 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
   const newPage = () => {
     let prev = localStorage.getItem('myH5');
     try {
-      localStorage.setItem('myH5', JSON.stringify(prev ? [...prev, pointData] : [pointData]));
+      localStorage.setItem(
+        'myH5',
+        JSON.stringify(prev ? [...Array.from(prev), pointData] : [pointData]),
+      );
     } catch (err) {
       console.error(err);
     }

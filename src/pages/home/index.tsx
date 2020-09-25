@@ -82,7 +82,12 @@ const Home = () => {
             <a href="https://github.com/MrXujiang/h5-Dooring">
               <GithubOutlined />
             </a>
-            <p>Welcome to H5-Dooring 👋</p>
+            <p>
+              Welcome to H5-Dooring{' '}
+              <span role="img" aria-label="welcome">
+                👋
+              </span>
+            </p>
           </div>
         </footer>
       </div>
