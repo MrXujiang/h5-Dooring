@@ -1,6 +1,17 @@
 .layout {
   height: 100%;
   width: 100%;
+  div::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  div::-webkit-scrollbar-thumb {
+    background: #bfbfbf;
+    border-radius: 10px;
+  }
+  div::-webkit-scrollbar-thumb:hover {
+    background: #2f54eb;
+  }
   .editorWrap {
     background-color: rgba(245, 245, 245, 1);
     height: 100%;
@@ -193,6 +204,10 @@
           }
         }
       }
+    }
+    .collapsed {
+      .list;
+      height: calc(56px);
     }
   }
 }

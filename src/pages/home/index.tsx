@@ -6,6 +6,7 @@ import {
   ConsoleSqlOutlined,
   GithubOutlined,
   CodeOutlined,
+  IdcardOutlined,
 } from '@ant-design/icons';
 import styles from './index.less';
 
@@ -44,6 +45,17 @@ const Home = () => {
               </span>
             }
             key="2"
+          >
+            正在开发...
+          </TabPane>
+          <TabPane
+            tab={
+              <span>
+                <IdcardOutlined />
+                我的可视化
+              </span>
+            }
+            key="3"
           >
             正在开发...
           </TabPane>

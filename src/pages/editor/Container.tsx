@@ -28,6 +28,7 @@ const { TabPane } = Tabs;
 
 const Container = (props: { history?: any; location?: any; pstate?: any; dispatch?: any }) => {
   const [scaleNum, setScale] = useState(1);
+  const [collapsed, setCollapsed] = useState(false);
 
   const { pstate, dispatch } = props;
   const pointData = pstate ? pstate.pointData : {};
@@ -37,6 +38,10 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
 
   const backSize = () => {
     setScale(1);
+  };
+
+  const toggleCollapsed = (checked: boolean) => {
+    setCollapsed(checked);
   };
 
   const CpIcon = {
@@ -123,9 +128,10 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
         pointData={pointData}
         clearData={clearData}
         location={props.location}
+        toggleCollapsed={toggleCollapsed}
       />
       <div className={styles.container}>
-        <div className={styles.list}>
+        <div className={!collapsed ? styles.list : styles.collapsed}>
           <div className={styles.searchBar}>
             <Alert
               banner
@@ -195,6 +201,7 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
             canvasId={canvasId}
             allType={allType}
           />
+
           <div className={styles.resetBall}>
             <ReloadOutlined onClick={() => setDragState({ x: 0, y: 0 })} />
           </div>
