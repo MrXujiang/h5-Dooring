@@ -136,7 +136,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
           <ArrowLeftOutlined />
         </div>
         <div className={styles.logo}>Dooring</div>
-        <Switch onChange={toggleCollapsed} style={{ marginLeft: '100px' }} />
+        {/* <Switch onChange={toggleCollapsed} style={{ marginLeft: '100px' }} />暂时隐藏 TODO */}
       </div>
       <div className={styles.controlArea}>
         <Button type="primary" style={{ marginRight: '9px' }} onClick={useTemplate}>
