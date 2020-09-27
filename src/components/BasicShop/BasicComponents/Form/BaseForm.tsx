@@ -1,9 +1,10 @@
-import { Input, Cell, DateSelect, Radio, Select } from 'zarm';
+import { Input, Cell, DateSelect, Radio, Select, Checkbox } from 'zarm';
 import styles from './baseForm.less';
-import React from 'react';
+import React, { ReactText } from 'react';
 import {
   baseFormDateTpl,
   baseFormMyRadioTpl,
+  baseFormMyCheckboxTpl,
   baseFormMySelectTpl,
   baseFormNumberTpl,
   baseFormTextAreaTpl,
@@ -63,6 +64,27 @@ const BaseForm: TBaseForm = {
               );
             })}
           </Radio.Group>
+        </Cell>
+      </div>
+    );
+  },
+  MyCheckbox: (
+    props: baseFormMyCheckboxTpl & { onChange: (v: Array<ReactText> | undefined) => void },
+  ) => {
+    const { label, options, onChange } = props;
+    return (
+      <div className={styles.radioWrap}>
+        <div className={styles.radioTitle}>{label}</div>
+        <Cell>
+          <Checkbox.Group onChange={onChange}>
+            {options.map((item, i) => {
+              return (
+                <Checkbox value={item.value} key={i} className={styles.radioItem}>
+                  {item.label}
+                </Checkbox>
+              );
+            })}
+          </Checkbox.Group>
         </Cell>
       </div>
     );

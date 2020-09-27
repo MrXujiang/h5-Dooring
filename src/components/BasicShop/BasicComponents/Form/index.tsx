@@ -9,10 +9,6 @@ const FormComponent = (props: IFormConfig) => {
   const formData: Record<string, any> = {};
   const handleChange = useCallback(
     (item, v) => {
-      if (item.options) {
-        formData[item.label] = v[0].label;
-        return;
-      }
       formData[item.label] = v;
     },
     [formData],

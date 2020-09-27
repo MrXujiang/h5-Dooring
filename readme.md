@@ -135,6 +135,7 @@ yarn run start
 
 ## 赞助
 开源不易, 有了您的赞助, 我们会做的更好~
+<img src="http://io.nainor.com/uploads/WechatIMG2_1742b586c3d.jpeg" width="180px" />
 
 ## 技术反馈和交流
 微信：beautifulFront

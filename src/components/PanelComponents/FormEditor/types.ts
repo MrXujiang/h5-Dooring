@@ -167,6 +167,13 @@ export type baseFormMyRadioTpl = {
   options: baseFormOptionsType[];
 };
 
+export type baseFormMyCheckboxTpl = {
+  id: string;
+  type: 'MyCheckbox';
+  label: string;
+  options: baseFormOptionsType[];
+};
+
 export type baseFormMySelectTpl = {
   id: string;
   type: 'MySelect';
@@ -186,6 +193,7 @@ export type baseFormUnion =
   | baseFormNumberTpl
   | baseFormTextAreaTpl
   | baseFormMyRadioTpl
+  | baseFormMyCheckboxTpl
   | baseFormMySelectTpl
   | baseFormDateTpl;
 export type baseFormUnionType =
@@ -193,6 +201,7 @@ export type baseFormUnionType =
   | baseFormNumberTpl['type']
   | baseFormTextAreaTpl['type']
   | baseFormMyRadioTpl['type']
+  | baseFormMyCheckboxTpl['type']
   | baseFormMySelectTpl['type']
   | baseFormDateTpl['type'];
 
