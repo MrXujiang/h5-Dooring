@@ -1,8 +1,9 @@
-import React, { useCallback, useState } from 'react';
+import React, { createContext, useCallback, useState } from 'react';
 import { library, generateRespones, RenderList, useRegister } from 'chatbot-antd';
 import { IRouteComponentProps } from 'umi';
 import { Button } from 'antd';
 import { CustomerServiceOutlined } from '@ant-design/icons';
+import { stat } from 'fs/promises';
 
 library.push(
   //语料库，push进去，也可以不用
@@ -20,6 +21,17 @@ library.push(
     useReg: /(.*?)作者是谁(.*?)/,
   },
 );
+
+export type dooringContextType = 'h5' | 'pc';
+
+export interface IdooringContextType {
+  theme: dooringContextType;
+  setTheme: Function;
+}
+export const dooringContext = createContext<IdooringContextType>({
+  theme: 'h5',
+  setTheme: () => {},
+});
 
 export default function Layout({ children }: IRouteComponentProps) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -46,23 +58,33 @@ export default function Layout({ children }: IRouteComponentProps) {
     {},
     <div>welcome!欢迎使用h5-Dooring，你有任何问题，都可以咨询我哦～</div>,
   );
+
+  const [state, setState] = useState<dooringContextType>('h5');
+
   return (
-    <div style={{ height: '100%', width: '100%' }}>
-      <div
-        style={{
-          position: 'fixed',
-          right: `${modalOpen ? '-100%' : '10px'}`,
-          bottom: '80px',
-          transition: 'all 0.5s ease-in-out',
-          zIndex: 2,
-        }}
-      >
-        <Button type="primary" onClick={() => setModalOpen(!modalOpen)}>
-          <CustomerServiceOutlined></CustomerServiceOutlined>
-        </Button>
+    <dooringContext.Provider
+      value={{
+        theme: state,
+        setTheme: setState,
+      }}
+    >
+      <div style={{ height: '100%', width: '100%' }}>
+        <div
+          style={{
+            position: 'fixed',
+            right: `${modalOpen ? '-100%' : '10px'}`,
+            bottom: '80px',
+            transition: 'all 0.5s ease-in-out',
+            zIndex: 2,
+          }}
+        >
+          <Button type="primary" onClick={() => setModalOpen(!modalOpen)}>
+            <CustomerServiceOutlined></CustomerServiceOutlined>
+          </Button>
+        </div>
+        {render}
+        {children}
       </div>
-      {render}
-      {children}
-    </div>
+    </dooringContext.Provider>
   );
 }

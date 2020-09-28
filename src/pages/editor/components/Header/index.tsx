@@ -1,5 +1,5 @@
-import React, { useRef, memo } from 'react';
-import { Button, Input, Popover, Modal, Switch } from 'antd';
+import React, { useRef, memo, useContext } from 'react';
+import { Button, Input, Popover, Modal, Switch, Select } from 'antd';
 import {
   ArrowLeftOutlined,
   MobileOutlined,
@@ -17,6 +17,7 @@ import Zan from 'components/Zan';
 import req from '@/utils/req';
 import Code from '@/assets/code.png';
 import styles from './index.less';
+import { dooringContext } from '@/layouts';
 
 const { confirm } = Modal;
 
@@ -128,7 +129,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     req.post('/visible/preview', { tid, tpl: pointData });
   };
   const handleSaveCode = () => {};
-
+  const { setTheme } = useContext(dooringContext);
   return (
     <div className={styles.header}>
       <div className={styles.logoArea}>
@@ -211,6 +212,16 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
           预览
         </Button>
       </div>
+      <Select
+        defaultValue="h5"
+        style={{ width: 120 }}
+        onChange={e => {
+          setTheme(e);
+        }}
+      >
+        <Select.Option value="h5">h5模式</Select.Option>
+        <Select.Option value="pc">pc模式</Select.Option>
+      </Select>
       <div className={styles.btnArea}>
         <Zan />
       </div>

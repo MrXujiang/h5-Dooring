@@ -108,6 +108,40 @@
           }
         }
       }
+      .canvasBox2 {
+        width: 1200px;
+        min-height: 800px;
+        height: 800px;
+        left: 15%;
+        position: relative;
+        margin-left: -200px;
+        top: 20px;
+        .canvas2 {
+          position: relative;
+          width: 1200px;
+          min-height: 800px;
+          background-color: #fff;
+          box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+          position: absolute;
+          left: 0;
+          top: 0;
+          transition: transform 300ms ease-out;
+          .dragItem {
+            display: inline-block;
+            position: absolute;
+            z-index: 2;
+            border: 2px solid transparent;
+            cursor: move;
+            &:hover {
+              border: 2px solid #06c;
+            }
+            :global(a) {
+              display: block;
+              pointer-events: none;
+            }
+          }
+        }
+      }
       .resetBall {
         position: absolute;
         right: 24px;
