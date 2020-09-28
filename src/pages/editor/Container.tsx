@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useContext } from 'react';
 import { Slider, Result, Tabs, Alert } from 'antd';
 import {
   PieChartOutlined,
@@ -15,24 +15,82 @@ import TargetBox from './TargetBox';
 import Calibration from 'components/Calibration';
 import DynamicEngine, { componentsType } from 'components/DynamicEngine';
 import FormEditor from 'components/PanelComponents/FormEditor';
-import template from 'components/BasicShop/BasicComponents/template';
-import mediaTpl from 'components/BasicShop/MediaComponents/template';
-import graphTpl from 'components/BasicShop/VisualComponents/template';
-import schema from 'components/BasicShop/schema';
+
+import template1 from 'components/BasicShop/BasicComponents/template';
+import template2 from 'components/BasicPcShop/BasicComponents/template';
+import mediaTpl1 from 'components/BasicShop/MediaComponents/template';
+import mediaTpl2 from 'components/BasicPcShop/MediaComponents/template';
+import graphTpl1 from 'components/BasicShop/VisualComponents/template';
+import graphTpl2 from 'components/BasicPcShop/VisualComponents/template';
+
+import schema1 from 'components/BasicShop/schema';
+import schema2 from 'components/BasicPcShop/schema';
+
 import { ActionCreators } from 'redux-undo';
 import { StateWithHistory } from 'redux-undo';
 import styles from './index.less';
 import { useGetBall } from 'react-draggable-ball';
+import { useAnimation } from '@/utils/tool';
+import { dooringContext } from '@/layouts';
 
 const { TabPane } = Tabs;
 
-const Container = (props: { history?: any; location?: any; pstate?: any; dispatch?: any }) => {
+const Container = (props: {
+  history?: any;
+  location?: any;
+  pstate?: any;
+  cstate?: any;
+  dispatch?: any;
+}) => {
   const [scaleNum, setScale] = useState(1);
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
-  const { pstate, dispatch } = props;
-  const pointData = pstate ? pstate.pointData : {};
-  const curPoint = pstate ? pstate.curPoint : {};
+  const { pstate, cstate, dispatch } = props;
+  const pointData = pstate ? pstate.pointData : [];
+  const cpointData = cstate ? cstate.pointData : [];
+
+  const context = useContext(dooringContext);
+  const curPoint = useMemo(() => {
+    if (context.theme === 'h5') {
+      return pstate ? pstate.curPoint : {};
+    } else {
+      return cstate ? cstate.curPoint : {};
+    }
+  }, [context.theme, cstate, pstate]);
+
+  const schema = useMemo(() => {
+    if (context.theme === 'h5') {
+      return schema1;
+    } else {
+      console.log(schema2);
+      return schema2;
+    }
+  }, [context.theme]);
+
+  const template = useMemo(() => {
+    if (context.theme === 'h5') {
+      return template1;
+    } else {
+      return template2;
+    }
+  }, [context.theme]);
+
+  const mediaTpl = useMemo(() => {
+    if (context.theme === 'h5') {
+      return mediaTpl1;
+    } else {
+      return mediaTpl2;
+    }
+  }, [context.theme]);
+
+  const graphTpl = useMemo(() => {
+    if (context.theme === 'h5') {
+      return graphTpl1;
+    } else {
+      return graphTpl2;
+    }
+  }, [context.theme]);
+
   // 指定画布的id
   let canvasId = 'js_canvas';
 
@@ -41,6 +99,7 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
   };
 
   const toggleCollapsed = (checked: boolean) => {
+    console.log(checked);
     setCollapsed(checked);
   };
 
@@ -69,23 +128,51 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
       setScale(prev => (prev <= 0.5 ? 0.5 : prev - 0.1));
     }
   };
-  const handleFormSave = (data: any) => {
-    dispatch({
-      type: 'editorModal/modPointData',
-      payload: { ...curPoint, item: { ...curPoint.item, config: data } },
-    });
-  };
 
-  const clearData = () => {
-    dispatch({ type: 'editorModal/clearAll' });
-  };
+  const handleFormSave = useMemo(() => {
+    if (context.theme === 'h5') {
+      return (data: any) => {
+        dispatch({
+          type: 'editorModal/modPointData',
+          payload: { ...curPoint, item: { ...curPoint.item, config: data } },
+        });
+      };
+    } else {
+      return (data: any) => {
+        dispatch({
+          type: 'editorPcModal/modPointData',
+          payload: { ...curPoint, item: { ...curPoint.item, config: data } },
+        });
+      };
+    }
+  }, [context.theme, curPoint, dispatch]);
 
-  const handleDel = (id: any) => {
-    dispatch({
-      type: 'editorModal/delPointData',
-      payload: { id },
-    });
-  };
+  const clearData = useMemo(() => {
+    if (context.theme === 'h5') {
+      dispatch({ type: 'editorModal/clearAll' });
+    } else {
+      dispatch({ type: 'editorPcModal/clearAll' });
+    }
+  }, [context.theme, dispatch]);
+
+  const handleDel = useMemo(() => {
+    if (context.theme === 'h5') {
+      return (id: any) => {
+        dispatch({
+          type: 'editorModal/delPointData',
+          payload: { id },
+        });
+      };
+    } else {
+      return (id: any) => {
+        dispatch({
+          type: 'editorPcModal/delPointData',
+          payload: { id },
+        });
+      };
+    }
+  }, [context.theme, dispatch]);
+
   const redohandler = () => {
     dispatch(ActionCreators.redo());
   };
@@ -120,18 +207,81 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
     intervalDelay: 5,
   });
 
+  const [display] = useAnimation(collapsed, 500);
+
+  const renderRight = useMemo(() => {
+    if (context.theme === 'h5') {
+      return (
+        <div className={styles.attrSetting}>
+          {pointData.length && curPoint ? (
+            <>
+              <div className={styles.tit}>属性设置</div>
+              <FormEditor
+                config={curPoint.item.editableEl}
+                uid={curPoint.id}
+                defaultValue={curPoint.item.config}
+                onSave={handleFormSave}
+                onDel={handleDel}
+              />
+            </>
+          ) : (
+            <div style={{ paddingTop: '100px' }}>
+              <Result
+                status="404"
+                title="还没有数据哦"
+                subTitle="赶快拖拽组件来生成你的H5页面吧～"
+              />
+            </div>
+          )}
+        </div>
+      );
+    } else {
+      return (
+        <div className={styles.attrSetting}>
+          {cpointData.length && curPoint ? (
+            <>
+              <div className={styles.tit}>属性设置</div>
+              <FormEditor
+                config={curPoint.item.editableEl}
+                uid={curPoint.id}
+                defaultValue={curPoint.item.config}
+                onSave={handleFormSave}
+                onDel={handleDel}
+              />
+            </>
+          ) : (
+            <div style={{ paddingTop: '100px' }}>
+              <Result
+                status="404"
+                title="还没有数据哦"
+                subTitle="赶快拖拽组件来生成你的H5页面吧～"
+              />
+            </div>
+          )}
+        </div>
+      );
+    }
+  }, [context.theme, cpointData.length, curPoint, handleDel, handleFormSave, pointData.length]);
+
   return (
     <div className={styles.editorWrap}>
       <HeaderComponent
         redohandler={redohandler}
         undohandler={undohandler}
-        pointData={pointData}
+        pointData={context.theme === 'h5' ? pointData : cpointData}
         clearData={clearData}
         location={props.location}
         toggleCollapsed={toggleCollapsed}
       />
       <div className={styles.container}>
-        <div className={!collapsed ? styles.list : styles.collapsed}>
+        <div
+          className={styles.list}
+          style={{
+            transform: collapsed ? 'translate(0,0)' : 'translate(-100%,0)',
+            transition: 'all ease-in-out 0.5s',
+            display: display ? 'none' : 'block',
+          }}
+        >
           <div className={styles.searchBar}>
             <Alert
               banner
@@ -228,33 +378,12 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
             <ExpandOutlined onClick={backSize} />
           </div>
         </div>
-        <div className={styles.attrSetting}>
-          {pointData.length && curPoint ? (
-            <>
-              <div className={styles.tit}>属性设置</div>
-              <FormEditor
-                config={curPoint.item.editableEl}
-                uid={curPoint.id}
-                defaultValue={curPoint.item.config}
-                onSave={handleFormSave}
-                onDel={handleDel}
-              />
-            </>
-          ) : (
-            <div style={{ paddingTop: '100px' }}>
-              <Result
-                status="404"
-                title="还没有数据哦"
-                subTitle="赶快拖拽组件来生成你的H5页面吧～"
-              />
-            </div>
-          )}
-        </div>
+        {renderRight}
       </div>
     </div>
   );
 };
 
 export default connect((state: StateWithHistory<any>) => {
-  return { pstate: state.present.editorModal };
+  return { pstate: state.present.editorModal, cstate: state.present.editorPcModal };
 })(Container);

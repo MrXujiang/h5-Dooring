@@ -18,6 +18,7 @@ const TargetBox = memo((props: TargetBoxProps) => {
       h: item.h,
       editableEl: schema[item.type as keyof typeof schema].editData,
       category: item.category,
+      x: item.x || 0,
     },
     collect: monitor => ({
       isDragging: monitor.isDragging(),

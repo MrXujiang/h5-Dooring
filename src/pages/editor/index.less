@@ -18,10 +18,10 @@
     width: 100%;
   }
   .container {
-    width: 100%; //写vw产生滚动条会出现横向滚动条
     // height: 100vh;
     height: calc(100% - 56px);
     display: flex;
+
     .list {
       width: 350px;
       height: 100%;
@@ -56,10 +56,10 @@
       }
     }
     .tickMark {
-      width: calc(100% - 750px);
       overflow: hidden;
       height: 100%;
       position: relative;
+      flex: 1;
       .tickMarkTop {
         width: 100%;
         height: 50px;
@@ -86,6 +86,40 @@
           position: relative;
           width: 375px;
           min-height: 664px;
+          background-color: #fff;
+          box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+          position: absolute;
+          left: 0;
+          top: 0;
+          transition: transform 300ms ease-out;
+          .dragItem {
+            display: inline-block;
+            position: absolute;
+            z-index: 2;
+            border: 2px solid transparent;
+            cursor: move;
+            &:hover {
+              border: 2px solid #06c;
+            }
+            :global(a) {
+              display: block;
+              pointer-events: none;
+            }
+          }
+        }
+      }
+      .canvasBox2 {
+        width: 1200px;
+        min-height: 800px;
+        height: 800px;
+        left: 15%;
+        position: relative;
+        margin-left: -200px;
+        top: 20px;
+        .canvas2 {
+          position: relative;
+          width: 1200px;
+          min-height: 800px;
           background-color: #fff;
           box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
           position: absolute;
@@ -152,6 +186,7 @@
       height: 100%;
       box-shadow: -2px 0px 4px 0px rgba(0, 0, 0, 0.1);
       overflow: auto;
+
       .tit {
         margin-bottom: 16px;
         font-size: 18px;
@@ -204,10 +239,6 @@
           }
         }
       }
-    }
-    .collapsed {
-      .list;
-      height: calc(56px);
     }
   }
 }
