@@ -23,12 +23,13 @@ import { ActionCreators } from 'redux-undo';
 import { StateWithHistory } from 'redux-undo';
 import styles from './index.less';
 import { useGetBall } from 'react-draggable-ball';
+import { useAnimation } from '@/utils/tool';
 
 const { TabPane } = Tabs;
 
 const Container = (props: { history?: any; location?: any; pstate?: any; dispatch?: any }) => {
   const [scaleNum, setScale] = useState(1);
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   const { pstate, dispatch } = props;
   const pointData = pstate ? pstate.pointData : {};
@@ -41,6 +42,7 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
   };
 
   const toggleCollapsed = (checked: boolean) => {
+    console.log(checked);
     setCollapsed(checked);
   };
 
@@ -120,6 +122,8 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
     intervalDelay: 5,
   });
 
+  const [display] = useAnimation(collapsed, 500);
+
   return (
     <div className={styles.editorWrap}>
       <HeaderComponent
@@ -131,7 +135,14 @@ const Container = (props: { history?: any; location?: any; pstate?: any; dispatc
         toggleCollapsed={toggleCollapsed}
       />
       <div className={styles.container}>
-        <div className={!collapsed ? styles.list : styles.collapsed}>
+        <div
+          className={styles.list}
+          style={{
+            transform: collapsed ? 'translate(0,0)' : 'translate(-100%,0)',
+            transition: 'all ease-in-out 0.5s',
+            display: display ? 'none' : 'block',
+          }}
+        >
           <div className={styles.searchBar}>
             <Alert
               banner

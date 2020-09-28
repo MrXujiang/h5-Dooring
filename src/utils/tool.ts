@@ -63,3 +63,21 @@ export function useGetScrollBarWidth(ref: RefObject<HTMLElement>) {
   }, [ref]);
   return width;
 }
+
+export function useAnimation(state: boolean, delay: number) {
+  const [display, setDisplay] = useState(false);
+  useEffect(() => {
+    let timer: number;
+    if (state && display === true) {
+      setDisplay(false);
+    } else if (!state && display === false) {
+      timer = window.setTimeout(() => {
+        setDisplay(true);
+      }, delay);
+    }
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [delay, display, state]);
+  return [display, setDisplay];
+}

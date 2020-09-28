@@ -18,10 +18,10 @@
     width: 100%;
   }
   .container {
-    width: 100%; //写vw产生滚动条会出现横向滚动条
     // height: 100vh;
     height: calc(100% - 56px);
     display: flex;
+
     .list {
       width: 350px;
       height: 100%;
@@ -56,10 +56,10 @@
       }
     }
     .tickMark {
-      width: calc(100% - 750px);
       overflow: hidden;
       height: 100%;
       position: relative;
+      flex: 1;
       .tickMarkTop {
         width: 100%;
         height: 50px;
@@ -152,6 +152,7 @@
       height: 100%;
       box-shadow: -2px 0px 4px 0px rgba(0, 0, 0, 0.1);
       overflow: auto;
+
       .tit {
         margin-bottom: 16px;
         font-size: 18px;
@@ -204,10 +205,6 @@
           }
         }
       }
-    }
-    .collapsed {
-      .list;
-      height: calc(56px);
     }
   }
 }
