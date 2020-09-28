@@ -11,7 +11,7 @@ const content = (
 
 export default memo(function ZanPao() {
   return (
-    <div className={styles.takeCat}>
+    <div className={styles.takeCat} style={{ display: 'inline-block' }}>
       <Popover placement="top" title={null} content={content} trigger="hover">
         <Button type="primary" danger>
           赞助作者

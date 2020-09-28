@@ -234,7 +234,7 @@ const SourceBox = memo((props: SourceBoxProps) => {
           <div className={styles.canvasBox2}>
             <div
               style={{
-                transform: `scale(${scaleNum - 0.2})`,
+                transform: `scale(${scaleNum - 0.35})`,
                 position: 'relative',
                 width: '100%',
                 height: '100%',
@@ -248,22 +248,62 @@ const SourceBox = memo((props: SourceBoxProps) => {
                 }}
                 ref={drop}
               >
-                <Tooltip placement="right" title="鼠标按住此处拖拽画布" visible={isShowTip}>
-                  <div
-                    className="js_box"
-                    style={{
-                      width: '10px',
-                      height: '100%',
-                      position: 'absolute',
-                      borderRadius: '0 6px 6px 0',
-                      backgroundColor: '#2f54eb',
-                      right: '-10px',
-                      top: '0',
-                      color: '#fff',
-                      cursor: 'move',
-                    }}
-                  />
-                </Tooltip>
+                <div
+                  className="js_box"
+                  style={{
+                    width: '100%',
+                    height: '10px',
+                    position: 'absolute',
+                    borderRadius: '6px 6px 0 0',
+                    backgroundColor: '#f0f0f0',
+                    boxShadow: '3px 0 6px rgba(0,0,0,.1)',
+                    top: '-10px',
+                    color: '#fff',
+                    cursor: 'move',
+                  }}
+                />
+                <div
+                  className="js_box"
+                  style={{
+                    width: '100%',
+                    height: '10px',
+                    position: 'absolute',
+                    borderRadius: '0 0 6px 6px',
+                    backgroundColor: '#f0f0f0',
+                    boxShadow: '3px 0 6px rgba(0,0,0,.1)',
+                    bottom: '-10px',
+                    color: '#fff',
+                    cursor: 'move',
+                  }}
+                />
+                <div
+                  className="js_box"
+                  style={{
+                    width: '10px',
+                    height: '100%',
+                    position: 'absolute',
+                    borderRadius: '0 6px 6px 0',
+                    backgroundColor: '#f0f0f0',
+                    boxShadow: '3px 0 6px rgba(0,0,0,.1)',
+                    right: '-10px',
+                    color: '#fff',
+                    cursor: 'move',
+                  }}
+                />
+                <div
+                  className="js_box"
+                  style={{
+                    width: '10px',
+                    height: '100%',
+                    position: 'absolute',
+                    borderRadius: '6px 0 0 6px',
+                    backgroundColor: '#f0f0f0',
+                    boxShadow: '0 0 6px rgba(0,0,0,.1)',
+                    left: '-10px',
+                    color: '#fff',
+                    cursor: 'move',
+                  }}
+                />
 
                 {cpointData.length > 0 ? (
                   <GridLayout

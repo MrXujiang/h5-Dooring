@@ -16,6 +16,7 @@ library.push(
       <div>
         <a href="https://github.com/MrXujiang">@徐小夕</a>
         <a href="https://github.com/yehuozhili">@yehuozhili</a>
+        <a href="https://github.com/zhangjinlongll">@zhangjinlongll</a>
       </div>
     ),
     useReg: /(.*?)作者是谁(.*?)/,
@@ -54,9 +55,32 @@ export default function Layout({ children }: IRouteComponentProps) {
       onOk: () => setModalOpen(false),
       onCancel: () => setModalOpen(false),
       title: 'h5-Dooring机器人客服',
+      width: 400,
     },
     {},
-    <div>welcome!欢迎使用h5-Dooring，你有任何问题，都可以咨询我哦～</div>,
+    <div>
+      welcome!欢迎使用h5-Dooring，你有任何问题，都可以咨询我哦～
+      <div style={{ paddingTop: '10px', marginTop: '10px', borderTop: '1px solid #f0f0f0' }}>
+        <div>【dooring指南】</div>
+        <div>
+          <div>
+            &nbsp;&nbsp;1.{' '}
+            <a href="https://github.com/MrXujiang/h5-Dooring" target="_blank">
+              H5-Dooring源码地址
+            </a>
+          </div>
+          <div>
+            &nbsp;&nbsp;2.{' '}
+            <a href="https://github.com/MrXujiang/h5-Dooring/graphs/contributors" target="_blank">
+              贡献者列表
+            </a>
+          </div>
+          <div style={{ fontSize: '12px' }}>
+            &nbsp;&nbsp;3. dooring开源交流群(微信：Mr_xuxiaoxi)
+          </div>
+        </div>
+      </div>
+    </div>,
   );
 
   const [state, setState] = useState<dooringContextType>('h5');

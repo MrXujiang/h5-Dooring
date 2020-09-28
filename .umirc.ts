@@ -15,9 +15,7 @@ export default defineConfig({
   base: '/',
   publicPath: './',
   outputPath: 'dist',
-
   esbuild: {},
-
   routes: [
     {
       exact: false,

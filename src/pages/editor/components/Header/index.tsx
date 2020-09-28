@@ -212,17 +212,17 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
           预览
         </Button>
       </div>
-      <Select
-        defaultValue="h5"
-        style={{ width: 120 }}
-        onChange={e => {
-          setTheme(e);
-        }}
-      >
-        <Select.Option value="h5">h5模式</Select.Option>
-        <Select.Option value="pc">pc模式</Select.Option>
-      </Select>
       <div className={styles.btnArea}>
+        <Select
+          defaultValue="h5"
+          style={{ width: 120, marginRight: 20 }}
+          onChange={e => {
+            setTheme(e);
+          }}
+        >
+          <Select.Option value="h5">h5模式</Select.Option>
+          <Select.Option value="pc">pc模式</Select.Option>
+        </Select>
         <Zan />
       </div>
     </div>
