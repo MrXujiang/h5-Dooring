@@ -127,6 +127,17 @@ export type TTableDefaultType = Array<{
   value: number;
 }>;
 
+// position input control
+export interface IPosConfigType {
+  key: string;
+  name: string;
+  type: 'Pos';
+}
+
+export type TPosItem = number | undefined;
+
+export type TPosDefaultType = [TPosItem, TPosItem];
+
 //////////////////
 export interface IFormItemsConfigType {
   key: string;

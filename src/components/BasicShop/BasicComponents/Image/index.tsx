@@ -1,7 +1,20 @@
 import React, { memo } from 'react';
 import { IImageConfig } from './schema';
 const Image = memo((props: IImageConfig) => {
-  const { imgUrl, round = 0 } = props;
+  const {
+    imgUrl,
+    round = 0,
+    translate,
+    align,
+    titText,
+    titFontSize,
+    titColor,
+    titFontWeight,
+    subTitText,
+    subTitFontSize,
+    subTitColor,
+    subTitFontWeight,
+  } = props;
   return (
     <>
       {props.isTpl && (
@@ -35,8 +48,35 @@ const Image = memo((props: IImageConfig) => {
               width: '100%',
               textAlign: 'center',
               overflow: 'hidden',
+              position: 'relative',
             }}
           >
+            <div
+              style={{
+                position: 'absolute',
+                width: '100%',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                marginLeft: translate[0],
+                marginTop: translate[1],
+                textAlign: align,
+              }}
+            >
+              <div style={{ fontSize: titFontSize, color: titColor, fontWeight: +titFontWeight }}>
+                {titText}
+              </div>
+              <div
+                style={{
+                  fontSize: subTitFontSize,
+                  color: subTitColor,
+                  fontWeight: +subTitFontWeight,
+                  lineHeight: 2.6,
+                }}
+              >
+                {subTitText}
+              </div>
+            </div>
             <img src={imgUrl && imgUrl[0].url} alt="" style={{ width: '100%' }} />
           </div>
         </div>

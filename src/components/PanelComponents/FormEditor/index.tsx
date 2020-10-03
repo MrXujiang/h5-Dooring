@@ -6,6 +6,7 @@ import MutiText from '../MutiText';
 import Color from '../Color';
 import CardPicker from '../CardPicker';
 import Table from '../Table';
+import Pos from '../Pos';
 import { Store } from 'antd/lib/form/interface';
 import FormItems from '../FormItems';
 // import styles from './index.less';
@@ -141,6 +142,11 @@ const FormEditor = (props: FormEditorProps) => {
             {item.type === 'Table' && (
               <Form.Item label={item.name} name={item.key} valuePropName="data">
                 <Table data={item.data} />
+              </Form.Item>
+            )}
+            {item.type === 'Pos' && (
+              <Form.Item label={item.name} name={item.key}>
+                <Pos />
               </Form.Item>
             )}
             {item.type === 'FormItems' && (

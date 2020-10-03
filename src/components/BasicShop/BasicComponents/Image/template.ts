@@ -1,5 +1,5 @@
 const template = {
   type: 'Image',
-  h: 188,
+  h: 80,
 };
 export default template;
