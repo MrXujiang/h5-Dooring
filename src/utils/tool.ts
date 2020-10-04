@@ -81,3 +81,12 @@ export function useAnimation(state: boolean, delay: number) {
   }, [delay, display, state]);
   return [display, setDisplay];
 }
+
+export function unParams(params = '?a=1&b=2&c=3') {
+  let obj: any = {};
+  params &&
+    params.replace(/((\w*)=([\.a-z0-9A-Z]*)?)?/g, (m, a, b, c): any => {
+      if (b || c) obj[b] = c;
+    });
+  return obj;
+}
