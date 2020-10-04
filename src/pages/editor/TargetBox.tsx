@@ -1,7 +1,9 @@
-import React, { useMemo, memo, ReactNode } from 'react';
+import React, { useMemo, memo, ReactNode, useContext } from 'react';
 import { useDrag } from 'react-dnd';
-import schema from 'components/BasicShop/schema';
+import schemaH5 from 'components/BasicShop/schema';
+import schemaPc from 'components/BasicPcShop/schema';
 import styles from './index.less';
+import { dooringContext } from '@/layouts';
 
 interface TargetBoxProps {
   item: any;
@@ -11,6 +13,14 @@ interface TargetBoxProps {
 
 const TargetBox = memo((props: TargetBoxProps) => {
   const { item } = props;
+  const context = useContext(dooringContext);
+  const schema = useMemo(() => {
+    if (context.theme === 'h5') {
+      return schemaH5;
+    } else {
+      return schemaPc;
+    }
+  }, [context.theme]);
   const [{ isDragging }, drag] = useDrag({
     item: {
       type: item.type,

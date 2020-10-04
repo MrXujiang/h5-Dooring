@@ -1,3 +1,5 @@
+import { type } from 'os';
+
 ////////////////////
 export interface IUploadConfigType {
   key: string;
@@ -199,6 +201,13 @@ export type baseFormDateTpl = {
   placeholder: string;
 };
 
+export type baseFormButtonTpl = {
+  key: string;
+  name: string;
+  type: 'Button';
+  icons: Array<any>;
+};
+
 export type baseFormUnion =
   | baseFormTextTpl
   | baseFormNumberTpl
@@ -206,7 +215,8 @@ export type baseFormUnion =
   | baseFormMyRadioTpl
   | baseFormMyCheckboxTpl
   | baseFormMySelectTpl
-  | baseFormDateTpl;
+  | baseFormDateTpl
+  | baseFormButtonTpl;
 export type baseFormUnionType =
   | baseFormTextTpl['type']
   | baseFormNumberTpl['type']
@@ -214,6 +224,7 @@ export type baseFormUnionType =
   | baseFormMyRadioTpl['type']
   | baseFormMyCheckboxTpl['type']
   | baseFormMySelectTpl['type']
-  | baseFormDateTpl['type'];
+  | baseFormDateTpl['type']
+  | baseFormButtonTpl['type'];
 
 export type TFormItemsDefaultType = Array<baseFormUnion>;

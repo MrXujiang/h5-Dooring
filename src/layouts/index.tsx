@@ -84,7 +84,7 @@ export default function Layout({ children }: IRouteComponentProps) {
   );
 
   const [state, setState] = useState<dooringContextType>('h5');
-
+  debugger;
   return (
     <dooringContext.Provider
       value={{

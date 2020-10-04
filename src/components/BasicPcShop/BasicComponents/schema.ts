@@ -6,6 +6,7 @@ import List from './List/schema';
 import LongText from './LongText/schema';
 import Qrcode from './Qrcode/schema';
 import Text from './Text/schema';
+import Button from './Button/schema';
 
 const basicSchema = {
   Footer,
@@ -15,6 +16,7 @@ const basicSchema = {
   List,
   LongText,
   Qrcode,
-  Text
+  Text,
+  Button,
 };
 export default basicSchema;
