@@ -135,7 +135,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         <div className={styles.backBtn} onClick={toBack}>
           <ArrowLeftOutlined />
         </div>
-        <div className={styles.logo}>Dooring</div>
+        <div className={styles.logo}></div>
       </div>
       <div className={styles.controlArea}>
         <Button type="primary" style={{ marginRight: '9px' }} onClick={useTemplate}>

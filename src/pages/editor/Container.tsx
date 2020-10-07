@@ -405,32 +405,39 @@ const Container = (props: {
             canvasId={canvasId}
             allType={allType}
           />
-
-          <div className={styles.resetBall}>
+          {/* TODO 暂时隐藏 */}
+          {/* <div className={styles.resetBall}>
             <ReloadOutlined onClick={() => setDragState({ x: 0, y: 0 })} />
           </div>
-          <div className={styles.controllBall}>{render}</div>
+          <div className={styles.controllBall}>{render}</div> */}
 
           <div className={styles.sliderWrap}>
-            <span className={styles.sliderBtn} onClick={handleSlider.bind(this, 1)}>
+            <span
+              style={{ marginLeft: '13px' }}
+              className={styles.sliderBtn}
+              onClick={handleSlider.bind(this, 1)}
+            >
               +
             </span>
-            <Slider
-              vertical
+            {/* <Slider
               defaultValue={100}
               className={styles.slider}
               onChange={handleSliderChange}
               min={50}
               max={150}
               value={scaleNum * 100}
-            />
+            /> */}
+            <span>{scaleNum * 100}%</span>
             <span className={styles.sliderBtn} onClick={handleSlider.bind(this, 0)}>
               -
             </span>
+            <span className={styles.backSize}>
+              <ExpandOutlined onClick={backSize} />
+            </span>
           </div>
-          <div className={styles.backSize}>
+          {/* <div className={styles.backSize}>
             <ExpandOutlined onClick={backSize} />
-          </div>
+          </div> */}
         </div>
         {renderRight}
         <div
