@@ -32,7 +32,6 @@ import { ActionCreators } from 'redux-undo';
 import { StateWithHistory } from 'redux-undo';
 import styles from './index.less';
 import { useGetBall } from 'react-draggable-ball';
-import { useAnimation } from '@/utils/tool';
 import { dooringContext } from '@/layouts';
 
 const { TabPane } = Tabs;
@@ -345,6 +344,7 @@ const Container = (props: {
         >
           <div className={styles.componentList}>
             <Tabs
+              className="editorTabclass"
               onTabClick={() => changeCollapse(false)}
               defaultActiveKey="1"
               tabPosition={'left'}
@@ -354,7 +354,7 @@ const Container = (props: {
           </div>
           <div
             className={styles.collapsed}
-            style={{ position: 'absolute', bottom: '80px', left: '25px' }}
+            style={{ position: 'absolute', bottom: '80px', left: '20px' }}
             onClick={() => changeCollapse(!collapsed)}
           >
             {collapsed ? <DoubleRightOutlined /> : <DoubleLeftOutlined />}

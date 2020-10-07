@@ -42,26 +42,25 @@ body {
 .react-grid-item{
   overflow: hidden;
 }
-
-.ant-tabs-nav 
-,.ant-tabs-nav-list{
+.ant-tabs-left.editorTabclass 
+.ant-tabs-nav , .ant-tabs-left.editorTabclass .ant-tabs-nav-list{
   width: 40px!important;
   min-width: 40px!important;
 }
-.ant-tabs-left{
+.ant-tabs-left.editorTabclass{
   height: 100%;
 }
 
-.ant-tabs-left > .ant-tabs-nav .ant-tabs-tab{
+.ant-tabs-left.editorTabclass > .ant-tabs-nav .ant-tabs-tab{
   padding:20px 0px !important;
  
 }
-.ant-tabs-tab{
+.ant-tabs-left.editorTabclass .ant-tabs-tab{
   margin:auto!important;
 }
-.ant-tabs-tab   div{
+.ant-tabs-left.editorTabclass .ant-tabs-tab   div{
   display: inline-block;
 }
-.ant-tabs-content-holder{
+.ant-tabs-left.editorTabclass .ant-tabs-content-holder{
   overflow: auto;
 }
