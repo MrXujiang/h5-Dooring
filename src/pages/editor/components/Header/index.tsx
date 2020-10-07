@@ -1,5 +1,5 @@
 import React, { useRef, memo, useContext } from 'react';
-import { Button, Input, Popover, Modal, Switch, Select } from 'antd';
+import { Button, Input, Popover, Modal, Select } from 'antd';
 import {
   ArrowLeftOutlined,
   MobileOutlined,
