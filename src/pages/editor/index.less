@@ -25,7 +25,7 @@
     .list {
       width: 350px;
       height: 100%;
-      padding: 10px;
+      padding: 10px 0 10px 10px;
       box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
       display: inline-block;
       background-color: #fff;
@@ -199,7 +199,8 @@
       height: 100%;
       box-shadow: -2px 0px 4px 0px rgba(0, 0, 0, 0.1);
       overflow: auto;
-
+      position: fixed;
+      right: 0;
       .tit {
         margin-bottom: 16px;
         font-size: 18px;
@@ -251,6 +252,21 @@
             }
           }
         }
+      }
+    }
+    .rightcolla {
+      width: 20px;
+      height: 80px;
+      background: #ffffff;
+      box-shadow: -2px 0px 4px 0px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      right: 400px;
+      top: 50%;
+      cursor: pointer;
+      &:hover {
+        color: #2f54eb;
       }
     }
   }

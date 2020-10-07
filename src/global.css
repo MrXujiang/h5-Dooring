@@ -63,4 +63,5 @@ body {
 }
 .ant-tabs-left.editorTabclass .ant-tabs-content-holder{
   overflow: auto;
+  padding:8px;
 }

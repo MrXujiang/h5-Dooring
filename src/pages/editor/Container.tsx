@@ -45,7 +45,7 @@ const Container = (props: {
 }) => {
   const [scaleNum, setScale] = useState(1);
   const [collapsed, setCollapsed] = useState(true);
-
+  const [rightColla, setRightColla] = useState(true);
   const { pstate, cstate, dispatch } = props;
   const pointData = pstate ? pstate.pointData : [];
   const cpointData = cstate ? cstate.pointData : [];
@@ -55,7 +55,11 @@ const Container = (props: {
       setCollapsed(c);
     };
   }, []);
-
+  const changeRightColla = useMemo(() => {
+    return (c: boolean) => {
+      setRightColla(c);
+    };
+  }, []);
   const context = useContext(dooringContext);
   const curPoint = useMemo(() => {
     if (context.theme === 'h5') {
@@ -213,7 +217,13 @@ const Container = (props: {
   const renderRight = useMemo(() => {
     if (context.theme === 'h5') {
       return (
-        <div className={styles.attrSetting}>
+        <div
+          className={styles.attrSetting}
+          style={{
+            transition: 'all ease-in-out 0.5s',
+            transform: rightColla ? 'translate(100%,0)' : 'translate(0,0)',
+          }}
+        >
           {pointData.length && curPoint ? (
             <>
               <div className={styles.tit}>属性设置</div>
@@ -238,7 +248,13 @@ const Container = (props: {
       );
     } else {
       return (
-        <div className={styles.attrSetting}>
+        <div
+          className={styles.attrSetting}
+          style={{
+            transition: 'all ease-in-out 0.5s',
+            transform: rightColla ? 'translate(100%,0)' : 'translate(0,0)',
+          }}
+        >
           {cpointData.length && curPoint ? (
             <>
               <div className={styles.tit}>属性设置</div>
@@ -262,7 +278,15 @@ const Container = (props: {
         </div>
       );
     }
-  }, [context.theme, cpointData.length, curPoint, handleDel, handleFormSave, pointData.length]);
+  }, [
+    context.theme,
+    cpointData.length,
+    curPoint,
+    handleDel,
+    handleFormSave,
+    pointData.length,
+    rightColla,
+  ]);
 
   const tabRender = useMemo(() => {
     if (collapsed) {
@@ -409,6 +433,24 @@ const Container = (props: {
           </div>
         </div>
         {renderRight}
+        <div
+          className={styles.rightcolla}
+          style={{
+            position: 'absolute',
+            right: rightColla ? 0 : '400px',
+            transform: 'translate(0,-50%)',
+            transition: 'all ease-in-out 0.5s',
+          }}
+          onClick={() => changeRightColla(!rightColla)}
+        >
+          {!rightColla ? <DoubleRightOutlined /> : <DoubleLeftOutlined />}
+        </div>
+        <div
+          style={{
+            width: rightColla ? 0 : '400px',
+            transition: 'all ease-in-out 0.5s',
+          }}
+        ></div>
       </div>
     </div>
   );
