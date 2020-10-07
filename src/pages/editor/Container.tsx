@@ -214,11 +214,11 @@ const Container = (props: {
   }, [graphTpl, mediaTpl, template]);
 
   const [dragstate, setDragState] = useState({ x: 0, y: 0 });
-  const [render] = useGetBall(setDragState, {
-    innerStyle: { top: '10px', left: '10px', cursor: 'pointer' },
-    ratioSpeed: { x: 1.2, y: 1.2 },
-    intervalDelay: 5,
-  });
+  // const [render] = useGetBall(setDragState, {
+  //   innerStyle: { top: '10px', left: '10px', cursor: 'pointer' },
+  //   ratioSpeed: { x: 1.2, y: 1.2 },
+  //   intervalDelay: 5,
+  // });
 
   const renderRight = useMemo(() => {
     if (context.theme === 'h5') {
@@ -409,6 +409,22 @@ const Container = (props: {
     };
   }, [diffmove.move]);
 
+  const onwheelFn = useMemo(() => {
+    return (e: React.WheelEvent<HTMLDivElement>) => {
+      if (e.deltaY > 0) {
+        setDragState(prev => ({
+          x: prev.x,
+          y: prev.y + 10,
+        }));
+      } else {
+        setDragState(prev => ({
+          x: prev.x,
+          y: prev.y - 10,
+        }));
+      }
+    };
+  }, []);
+
   useEffect(() => {
     if (diffmove.move && containerRef.current) {
       containerRef.current.style.cursor = 'move';
@@ -470,6 +486,7 @@ const Container = (props: {
           onMouseMove={throttle(mousemovefn, 500)}
           onMouseUp={mouseupfn}
           onMouseLeave={mouseupfn}
+          onWheel={onwheelFn}
         >
           <div className={styles.tickMarkTop}>
             <Calibration direction="up" id="calibrationUp" multiple={scaleNum} />
