@@ -65,6 +65,12 @@ body {
   overflow: auto;
   padding:8px;
 }
+.ant-tabs-left.editorTabclass .ant-tabs-tabpane{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 12px!important;
+}
+
 .ant-form-item-label > label {
   color: #4A4A4A !important;
 }
