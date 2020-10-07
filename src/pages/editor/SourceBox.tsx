@@ -58,7 +58,6 @@ const SourceBox = memo((props: SourceBoxProps) => {
           },
         });
       } else {
-        console.log(item.x);
         dispatch({
           type: 'editorPcModal/addPointData',
           payload: {

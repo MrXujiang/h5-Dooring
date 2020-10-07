@@ -6,6 +6,8 @@ import {
   PlayCircleOutlined,
   HighlightOutlined,
   ReloadOutlined,
+  DoubleRightOutlined,
+  DoubleLeftOutlined,
 } from '@ant-design/icons';
 import TextLoop from 'react-text-loop';
 import { connect } from 'dva';
@@ -49,6 +51,12 @@ const Container = (props: {
   const pointData = pstate ? pstate.pointData : [];
   const cpointData = cstate ? cstate.pointData : [];
 
+  const changeCollapse = useMemo(() => {
+    return (c: boolean) => {
+      setCollapsed(c);
+    };
+  }, []);
+
   const context = useContext(dooringContext);
   const curPoint = useMemo(() => {
     if (context.theme === 'h5') {
@@ -62,7 +70,6 @@ const Container = (props: {
     if (context.theme === 'h5') {
       return schema1;
     } else {
-      console.log(schema2);
       return schema2;
     }
   }, [context.theme]);
@@ -98,24 +105,21 @@ const Container = (props: {
     setScale(1);
   };
 
-  const toggleCollapsed = (checked: boolean) => {
-    console.log(checked);
-    setCollapsed(checked);
-  };
-
   const CpIcon = {
     base: <HighlightOutlined />,
     media: <PlayCircleOutlined />,
     visible: <PieChartOutlined />,
   };
 
-  const generateHeader = (type: componentsType, text: string) => {
-    return (
-      <div>
-        {CpIcon[type]} {text}
-      </div>
-    );
-  };
+  const generateHeader = useMemo(() => {
+    return (type: componentsType, text: string) => {
+      return (
+        <div>
+          {CpIcon[type]} {text}
+        </div>
+      );
+    };
+  }, [CpIcon]);
 
   const handleSliderChange = (v: number) => {
     setScale(prev => (v >= 150 ? 1.5 : v / 100));
@@ -198,7 +202,7 @@ const Container = (props: {
       arr.push(v.type);
     });
     return arr;
-  }, []);
+  }, [graphTpl, mediaTpl, template]);
 
   const [dragstate, setDragState] = useState({ x: 0, y: 0 });
   const [render] = useGetBall(setDragState, {
@@ -206,8 +210,6 @@ const Container = (props: {
     ratioSpeed: { x: 1.2, y: 1.2 },
     intervalDelay: 5,
   });
-
-  const [display] = useAnimation(collapsed, 500);
 
   const renderRight = useMemo(() => {
     if (context.theme === 'h5') {
@@ -263,6 +265,64 @@ const Container = (props: {
     }
   }, [context.theme, cpointData.length, curPoint, handleDel, handleFormSave, pointData.length]);
 
+  const tabRender = useMemo(() => {
+    if (collapsed) {
+      return (
+        <>
+          <TabPane tab={generateHeader('base', '')} key="1"></TabPane>
+          <TabPane tab={generateHeader('media', '')} key="2"></TabPane>
+          <TabPane tab={generateHeader('visible', '')} key="3"></TabPane>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <TabPane tab={generateHeader('base', '')} key="1">
+            <div className={styles.ctitle}>基础组件</div>
+            {template.map((value, i) => {
+              return (
+                <TargetBox item={value} key={i} canvasId={canvasId}>
+                  <DynamicEngine
+                    {...value}
+                    config={schema[value.type as keyof typeof schema].config}
+                    componentsType="base"
+                    isTpl={true}
+                  />
+                </TargetBox>
+              );
+            })}
+          </TabPane>
+          <TabPane tab={generateHeader('media', '')} key="2">
+            <div className={styles.ctitle}>媒体组件</div>
+            {mediaTpl.map((value, i) => (
+              <TargetBox item={value} key={i} canvasId={canvasId}>
+                <DynamicEngine
+                  {...value}
+                  config={schema[value.type as keyof typeof schema].config}
+                  componentsType="media"
+                  isTpl={true}
+                />
+              </TargetBox>
+            ))}
+          </TabPane>
+          <TabPane tab={generateHeader('visible', '')} key="3">
+            <div className={styles.ctitle}>可视化组件</div>
+            {graphTpl.map((value, i) => (
+              <TargetBox item={value} key={i} canvasId={canvasId}>
+                <DynamicEngine
+                  {...value}
+                  config={schema[value.type as keyof typeof schema].config}
+                  componentsType={'visible' as componentsType}
+                  isTpl={true}
+                />
+              </TargetBox>
+            ))}
+          </TabPane>
+        </>
+      );
+    }
+  }, [canvasId, collapsed, generateHeader, graphTpl, mediaTpl, schema, template]);
+
   return (
     <div className={styles.editorWrap}>
       <HeaderComponent
@@ -271,72 +331,42 @@ const Container = (props: {
         pointData={context.theme === 'h5' ? pointData : cpointData}
         clearData={clearData}
         location={props.location}
-        toggleCollapsed={toggleCollapsed}
       />
       <div className={styles.container}>
         <div
           className={styles.list}
           style={{
-            transform: collapsed ? 'translate(0,0)' : 'translate(-100%,0)',
             transition: 'all ease-in-out 0.5s',
-            display: display ? 'none' : 'block',
+            position: 'fixed',
+            width: collapsed ? '50px' : '350px',
+            zIndex: 200,
+            boxShadow: 'none',
           }}
         >
-          <div className={styles.searchBar}>
-            <Alert
-              banner
-              message={
-                <TextLoop mask>
-                  <div>Dooring升级啦！</div>
-                  <div>已有1000+人使用</div>
-                  <div>持续迭代中...</div>
-                </TextLoop>
-              }
-            />
-          </div>
           <div className={styles.componentList}>
-            <Tabs defaultActiveKey="1">
-              <TabPane tab={generateHeader('base', '基础组件')} key="1">
-                {template.map((value, i) => {
-                  return (
-                    <TargetBox item={value} key={i} canvasId={canvasId}>
-                      <DynamicEngine
-                        {...value}
-                        config={schema[value.type as keyof typeof schema].config}
-                        componentsType="base"
-                        isTpl={true}
-                      />
-                    </TargetBox>
-                  );
-                })}
-              </TabPane>
-              <TabPane tab={generateHeader('media', '媒体组件')} key="2">
-                {mediaTpl.map((value, i) => (
-                  <TargetBox item={value} key={i} canvasId={canvasId}>
-                    <DynamicEngine
-                      {...value}
-                      config={schema[value.type as keyof typeof schema].config}
-                      componentsType="media"
-                      isTpl={true}
-                    />
-                  </TargetBox>
-                ))}
-              </TabPane>
-              <TabPane tab={generateHeader('visible', '可视化组件')} key="3">
-                {graphTpl.map((value, i) => (
-                  <TargetBox item={value} key={i} canvasId={canvasId}>
-                    <DynamicEngine
-                      {...value}
-                      config={schema[value.type as keyof typeof schema].config}
-                      componentsType={'visible' as componentsType}
-                      isTpl={true}
-                    />
-                  </TargetBox>
-                ))}
-              </TabPane>
+            <Tabs
+              onTabClick={() => changeCollapse(false)}
+              defaultActiveKey="1"
+              tabPosition={'left'}
+            >
+              {tabRender}
             </Tabs>
           </div>
+          <div
+            className={styles.collapsed}
+            style={{ position: 'absolute', bottom: '80px', left: '25px' }}
+            onClick={() => changeCollapse(!collapsed)}
+          >
+            {collapsed ? <DoubleRightOutlined /> : <DoubleLeftOutlined />}
+          </div>
         </div>
+        <div
+          style={{
+            width: collapsed ? '50px' : '350px',
+            transition: 'all ease-in-out 0.5s',
+          }}
+        ></div>
+
         <div className={styles.tickMark} id="calibration">
           <div className={styles.tickMarkTop}>
             <Calibration direction="up" id="calibrationUp" multiple={scaleNum} />

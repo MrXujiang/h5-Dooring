@@ -25,11 +25,24 @@
     .list {
       width: 350px;
       height: 100%;
-      padding: 10px 16px 16px;
+      padding: 10px;
       box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
       display: inline-block;
       background-color: #fff;
-      overflow: auto;
+      & > div:nth-child(1) {
+        height: 100%;
+      }
+      .ctitle {
+        font-weight: bold;
+        line-height: 50px;
+        font-family: PingFangSC-Medium, PingFang SC;
+      }
+      .collapsed {
+        cursor: pointer;
+        &:hover {
+          color: #06c;
+        }
+      }
       .searchBar {
         margin-bottom: 20px;
       }
