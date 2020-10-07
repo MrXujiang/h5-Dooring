@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo, useContext } from 'react';
-import { Slider, Result, Tabs, Alert } from 'antd';
+import React, { useState, useEffect, useMemo, useContext, useRef } from 'react';
+import { Slider, Result, Tabs } from 'antd';
 import {
   PieChartOutlined,
   ExpandOutlined,
@@ -9,7 +9,6 @@ import {
   DoubleRightOutlined,
   DoubleLeftOutlined,
 } from '@ant-design/icons';
-import TextLoop from 'react-text-loop';
 import { connect } from 'dva';
 import HeaderComponent from './components/Header';
 import SourceBox from './SourceBox';
@@ -33,6 +32,7 @@ import { StateWithHistory } from 'redux-undo';
 import styles from './index.less';
 import { useGetBall } from 'react-draggable-ball';
 import { dooringContext } from '@/layouts';
+import { throttle } from '@/utils/tool';
 
 const { TabPane } = Tabs;
 
@@ -128,13 +128,15 @@ const Container = (props: {
     setScale(prev => (v >= 150 ? 1.5 : v / 100));
   };
 
-  const handleSlider = (type: any) => {
-    if (type) {
-      setScale(prev => (prev >= 1.5 ? 1.5 : prev + 0.1));
-    } else {
-      setScale(prev => (prev <= 0.5 ? 0.5 : prev - 0.1));
-    }
-  };
+  const handleSlider = useMemo(() => {
+    return (type: any) => {
+      if (type) {
+        setScale(prev => (prev >= 1.5 ? 1.5 : prev + 0.1));
+      } else {
+        setScale(prev => (prev <= 0.5 ? 0.5 : prev - 0.1));
+      }
+    };
+  }, []);
 
   const handleFormSave = useMemo(() => {
     if (context.theme === 'h5') {
@@ -180,12 +182,16 @@ const Container = (props: {
     }
   }, [context.theme, dispatch]);
 
-  const redohandler = () => {
-    dispatch(ActionCreators.redo());
-  };
-  const undohandler = () => {
-    dispatch(ActionCreators.undo());
-  };
+  const redohandler = useMemo(() => {
+    return () => {
+      dispatch(ActionCreators.redo());
+    };
+  }, [dispatch]);
+  const undohandler = useMemo(() => {
+    return () => {
+      dispatch(ActionCreators.undo());
+    };
+  }, [dispatch]);
   useEffect(() => {
     if (window.innerWidth < 1024) {
       props.history.push('/mobileTip');
@@ -346,6 +352,71 @@ const Container = (props: {
     }
   }, [canvasId, collapsed, generateHeader, graphTpl, mediaTpl, schema, template]);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [diffmove, setDiffMove] = useState({
+    start: { x: 0, y: 0 },
+    move: false,
+  });
+
+  const mousedownfn = useMemo(() => {
+    return (e: React.MouseEvent<HTMLDivElement>) => {
+      if (e.target === containerRef.current) {
+        setDiffMove({
+          start: {
+            x: e.clientX,
+            y: e.clientY,
+          },
+          move: true,
+        });
+      }
+    };
+  }, []);
+  const mousemovefn = useMemo(() => {
+    return (e: React.MouseEvent<HTMLDivElement>) => {
+      if (diffmove.move) {
+        let diffx: number;
+        let diffy: number;
+        const d = 5;
+        const newX = e.clientX;
+        const newY = e.clientY;
+        newX - diffmove.start.x > 0 ? (diffx = d) : (diffx = -d);
+        newY - diffmove.start.y > 0 ? (diffy = d) : (diffy = -d);
+        setDiffMove({
+          start: {
+            x: newX,
+            y: newY,
+          },
+          move: true,
+        });
+        setDragState(prev => {
+          return {
+            x: prev.x + diffx,
+            y: prev.y + diffy,
+          };
+        });
+      }
+    };
+  }, [diffmove.move, diffmove.start.x, diffmove.start.y]);
+
+  const mouseupfn = useMemo(() => {
+    return () => {
+      if (diffmove.move) {
+        setDiffMove({
+          start: { x: 0, y: 0 },
+          move: false,
+        });
+      }
+    };
+  }, [diffmove.move]);
+
+  useEffect(() => {
+    if (diffmove.move && containerRef.current) {
+      containerRef.current.style.cursor = 'move';
+    } else {
+      containerRef.current!.style.cursor = 'default';
+    }
+  }, [diffmove.move]);
+
   return (
     <div className={styles.editorWrap}>
       <HeaderComponent
@@ -391,7 +462,15 @@ const Container = (props: {
           }}
         ></div>
 
-        <div className={styles.tickMark} id="calibration">
+        <div
+          className={styles.tickMark}
+          id="calibration"
+          ref={containerRef}
+          onMouseDown={mousedownfn}
+          onMouseMove={throttle(mousemovefn, 500)}
+          onMouseUp={mouseupfn}
+          onMouseLeave={mouseupfn}
+        >
           <div className={styles.tickMarkTop}>
             <Calibration direction="up" id="calibrationUp" multiple={scaleNum} />
           </div>

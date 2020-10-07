@@ -1,4 +1,4 @@
-import React, { useMemo, memo, ReactNode, useContext } from 'react';
+import React, { useMemo, memo, ReactNode, useContext, CSSProperties } from 'react';
 import { useDrag } from 'react-dnd';
 import schemaH5 from 'components/BasicShop/schema';
 import schemaPc from 'components/BasicPcShop/schema';
@@ -35,18 +35,44 @@ const TargetBox = memo((props: TargetBoxProps) => {
     }),
   });
 
-  const containerStyle = useMemo(
+  const containerStyle: CSSProperties = useMemo(
     () => ({
       opacity: isDragging ? 0.4 : 1,
       cursor: 'move',
+      height: '140px',
     }),
     [isDragging],
   );
-
   return (
-    <div className={styles.module} style={{ ...containerStyle }} ref={drag}>
-      {props.children}
-    </div>
+    <>
+      <div style={{ width: '50%', padding: '10px' }}>
+        <div className={styles.module} style={{ ...containerStyle }} ref={drag}>
+          <div
+            style={{
+              height: '110px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'column',
+              overflow: 'hidden',
+            }}
+          >
+            {props.children}
+          </div>
+          <div
+            style={{
+              height: '30px',
+              lineHeight: '30px',
+              textAlign: 'center',
+              backgroundColor: 'rgba(245, 245, 245, 1)',
+              color: 'rgba(118, 118, 118, 1)',
+            }}
+          >
+            {props.item.displayName}
+          </div>
+        </div>
+      </div>
+    </>
   );
 });
 

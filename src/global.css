@@ -65,3 +65,8 @@ body {
   overflow: auto;
   padding:8px;
 }
+.ant-tabs-left.editorTabclass .ant-tabs-tabpane{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 12px!important;
+}

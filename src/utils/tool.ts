@@ -91,3 +91,16 @@ export function unParams(params = '?a=1&b=2&c=3') {
     });
   return obj;
 }
+
+export function throttle(fn: Function, delay: number) {
+  let flag = true;
+  return (...args: any) => {
+    if (flag) {
+      flag = false;
+      fn(...args);
+      setTimeout(() => {
+        flag = true;
+      }, delay);
+    }
+  };
+}
