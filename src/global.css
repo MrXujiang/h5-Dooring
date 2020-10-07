@@ -42,3 +42,26 @@ body {
 .react-grid-item{
   overflow: hidden;
 }
+
+.ant-tabs-nav 
+,.ant-tabs-nav-list{
+  width: 40px!important;
+  min-width: 40px!important;
+}
+.ant-tabs-left{
+  height: 100%;
+}
+
+.ant-tabs-left > .ant-tabs-nav .ant-tabs-tab{
+  padding:20px 0px !important;
+ 
+}
+.ant-tabs-tab{
+  margin:auto!important;
+}
+.ant-tabs-tab   div{
+  display: inline-block;
+}
+.ant-tabs-content-holder{
+  overflow: auto;
+}

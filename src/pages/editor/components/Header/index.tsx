@@ -29,11 +29,10 @@ interface HeaderComponentProps {
   clearData: any;
   undohandler: any;
   redohandler: any;
-  toggleCollapsed: any;
 }
 
 const HeaderComponent = memo((props: HeaderComponentProps) => {
-  const { pointData, location, clearData, undohandler, redohandler, toggleCollapsed } = props;
+  const { pointData, location, clearData, undohandler, redohandler } = props;
   const iptRef = useRef<Input>(null);
 
   const toPreview = () => {
@@ -137,7 +136,6 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
           <ArrowLeftOutlined />
         </div>
         <div className={styles.logo}>Dooring</div>
-        <Switch defaultChecked onChange={toggleCollapsed} style={{ marginLeft: '100px' }} />
       </div>
       <div className={styles.controlArea}>
         <Button type="primary" style={{ marginRight: '9px' }} onClick={useTemplate}>

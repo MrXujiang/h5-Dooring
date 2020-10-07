@@ -9,7 +9,6 @@ interface IProps extends IWhiteTplConfig {
 
 const WhiteTpl = memo((props: IProps) => {
   const { bgColor, text, fontSize, color, height, isTpl } = props;
-  console.log('data', bgColor, text, fontSize, color, height);
   return (
     <div
       className={styles.whiteTpl}
