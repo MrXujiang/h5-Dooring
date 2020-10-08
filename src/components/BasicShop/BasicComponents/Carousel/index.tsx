@@ -2,9 +2,9 @@ import React, { memo } from 'react';
 import { Carousel } from 'zarm';
 import styles from './index.less';
 import { ICarouselConfig } from './schema';
-
+import logo from '@/assets/01-轮播.png';
 const XCarousel = memo((props: ICarouselConfig) => {
-  const { direction, swipeable, autoPlay, isTpl, imgList, tplImg } = props;
+  const { direction, swipeable, autoPlay, isTpl, imgList } = props;
   const contentRender = () => {
     return imgList.map((item, i) => {
       return (
@@ -18,7 +18,7 @@ const XCarousel = memo((props: ICarouselConfig) => {
     <>
       {isTpl ? (
         <div className={styles.carousel__item__pic}>
-          <img src={tplImg} alt="" />
+          <img src={logo} alt="" />
         </div>
       ) : (
         <div

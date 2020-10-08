@@ -34,7 +34,6 @@ const EditorModal: FC<EditorModalProps> = props => {
     form
       .validateFields()
       .then(values => {
-        console.log(values);
         if (item) {
           values.id = item.id;
           onSave && onSave(values);

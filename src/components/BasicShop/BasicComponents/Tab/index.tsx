@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 import { Tabs } from 'zarm';
 import styles from './index.less';
 import { ITabConfig } from './schema';
-
+import logo from '@/assets/11-切换页.png';
 const { Panel } = Tabs;
 
-const XTab = (props: ITabConfig) => {
-  const { tabs = ['分类一', '分类二'], activeColor, color, fontSize, sourceData } = props;
+const XTab = (props: ITabConfig & { isTpl: boolean }) => {
+  const { tabs = ['分类一', '分类二'], activeColor, color, fontSize, sourceData, isTpl } = props;
 
   const tabWrapRef = useRef<HTMLDivElement>(null);
 
@@ -20,45 +20,48 @@ const XTab = (props: ITabConfig) => {
   }, [activeColor]);
 
   return (
-    <div className={styles.tabWrap} ref={tabWrapRef}>
-      <Tabs
-        scrollThreshold={3}
-        onChange={i => {
-          console.log(i);
-        }}
-      >
-        {tabs.map((item, i) => {
-          return (
-            <Panel title={item} key={i}>
-              <div className={styles.content}>
-                {sourceData
-                  .filter(item => item.type === i)
-                  .map((item, i) => {
-                    return (
-                      <div className={styles.item} key={i}>
-                        <a className={styles.imgWrap} href={item.link} title={item.desc}>
-                          <img
-                            src={
-                              item.imgUrl[0]
-                                ? item.imgUrl[0].url
-                                : 'http://io.nainor.com/uploads/01_173e15d3493.png'
-                            }
-                            alt={item.title}
-                          />
-                          <div className={styles.title} style={{ fontSize, color }}>
-                            {item.title}
+    <>
+      {isTpl ? (
+        <div>
+          <img src={logo} alt=""></img>
+        </div>
+      ) : (
+        <div className={styles.tabWrap} ref={tabWrapRef}>
+          <Tabs scrollThreshold={3}>
+            {tabs.map((item, i) => {
+              return (
+                <Panel title={item} key={i}>
+                  <div className={styles.content}>
+                    {sourceData
+                      .filter(item => item.type === i)
+                      .map((item, i) => {
+                        return (
+                          <div className={styles.item} key={i}>
+                            <a className={styles.imgWrap} href={item.link} title={item.desc}>
+                              <img
+                                src={
+                                  item.imgUrl[0]
+                                    ? item.imgUrl[0].url
+                                    : 'http://io.nainor.com/uploads/01_173e15d3493.png'
+                                }
+                                alt={item.title}
+                              />
+                              <div className={styles.title} style={{ fontSize, color }}>
+                                {item.title}
+                              </div>
+                            </a>
                           </div>
-                        </a>
-                      </div>
-                    );
-                  })}
-              </div>
-            </Panel>
-          );
-        })}
-      </Tabs>
-    </div>
+                        );
+                      })}
+                  </div>
+                </Panel>
+              );
+            })}
+          </Tabs>
+        </div>
+      )}
+    </>
   );
 };
 
-export default XTab;
+export default memo(XTab);

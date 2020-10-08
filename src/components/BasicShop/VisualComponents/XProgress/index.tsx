@@ -2,19 +2,27 @@ import React, { memo } from 'react';
 import { Progress } from 'zarm';
 import styles from './index.less';
 import { IXProgressConfig } from './schema';
-
-const XProgress = memo((props: IXProgressConfig) => {
-  const { theme, size, shape, percent, strokeWidth } = props;
+import logo from '@/assets/15-进度.png';
+const XProgress = memo((props: IXProgressConfig & { isTpl: boolean }) => {
+  const { theme, size, shape, percent, strokeWidth, isTpl } = props;
   return (
-    <div className={styles.textWrap} style={{ textAlign: 'center' }}>
-      <Progress
-        shape={shape}
-        size={size}
-        percent={percent}
-        theme={theme}
-        strokeWidth={strokeWidth}
-      />
-    </div>
+    <>
+      {isTpl ? (
+        <div>
+          <img src={logo} alt=""></img>
+        </div>
+      ) : (
+        <div className={styles.textWrap} style={{ textAlign: 'center' }}>
+          <Progress
+            shape={shape}
+            size={size}
+            percent={percent}
+            theme={theme}
+            strokeWidth={strokeWidth}
+          />
+        </div>
+      )}
+    </>
   );
 });
 

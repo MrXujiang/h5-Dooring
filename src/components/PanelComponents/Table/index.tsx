@@ -192,14 +192,12 @@ class EditableTable extends React.Component<any, any> {
   };
 
   handleOk = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    console.log(e);
     this.setState({
       visible: false,
     });
   };
 
   handleCancel = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    console.log(e);
     this.setState({
       visible: false,
     });

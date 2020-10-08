@@ -22,7 +22,6 @@ export interface ICarouselConfig extends ICommonBaseType {
   swipeable: TSwitchDefaultType;
   autoPlay: TSwitchDefaultType;
   imgList: TDataListDefaultType;
-  tplImg: string;
 }
 
 export interface ICarouselSchema {
@@ -100,7 +99,6 @@ const Carousel: ICarouselSchema = {
       },
     ],
     ...baseDefault,
-    tplImg: 'http://io.nainor.com/uploads/carousal_17442e1420f.png',
   },
 };
 export default Carousel;

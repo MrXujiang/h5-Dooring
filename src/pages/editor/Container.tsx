@@ -198,7 +198,7 @@ const Container = (props: {
     if (pstate.curPoint && pstate.curPoint.status === 'inToCanvas' && rightColla) {
       changeRightColla(false);
     }
-  }, [pstate.curPoint]);
+  }, [changeRightColla, pstate.curPoint, rightColla]);
 
   const allType = useMemo(() => {
     let arr: string[] = [];
@@ -377,11 +377,10 @@ const Container = (props: {
       if (diffmove.move) {
         let diffx: number;
         let diffy: number;
-        const d = 5;
         const newX = e.clientX;
         const newY = e.clientY;
-        newX - diffmove.start.x > 0 ? (diffx = d) : (diffx = -d);
-        newY - diffmove.start.y > 0 ? (diffy = d) : (diffy = -d);
+        diffx = newX - diffmove.start.x;
+        diffy = newY - diffmove.start.y;
         setDiffMove({
           start: {
             x: newX,
@@ -401,26 +400,24 @@ const Container = (props: {
 
   const mouseupfn = useMemo(() => {
     return () => {
-      if (diffmove.move) {
-        setDiffMove({
-          start: { x: 0, y: 0 },
-          move: false,
-        });
-      }
+      setDiffMove({
+        start: { x: 0, y: 0 },
+        move: false,
+      });
     };
-  }, [diffmove.move]);
+  }, []);
 
   const onwheelFn = useMemo(() => {
     return (e: React.WheelEvent<HTMLDivElement>) => {
-      if (e.deltaY > 0) {
+      if (e.deltaY < 0) {
         setDragState(prev => ({
           x: prev.x,
-          y: prev.y + 10,
+          y: prev.y + 40,
         }));
       } else {
         setDragState(prev => ({
           x: prev.x,
-          y: prev.y - 10,
+          y: prev.y - 40,
         }));
       }
     };
@@ -512,7 +509,7 @@ const Container = (props: {
               className={styles.sliderBtn}
               onClick={handleSlider.bind(this, 1)}
               style={
-                scaleNum == 1
+                scaleNum === 1
                   ? { pointerEvents: 'none' }
                   : { display: 'initial', marginLeft: '13px' }
               }
@@ -522,7 +519,7 @@ const Container = (props: {
             <span>{scaleNum * 100}%</span>
             <span
               className={styles.sliderBtn}
-              style={scaleNum == 0.1 ? { pointerEvents: 'none' } : { display: 'initial' }}
+              style={scaleNum === 0.1 ? { pointerEvents: 'none' } : { display: 'initial' }}
               onClick={handleSlider.bind(this, 0)}
             >
               -
