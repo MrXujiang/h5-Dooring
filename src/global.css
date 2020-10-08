@@ -70,6 +70,7 @@ body {
   flex-wrap: wrap;
   padding-left: 10px!important;
   padding-right: 10px!important;
+  padding-bottom: 40px;
 }
 
 .ant-form-item-label > label {

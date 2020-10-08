@@ -2,7 +2,7 @@ import { memo } from 'react';
 import styles from './index.less';
 import React from 'react';
 import { IWhiteTplConfig } from './schema';
-
+import logo from '@/assets/13-空白.png';
 interface IProps extends IWhiteTplConfig {
   isTpl: boolean;
 }
@@ -10,14 +10,22 @@ interface IProps extends IWhiteTplConfig {
 const WhiteTpl = memo((props: IProps) => {
   const { bgColor, text, fontSize, color, height, isTpl } = props;
   return (
-    <div
-      className={styles.whiteTpl}
-      style={{ backgroundColor: bgColor, height, lineHeight: height + 'px' }}
-    >
-      <div className={styles.title} style={{ fontSize, color }}>
-        {isTpl ? '空白模版' : text}
-      </div>
-    </div>
+    <>
+      {isTpl ? (
+        <div>
+          <img src={logo} alt=""></img>
+        </div>
+      ) : (
+        <div
+          className={styles.whiteTpl}
+          style={{ backgroundColor: bgColor, height, lineHeight: height + 'px' }}
+        >
+          <div className={styles.title} style={{ fontSize, color }}>
+            {text}
+          </div>
+        </div>
+      )}
+    </>
   );
 });
 

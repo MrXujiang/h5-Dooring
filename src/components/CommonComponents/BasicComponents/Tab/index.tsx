@@ -21,12 +21,7 @@ const XTab = (props: ITabConfig) => {
 
   return (
     <div className={styles.tabWrap} ref={tabWrapRef}>
-      <Tabs
-        scrollThreshold={3}
-        onChange={i => {
-          console.log(i);
-        }}
-      >
+      <Tabs scrollThreshold={3}>
         {tabs.map((item, i) => {
           return (
             <Panel title={item} key={i}>

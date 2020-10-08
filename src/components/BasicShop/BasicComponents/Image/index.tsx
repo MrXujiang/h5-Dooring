@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { IImageConfig } from './schema';
+import logo from '@/assets/06-图片组件.png';
 const Image = memo((props: IImageConfig) => {
   const {
     imgUrl,
@@ -18,15 +19,8 @@ const Image = memo((props: IImageConfig) => {
   return (
     <>
       {props.isTpl && (
-        <div
-          style={{
-            borderRadius: round,
-            width: '100%',
-            textAlign: 'center',
-            overflow: 'hidden',
-          }}
-        >
-          <img src={imgUrl && imgUrl[0].url} alt="" style={{ width: '100%' }} />
+        <div>
+          <img src={logo} alt="" />
         </div>
       )}
       {!props.isTpl && (

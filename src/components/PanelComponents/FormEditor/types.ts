@@ -1,5 +1,3 @@
-import { type } from 'os';
-
 ////////////////////
 export interface IUploadConfigType {
   key: string;
@@ -200,14 +198,7 @@ export type baseFormDateTpl = {
   label: string;
   placeholder: string;
 };
-
-export type baseFormButtonTpl = {
-  key: string;
-  name: string;
-  type: 'Button';
-  icons: Array<any>;
-};
-
+//类型不要乱加，这部分是FormItems的类型定义，只有新增formItems的配置项才需要加！
 export type baseFormUnion =
   | baseFormTextTpl
   | baseFormNumberTpl
@@ -215,8 +206,7 @@ export type baseFormUnion =
   | baseFormMyRadioTpl
   | baseFormMyCheckboxTpl
   | baseFormMySelectTpl
-  | baseFormDateTpl
-  | baseFormButtonTpl;
+  | baseFormDateTpl;
 export type baseFormUnionType =
   | baseFormTextTpl['type']
   | baseFormNumberTpl['type']
@@ -224,7 +214,6 @@ export type baseFormUnionType =
   | baseFormMyRadioTpl['type']
   | baseFormMyCheckboxTpl['type']
   | baseFormMySelectTpl['type']
-  | baseFormDateTpl['type']
-  | baseFormButtonTpl['type'];
+  | baseFormDateTpl['type'];
 
 export type TFormItemsDefaultType = Array<baseFormUnion>;

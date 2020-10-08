@@ -1,22 +1,14 @@
 import React, { memo } from 'react';
 import { IFooterConfig } from './schema';
+import logo from '@/assets/02-页脚.png';
 const Footer = memo((props: IFooterConfig) => {
   const { bgColor, text, color, align, fontSize, height } = props;
   return (
     <>
       {props.isTpl && (
-        <footer
-          style={{
-            backgroundColor: bgColor,
-            color,
-            fontSize,
-            textAlign: align,
-            height,
-            lineHeight: height + 'px',
-          }}
-        >
-          {text}
-        </footer>
+        <div>
+          <img src={logo} alt="" />
+        </div>
       )}
       {!props.isTpl && (
         <div
