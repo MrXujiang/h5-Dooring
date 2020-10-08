@@ -52,6 +52,11 @@ const FormEditor = (props: FormEditorProps) => {
       form.resetFields();
     };
   }, [defaultValue, form]);
+
+  const handleInputChange = (values: any) => {
+    let btn = document.getElementById('btn');
+    btn?.click();
+  };
   return (
     <Form
       form={form}
@@ -65,32 +70,32 @@ const FormEditor = (props: FormEditorProps) => {
           <React.Fragment key={i}>
             {item.type === 'Number' && (
               <Form.Item label={item.name} name={item.key}>
-                <InputNumber max={item.range && item.range[1]} />
+                <InputNumber max={item.range && item.range[1]} onChange={handleInputChange} />
               </Form.Item>
             )}
             {item.type === 'Text' && (
               <Form.Item label={item.name} name={item.key}>
-                <Input />
+                <Input onChange={handleInputChange} />
               </Form.Item>
             )}
             {item.type === 'TextArea' && (
               <Form.Item label={item.name} name={item.key}>
-                <TextArea rows={4} />
+                <TextArea rows={4} onChange={handleInputChange} />
               </Form.Item>
             )}
             {item.type === 'DataList' && (
               <Form.Item label={item.name} name={item.key}>
-                <DataList />
+                <DataList onChange={handleInputChange} />
               </Form.Item>
             )}
             {item.type === 'Color' && (
               <Form.Item label={item.name} name={item.key}>
-                <Color />
+                <Color onChange={handleInputChange} />
               </Form.Item>
             )}
             {item.type === 'MutiText' && (
               <Form.Item label={item.name} name={item.key}>
-                <MutiText />
+                <MutiText onChange={handleInputChange} />
               </Form.Item>
             )}
             {item.type === 'Select' && (
@@ -98,7 +103,7 @@ const FormEditor = (props: FormEditorProps) => {
                 <Select placeholder="请选择">
                   {item.range.map((v: any, i: number) => {
                     return (
-                      <Option value={v.key} key={i}>
+                      <Option value={v.key} key={i} onChange={handleInputChange}>
                         {v.text}
                       </Option>
                     );
@@ -111,7 +116,7 @@ const FormEditor = (props: FormEditorProps) => {
                 <Radio.Group>
                   {item.range.map((v: any, i: number) => {
                     return (
-                      <Radio value={v.key} key={i}>
+                      <Radio value={v.key} key={i} onChange={handleInputChange}>
                         {v.text}
                       </Radio>
                     );
@@ -121,7 +126,7 @@ const FormEditor = (props: FormEditorProps) => {
             )}
             {item.type === 'Switch' && (
               <Form.Item label={item.name} name={item.key} valuePropName="checked">
-                <Switch />
+                <Switch onChange={handleInputChange} />
               </Form.Item>
             )}
             {item.type === 'Upload' && (
@@ -131,34 +136,42 @@ const FormEditor = (props: FormEditorProps) => {
                 valuePropName="fileList"
                 getValueFromEvent={normFile}
               >
-                <Upload cropRate={item.cropRate} isCrop={item.isCrop} />
+                <Upload
+                  cropRate={item.cropRate}
+                  isCrop={item.isCrop}
+                  onChange={handleInputChange}
+                />
               </Form.Item>
             )}
             {item.type === 'CardPicker' && (
               <Form.Item label={item.name} name={item.key} valuePropName="type">
-                <CardPicker icons={item.icons} type={defaultValue['type']} />
+                <CardPicker
+                  icons={item.icons}
+                  type={defaultValue['type']}
+                  onChange={handleInputChange}
+                />
               </Form.Item>
             )}
             {item.type === 'Table' && (
               <Form.Item label={item.name} name={item.key} valuePropName="data">
-                <Table data={item.data} />
+                <Table data={item.data} onChange={handleInputChange} />
               </Form.Item>
             )}
             {item.type === 'Pos' && (
               <Form.Item label={item.name} name={item.key}>
-                <Pos />
+                <Pos onChange={handleInputChange} />
               </Form.Item>
             )}
             {item.type === 'FormItems' && (
               <Form.Item label={item.name} name={item.key} valuePropName="formList">
-                <FormItems data={item.data} />
+                <FormItems data={item.data} onChange={handleInputChange} />
               </Form.Item>
             )}
           </React.Fragment>
         );
       })}
       <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" hidden={true} htmlType="submit" id="btn">
           保存
         </Button>
         <Button danger style={{ marginLeft: '20px' }} onClick={handleDel}>
