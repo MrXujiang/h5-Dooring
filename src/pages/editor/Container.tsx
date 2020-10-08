@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useContext, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useContext, useRef } from 'react';
 import { Result, Tabs } from 'antd';
 import {
   PieChartOutlined,
@@ -152,7 +152,7 @@ const Container = (props: {
     }
   }, [context.theme, curPoint, dispatch]);
 
-  const clearData = useMemo(() => {
+  const clearData = useCallback(() => {
     if (context.theme === 'h5') {
       dispatch({ type: 'editorModal/clearAll' });
     } else {
