@@ -7,6 +7,7 @@ import {
   HighlightOutlined,
   DoubleRightOutlined,
   DoubleLeftOutlined,
+  ReloadOutlined,
 } from '@ant-design/icons';
 import { connect } from 'dva';
 import HeaderComponent from './components/Header';
@@ -504,8 +505,8 @@ const Container = (props: {
           {/* TODO 暂时隐藏 */}
           {/* <div className={styles.resetBall}>
             <ReloadOutlined onClick={() => setDragState({ x: 0, y: 0 })} />
-          </div>
-          <div className={styles.controllBall}>{render}</div> */}
+          </div> */}
+          {/*<div className={styles.controllBall}>{render}</div> */}
           <div className={styles.sliderWrap}>
             <span
               className={styles.sliderBtn}
@@ -528,6 +529,9 @@ const Container = (props: {
             </span>
             <span className={styles.backSize}>
               <ExpandOutlined onClick={backSize} />
+            </span>
+            <span className={styles.backSize}>
+              <ReloadOutlined onClick={() => setDragState({ x: 0, y: 0 })} />
             </span>
           </div>
           {/* <div className={styles.backSize}>
