@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useMemo, useContext, useRef } from 'react';
-import { Slider, Result, Tabs } from 'antd';
+import { Result, Tabs } from 'antd';
 import {
   PieChartOutlined,
   ExpandOutlined,
   PlayCircleOutlined,
   HighlightOutlined,
-  ReloadOutlined,
   DoubleRightOutlined,
   DoubleLeftOutlined,
 } from '@ant-design/icons';
@@ -30,7 +29,7 @@ import schema2 from 'components/BasicPcShop/schema';
 import { ActionCreators } from 'redux-undo';
 import { StateWithHistory } from 'redux-undo';
 import styles from './index.less';
-import { useGetBall } from 'react-draggable-ball';
+// import { useGetBall } from 'react-draggable-ball';
 import { dooringContext } from '@/layouts';
 import { throttle } from '@/utils/tool';
 
@@ -124,16 +123,12 @@ const Container = (props: {
     };
   }, [CpIcon]);
 
-  const handleSliderChange = (v: number) => {
-    setScale(prev => (v >= 150 ? 1.5 : v / 100));
-  };
-
   const handleSlider = useMemo(() => {
     return (type: any) => {
       if (type) {
-        setScale(prev => (prev >= 1.5 ? 1.5 : prev + 0.1));
+        setScale((prev: number) => +(prev + 0.1).toFixed(1));
       } else {
-        setScale(prev => (prev <= 0.5 ? 0.5 : prev - 0.1));
+        setScale((prev: number) => +(prev - 0.1).toFixed(1));
       }
     };
   }, []);
@@ -506,25 +501,24 @@ const Container = (props: {
             <ReloadOutlined onClick={() => setDragState({ x: 0, y: 0 })} />
           </div>
           <div className={styles.controllBall}>{render}</div> */}
-
           <div className={styles.sliderWrap}>
             <span
-              style={{ marginLeft: '13px' }}
               className={styles.sliderBtn}
               onClick={handleSlider.bind(this, 1)}
+              style={
+                scaleNum == 1
+                  ? { pointerEvents: 'none' }
+                  : { display: 'initial', marginLeft: '13px' }
+              }
             >
               +
             </span>
-            {/* <Slider
-              defaultValue={100}
-              className={styles.slider}
-              onChange={handleSliderChange}
-              min={50}
-              max={150}
-              value={scaleNum * 100}
-            /> */}
             <span>{scaleNum * 100}%</span>
-            <span className={styles.sliderBtn} onClick={handleSlider.bind(this, 0)}>
+            <span
+              className={styles.sliderBtn}
+              style={scaleNum == 0.1 ? { pointerEvents: 'none' } : { display: 'initial' }}
+              onClick={handleSlider.bind(this, 0)}
+            >
               -
             </span>
             <span className={styles.backSize}>
