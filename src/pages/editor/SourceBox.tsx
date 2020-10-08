@@ -55,6 +55,7 @@ const SourceBox = memo((props: SourceBoxProps) => {
             id: uuid(6, 10),
             item,
             point: { i: `x-${pointData.length}`, x: 0, y: gridY, w, h: item.h, isBounded: true },
+            status: 'inToCanvas',
           },
         });
       } else {
@@ -71,6 +72,7 @@ const SourceBox = memo((props: SourceBoxProps) => {
               h: item.h,
               isBounded: true,
             },
+            status: 'inToCanvas',
           },
         });
       }

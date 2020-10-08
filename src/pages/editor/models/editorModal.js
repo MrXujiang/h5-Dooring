@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Version: 2.0
+ * @Autor: dragon
+ * @Date: 2020-09-24 10:11:24
+ * @LastEditors: dragon
+ * @LastEditTime: 2020-10-08 16:12:26
+ */
 const pointData = localStorage.getItem('userData') || '[]';
 
 function overSave(name, data) {

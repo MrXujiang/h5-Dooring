@@ -43,7 +43,7 @@ const Container = (props: {
   dispatch?: any;
 }) => {
   const [scaleNum, setScale] = useState(1);
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
   const [rightColla, setRightColla] = useState(true);
   const { pstate, cstate, dispatch } = props;
   const pointData = pstate ? pstate.pointData : [];
@@ -193,6 +193,11 @@ const Container = (props: {
     } //待修改
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    if (pstate.curPoint && pstate.curPoint.status === 'inToCanvas' && rightColla) {
+      changeRightColla(false);
+    }
+  }, [pstate.curPoint]);
 
   const allType = useMemo(() => {
     let arr: string[] = [];
