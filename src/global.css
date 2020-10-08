@@ -68,7 +68,8 @@ body {
 .ant-tabs-left.editorTabclass .ant-tabs-tabpane{
   display: flex;
   flex-wrap: wrap;
-  padding-left: 12px!important;
+  padding-left: 10px!important;
+  padding-right: 10px!important;
 }
 
 .ant-form-item-label > label {

@@ -45,7 +45,7 @@ const TargetBox = memo((props: TargetBoxProps) => {
   );
   return (
     <>
-      <div style={{ width: '50%', padding: '10px' }}>
+      <div className={styles.listWrap}>
         <div className={styles.module} style={{ ...containerStyle }} ref={drag}>
           <div
             style={{

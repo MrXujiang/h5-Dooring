@@ -47,9 +47,18 @@
       .searchBar {
         margin-bottom: 20px;
       }
+      &Wrap {
+        width: 50%;
+        &:nth-child(even) {
+          padding-left: 0px;
+        }
+        &:nth-child(odd) {
+          padding-left: 8px;
+        }
+      }
       .module {
         position: relative;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         width: 100%;
         overflow: hidden;
         user-select: none;
