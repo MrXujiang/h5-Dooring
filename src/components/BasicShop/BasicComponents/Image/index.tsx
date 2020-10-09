@@ -52,8 +52,8 @@ const Image = memo((props: IImageConfig) => {
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                marginLeft: translate[0],
-                marginTop: translate[1],
+                marginLeft: translate && translate[0],
+                marginTop: translate && translate[1],
                 textAlign: align,
               }}
             >

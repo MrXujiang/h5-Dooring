@@ -9,11 +9,12 @@ import {
   UndoOutlined,
   RedoOutlined,
   FileAddOutlined,
+  CodeOutlined,
+  SketchOutlined,
 } from '@ant-design/icons';
 import { history } from 'umi';
 import QRCode from 'qrcode.react';
 import { saveAs } from 'file-saver';
-import Zan from 'components/Zan';
 import req from '@/utils/req';
 import Code from '@/assets/code.png';
 import styles from './index.less';
@@ -45,6 +46,14 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
           : `/preview?tid=${props.location.query.tid}`,
       );
     }, 600);
+  };
+
+  const toOnlineCoding = () => {
+    window.open('/ide');
+  };
+
+  const toVipLogin = () => {
+    window.open('/login');
   };
 
   const content = () => {
@@ -213,7 +222,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
       <div className={styles.btnArea}>
         <Select
           defaultValue="h5"
-          style={{ width: 120, marginRight: 20 }}
+          style={{ width: 100, marginRight: 20 }}
           onChange={e => {
             setTheme(e);
           }}
@@ -221,7 +230,14 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
           <Select.Option value="h5">h5模式</Select.Option>
           <Select.Option value="pc">pc模式</Select.Option>
         </Select>
-        <Zan />
+        <Button type="primary" ghost onClick={toOnlineCoding} style={{ marginRight: '12px' }}>
+          <CodeOutlined />
+          在线编程
+        </Button>
+        <Button type="primary" ghost onClick={toVipLogin} style={{ marginRight: '12px' }}>
+          <SketchOutlined />
+          会员登录
+        </Button>
       </div>
     </div>
   );
