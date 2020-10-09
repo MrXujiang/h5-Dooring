@@ -56,11 +56,11 @@ const PreviewPage = memo((props: PreviewPageProps) => {
   const pcStyle: CSSProperties = useMemo(() => {
     return {
       width: isMac ? 395 : 375 + width + 1, //小数会有偏差
-      margin: '90px auto',
+      margin: '75px auto',
       height: '684px',
       overflow: 'auto',
       position: 'relative',
-      transform: 'scale(0.8) translateY(-80px)',
+      transform: 'scale(0.6) translateY(-80px)',
     };
   }, [width]);
 
@@ -93,7 +93,7 @@ const PreviewPage = memo((props: PreviewPageProps) => {
             height: '840px',
             width: '419px', //375+22+22
             left: '50%',
-            transform: 'translate(-50%,-60px) scale(0.8)',
+            transform: 'translate(-50%,-60px) scale(0.6)',
             boxShadow: '0 4px 30px 0 rgba(4, 59, 85, 0.1)',
             borderRadius: '60px',
             pointerEvents: 'none',
