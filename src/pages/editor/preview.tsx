@@ -1,11 +1,10 @@
-import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
+import React, { CSSProperties, memo, useEffect, useMemo, useRef, useState } from 'react';
 import GridLayout from 'react-grid-layout';
 import DynamicEngine from 'components/DynamicEngine';
 import req from '@/utils/req';
 import styles from './index.less';
 import { useGetScrollBarWidth } from '@/utils/tool';
 import { LocationDescriptorObject } from 'history-with-query';
-
 const isMac = navigator.platform.indexOf('Mac') === 0;
 
 interface PreviewPageProps {
@@ -54,33 +53,53 @@ const PreviewPage = memo((props: PreviewPageProps) => {
 
   const ref = useRef<HTMLDivElement>(null);
   const width = useGetScrollBarWidth(ref);
-  const pcStyle = useMemo(() => {
+  const pcStyle: CSSProperties = useMemo(() => {
     return {
       width: isMac ? 395 : 375 + width + 1, //小数会有偏差
-      margin: '20px auto',
-      border: '10px solid #000',
-      borderRadius: '20px',
+      margin: '90px auto',
       height: '684px',
       overflow: 'auto',
+      position: 'relative',
     };
   }, [width]);
 
   return (
-    <div ref={ref} style={vw > 800 ? pcStyle : {}}>
-      <GridLayout
-        className={styles.layout}
-        cols={24}
-        rowHeight={2}
-        width={vw > 800 ? 375 : vw}
-        margin={[0, 0]}
-      >
-        {pointData.map((value: PointDataItem) => (
-          <div className={styles.dragItem} key={value.id} data-grid={value.point}>
-            <DynamicEngine {...(value.item as any)} />
-          </div>
-        ))}
-      </GridLayout>
-    </div>
+    <>
+      <div ref={ref} style={vw > 800 ? pcStyle : {}}>
+        <GridLayout
+          className={styles.layout}
+          cols={24}
+          rowHeight={2}
+          width={vw > 800 ? 375 : vw}
+          margin={[0, 0]}
+        >
+          {pointData.map((value: PointDataItem) => (
+            <div className={styles.dragItem} key={value.id} data-grid={value.point}>
+              <DynamicEngine {...(value.item as any)} />
+            </div>
+          ))}
+        </GridLayout>
+      </div>
+
+      {vw > 800 ? (
+        <div
+          style={{
+            backgroundImage: "url('/iphone.png') ",
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'contain',
+            position: 'absolute',
+            top: 0,
+            height: '840px',
+            width: '419px', //375+22+22
+            left: '50%',
+            transform: 'translateX(-50%)',
+            boxShadow: '0 4px 30px 0 rgba(4, 59, 85, 0.1)',
+            borderRadius: '60px',
+            pointerEvents: 'none',
+          }}
+        ></div>
+      ) : null}
+    </>
   );
 });
 

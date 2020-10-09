@@ -91,7 +91,7 @@ export default function Layout({ children }: IRouteComponentProps) {
         setTheme: setState,
       }}
     >
-      <div style={{ height: '100%', width: '100%' }}>
+      <div style={{ height: '100%', width: '100%', overflow: 'hidden' }}>
         <div
           style={{
             position: 'fixed',
