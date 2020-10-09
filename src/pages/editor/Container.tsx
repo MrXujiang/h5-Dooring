@@ -188,17 +188,19 @@ const Container = (props: {
       dispatch(ActionCreators.undo());
     };
   }, [dispatch]);
+
   useEffect(() => {
     if (window.innerWidth < 1024) {
       props.history.push('/mobileTip');
     } //待修改
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   useEffect(() => {
-    if (pstate.curPoint && pstate.curPoint.status === 'inToCanvas' && rightColla) {
-      changeRightColla(false);
+    if (pstate.curPoint && pstate.curPoint.status === 'inToCanvas') {
+      setRightColla(false);
     }
-  }, [changeRightColla, pstate.curPoint, rightColla]);
+  }, [pstate.curPoint]);
 
   const allType = useMemo(() => {
     let arr: string[] = [];
