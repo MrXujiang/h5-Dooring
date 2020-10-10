@@ -74,6 +74,7 @@ const FormItems = (props: FormItemsProps) => {
   };
 
   const handleEditItem = (item: baseFormUnion) => {
+    console.log(item);
     setVisible(true);
     setCurItem(item);
   };
@@ -89,7 +90,7 @@ const FormItems = (props: FormItemsProps) => {
   };
 
   const handleSaveItem = (data: baseFormUnion) => {
-    let newData = formData.map(v => (v.type === data.type ? data : v));
+    let newData = formData.map(v => (v.id === data.id ? data : v));
     setFormData(newData);
     onChange && onChange(newData);
     setVisible(false);
@@ -105,10 +106,10 @@ const FormItems = (props: FormItemsProps) => {
                 <FormItem {...item} />
               </div>
               <div className={styles.operationWrap}>
-                <span className={styles.operationBtn} onClick={handleEditItem.bind(this, item)}>
+                <span className={styles.operationBtn} onClick={() => handleEditItem(item)}>
                   <EditOutlined />
                 </span>
-                <span className={styles.operationBtn} onClick={handleDelItem.bind(this, item)}>
+                <span className={styles.operationBtn} onClick={() => handleDelItem(item)}>
                   <MinusCircleOutlined />
                 </span>
               </div>
@@ -125,7 +126,7 @@ const FormItems = (props: FormItemsProps) => {
               <div className={styles.disClick}>
                 <FormItem {...item} />
               </div>
-              <span className={styles.addBtn} onClick={handleAddItem.bind(this, item)}>
+              <span className={styles.addBtn} onClick={() => handleAddItem(item)}>
                 添加
               </span>
             </div>
