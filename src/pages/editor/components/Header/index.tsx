@@ -136,7 +136,16 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     const { tid } = props.location.query || '';
     req.post('/visible/preview', { tid, tpl: pointData });
   };
-  const handleSaveCode = () => {};
+  const handleSaveCode = () => {
+    Modal.confirm({
+      title: '确定要下载吗? 每人每天只能下载2次哦~',
+      okText: '确定',
+      cancelText: '取消',
+      onOk() {
+        // 未来的下载代码逻辑
+      },
+    });
+  };
   const { setTheme } = useContext(dooringContext);
   return (
     <div className={styles.header}>

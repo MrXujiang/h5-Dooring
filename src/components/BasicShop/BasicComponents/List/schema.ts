@@ -36,7 +36,7 @@ const List: IListSchema = {
     },
     {
       key: 'round',
-      name: '圆角',
+      name: '图片圆角',
       type: 'Number',
     },
     {
