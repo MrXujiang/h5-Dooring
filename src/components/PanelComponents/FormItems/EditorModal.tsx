@@ -38,10 +38,10 @@ const EditorModal: FC<EditorModalProps> = props => {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    return () => {
+    if (form && item && visible) {
       form.resetFields();
-    };
-  }, [form, item]);
+    }
+  }, [form, item, visible]);
 
   return (
     <>

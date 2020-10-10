@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useMemo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { Form, Select, InputNumber, Input, Switch, Radio, Button } from 'antd';
 import Upload from '../Upload';
 import DataList from '../DataList';
@@ -40,7 +40,6 @@ const FormEditor = (props: FormEditorProps) => {
   const onFinish = (values: Store) => {
     onSave && onSave(values);
   };
-
   const handleDel = () => {
     onDel && onDel(uid);
   };
@@ -51,12 +50,12 @@ const FormEditor = (props: FormEditorProps) => {
     return () => {
       form.resetFields();
     };
-  }, [defaultValue, form]);
+  }, [uid, form]);
 
-  const handleInputChange = (values: any) => {
-    let btn = document.getElementById('btn');
-    btn?.click();
+  const handlechange = () => {
+    onFinish(form.getFieldsValue());
   };
+
   return (
     <Form
       form={form}
@@ -64,46 +63,48 @@ const FormEditor = (props: FormEditorProps) => {
       {...formItemLayout}
       onFinish={onFinish}
       initialValues={defaultValue}
+      onValuesChange={handlechange}
     >
       {config.map((item, i) => {
         return (
           <React.Fragment key={i}>
             {item.type === 'Number' && (
               <Form.Item label={item.name} name={item.key}>
-                <InputNumber max={item.range && item.range[1]} onChange={handleInputChange} />
+                <InputNumber max={item.range && item.range[1]} />
               </Form.Item>
             )}
             {item.type === 'Text' && (
               <Form.Item label={item.name} name={item.key}>
-                <Input onChange={handleInputChange} />
+                <Input />
               </Form.Item>
             )}
             {item.type === 'TextArea' && (
               <Form.Item label={item.name} name={item.key}>
-                <TextArea rows={4} onChange={handleInputChange} />
-              </Form.Item>
-            )}
-            {item.type === 'DataList' && (
-              <Form.Item label={item.name} name={item.key}>
-                <DataList onChange={handleInputChange} />
-              </Form.Item>
-            )}
-            {item.type === 'Color' && (
-              <Form.Item label={item.name} name={item.key}>
-                <Color onChange={handleInputChange} />
+                <TextArea rows={4} />
               </Form.Item>
             )}
             {item.type === 'MutiText' && (
               <Form.Item label={item.name} name={item.key}>
-                <MutiText onChange={handleInputChange} />
+                <MutiText />
               </Form.Item>
             )}
+            {item.type === 'DataList' && (
+              <Form.Item label={item.name} name={item.key}>
+                <DataList />
+              </Form.Item>
+            )}
+            {item.type === 'Color' && (
+              <Form.Item label={item.name} name={item.key}>
+                <Color />
+              </Form.Item>
+            )}
+
             {item.type === 'Select' && (
               <Form.Item label={item.name} name={item.key}>
                 <Select placeholder="请选择">
                   {item.range.map((v: any, i: number) => {
                     return (
-                      <Option value={v.key} key={i} onChange={handleInputChange}>
+                      <Option value={v.key} key={i}>
                         {v.text}
                       </Option>
                     );
@@ -116,7 +117,7 @@ const FormEditor = (props: FormEditorProps) => {
                 <Radio.Group>
                   {item.range.map((v: any, i: number) => {
                     return (
-                      <Radio value={v.key} key={i} onChange={handleInputChange}>
+                      <Radio value={v.key} key={i}>
                         {v.text}
                       </Radio>
                     );
@@ -126,7 +127,7 @@ const FormEditor = (props: FormEditorProps) => {
             )}
             {item.type === 'Switch' && (
               <Form.Item label={item.name} name={item.key} valuePropName="checked">
-                <Switch onChange={handleInputChange} />
+                <Switch />
               </Form.Item>
             )}
             {item.type === 'Upload' && (
@@ -136,44 +137,33 @@ const FormEditor = (props: FormEditorProps) => {
                 valuePropName="fileList"
                 getValueFromEvent={normFile}
               >
-                <Upload
-                  cropRate={item.cropRate}
-                  isCrop={item.isCrop}
-                  onChange={handleInputChange}
-                />
+                <Upload cropRate={item.cropRate} isCrop={item.isCrop} />
               </Form.Item>
             )}
             {item.type === 'CardPicker' && (
               <Form.Item label={item.name} name={item.key} valuePropName="type">
-                <CardPicker
-                  icons={item.icons}
-                  type={defaultValue['type']}
-                  onChange={handleInputChange}
-                />
+                <CardPicker icons={item.icons} type={defaultValue['type']} />
               </Form.Item>
             )}
             {item.type === 'Table' && (
               <Form.Item label={item.name} name={item.key} valuePropName="data">
-                <Table data={item.data} onChange={handleInputChange} />
+                <Table data={item.data} />
               </Form.Item>
             )}
             {item.type === 'Pos' && (
               <Form.Item label={item.name} name={item.key}>
-                <Pos onChange={handleInputChange} />
+                <Pos />
               </Form.Item>
             )}
             {item.type === 'FormItems' && (
               <Form.Item label={item.name} name={item.key} valuePropName="formList">
-                <FormItems data={item.data} onChange={handleInputChange} />
+                <FormItems data={item.data} />
               </Form.Item>
             )}
           </React.Fragment>
         );
       })}
       <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
-        <Button type="primary" hidden={true} htmlType="submit" id="btn">
-          保存
-        </Button>
         <Button danger style={{ marginLeft: '20px' }} onClick={handleDel}>
           删除
         </Button>

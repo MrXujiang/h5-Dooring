@@ -169,16 +169,19 @@ const List = function(props: DataListType) {
   };
 
   const handleCancel = useCallback(() => {
+    console.log('a');
     setVisible(false);
   }, []);
 
   const handleEdit = useCallback((item: TDataListDefaultTypeItem) => {
+    console.log('b');
     setVisible(true);
     setCurItem(item);
   }, []);
 
   const handleSave = useCallback(
     (item: TDataListDefaultTypeItem) => {
+      console.log('c');
       setVisible(false);
       if (onChange) {
         onChange(list!.map(p => (p.id === item.id ? item : p)));
@@ -186,7 +189,7 @@ const List = function(props: DataListType) {
       }
       setList(prev => prev!.map(p => (p.id === item.id ? item : p)));
     },
-    [curItem],
+    [list, onChange],
   );
 
   const handleAdd = () => {
