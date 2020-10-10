@@ -57,7 +57,7 @@
     "@umijs/plugin-sass": "^1.1.1",
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.2.19",
-    "antd": "^4.2.3",
+    "antd": "^4.7.0",
     "antd-img-crop": "^3.10.0",
     "axios": "^0.19.2",
     "chatbot-antd": "^0.6.0",

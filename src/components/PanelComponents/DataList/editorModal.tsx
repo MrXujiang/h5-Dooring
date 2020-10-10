@@ -1,5 +1,5 @@
 import React, { memo, useEffect, FC } from 'react';
-import { Form, Select, Input, Modal } from 'antd';
+import { Form, Select, Input, Modal, Button } from 'antd';
 import Upload from '../Upload';
 import { Store } from 'antd/lib/form/interface';
 import { TDataListDefaultTypeItem } from '../FormEditor/types';
@@ -28,6 +28,7 @@ export type EditorModalProps = {
 const EditorModal: FC<EditorModalProps> = props => {
   const { item, onSave, visible, onCancel } = props;
   const onFinish = (values: Store) => {
+    console.log(values);
     onSave && onSave(values);
   };
   const handleOk = () => {
@@ -47,21 +48,25 @@ const EditorModal: FC<EditorModalProps> = props => {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    return () => {
+    if (form && item && visible) {
       form.resetFields();
-    };
-  }, [item]);
-
+    }
+  }, [form, item, visible]);
   return (
     <>
       {!!item && (
         <Modal
           title="编辑数据源"
+          closable={false}
           visible={visible}
           onOk={handleOk}
-          onCancel={onCancel}
           okText="确定"
-          cancelText="取消"
+          forceRender
+          footer={
+            <Button type={'primary'} onClick={() => handleOk()}>
+              确定
+            </Button>
+          }
         >
           <Form
             form={form}
