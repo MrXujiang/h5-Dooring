@@ -1,4 +1,4 @@
-import React, { useRef, memo, useContext } from 'react';
+import React, { useRef, memo, useContext, useState, useEffect } from 'react';
 import { Button, Input, Popover, Modal, Select } from 'antd';
 import {
   ArrowLeftOutlined,
@@ -34,6 +34,7 @@ interface HeaderComponentProps {
 
 const HeaderComponent = memo((props: HeaderComponentProps) => {
   const { pointData, location, clearData, undohandler, redohandler } = props;
+  const [showModalIframe, setShowModalIframe] = useState(false);
   const iptRef = useRef<Input>(null);
 
   const toPreview = () => {
@@ -71,6 +72,20 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
           <div className={styles.formIpt}>
             <span>模版名称：</span>
             <Input ref={iptRef} />
+          </div>
+          <div className={styles.formIpt}>
+            <span>封面设置：</span>
+            <Button
+              type="primary"
+              size="small"
+              style={{ marginRight: '20px' }}
+              onClick={() => generateFace(1)}
+            >
+              一键生成封面
+            </Button>
+            <Button size="small" onClick={() => generateFace(0)}>
+              使用默认封面
+            </Button>
           </div>
           <div className={styles.formIpt}>
             <span>访问链接：</span>
@@ -146,6 +161,14 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
       },
     });
   };
+
+  useEffect(() => {
+    // 定义截图子页面句柄函数
+    window.getFaceUrl = url => {
+      setFaceUrl(url);
+      setShowModalIframe(false);
+    };
+  }, []);
   const { setTheme } = useContext(dooringContext);
   return (
     <div className={styles.header}>
@@ -248,6 +271,19 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
           会员登录
         </Button>
       </div>
+      <Modal
+        title="正在生成封面..."
+        visible={showModalIframe}
+        footer={null}
+        width={420}
+        closable={false}
+        destroyOnClose={true}
+      >
+        <iframe
+          src={`/h5_plus/preview?tid=${props.location.query.tid}&gf=1`}
+          style={{ width: '100%', border: 'none', height: '600px' }}
+        ></iframe>
+      </Modal>
     </div>
   );
 });

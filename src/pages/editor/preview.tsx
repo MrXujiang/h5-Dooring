@@ -1,6 +1,7 @@
 import React, { CSSProperties, memo, useEffect, useMemo, useRef, useState } from 'react';
 import GridLayout from 'react-grid-layout';
 import DynamicEngine from 'components/DynamicEngine';
+import domtoimage from 'dom-to-image';
 import req from '@/utils/req';
 import styles from './index.less';
 import { useGetScrollBarWidth } from '@/utils/tool';
@@ -35,20 +36,29 @@ const PreviewPage = memo((props: PreviewPageProps) => {
   const vw = window.innerWidth;
 
   useEffect(() => {
-    const tid = props.location.query?.tid;
-    req
-      .get<any, PointDataItem[]>('/visible/preview/get', { params: { tid } })
-      .then(res => {
-        setPointData(
-          res.map(item => ({
-            ...item,
-            point: { ...item.point, isDraggable: false, isResizable: false },
-          })),
-        );
-      })
-      .catch(err => {
-        console.error(err);
+    const { tid, gf } = props.location.query!;
+    if (!gf) {
+      req
+        .get<any, PointDataItem[]>('/visible/preview/get', { params: { tid } })
+        .then(res => {
+          setPointData(
+            res.map(item => ({
+              ...item,
+              point: { ...item.point, isDraggable: false, isResizable: false },
+            })),
+          );
+        })
+        .catch(err => {
+          console.error(err);
+        });
+      return;
+    }
+
+    setTimeout(() => {
+      generateImg((url: string) => {
+        parent.window.getFaceUrl(url);
       });
+    }, 3000);
   }, [props.location.query]);
 
   const ref = useRef<HTMLDivElement>(null);
@@ -63,6 +73,21 @@ const PreviewPage = memo((props: PreviewPageProps) => {
       transform: 'scale(0.7) translateY(-80px)',
     };
   }, [width]);
+
+  const generateImg = (cb: any) => {
+    domtoimage
+      .toBlob(ref.current)
+      .then(function(blob: Blob) {
+        const formData = new FormData();
+        formData.append('file', blob, 'tpl.jpg');
+        req.post('/files/xxx', formData).then((res: any) => {
+          cb && cb(res.url);
+        });
+      })
+      .catch(function(error: any) {
+        console.error('oops, something went wrong!', error);
+      });
+  };
 
   return (
     <>
