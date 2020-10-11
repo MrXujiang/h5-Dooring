@@ -235,7 +235,7 @@ const SourceBox = memo((props: SourceBoxProps) => {
                   />
                 </Tooltip>
 
-                {clonePointData.length > 0 ? (
+                {pointData.length > 0 ? (
                   <GridLayout
                     className={styles.layout}
                     cols={24}
@@ -246,15 +246,14 @@ const SourceBox = memo((props: SourceBoxProps) => {
                     onDragStart={onDragStart}
                     onResizeStop={onResizeStop}
                   >
-                    {clonePointData.map(value => (
+                    {pointData.map(value => (
                       <div
                         className={value.isMenu ? styles.selected : styles.dragItem}
                         key={value.id}
                         data-grid={value.point}
-                        onMouseDownCapture={e => handleCurrentCard(e, true, value.id)}
                       >
                         <DynamicEngine {...value.item} isTpl={false} />
-                        <div
+                        {/* <div
                           className={styles.tooltip}
                           style={{ display: value.isMenu ? 'block' : 'none' }}
                         >
@@ -264,7 +263,7 @@ const SourceBox = memo((props: SourceBoxProps) => {
                           <div className="tooltipRow2">
                             <a>删除</a>
                           </div>
-                        </div>
+                        </div> */}
                       </div>
                     ))}
                   </GridLayout>
@@ -397,6 +396,7 @@ const SourceBox = memo((props: SourceBoxProps) => {
     pointData,
     scaleNum,
     setDragState,
+    clonePointData,
   ]);
 
   return <>{render}</>;
