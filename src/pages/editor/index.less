@@ -129,6 +129,24 @@
               pointer-events: none;
             }
           }
+          .selected {
+            display: inline-block;
+            position: absolute;
+            z-index: 2;
+            border: 2px solid transparent;
+            cursor: move;
+            :global(a) {
+              display: block;
+              pointer-events: none;
+            }
+            border: 2px solid #06c;
+            .tooltip {
+              position: relative;
+              z-index: 999999;
+              width: 388px;
+              text-align: right;
+            }
+          }
         }
       }
       .canvasBox2 {

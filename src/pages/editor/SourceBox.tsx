@@ -1,8 +1,17 @@
-import React, { memo, useContext, useEffect, useMemo, useState } from 'react';
+import React, {
+  FC,
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  createRef,
+} from 'react';
 import { useDrop } from 'react-dnd';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import GridLayout, { ItemCallback } from 'react-grid-layout';
-import { Tooltip } from 'antd';
+import { Popover, Button, Tooltip } from 'antd';
 import { connect } from 'dva';
 import DynamicEngine from 'components/DynamicEngine';
 import styles from './index.less';
@@ -11,7 +20,7 @@ import { Dispatch } from 'umi';
 import { StateWithHistory } from 'redux-undo';
 import { dooringContext } from '@/layouts';
 interface SourceBoxProps {
-  pstate: { pointData: { id: string; item: any; point: any }[]; curPoint: any };
+  pstate: { pointData: { id: string; item: any; point: any; isMenu?: any }[]; curPoint: any };
   cstate: { pointData: { id: string; item: any; point: any }[]; curPoint: any };
   scaleNum: number;
   canvasId: string;
@@ -30,11 +39,13 @@ const SourceBox = memo((props: SourceBoxProps) => {
   const { pstate, scaleNum, canvasId, allType, dispatch, dragState, setDragState, cstate } = props;
   const context = useContext(dooringContext);
 
-  const pointData = pstate ? pstate.pointData : [];
+  let pointData = pstate ? pstate.pointData : [];
   const cpointData = cstate ? cstate.pointData : [];
 
   const [canvasRect, setCanvasRect] = useState<number[]>([]);
   const [isShowTip, setIsShowTip] = useState(true);
+  const [clonePointData, setPointData] = useState(pointData);
+  const [isMenu, setIsMenu] = useState(false);
   const [{ isOver }, drop] = useDrop({
     accept: allType,
     drop: (item: { h: number; type: string; x: number }, monitor) => {
@@ -137,7 +148,15 @@ const SourceBox = memo((props: SourceBoxProps) => {
       }
     };
   }, [context.theme, cpointData, dispatch, pointData]);
-
+  const initSelect: any = (data: any = []) => {
+    return (
+      data &&
+      data.map((itemData: any) => ({
+        ...itemData,
+        isMenu: false,
+      }))
+    );
+  };
   useEffect(() => {
     let { width, height } = document.getElementById(canvasId)!.getBoundingClientRect();
     console.log(width, height);
@@ -145,6 +164,7 @@ const SourceBox = memo((props: SourceBoxProps) => {
   }, [canvasId, context.theme]);
 
   useEffect(() => {
+    setPointData(initSelect(pointData));
     let timer = window.setTimeout(() => {
       setIsShowTip(false);
     }, 3000);
@@ -153,8 +173,24 @@ const SourceBox = memo((props: SourceBoxProps) => {
     };
   }, []);
   const opacity = isOver ? 0.7 : 1;
-  // const backgroundColor = isOver ? 1 : 0.7;
-
+  const handleCurrentCard: Function = useCallback(
+    (e: Event, status: boolean, index: number) => {
+      e.preventDefault();
+      setIsMenu(false);
+      if (status) {
+        setIsMenu(true);
+      } else {
+        setIsMenu(false);
+      }
+      (pointData = initSelect(pointData)) &&
+        Object.keys(pointData).map(keyId => {
+          (+pointData[+keyId].id === +index && (pointData[+keyId].isMenu = status)) ||
+            (pointData[+keyId].isMenu = false);
+        });
+      setPointData(pointData);
+    },
+    [status, pointData],
+  );
   const render = useMemo(() => {
     if (context.theme === 'h5') {
       return (
@@ -199,7 +235,7 @@ const SourceBox = memo((props: SourceBoxProps) => {
                   />
                 </Tooltip>
 
-                {pointData.length > 0 ? (
+                {clonePointData.length > 0 ? (
                   <GridLayout
                     className={styles.layout}
                     cols={24}
@@ -210,9 +246,25 @@ const SourceBox = memo((props: SourceBoxProps) => {
                     onDragStart={onDragStart}
                     onResizeStop={onResizeStop}
                   >
-                    {pointData.map(value => (
-                      <div className={styles.dragItem} key={value.id} data-grid={value.point}>
+                    {clonePointData.map(value => (
+                      <div
+                        className={value.isMenu ? styles.selected : styles.dragItem}
+                        key={value.id}
+                        data-grid={value.point}
+                        onMouseDownCapture={e => handleCurrentCard(e, true, value.id)}
+                      >
                         <DynamicEngine {...value.item} isTpl={false} />
+                        <div
+                          className={styles.tooltip}
+                          style={{ display: value.isMenu ? 'block' : 'none' }}
+                        >
+                          <div className="tooltipRow1">
+                            <a>恢复</a>
+                          </div>
+                          <div className="tooltipRow2">
+                            <a>删除</a>
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </GridLayout>
