@@ -19,13 +19,15 @@
     .logo {
       position: fixed;
       display: inline-block;
-      width: 50px;
-      height: 50px;
+      width: 120px;
+      height: 35px;
       border-radius: 3px;
       overflow: hidden;
-      background: url(../../../../assets/logo.png) no-repeat;
+      background: url(../../../../assets/logo.svg) no-repeat;
       background-size: contain;
       line-height: 50px;
+      margin-top: 7px;
+      margin-left: -20px;
     }
   }
   .controlArea {
@@ -36,5 +38,18 @@
     width: 390px;
     margin-left: 20px;
     text-align: right;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header {
+    .logoArea {
+      width: 17%;
+    }
+    .controlArea {
+      width: auto;
+    }
+    .btnArea {
+      width: 30%;
+    }
   }
 }
