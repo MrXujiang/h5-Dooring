@@ -7,6 +7,7 @@ import React, {
   useMemo,
   useState,
   createRef,
+  useDebugValue,
 } from 'react';
 import { useDrop } from 'react-dnd';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
@@ -20,7 +21,11 @@ import { Dispatch } from 'umi';
 import { StateWithHistory } from 'redux-undo';
 import { dooringContext } from '@/layouts';
 interface SourceBoxProps {
-  pstate: { pointData: { id: string; item: any; point: any; isMenu?: any }[]; curPoint: any };
+  pstate: {
+    pointData: { id: string; item: any; point: any; isMenu?: any }[];
+    curPoint: any;
+    status: string;
+  };
   cstate: { pointData: { id: string; item: any; point: any }[]; curPoint: any };
   scaleNum: number;
   canvasId: string;
@@ -33,19 +38,30 @@ interface SourceBoxProps {
       y: number;
     }>
   >;
+  pointData: { id: string; item: any; point: any; isMenu?: any }[];
+  setPointData: React.Dispatch<
+    React.SetStateAction<
+      {
+        id: string;
+        item: any;
+        point: any;
+        isMenu?: any;
+      }[]
+    >
+  >;
 }
 
 const SourceBox = memo((props: SourceBoxProps) => {
   const { pstate, scaleNum, canvasId, allType, dispatch, dragState, setDragState, cstate } = props;
   const context = useContext(dooringContext);
 
-  let pointData = pstate ? pstate.pointData : [];
+  const dataState = pstate ? pstate.pointData : [];
   const cpointData = cstate ? cstate.pointData : [];
-
   const [canvasRect, setCanvasRect] = useState<number[]>([]);
   const [isShowTip, setIsShowTip] = useState(true);
-  const [clonePointData, setPointData] = useState(pointData);
-  const [isMenu, setIsMenu] = useState(false);
+
+  const [pointData, setPointData] = useState(dataState);
+  // const [isCurrentCard, setCurrentCard] = useState(false);
   const [{ isOver }, drop] = useDrop({
     accept: allType,
     drop: (item: { h: number; type: string; x: number }, monitor) => {
@@ -148,6 +164,45 @@ const SourceBox = memo((props: SourceBoxProps) => {
       }
     };
   }, [context.theme, cpointData, dispatch, pointData]);
+
+  useEffect(() => {
+    let { width, height } = document.getElementById(canvasId)!.getBoundingClientRect();
+    console.log(width, height);
+    setCanvasRect([width, height]);
+  }, [canvasId, context.theme]);
+
+  useEffect(() => {
+    let timer = window.setTimeout(() => {
+      setIsShowTip(false);
+    }, 3000);
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
+
+  useEffect(() => {
+    // let isCuurentPoint = pointData.some(item => +item.id === (pstate.curPoint && +pstate.curPoint.id))
+    // if(isCuurentPoint && pstate.curPoint.status === 'inToCanvas') {
+    //   setPointData(dataState)
+    // }
+    if (pointData.some(item => item.isMenu)) {
+      //.
+    } else {
+      setPointData(dataState);
+    }
+  }, [dataState]);
+
+  const handleDelete: Function = useMemo(() => {
+    return (id: any) => {
+      dispatch({
+        type: 'editorModal/delPointData',
+        payload: { id },
+      });
+    };
+  }, [dispatch]);
+
+  const opacity = isOver ? 0.7 : 1;
+
   const initSelect: any = (data: any = []) => {
     return (
       data &&
@@ -157,40 +212,22 @@ const SourceBox = memo((props: SourceBoxProps) => {
       }))
     );
   };
-  useEffect(() => {
-    let { width, height } = document.getElementById(canvasId)!.getBoundingClientRect();
-    console.log(width, height);
-    setCanvasRect([width, height]);
-  }, [canvasId, context.theme]);
 
-  useEffect(() => {
-    setPointData(initSelect(pointData));
-    let timer = window.setTimeout(() => {
-      setIsShowTip(false);
-    }, 3000);
-    return () => {
-      window.clearTimeout(timer);
-    };
-  }, []);
-  const opacity = isOver ? 0.7 : 1;
   const handleCurrentCard: Function = useCallback(
     (e: Event, status: boolean, index: number) => {
       e.preventDefault();
-      setIsMenu(false);
-      if (status) {
-        setIsMenu(true);
-      } else {
-        setIsMenu(false);
-      }
-      (pointData = initSelect(pointData)) &&
-        Object.keys(pointData).map(keyId => {
-          (+pointData[+keyId].id === +index && (pointData[+keyId].isMenu = status)) ||
-            (pointData[+keyId].isMenu = false);
+      let pointDataOnMenu: any;
+      (pointDataOnMenu = initSelect(dataState)) &&
+        Object.keys(pointDataOnMenu).map(keyId => {
+          (+pointDataOnMenu[+keyId].id === +index && (pointDataOnMenu[+keyId].isMenu = status)) ||
+            (pointDataOnMenu[+keyId].isMenu = false);
         });
-      setPointData(pointData);
+      setPointData(pointDataOnMenu);
+      // setCurrentCard(true)
     },
-    [status, pointData],
+    [status],
   );
+
   const render = useMemo(() => {
     if (context.theme === 'h5') {
       return (
@@ -251,19 +288,21 @@ const SourceBox = memo((props: SourceBoxProps) => {
                         className={value.isMenu ? styles.selected : styles.dragItem}
                         key={value.id}
                         data-grid={value.point}
+                        onMouseDownCapture={e => handleCurrentCard(e, true, value.id)}
+                        onDragLeave={e => handleCurrentCard(e, false, value.id)}
                       >
                         <DynamicEngine {...value.item} isTpl={false} />
-                        {/* <div
+                        <div
                           className={styles.tooltip}
                           style={{ display: value.isMenu ? 'block' : 'none' }}
                         >
-                          <div className="tooltipRow1">
+                          <div className={styles.tooltipRow1}>
                             <a>恢复</a>
                           </div>
-                          <div className="tooltipRow2">
-                            <a>删除</a>
+                          <div className={styles.tooltipRow2}>
+                            <Button onClick={handleDelete.bind(this, value.id)}>删除</Button>
                           </div>
-                        </div> */}
+                        </div>
                       </div>
                     ))}
                   </GridLayout>
@@ -396,7 +435,6 @@ const SourceBox = memo((props: SourceBoxProps) => {
     pointData,
     scaleNum,
     setDragState,
-    clonePointData,
   ]);
 
   return <>{render}</>;
