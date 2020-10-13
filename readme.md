@@ -100,10 +100,11 @@ FileSaver.saveAs(blob, "hello world.txt");
 13. 新增图表组件 面积图，折线图， 饼图
 14. 添加图片库,支持用户在线选择图片素材
 15.升级图片组件为图文组件
+16. 添加模版库
+17. 添加可视化组件(基于g2)如折线图, 饼图, 面积图等
 
 ## 正在完成功能
-* 升级模版库
-* 丰富组件库组件，添加可视化组件如折线图, 饼图, 面积图等
+* 丰富组件库组件
 * 添加配置交互功能
 * 组件细分和代码优化
 * 单元测试
@@ -132,6 +133,8 @@ yarn run start
 ## 更新日志
 1. 添加在线编程模块（在执行代码前先启动node服务 npm run server）
 2. 添加客服机器人模块[chatbot-antd](https://www.npmjs.com/package/chatbot-antd)
+3. 添加数据可视化模块
+4. 添加表单定制模块
 
 
 ## 持续升级
@@ -148,5 +151,5 @@ yarn run start
 
 <img src="http://io.nainor.com/uploads/code_1741c445027.png" width="180px" />
 
-## 技术交流群
-<img src="http://io.nainor.com/uploads/i_1749a2713f0.png" width="180px" />
+## 技术交流群(加作者微信进群)
+<img src="http://io.nainor.com/uploads/WechatIMG3_175231f6420.jpeg" width="180px" />
