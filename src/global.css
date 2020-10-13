@@ -72,7 +72,56 @@ body {
   padding-right: 10px!important;
   padding-bottom: 40px;
 }
-
-.ant-form-item-label > label {
-  color: #4A4A4A !important;
+#form_editor .ant-form-item-label > label {
+  position: fixed;
+  color: #4A4A4A;
+}
+#form_editor .ant-form-item-label {
+  text-align: start
+}
+#form_editor .ant-form-item-control {
+  text-align: end;
+}
+#form_editor .ant-form-item {
+  margin-bottom: 20px;
+}
+#form_editor .ant-input-number-handler-wrap {
+  width: 12px;
+}
+#form_editor .ant-input, #form_editor .ant-input-number {
+  background-color: #f6f6f6;
+  width: 160px;
+}
+#form_editor .ant-input-number {
+  width: 42px;
+  height: 24px;
+  border: 1px solid #DBDBDB;
+}
+#form_editor .ant-input-number-handler-down-inner  {
+  text-align: right;
+  transform: translateY(-50%) translateX(13%);
+}
+#form_editor .ant-input-number-handler-up-inner  {
+  text-align: right;
+  transform: translateY(-26%) translateX(15%);
+}
+#form_editor .ant-input-number-input  {
+  height: 20px;
+  line-height: 20px;
+  padding-left: 4px;
+}
+#form_editor .ant-form-item-control-input-content  {
+  line-height: 14px;
+}
+#form_editor .ant-form-item-label > label::after {
+  content: '';
+}
+#form_editor .za-cell:after {
+  border-top: 0px;
+}
+#form_editor .za-cell__content {
+  font-size: 14px;
+}
+#form_editor .za-select--arrow .za-select__input:after {
+  display: none;
 }

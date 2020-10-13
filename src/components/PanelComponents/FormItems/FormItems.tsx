@@ -1,10 +1,12 @@
 import React, { memo, useState } from 'react';
 import BaseForm from '../../BasicShop/BasicComponents/Form/BaseForm';
+import BasePopoverForm from '../../BasicShop/BasicComponents/Form/BasePopoverForm';
 import EditorModal from './EditorModal';
-import { EditOutlined, MinusCircleOutlined } from '@ant-design/icons';
+import { MinusCircleFilled, EditFilled, PlusOutlined } from '@ant-design/icons';
 import styles from './formItems.less';
 import { baseFormUnion, TFormItemsDefaultType } from '../FormEditor/types';
 import { uuid } from '@/utils/tool';
+import { Button, Popover } from 'antd';
 
 // import { Popconfirm } from 'antd';
 
@@ -65,6 +67,7 @@ const FormItems = (props: FormItemsProps) => {
   const [formData, setFormData] = useState<TFormItemsDefaultType>(formList || []);
   const [visible, setVisible] = useState(false);
   const [curItem, setCurItem] = useState<baseFormUnion>();
+  const [isFormTplVisible, setFormTplVisible] = useState(false);
 
   const handleAddItem = (item: baseFormUnion) => {
     let tpl = formTpl.find(v => v.type === item.type);
@@ -95,8 +98,12 @@ const FormItems = (props: FormItemsProps) => {
     onChange && onChange(newData);
     setVisible(false);
   };
+  const handleVisibleChange = (visible: boolean) => {
+    setFormTplVisible(visible);
+  };
   return (
     <div className={styles.formItemWrap}>
+      <div className={styles.formTitle}>表单控件</div>
       <div className={styles.editForm}>
         {formData.map((item: baseFormUnion, i: number) => {
           let FormItem = BaseForm[item.type];
@@ -105,34 +112,62 @@ const FormItems = (props: FormItemsProps) => {
               <div className={styles.disClick}>
                 <FormItem {...item} />
               </div>
-              <div className={styles.operationWrap}>
-                <span className={styles.operationBtn} onClick={() => handleEditItem(item)}>
-                  <EditOutlined />
-                </span>
+              <div className={styles.deleteWrap}>
                 <span className={styles.operationBtn} onClick={() => handleDelItem(item)}>
-                  <MinusCircleOutlined />
+                  <MinusCircleFilled />
+                </span>
+              </div>
+              <div className={styles.editWrap}>
+                <span className={styles.operationBtn} onClick={() => handleEditItem(item)}>
+                  <EditFilled />
                 </span>
               </div>
             </div>
           );
         })}
+        <div className={styles.formAddWrap}>
+          <Popover
+            content={
+              <>
+                <div className={styles.formTpl} style={{ color: 'red' }}>
+                  {formTpl.map((item, i) => {
+                    let FormItem = BasePopoverForm[item.type];
+                    return (
+                      <div className={styles.formItem} key={i} onClick={() => handleAddItem(item)}>
+                        <div
+                          className={styles.disClick}
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            overflow: 'row',
+                            marginTop: '10px',
+                          }}
+                        >
+                          <FormItem {...item} />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                {/* <a style={{color: 'red'}} onClick={() => setFormTplVisible(false)}>Close</a> */}
+              </>
+            }
+            color="#4A4A4A"
+            overlayStyle={{ width: '200px' }}
+            // title="表单模板"
+            trigger="click"
+            placement="left"
+            visible={isFormTplVisible}
+            autoAdjustOverflow
+            onVisibleChange={handleVisibleChange}
+          >
+            <Button block icon={<PlusOutlined />}>
+              添加
+            </Button>
+          </Popover>
+        </div>
       </div>
-      <div className={styles.formTpl}>
-        <h4>表单模版</h4>
-        {formTpl.map((item, i) => {
-          let FormItem = BaseForm[item.type];
-          return (
-            <div className={styles.formItem} key={i}>
-              <div className={styles.disClick}>
-                <FormItem {...item} />
-              </div>
-              <span className={styles.addBtn} onClick={() => handleAddItem(item)}>
-                添加
-              </span>
-            </div>
-          );
-        })}
-      </div>
+
       <EditorModal
         item={curItem}
         onSave={handleSaveItem}

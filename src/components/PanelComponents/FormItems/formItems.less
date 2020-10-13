@@ -1,55 +1,87 @@
 .formItemWrap {
+  .formTitle {
+    width: 56px;
+    height: 20px;
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: bold;
+    color: #000000;
+    line-height: 20px;
+  }
   .editForm {
+    text-align: left;
+    width: 251px;
     .formItem {
       position: relative;
-      &:hover {
-        .operationWrap {
-          display: inline-block;
-        }
-      }
-      .operationWrap {
+      padding-left: 2px;
+      .common {
         position: absolute;
-        display: none;
-        right: 0;
-        top: 16px;
+        top: 19px;
         box-shadow: 0 0 20px #fff;
-        background-color: #fff;
         .operationBtn {
           margin-right: 15px;
           display: inline-block;
           cursor: pointer;
         }
       }
+      .deleteWrap {
+        .common;
+        left: 0;
+      }
+      .editWrap {
+        .common;
+        right: -18px;
+      }
+    }
+    .formAddWrap {
+      font-size: 14px;
+      font-weight: 400;
+      color: #4a4a4a;
+      line-height: 20px;
+      background-color: #2f54eb;
     }
   }
-  .formTpl {
-    margin-top: 12px;
-    border-top: 1px dashed #ccc;
-    padding-top: 16px;
-    .formItem {
-      position: relative;
-      border: 1px solid #ccc;
-      margin-bottom: 2px;
-      .disClick {
-        pointer-events: none;
-      }
-      &:hover {
-        border-color: #2f54eb;
-        .addBtn {
-          display: inline-block;
+  .formAddWrap {
+    .formTpl {
+      margin-top: 12px;
+      border-top: 1px dashed #ccc;
+      padding-top: 16px;
+      background-color: #4a4a4a;
+      .formItem {
+        button,
+        [type='button'] {
+          color: #fff;
+          background-color: #4a4a4a;
+          border: 1px solid #fff;
+          border-radius: 4px 0px 0px 0px;
         }
-      }
-      .addBtn {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        display: none;
-        padding: 3px 6px;
-        color: #fff;
-        border-radius: 3px;
-        background-color: #2f54eb;
+        position: relative;
+        border: 1px solid #ccc;
+        margin-bottom: 2px;
+        background-color: #4a4a4a;
         cursor: pointer;
+        .disClick {
+          pointer-events: none;
+          color: #fff;
+        }
+        &:hover {
+          border-color: #2f54eb;
+          .addBtn {
+            display: inline-block;
+          }
+        }
+        .addBtn {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          display: none;
+          padding: 3px 6px;
+          color: #fff;
+          border-radius: 3px;
+          background-color: #2f54eb;
+          cursor: pointer;
+        }
       }
     }
   }

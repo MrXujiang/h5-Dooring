@@ -36,7 +36,7 @@ class colorPicker extends React.Component<ColorProps> {
       <div>
         <div
           style={{
-            padding: '5px',
+            // padding: '5px',
             background: '#fff',
             borderRadius: '1px',
             boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
@@ -47,8 +47,8 @@ class colorPicker extends React.Component<ColorProps> {
         >
           <div
             style={{
-              width: '36px',
-              height: '14px',
+              width: '20px',
+              height: '20px',
               borderRadius: '2px',
               background: `rgba(${this.state.color.r}, ${this.state.color.g}, ${this.state.color.b}, ${this.state.color.a})`,
             }}

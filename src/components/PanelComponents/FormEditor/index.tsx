@@ -156,7 +156,7 @@ const FormEditor = (props: FormEditorProps) => {
               </Form.Item>
             )}
             {item.type === 'FormItems' && (
-              <Form.Item label={item.name} name={item.key} valuePropName="formList">
+              <Form.Item name={item.key} valuePropName="formList">
                 <FormItems data={item.data} />
               </Form.Item>
             )}

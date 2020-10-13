@@ -542,7 +542,7 @@ const Container = (props: {
           className={styles.rightcolla}
           style={{
             position: 'absolute',
-            right: rightColla ? 0 : '400px',
+            right: rightColla ? 0 : '304px',
             transform: 'translate(0,-50%)',
             transition: 'all ease-in-out 0.5s',
           }}
