@@ -15,7 +15,8 @@
 
 ### ✨ [Demo](http://io.nainor.com/h5_plus/editor?tid=123456)
 
-<img src="http://io.nainor.com/uploads/face_17512320c6d.png" alt="H5可视化编辑器" />
+<!-- <img src="http://io.nainor.com/uploads/face_17512320c6d.png" alt="H5可视化编辑器" /> -->
+<img src="./src/assets/h5-main.png" alt="H5可视化编辑器" />
 
 ## Author
 
@@ -120,13 +121,17 @@ cd ./h5-Dooring
 
 3. 安装依赖包
 ```sh
-yarn install
+yarn install 
+or 
+cnpm install
 ```
 
 ## Usage
 启动应用
 ```sh
-yarn run start
+yarn start 
+or 
+cnpm run start
 ```
 
 ## 更新日志
