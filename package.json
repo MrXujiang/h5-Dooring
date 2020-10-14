@@ -19,6 +19,7 @@
   "contributors": [
     "徐小夕 <xujiang156@qq.com> (https://github.com/MrXujiang))",
     "yehuozhili <yehuozhili@outlook.com> (https://github.com/yehuozhili))"
+    "dragon <zhangjinlongll@163.com> (https://github.com/zhangjinlongll))"
   ],
   "scripts": {
     "start": "umi dev",
