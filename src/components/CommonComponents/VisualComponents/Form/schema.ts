@@ -97,9 +97,9 @@ const Form: IFormSchema = {
         type: 'MySelect',
         label: '爱好',
         options: [
-          { label: '选项一', value: '1' },
-          { label: '选项二', value: '2' },
-          { label: '选项三', value: '3' },
+          { label: '篮球', value: '1' },
+          { label: '乒乓球', value: '2' },
+          { label: '健身', value: '3' },
         ],
       },
     ],

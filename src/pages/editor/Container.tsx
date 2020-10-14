@@ -552,7 +552,7 @@ const Container = (props: {
         </div>
         <div
           style={{
-            width: rightColla ? 0 : '400px',
+            width: rightColla ? 0 : '304px',
             transition: 'all ease-in-out 0.5s',
           }}
         ></div>

@@ -163,8 +163,8 @@ const FormEditor = (props: FormEditorProps) => {
           </React.Fragment>
         );
       })}
-      <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
-        <Button danger style={{ marginLeft: '20px' }} onClick={handleDel}>
+      <Form.Item>
+        <Button danger style={{ width: '251px' }} block onClick={handleDel}>
           删除
         </Button>
       </Form.Item>

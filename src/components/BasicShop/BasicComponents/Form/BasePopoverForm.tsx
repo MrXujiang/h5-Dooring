@@ -1,4 +1,3 @@
-import styles from './baseForm.less';
 import React, { ReactText } from 'react';
 import { Button } from 'antd';
 import {
@@ -54,11 +53,9 @@ const BaseForm: TBaseForm = {
   MyRadio: (props: baseFormMyRadioTpl & { onChange: (v: string | undefined | number) => void }) => {
     const { label, onChange } = props;
     return (
-      <div>
-        <Button style={{ color: '#fff', backgroundColor: '#4A4A4A' }} onChange={() => onChange}>
-          {label}
-        </Button>
-      </div>
+      <Button style={{ color: '#fff', backgroundColor: '#4A4A4A' }} onChange={() => onChange}>
+        {label}
+      </Button>
     );
   },
   MyCheckbox: (
