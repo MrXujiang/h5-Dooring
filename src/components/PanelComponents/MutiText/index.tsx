@@ -1,6 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import { Input, Button, Popconfirm } from 'antd';
-import { MinusCircleOutlined } from '@ant-design/icons';
+import { MinusCircleFilled } from '@ant-design/icons';
 import styles from './index.less';
 import { TMutiTextDefaultType } from '../FormEditor/types';
 
@@ -46,7 +46,7 @@ export default memo(function MutiText(props: MultiTextProps) {
                 cancelText="取消"
               >
                 <span className={styles.delBtn}>
-                  <MinusCircleOutlined />
+                  <MinusCircleFilled />
                 </span>
               </Popconfirm>
             </div>
@@ -59,7 +59,7 @@ export default memo(function MutiText(props: MultiTextProps) {
       )}
       {value && value.length < 3 && (
         <div className={styles.iptWrap}>
-          <Button type="primary" onClick={handleAdd}>
+          <Button block onClick={handleAdd}>
             添加项目
           </Button>
         </div>

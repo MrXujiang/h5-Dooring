@@ -72,6 +72,9 @@ body {
   padding-right: 10px!important;
   padding-bottom: 40px;
 }
+#form_editor {
+  margin-bottom: 100px;
+}
 #form_editor .ant-form-item-label > label {
   position: fixed;
   color: #4A4A4A;
@@ -88,9 +91,16 @@ body {
 #form_editor .ant-input-number-handler-wrap {
   width: 12px;
 }
-#form_editor .ant-input, #form_editor .ant-input-number {
+#form_editor .ant-input, #form_editor .ant-input-number,#form_editor .ant-select-selector {
   background-color: #f6f6f6;
   width: 160px;
+}
+#form_editor .ant-form-item .ant-select {
+  width: 87%;
+  text-align: center;
+}
+#form_editor .ant-radio-wrapper {
+  margin-right: 0;
 }
 #form_editor .ant-input-number {
   width: 42px;
@@ -124,4 +134,8 @@ body {
 }
 #form_editor .za-select--arrow .za-select__input:after {
   display: none;
+}
+#form_editor .ant-upload-list-picture-card-container {
+  display: flex;
+  margin-left: 30px;
 }
