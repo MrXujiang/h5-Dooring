@@ -33,6 +33,7 @@ import styles from './index.less';
 // import { useGetBall } from 'react-draggable-ball';
 import { dooringContext } from '@/layouts';
 import { throttle } from '@/utils/tool';
+import { Button } from 'antd';
 
 const { TabPane } = Tabs;
 
@@ -243,6 +244,9 @@ const Container = (props: {
                 onSave={handleFormSave}
                 onDel={handleDel}
               />
+              {/* <div className={styles.del}>
+                <Button block>删顶顶顶顶除</Button>
+              </div> */}
             </>
           ) : (
             <div style={{ paddingTop: '100px' }}>
@@ -549,6 +553,28 @@ const Container = (props: {
           onClick={() => changeRightColla(!rightColla)}
         >
           {!rightColla ? <DoubleRightOutlined /> : <DoubleLeftOutlined />}
+        </div>
+        <div
+          style={
+            !rightColla
+              ? {
+                  position: 'absolute',
+                  transform: 'translate(0,-10%)',
+                  transition: 'all ease-in-out 2s',
+                  textAlign: 'center',
+                  bottom: -5,
+                  right: 16,
+                  background: 'gray',
+                  padding: '10px',
+                  width: '279px',
+                  display: 'block',
+                }
+              : { display: 'none' }
+          }
+        >
+          <Button block danger onClick={() => handleDel(curPoint.id)}>
+            删除
+          </Button>
         </div>
         <div
           style={{

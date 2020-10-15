@@ -72,6 +72,9 @@ body {
   padding-right: 10px!important;
   padding-bottom: 40px;
 }
+#form_editor {
+  margin-bottom: 100px;
+}
 #form_editor .ant-form-item-label > label {
   position: fixed;
   color: #4A4A4A;
