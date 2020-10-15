@@ -564,7 +564,7 @@ const Container = (props: {
                   textAlign: 'center',
                   bottom: -5,
                   right: 16,
-                  background: 'gray',
+                  background: 'hsla(0,0%,88.2%,.7)',
                   padding: '10px',
                   width: '279px',
                   display: 'block',
@@ -572,7 +572,7 @@ const Container = (props: {
               : { display: 'none' }
           }
         >
-          <Button block danger onClick={() => handleDel(curPoint.id)}>
+          <Button block type="primary" onClick={() => handleDel(curPoint.id)}>
             删除
           </Button>
         </div>
