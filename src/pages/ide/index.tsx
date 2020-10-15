@@ -3,7 +3,7 @@ import { Controlled } from 'react-codemirror2';
 import { useState } from 'react';
 import { Button, message } from 'antd';
 import { saveAs } from 'file-saver';
-import Logo from '@/assets/logo.png';
+import Logo from '@/assets/logo.svg';
 import styles from './index.less';
 import { isDev, useGetRect } from 'utils/tool';
 import { SaveOutlined } from '@ant-design/icons';
@@ -139,7 +139,7 @@ export default function() {
               <img src={Logo} alt="Dooring-强大的h5编辑器" />
             </a>
           </div>
-          &nbsp;&nbsp;| 在线代码编辑器
+          <div className={styles.logoText}>| 在线代码编辑器</div>
         </div>
         <div className={styles.operationBar}>
           <Button
