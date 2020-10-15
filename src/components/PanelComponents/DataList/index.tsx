@@ -226,7 +226,7 @@ const List = function(props: DataListType) {
           />
         ))}
       <div style={{ marginTop: '10px' }}>
-        <Button type="primary" onClick={handleAdd} block>
+        <Button onClick={handleAdd} block>
           添加
         </Button>
       </div>

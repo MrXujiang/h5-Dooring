@@ -214,7 +214,7 @@ class PicturesWall extends React.Component<PicturesWallType> {
           </Upload>
         )}
         <div className={styles.wallBtn} onClick={this.handleWallShow}>
-          从图片库中选择
+          图片库
         </div>
         <Modal
           visible={previewVisible}
