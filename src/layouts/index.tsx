@@ -3,7 +3,7 @@ import { library, generateRespones, RenderList, useRegister } from 'chatbot-antd
 import { IRouteComponentProps } from 'umi';
 import { Button } from 'antd';
 import { CustomerServiceOutlined } from '@ant-design/icons';
-import { stat } from 'fs/promises';
+import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 
 library.push(
   //语料库，push进去，也可以不用
@@ -65,13 +65,17 @@ export default function Layout({ children }: IRouteComponentProps) {
         <div>
           <div>
             &nbsp;&nbsp;1.{' '}
-            <a href="https://github.com/MrXujiang/h5-Dooring" target="_blank">
+            <a href="https://github.com/MrXujiang/h5-Dooring" target="_blank" rel="noreferrer">
               H5-Dooring源码地址
             </a>
           </div>
           <div>
             &nbsp;&nbsp;2.{' '}
-            <a href="https://github.com/MrXujiang/h5-Dooring/graphs/contributors" target="_blank">
+            <a
+              href="https://github.com/MrXujiang/h5-Dooring/graphs/contributors"
+              target="_blank"
+              rel="noreferrer"
+            >
               贡献者列表
             </a>
           </div>
@@ -84,6 +88,7 @@ export default function Layout({ children }: IRouteComponentProps) {
   );
 
   const [state, setState] = useState<dooringContextType>('h5');
+  const [pos, setPos] = useState({ x: 0, y: 0 });
   return (
     <dooringContext.Provider
       value={{
@@ -92,19 +97,26 @@ export default function Layout({ children }: IRouteComponentProps) {
       }}
     >
       <div style={{ height: '100%', width: '100%', overflow: 'hidden' }}>
-        <div
-          style={{
-            position: 'fixed',
-            right: `${modalOpen ? '-100%' : '10px'}`,
-            bottom: '80px',
-            transition: 'all 0.5s ease-in-out',
-            zIndex: 2,
+        <Draggable
+          position={pos}
+          onStop={(e: DraggableEvent, data: DraggableData) => {
+            setPos({ x: data.x, y: data.y });
           }}
         >
-          <Button type="primary" onClick={() => setModalOpen(!modalOpen)}>
-            <CustomerServiceOutlined></CustomerServiceOutlined>
-          </Button>
-        </div>
+          <div
+            style={{
+              position: 'fixed',
+              right: `${modalOpen ? '-100%' : '10px'}`,
+              bottom: '80px',
+              transition: 'all 0.5s ease-in-out',
+              zIndex: 2,
+            }}
+          >
+            <Button type="primary" onClick={() => setModalOpen(!modalOpen)}>
+              <CustomerServiceOutlined></CustomerServiceOutlined>
+            </Button>
+          </div>
+        </Draggable>
         {render}
         {children}
       </div>
