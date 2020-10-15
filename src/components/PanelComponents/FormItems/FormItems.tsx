@@ -83,7 +83,7 @@ const FormItems = (props: FormItemsProps) => {
   };
 
   const handleDelItem = (item: baseFormUnion) => {
-    let newData = formData.filter(v => v.type !== item.type);
+    let newData = formData.filter(v => v.id !== item.id);
     setFormData(newData);
     onChange && onChange(newData);
   };

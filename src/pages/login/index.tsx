@@ -70,6 +70,10 @@ const Login = () => {
             登录
           </Button>
         </Form.Item>
+        <div className={styles.safeWrap}>
+          登录后即代表您已经遵循
+          <Button type="link">《Dooring平台使用安全声明》</Button>
+        </div>
       </Form>
     </div>
   );
