@@ -10,7 +10,7 @@ const Qrcode = memo((props: IQrcodeConfig & { isTpl: boolean }) => {
           <img src={logo} alt=""></img>
         </div>
       ) : (
-        <div style={{ width: '240px', margin: '16px auto' }}>
+        <div style={{ width: '100%', maxWidth: '220px', margin: '16px auto' }}>
           <img src={qrcode && qrcode[0].url} alt={text} style={{ width: '100%' }} />
           <div style={{ textAlign: 'center', color, fontSize, paddingTop: '8px' }}>{text}</div>
         </div>
