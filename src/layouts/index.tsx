@@ -3,7 +3,6 @@ import { library, generateRespones, RenderList, useRegister } from 'chatbot-antd
 import { IRouteComponentProps } from 'umi';
 import { Button } from 'antd';
 import { CustomerServiceOutlined } from '@ant-design/icons';
-import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 
 library.push(
   //语料库，push进去，也可以不用
@@ -36,6 +35,7 @@ export const dooringContext = createContext<IdooringContextType>({
 
 export default function Layout({ children }: IRouteComponentProps) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [num, setNum] = useState(0);
   const callb = useCallback((v: RenderList) => {
     setTimeout(() => {
       //使用settimeout 更像机器人回话
@@ -52,8 +52,14 @@ export default function Layout({ children }: IRouteComponentProps) {
     modalOpen,
     callb,
     {
-      onOk: () => setModalOpen(false),
-      onCancel: () => setModalOpen(false),
+      onOk: () => {
+        setModalOpen(false);
+        setNum(0);
+      },
+      onCancel: () => {
+        setModalOpen(false);
+        setNum(0);
+      },
       title: 'h5-Dooring机器人客服',
       width: 400,
     },
@@ -88,7 +94,6 @@ export default function Layout({ children }: IRouteComponentProps) {
   );
 
   const [state, setState] = useState<dooringContextType>('h5');
-  const [pos, setPos] = useState({ x: 0, y: 0 });
   return (
     <dooringContext.Provider
       value={{
@@ -97,26 +102,38 @@ export default function Layout({ children }: IRouteComponentProps) {
       }}
     >
       <div style={{ height: '100%', width: '100%', overflow: 'hidden' }}>
-        <Draggable
-          position={pos}
-          onStop={(e: DraggableEvent, data: DraggableData) => {
-            setPos({ x: data.x, y: data.y });
+        <div
+          style={{
+            position: 'fixed',
+            right: `${num === 0 ? '-10px' : num === 1 ? '-100%' : '0px'}`,
+            bottom: '80px',
+            transition: 'all 0.3s ease-in-out',
+            zIndex: 2,
+          }}
+          onMouseEnter={() => {
+            //0初始，1点击 2移入
+            setNum(2);
+          }}
+          onMouseLeave={() => {
+            setNum(pre => (pre === 2 ? 0 : pre));
           }}
         >
-          <div
+          <Button
+            type="primary"
             style={{
-              position: 'fixed',
-              right: `${modalOpen ? '-100%' : '10px'}`,
-              bottom: '80px',
-              transition: 'all 0.5s ease-in-out',
-              zIndex: 2,
+              transition: 'all 0.3s ease-in-out',
+              borderRadius: `${num === 0 ? '1000px' : '0px'}`,
+              transform: `${num === 0 ? 'scale(0.5)' : 'scale(1)'}`,
+            }}
+            onClick={() => {
+              setModalOpen(!modalOpen);
+              !modalOpen && setNum(1);
             }}
           >
-            <Button type="primary" onClick={() => setModalOpen(!modalOpen)}>
-              <CustomerServiceOutlined></CustomerServiceOutlined>
-            </Button>
-          </div>
-        </Draggable>
+            <CustomerServiceOutlined></CustomerServiceOutlined>
+          </Button>
+        </div>
+
         {render}
         {children}
       </div>
