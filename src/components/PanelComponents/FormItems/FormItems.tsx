@@ -88,10 +88,6 @@ const FormItems = (props: FormItemsProps) => {
     onChange && onChange(newData);
   };
 
-  const handleCloseModal = () => {
-    setVisible(false);
-  };
-
   const handleSaveItem = (data: baseFormUnion) => {
     let newData = formData.map(v => (v.id === data.id ? data : v));
     setFormData(newData);
@@ -168,12 +164,7 @@ const FormItems = (props: FormItemsProps) => {
         </div>
       </div>
 
-      <EditorModal
-        item={curItem}
-        onSave={handleSaveItem}
-        visible={visible}
-        onCancel={handleCloseModal}
-      />
+      <EditorModal item={curItem} onSave={handleSaveItem} visible={visible} />
     </div>
   );
 };

@@ -280,6 +280,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         destroyOnClose={true}
       >
         <iframe
+          title="editor"
           src={`/h5_plus/preview?tid=${props.location.query.tid}&gf=1`}
           style={{ width: '100%', border: 'none', height: '600px' }}
         ></iframe>
