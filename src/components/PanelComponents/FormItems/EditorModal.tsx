@@ -1,5 +1,5 @@
 import React, { FC, memo, useEffect } from 'react';
-import { Form, Select, Input, Modal } from 'antd';
+import { Form, Select, Input, Modal, Button } from 'antd';
 import { baseFormOptionsType } from '../FormEditor/types';
 
 const { Option } = Select;
@@ -13,11 +13,10 @@ interface EditorModalProps {
   item: any;
   onSave: (data: any) => void;
   visible: boolean;
-  onCancel: () => void;
 }
 
 const EditorModal: FC<EditorModalProps> = props => {
-  const { item, onSave, visible, onCancel } = props;
+  const { item, onSave, visible } = props;
 
   const onFinish = (values: any) => {
     onSave && onSave(values);
@@ -48,11 +47,17 @@ const EditorModal: FC<EditorModalProps> = props => {
       {!!item && (
         <Modal
           title="编辑表单组件"
+          footer={
+            <div>
+              <Button type="primary" onClick={() => handleOk()}>
+                确定
+              </Button>
+            </div>
+          }
+          forceRender
           visible={visible}
           onOk={handleOk}
-          onCancel={onCancel}
-          okText="确定"
-          cancelText="取消"
+          closable={false}
         >
           <Form
             form={form}
