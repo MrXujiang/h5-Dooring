@@ -1,5 +1,5 @@
 import React, { useRef, memo, useContext, useState, useEffect } from 'react';
-import { Button, Input, Popover, Modal, Select } from 'antd';
+import { Button, Input, Modal, Select } from 'antd';
 import {
   ArrowLeftOutlined,
   MobileOutlined,
@@ -19,6 +19,7 @@ import req from '@/utils/req';
 import Code from '@/assets/code.png';
 import styles from './index.less';
 import { dooringContext } from '@/layouts';
+import MyPopover from 'yh-react-popover';
 
 const { confirm } = Modal;
 
@@ -216,7 +217,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         >
           <FileAddOutlined />
         </Button>
-        <Popover placement="bottom" title={null} content={content} trigger="click">
+        <MyPopover content={content()} directions="BOTTOM">
           <Button
             type="link"
             style={{ marginRight: '9px' }}
@@ -225,7 +226,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
           >
             <MobileOutlined />
           </Button>
-        </Popover>
+        </MyPopover>
         <Button
           type="link"
           style={{ marginRight: '9px' }}

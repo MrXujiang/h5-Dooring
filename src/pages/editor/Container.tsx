@@ -223,11 +223,12 @@ const Container = (props: {
   //   ratioSpeed: { x: 1.2, y: 1.2 },
   //   intervalDelay: 5,
   // });
-
+  const ref = useRef<HTMLDivElement>(null);
   const renderRight = useMemo(() => {
     if (context.theme === 'h5') {
       return (
         <div
+          ref={ref}
           className={styles.attrSetting}
           style={{
             transition: 'all ease-in-out 0.5s',
@@ -243,6 +244,7 @@ const Container = (props: {
                 defaultValue={curPoint.item.config}
                 onSave={handleFormSave}
                 onDel={handleDel}
+                rightPannelRef={ref}
               />
               {/* <div className={styles.del}>
                 <Button block>删顶顶顶顶除</Button>
@@ -277,6 +279,7 @@ const Container = (props: {
                 defaultValue={curPoint.item.config}
                 onSave={handleFormSave}
                 onDel={handleDel}
+                rightPannelRef={ref}
               />
             </>
           ) : (

@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, RefObject, useEffect } from 'react';
 import { Form, Select, InputNumber, Input, Switch, Radio, Button } from 'antd';
 import Upload from '../Upload';
 import DataList from '../DataList';
@@ -33,10 +33,11 @@ interface FormEditorProps {
   onDel: Function;
   defaultValue: { [key: string]: any };
   config: Array<any>;
+  rightPannelRef: RefObject<HTMLDivElement>;
 }
 
 const FormEditor = (props: FormEditorProps) => {
-  const { config, defaultValue, onSave, onDel, uid } = props;
+  const { config, defaultValue, onSave, onDel, uid, rightPannelRef } = props;
   const onFinish = (values: Store) => {
     onSave && onSave(values);
   };
@@ -157,7 +158,7 @@ const FormEditor = (props: FormEditorProps) => {
             )}
             {item.type === 'FormItems' && (
               <Form.Item name={item.key} valuePropName="formList">
-                <FormItems data={item.data} />
+                <FormItems data={item.data} rightPannelRef={rightPannelRef} />
               </Form.Item>
             )}
           </React.Fragment>
