@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, RefObject, useCallback, useEffect, useState } from 'react';
 import BaseForm from '../../BasicShop/BasicComponents/Form/BaseForm';
 import BasePopoverForm from '../../BasicShop/BasicComponents/Form/BasePopoverForm';
 import EditorModal from './EditorModal';
@@ -6,8 +6,8 @@ import { MinusCircleFilled, EditFilled, PlusOutlined } from '@ant-design/icons';
 import styles from './formItems.less';
 import { baseFormUnion, TFormItemsDefaultType } from '../FormEditor/types';
 import { uuid } from '@/utils/tool';
-import { Button, Popover } from 'antd';
-
+import { Button } from 'antd';
+import MyPopover from 'yh-react-popover';
 // import { Popconfirm } from 'antd';
 
 const formTpl: TFormItemsDefaultType = [
@@ -60,24 +60,27 @@ interface FormItemsProps {
   formList?: TFormItemsDefaultType;
   onChange?: (v: TFormItemsDefaultType) => void;
   data: any;
+  rightPannelRef: RefObject<HTMLDivElement>;
 }
 
 const FormItems = (props: FormItemsProps) => {
-  const { formList, onChange } = props;
+  const { formList, onChange, rightPannelRef } = props;
   const [formData, setFormData] = useState<TFormItemsDefaultType>(formList || []);
   const [visible, setVisible] = useState(false);
   const [curItem, setCurItem] = useState<baseFormUnion>();
-  const [isFormTplVisible, setFormTplVisible] = useState(false);
+  const [force, setforce] = useState<{ force: Function }>({
+    force: () => {},
+  });
 
   const handleAddItem = (item: baseFormUnion) => {
     let tpl = formTpl.find(v => v.type === item.type);
     let newData = [...formData, { ...tpl!, id: uuid(6, 10) }];
     setFormData(newData);
     onChange && onChange(newData);
+    force.force();
   };
 
   const handleEditItem = (item: baseFormUnion) => {
-    console.log(item);
     setVisible(true);
     setCurItem(item);
   };
@@ -94,9 +97,28 @@ const FormItems = (props: FormItemsProps) => {
     onChange && onChange(newData);
     setVisible(false);
   };
-  const handleVisibleChange = (visible: boolean) => {
-    setFormTplVisible(visible);
-  };
+
+  const callback = useCallback((v: Function) => {
+    console.log(v);
+    setforce({ force: v });
+  }, []);
+
+  useEffect(() => {
+    let listenner: (e: Event) => void;
+    if (rightPannelRef.current) {
+      listenner = () => {
+        force.force();
+      };
+      rightPannelRef.current.addEventListener('scroll', listenner);
+    }
+    return () => {
+      if (rightPannelRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        rightPannelRef.current.removeEventListener('scroll', listenner);
+      }
+    };
+  }, [force, rightPannelRef]);
+
   return (
     <div className={styles.formItemWrap}>
       <div className={styles.formTitle}>表单控件</div>
@@ -122,7 +144,7 @@ const FormItems = (props: FormItemsProps) => {
           );
         })}
         <div className={styles.formAddWrap}>
-          <Popover
+          <MyPopover
             content={
               <>
                 <div className={styles.formTpl} style={{ color: 'red' }}>
@@ -148,19 +170,15 @@ const FormItems = (props: FormItemsProps) => {
                 {/* <a style={{color: 'red'}} onClick={() => setFormTplVisible(false)}>Close</a> */}
               </>
             }
-            color="#4A4A4A"
-            overlayStyle={{ width: '200px' }}
-            // title="表单模板"
-            trigger="click"
-            placement="left"
-            visible={isFormTplVisible}
-            autoAdjustOverflow
-            onVisibleChange={handleVisibleChange}
+            directions={'LB'}
+            innerConstDomStyle={{ display: 'block' }}
+            constDomStyle={{ display: 'block' }}
+            callback={callback}
           >
-            <Button block icon={<PlusOutlined />}>
+            <Button style={{ width: '100%' }} block icon={<PlusOutlined />}>
               添加
             </Button>
-          </Popover>
+          </MyPopover>
         </div>
       </div>
 
