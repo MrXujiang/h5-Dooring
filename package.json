@@ -83,11 +83,11 @@
     "umi": "^3.2.19",
     "video-react": "^0.14.1",
     "xlsx": "^0.16.7",
-    "yh-react-popover": "^0.2.0",
+    "yh-react-popover": "^0.3.0",
     "yorkie": "^2.0.0",
     "zarm": "^2.5.1"
   },
-  "license": "MIT",
+  "license": "GPL-3.0",
   "devDependencies": {
     "@types/classnames": "^2.2.10",
     "@types/codemirror": "^0.0.98",

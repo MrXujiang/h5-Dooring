@@ -5,7 +5,17 @@ import styles from './index.less';
 import { IFormConfig } from './schema';
 import logo from '@/assets/03-表单.png';
 const FormComponent = (props: IFormConfig & { isTpl: boolean }) => {
-  const { title, bgColor, fontSize, titColor, btnColor, btnTextColor, api, formControls } = props;
+  const {
+    title,
+    bgColor,
+    fontSize,
+    titColor,
+    btnColor,
+    titWeight,
+    btnTextColor,
+    api,
+    formControls,
+  } = props;
   const formData: Record<string, any> = {};
   const handleChange = useCallback(
     (item, v) => {
@@ -43,14 +53,19 @@ const FormComponent = (props: IFormConfig & { isTpl: boolean }) => {
           }}
         >
           {title && (
-            <div className={styles.title} style={{ fontSize, color: titColor }}>
+            <div
+              className={styles.title}
+              style={{ fontSize, fontWeight: +titWeight, color: titColor }}
+            >
               {title}
             </div>
           )}
           <div className={styles.formContent}>
             {formControls.map(item => {
               const FormItem = BaseForm[item.type];
-              return <FormItem onChange={handleChange.bind(this, item)} {...item} key={item.id} />;
+              return (
+                <FormItem onChange={(v: string) => handleChange(item, v)} {...item} key={item.id} />
+              );
             })}
             <div style={{ textAlign: 'center', padding: '16px 0' }}>
               <Button

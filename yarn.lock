@@ -14691,10 +14691,10 @@ yeast@0.1.2:
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
   integrity sha1-AI4G2AlDIMNy28L47XagymyKxBk=
 
-yh-react-popover@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/yh-react-popover/-/yh-react-popover-0.2.0.tgz#a5e3bdaa50b5e7e119bf0ce38a24bea57068cfc4"
-  integrity sha512-cTH2huOrUvsbyhvH0iTE+S/Lu7dOpxuF8upyNP4GCsCN8IzQXLvlbxZl8395wOwa6Xm5+kT7QvZw+wI3vA8q8Q==
+yh-react-popover@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/yh-react-popover/-/yh-react-popover-0.3.0.tgz#016c6d48a63e0d8538bd2827b513dfe6519629ff"
+  integrity sha512-YCE3ESEkFw3FMY7pL7DkPPFW394dmbaGXxhhzsOllDxAhHqjc7f3CYmAbBbnNwTNQSA4v51gHUjt+8ccIQDohg==
 
 ylru@^1.2.0:
   version "1.2.1"
