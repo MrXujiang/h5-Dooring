@@ -101,13 +101,13 @@ const SourceBox = memo((props: SourceBoxProps) => {
         const curPointData = pointData.filter(item => item.id === newItem.i)[0];
         dispatch({
           type: 'editorModal/modPointData',
-          payload: { ...curPointData, point: newItem },
+          payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
         });
       } else {
         const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
         dispatch({
           type: 'editorPcModal/modPointData',
-          payload: { ...curPointData, point: newItem },
+          payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
         });
       }
     };
@@ -119,13 +119,13 @@ const SourceBox = memo((props: SourceBoxProps) => {
         const curPointData = pointData.filter(item => item.id === newItem.i)[0];
         dispatch({
           type: 'editorModal/modPointData',
-          payload: { ...curPointData },
+          payload: { ...curPointData, status: 'inToCanvas' },
         });
       } else {
         const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
         dispatch({
           type: 'editorPcModal/modPointData',
-          payload: { ...curPointData },
+          payload: { ...curPointData, status: 'inToCanvas' },
         });
       }
     };
@@ -137,13 +137,13 @@ const SourceBox = memo((props: SourceBoxProps) => {
         const curPointData = pointData.filter(item => item.id === newItem.i)[0];
         dispatch({
           type: 'editorModal/modPointData',
-          payload: { ...curPointData, point: newItem },
+          payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
         });
       } else {
         const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
         dispatch({
           type: 'editorPcModal/modPointData',
-          payload: { ...curPointData, point: newItem },
+          payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
         });
       }
     };
