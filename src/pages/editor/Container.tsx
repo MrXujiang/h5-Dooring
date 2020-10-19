@@ -558,22 +558,17 @@ const Container = (props: {
           {!rightColla ? <DoubleRightOutlined /> : <DoubleLeftOutlined />}
         </div>
         <div
-          style={
-            !rightColla
-              ? {
-                  position: 'absolute',
-                  transform: 'translate(0,-10%)',
-                  transition: 'all ease-in-out 2s',
-                  textAlign: 'center',
-                  bottom: -5,
-                  right: 16,
-                  background: 'hsla(0,0%,88.2%,.7)',
-                  padding: '10px',
-                  width: '279px',
-                  display: 'block',
-                }
-              : { display: 'none' }
-          }
+          style={{
+            width: rightColla ? 0 : '279px',
+            position: 'absolute',
+            transform: 'translate(0,-10%)',
+            transition: 'all ease-in-out 0.5s',
+            textAlign: 'center',
+            bottom: -5,
+            right: rightColla ? 0 : 16,
+            background: 'hsla(0,0%,88.2%,.7)',
+            padding: rightColla ? 0 : '10px',
+          }}
         >
           <Button block type="primary" onClick={() => handleDel(curPoint.id)}>
             删除
