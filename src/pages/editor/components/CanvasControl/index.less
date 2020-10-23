@@ -1,0 +1,37 @@
+.sliderWrap {
+  position: absolute;
+  display: inline-block;
+  right: 10px;
+  bottom: 10px;
+  height: 32px;
+  line-height: 30px;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  color: #4a4a4a;
+  .slider {
+    position: absolute;
+    right: 30px;
+    bottom: 95px;
+    font-size: 14px;
+  }
+  .sliderBtn {
+    cursor: pointer;
+    user-select: none;
+    display: inline;
+    font-size: 14px;
+    color: #4a4a4a;
+  }
+  span {
+    margin: 0 8px;
+  }
+  .backSize {
+    cursor: pointer;
+    color: #4a4a4a;
+    &::before {
+      content: '|';
+      color: #dbdbdb;
+      margin-right: 7px;
+    }
+  }
+}

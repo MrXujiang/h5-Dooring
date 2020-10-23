@@ -11,6 +11,7 @@ import {
 } from '@ant-design/icons';
 import { connect } from 'dva';
 import HeaderComponent from './components/Header';
+import CanvasControl from './components/CanvasControl';
 import SourceBox from './SourceBox';
 import TargetBox from './TargetBox';
 import Calibration from 'components/Calibration';
@@ -184,6 +185,7 @@ const Container = (props: {
       dispatch(ActionCreators.redo());
     };
   }, [dispatch]);
+
   const undohandler = useMemo(() => {
     return () => {
       dispatch(ActionCreators.undo());
@@ -381,6 +383,11 @@ const Container = (props: {
       }
     };
   }, []);
+
+  const updateDrag = useCallback(() => {
+    setDragState({ x: 0, y: 0 });
+  }, []);
+
   const mousemovefn = useMemo(() => {
     return (e: React.MouseEvent<HTMLDivElement>) => {
       if (diffmove.move) {
@@ -509,40 +516,12 @@ const Container = (props: {
             allType={allType}
           />
           {/* TODO 暂时隐藏 */}
-          {/* <div className={styles.resetBall}>
-            <ReloadOutlined onClick={() => setDragState({ x: 0, y: 0 })} />
-          </div> */}
-          {/*<div className={styles.controllBall}>{render}</div> */}
-          <div className={styles.sliderWrap}>
-            <span
-              className={styles.sliderBtn}
-              onClick={handleSlider.bind(this, 1)}
-              style={
-                scaleNum === 1
-                  ? { pointerEvents: 'none' }
-                  : { display: 'initial', marginLeft: '13px' }
-              }
-            >
-              +
-            </span>
-            <span>{scaleNum * 100}%</span>
-            <span
-              className={styles.sliderBtn}
-              style={scaleNum === 0.1 ? { pointerEvents: 'none' } : { display: 'initial' }}
-              onClick={handleSlider.bind(this, 0)}
-            >
-              -
-            </span>
-            <span className={styles.backSize}>
-              <ExpandOutlined onClick={backSize} />
-            </span>
-            <span className={styles.backSize}>
-              <ReloadOutlined onClick={() => setDragState({ x: 0, y: 0 })} />
-            </span>
-          </div>
-          {/* <div className={styles.backSize}>
-            <ExpandOutlined onClick={backSize} />
-          </div> */}
+          <CanvasControl
+            scaleNum={scaleNum}
+            handleSlider={handleSlider}
+            backSize={backSize}
+            updateDrag={updateDrag}
+          />
         </div>
         {renderRight}
         <div
