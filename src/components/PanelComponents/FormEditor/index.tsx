@@ -164,11 +164,6 @@ const FormEditor = (props: FormEditorProps) => {
           </React.Fragment>
         );
       })}
-      {/* <div style={{position: 'fixed', bottom: '0px'}}>
-        <Button danger style={{ width: '251px' }} block onClick={handleDel}>
-          删除
-        </Button>
-      </div> */}
     </Form>
   );
 };

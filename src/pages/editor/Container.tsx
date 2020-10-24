@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useMemo, useCallback, useContext, useRef } from 'react';
-import { Result, Tabs } from 'antd';
+import { Result, Tabs, Button } from 'antd';
 import {
   PieChartOutlined,
-  ExpandOutlined,
   PlayCircleOutlined,
   HighlightOutlined,
   DoubleRightOutlined,
   DoubleLeftOutlined,
-  ReloadOutlined,
 } from '@ant-design/icons';
 import { connect } from 'dva';
 import HeaderComponent from './components/Header';
@@ -27,14 +25,11 @@ import graphTpl2 from 'components/BasicPcShop/VisualComponents/template';
 
 import schema1 from 'components/BasicShop/schema';
 import schema2 from 'components/BasicPcShop/schema';
-
-import { ActionCreators } from 'redux-undo';
-import { StateWithHistory } from 'redux-undo';
-import styles from './index.less';
-// import { useGetBall } from 'react-draggable-ball';
+import { ActionCreators, StateWithHistory } from 'redux-undo';
 import { dooringContext } from '@/layouts';
 import { throttle } from '@/utils/tool';
-import { Button } from 'antd';
+
+import styles from './index.less';
 
 const { TabPane } = Tabs;
 
@@ -220,11 +215,7 @@ const Container = (props: {
   }, [graphTpl, mediaTpl, template]);
 
   const [dragstate, setDragState] = useState({ x: 0, y: 0 });
-  // const [render] = useGetBall(setDragState, {
-  //   innerStyle: { top: '10px', left: '10px', cursor: 'pointer' },
-  //   ratioSpeed: { x: 1.2, y: 1.2 },
-  //   intervalDelay: 5,
-  // });
+
   const ref = useRef<HTMLDivElement>(null);
   const renderRight = useMemo(() => {
     if (context.theme === 'h5') {
@@ -248,9 +239,6 @@ const Container = (props: {
                 onDel={handleDel}
                 rightPannelRef={ref}
               />
-              {/* <div className={styles.del}>
-                <Button block>删顶顶顶顶除</Button>
-              </div> */}
             </>
           ) : (
             <div style={{ paddingTop: '100px' }}>
@@ -515,7 +503,6 @@ const Container = (props: {
             canvasId={canvasId}
             allType={allType}
           />
-          {/* TODO 暂时隐藏 */}
           <CanvasControl
             scaleNum={scaleNum}
             handleSlider={handleSlider}
