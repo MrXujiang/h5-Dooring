@@ -37,12 +37,9 @@ interface FormEditorProps {
 }
 
 const FormEditor = (props: FormEditorProps) => {
-  const { config, defaultValue, onSave, onDel, uid, rightPannelRef } = props;
+  const { config, defaultValue, onSave, uid, rightPannelRef } = props;
   const onFinish = (values: Store) => {
     onSave && onSave(values);
-  };
-  const handleDel = () => {
-    onDel && onDel(uid);
   };
 
   const [form] = Form.useForm();

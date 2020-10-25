@@ -3,6 +3,7 @@ import { Carousel } from 'zarm';
 import styles from './index.less';
 import { ICarouselConfig } from './schema';
 import logo from '@/assets/01-轮播.png';
+
 const XCarousel = memo((props: ICarouselConfig) => {
   const { direction, swipeable, autoPlay, isTpl, imgList } = props;
   const contentRender = () => {

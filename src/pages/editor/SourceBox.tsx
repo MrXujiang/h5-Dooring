@@ -1,17 +1,8 @@
-import React, {
-  FC,
-  memo,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  createRef,
-} from 'react';
+import React, { memo, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { useDrop } from 'react-dnd';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import GridLayout, { ItemCallback } from 'react-grid-layout';
-import { Popover, Button, Tooltip } from 'antd';
+import { Tooltip } from 'antd';
 import { connect } from 'dva';
 import DynamicEngine from 'components/DynamicEngine';
 import styles from './index.less';
@@ -173,24 +164,7 @@ const SourceBox = memo((props: SourceBoxProps) => {
     };
   }, []);
   const opacity = isOver ? 0.7 : 1;
-  const handleCurrentCard: Function = useCallback(
-    (e: Event, status: boolean, index: number) => {
-      e.preventDefault();
-      setIsMenu(false);
-      if (status) {
-        setIsMenu(true);
-      } else {
-        setIsMenu(false);
-      }
-      (pointData = initSelect(pointData)) &&
-        Object.keys(pointData).map(keyId => {
-          (+pointData[+keyId].id === +index && (pointData[+keyId].isMenu = status)) ||
-            (pointData[+keyId].isMenu = false);
-        });
-      setPointData(pointData);
-    },
-    [status, pointData],
-  );
+
   const render = useMemo(() => {
     if (context.theme === 'h5') {
       return (
