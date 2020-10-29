@@ -136,7 +136,7 @@ cnpm run start
 ```
 
 ## Partner project
-[Luckysheet - 强大的在线excel编辑器](https://github.com/mengshukeji/Luckysheet)
+* [Luckysheet - 强大的在线excel编辑器](https://github.com/mengshukeji/Luckysheet)
 
 ## 更新日志
 1. 添加在线编程模块（在执行代码前先启动node服务 npm run server）
