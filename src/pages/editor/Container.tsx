@@ -103,6 +103,7 @@ const Container = (props: {
 
   const backSize = () => {
     setScale(1);
+    setDragState({ x: 0, y: 0 });
   };
 
   const CpIcon = {
@@ -372,10 +373,6 @@ const Container = (props: {
     };
   }, []);
 
-  const updateDrag = useCallback(() => {
-    setDragState({ x: 0, y: 0 });
-  }, []);
-
   const mousemovefn = useMemo(() => {
     return (e: React.MouseEvent<HTMLDivElement>) => {
       if (diffmove.move) {
@@ -503,12 +500,7 @@ const Container = (props: {
             canvasId={canvasId}
             allType={allType}
           />
-          <CanvasControl
-            scaleNum={scaleNum}
-            handleSlider={handleSlider}
-            backSize={backSize}
-            updateDrag={updateDrag}
-          />
+          <CanvasControl scaleNum={scaleNum} handleSlider={handleSlider} backSize={backSize} />
         </div>
         {renderRight}
         <div

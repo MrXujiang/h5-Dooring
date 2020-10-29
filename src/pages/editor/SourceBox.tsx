@@ -192,23 +192,6 @@ const SourceBox = memo((props: SourceBoxProps) => {
                 }}
                 ref={drop}
               >
-                <Tooltip placement="right" title="鼠标按住此处拖拽画布" visible={isShowTip}>
-                  <div
-                    className="js_box"
-                    style={{
-                      width: '10px',
-                      height: '100%',
-                      position: 'absolute',
-                      borderRadius: '0 6px 6px 0',
-                      backgroundColor: '#2f54eb',
-                      right: '-10px',
-                      top: '0',
-                      color: '#fff',
-                      cursor: 'move',
-                    }}
-                  />
-                </Tooltip>
-
                 {pointData.length > 0 ? (
                   <GridLayout
                     className={styles.layout}

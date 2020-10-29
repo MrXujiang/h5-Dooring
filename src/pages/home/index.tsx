@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs, message } from 'antd';
+import { Tabs, message, Button } from 'antd';
 import { history } from 'umi';
 import {
   MobileOutlined,
@@ -95,10 +95,15 @@ const Home = () => {
               <GithubOutlined />
             </a>
             <p>
-              Welcome to H5-Dooring{' '}
+              Welcome to H5-Dooring
               <span role="img" aria-label="welcome">
                 👋
               </span>
+            </p>
+            <p>
+              <Button type="primary">
+                <a href="https://www.oschina.net/p/h5-dooring">为dooring投票</a>
+              </Button>
             </p>
           </div>
         </footer>

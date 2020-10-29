@@ -6,11 +6,10 @@ interface CanvasControlProps {
   scaleNum: number;
   handleSlider: Function;
   backSize(event: MouseEvent<HTMLDivElement>): void;
-  updateDrag(event: MouseEvent<HTMLDivElement>): void;
 }
 
 const CanvasControl = (props: CanvasControlProps) => {
-  const { scaleNum, handleSlider, backSize, updateDrag } = props;
+  const { scaleNum, handleSlider, backSize } = props;
   return (
     <div className={styles.sliderWrap}>
       <span
@@ -32,9 +31,6 @@ const CanvasControl = (props: CanvasControlProps) => {
       </span>
       <span className={styles.backSize}>
         <ExpandOutlined onClick={backSize} />
-      </span>
-      <span className={styles.backSize}>
-        <ReloadOutlined onClick={updateDrag} />
       </span>
     </div>
   );

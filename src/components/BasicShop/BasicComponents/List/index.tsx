@@ -39,7 +39,7 @@ const List = memo((props: IListConfig) => {
                       alt={item.desc}
                       style={{
                         width: parseFloat(imgSize),
-                        height: imgSize,
+                        height: imgSize + 'px',
                         objectFit: 'cover',
                         borderRadius: round,
                       }}
