@@ -1,7 +1,7 @@
-<h1 align="center">Welcome to H5-Dooring 👋</h1>
 <p align="center">
-    <img src="http://io.nainor.com/uploads/logo_175867b9e6b.png" width="120" alt="H5编辑器,H5制作神器">
+    <img src="http://io.nainor.com/uploads/logo_175867b9e6b.png" width="260" alt="H5编辑器,H5制作神器">
 </p>
+<h1 align="center">Welcome to H5-Dooring 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.2-blue.svg?cacheSeconds=2592000" />
   <a href="https://juejin.im/post/6864410873709592584/" target="_blank">
