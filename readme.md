@@ -27,6 +27,7 @@
 
 * Website: http://io.nainor.com/h5_visible
 * Github: [@MrXujiang](https://github.com/MrXujiang)
+* 为H5-Dooring贡献一份你的支持：[投票入口](https://www.oschina.net/p/h5-dooring)
 
 ## 🤝 Contributing
 
