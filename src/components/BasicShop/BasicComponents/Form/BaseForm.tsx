@@ -9,6 +9,7 @@ import {
   baseFormNumberTpl,
   baseFormTextAreaTpl,
   baseFormTextTpl,
+  baseFormTextTipTpl,
   baseFormUnionType,
 } from '@/components/PanelComponents/FormEditor/types';
 // 维护表单控件， 提高form渲染性能
@@ -112,6 +113,10 @@ const BaseForm: TBaseForm = {
         <Select dataSource={options} onOk={onChange} />
       </Cell>
     );
+  },
+  MyTextTip: (props: baseFormTextTipTpl) => {
+    const { label, color, fontSize } = props;
+    return <Cell title={<div style={{ color, fontSize }}>{label}</div>}></Cell>;
   },
 };
 

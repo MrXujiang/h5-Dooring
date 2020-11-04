@@ -8,6 +8,7 @@ import {
   baseFormNumberTpl,
   baseFormTextAreaTpl,
   baseFormTextTpl,
+  baseFormTextTipTpl,
   baseFormUnionType,
 } from '@/components/PanelComponents/FormEditor/types';
 
@@ -84,6 +85,21 @@ const BaseForm: TBaseForm = {
     const { label, onChange } = props;
     return (
       <Button style={{ color: '#fff', backgroundColor: '#4A4A4A' }} onChange={() => onChange}>
+        {label}
+      </Button>
+    );
+  },
+  MyTextTip: (props: baseFormTextTipTpl) => {
+    const { label } = props;
+    return (
+      <Button
+        style={{
+          color: '#fff',
+          backgroundColor: '#4A4A4A',
+          borderRadius: '2px',
+          lineHeight: '0px',
+        }}
+      >
         {label}
       </Button>
     );

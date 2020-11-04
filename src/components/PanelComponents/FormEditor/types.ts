@@ -157,6 +157,15 @@ export type baseFormTextTpl = {
   label: string;
   placeholder: string;
 };
+
+export type baseFormTextTipTpl = {
+  id: string;
+  type: 'MyTextTip';
+  label: string;
+  color: string;
+  fontSize: number;
+};
+
 export type baseFormNumberTpl = {
   id: string;
   type: 'Number';
@@ -198,9 +207,10 @@ export type baseFormDateTpl = {
   label: string;
   placeholder: string;
 };
-//类型不要乱加，这部分是FormItems的类型定义，只有新增formItems的配置项才需要加！
+
 export type baseFormUnion =
   | baseFormTextTpl
+  | baseFormTextTipTpl
   | baseFormNumberTpl
   | baseFormTextAreaTpl
   | baseFormMyRadioTpl
@@ -209,6 +219,7 @@ export type baseFormUnion =
   | baseFormDateTpl;
 export type baseFormUnionType =
   | baseFormTextTpl['type']
+  | baseFormTextTipTpl['type']
   | baseFormNumberTpl['type']
   | baseFormTextAreaTpl['type']
   | baseFormMyRadioTpl['type']

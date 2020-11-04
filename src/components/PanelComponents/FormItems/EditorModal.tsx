@@ -1,6 +1,7 @@
 import React, { FC, memo, useEffect } from 'react';
-import { Form, Select, Input, Modal, Button } from 'antd';
+import { Form, Select, Input, Modal, Button, InputNumber } from 'antd';
 import { baseFormOptionsType } from '../FormEditor/types';
+import Color from '../Color';
 
 const { Option } = Select;
 
@@ -78,6 +79,24 @@ const EditorModal: FC<EditorModalProps> = props => {
                 rules={[{ required: true, message: '请输入字段名!' }]}
               >
                 <Input />
+              </Form.Item>
+            )}
+            {!!item.fontSize && (
+              <Form.Item
+                label="字体大小"
+                name="fontSize"
+                rules={[{ required: true, message: '请输入字体大小!' }]}
+              >
+                <InputNumber min={12} max={30} defaultValue={14} />
+              </Form.Item>
+            )}
+            {!!item.color && (
+              <Form.Item
+                label="文字颜色"
+                name="color"
+                rules={[{ required: true, message: '请输入文字颜色!' }]}
+              >
+                <Color />
               </Form.Item>
             )}
             {!!item.placeholder && (

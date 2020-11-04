@@ -131,6 +131,17 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     window.location.href = `/h5_plus/login?tid=${tid}`;
   };
 
+  const deleteAll = () => {
+    Modal.confirm({
+      title: '确认清空画布?',
+      okText: '确认',
+      cancelText: '取消',
+      onOk() {
+        clearData();
+      },
+    });
+  };
+
   const toBack = () => {
     history.push('/');
   };
@@ -231,7 +242,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
           type="link"
           style={{ marginRight: '9px' }}
           title="清空"
-          onClick={clearData}
+          onClick={deleteAll}
           disabled={!pointData.length}
         >
           <DeleteOutlined />

@@ -14,13 +14,13 @@ const formTpl: TFormItemsDefaultType = [
   {
     id: '1',
     type: 'Text',
-    label: '文本',
+    label: '文本框',
     placeholder: '请输入文本',
   },
   {
     id: '2',
     type: 'Textarea',
-    label: '长文本',
+    label: '长文本框',
     placeholder: '请输入长文本请输入长文本',
   },
   {
@@ -53,6 +53,13 @@ const formTpl: TFormItemsDefaultType = [
     type: 'Date',
     label: '日期框',
     placeholder: '',
+  },
+  {
+    id: '7',
+    type: 'MyTextTip',
+    label: '纯文本',
+    fontSize: 12,
+    color: 'rgba(0,0,0,1)',
   },
 ];
 
