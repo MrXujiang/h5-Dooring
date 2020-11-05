@@ -2,13 +2,14 @@ import React, { memo, useCallback, useContext, useEffect, useMemo, useState } fr
 import { useDrop } from 'react-dnd';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import GridLayout, { ItemCallback } from 'react-grid-layout';
-import { Tooltip } from 'antd';
 import { connect } from 'dva';
 import DynamicEngine from 'components/DynamicEngine';
 import styles from './index.less';
 import { uuid } from '@/utils/tool';
 import { Dispatch } from 'umi';
 import { StateWithHistory } from 'redux-undo';
+import { Menu, Item, MenuProvider } from 'react-contexify';
+import 'react-contexify/dist/ReactContexify.min.css';
 import { dooringContext } from '@/layouts';
 interface SourceBoxProps {
   pstate: { pointData: { id: string; item: any; point: any; isMenu?: any }[]; curPoint: any };
@@ -148,6 +149,43 @@ const SourceBox = memo((props: SourceBoxProps) => {
       }))
     );
   };
+
+  const handleContextMenuDel = () => {
+    if (pstate.curPoint) {
+      dispatch({
+        type: 'editorModal/delPointData',
+        payload: { id: pstate.curPoint.id },
+      });
+    }
+  };
+
+  const handleContextMenuCopy = () => {
+    if (pstate.curPoint) {
+      dispatch({
+        type: 'editorModal/copyPointData',
+        payload: { id: pstate.curPoint.id },
+      });
+    }
+  };
+
+  const onConTextClick = (type: string) => {
+    if (type === 'del') {
+      handleContextMenuDel();
+    } else if (type === 'copy') {
+      handleContextMenuCopy();
+    }
+  };
+
+  const MyAwesomeMenu = useCallback(
+    () => (
+      <Menu id="menu_id">
+        <Item onClick={() => onConTextClick('copy')}>复制</Item>
+        <Item onClick={() => onConTextClick('del')}>删除</Item>
+      </Menu>
+    ),
+    [onConTextClick],
+  );
+
   useEffect(() => {
     let { width, height } = document.getElementById(canvasId)!.getBoundingClientRect();
     console.log(width, height);
@@ -176,57 +214,59 @@ const SourceBox = memo((props: SourceBoxProps) => {
           }}
         >
           <div className={styles.canvasBox}>
-            <div
-              style={{
-                transform: `scale(${scaleNum})`,
-                position: 'relative',
-                width: '100%',
-                height: '100%',
-              }}
-            >
+            <MenuProvider id="menu_id">
               <div
-                id={canvasId}
-                className={styles.canvas}
                 style={{
-                  opacity,
+                  transform: `scale(${scaleNum})`,
+                  position: 'relative',
+                  width: '100%',
+                  height: '100%',
                 }}
-                ref={drop}
               >
-                {pointData.length > 0 ? (
-                  <GridLayout
-                    className={styles.layout}
-                    cols={24}
-                    rowHeight={2}
-                    width={canvasRect[0] || 0}
-                    margin={[0, 0]}
-                    onDragStop={dragStop}
-                    onDragStart={onDragStart}
-                    onResizeStop={onResizeStop}
-                  >
-                    {pointData.map(value => (
-                      <div
-                        className={value.isMenu ? styles.selected : styles.dragItem}
-                        key={value.id}
-                        data-grid={value.point}
-                      >
-                        <DynamicEngine {...value.item} isTpl={false} />
-                        {/* <div
-                          className={styles.tooltip}
-                          style={{ display: value.isMenu ? 'block' : 'none' }}
+                <div
+                  id={canvasId}
+                  className={styles.canvas}
+                  style={{
+                    opacity,
+                  }}
+                  ref={drop}
+                >
+                  {pointData.length > 0 ? (
+                    <GridLayout
+                      className={styles.layout}
+                      cols={24}
+                      rowHeight={2}
+                      width={canvasRect[0] || 0}
+                      margin={[0, 0]}
+                      onDragStop={dragStop}
+                      onDragStart={onDragStart}
+                      onResizeStop={onResizeStop}
+                    >
+                      {pointData.map(value => (
+                        <div
+                          className={value.isMenu ? styles.selected : styles.dragItem}
+                          key={value.id}
+                          data-grid={value.point}
                         >
-                          <div className="tooltipRow1">
-                            <a>恢复</a>
-                          </div>
-                          <div className="tooltipRow2">
-                            <a>删除</a>
-                          </div>
-                        </div> */}
-                      </div>
-                    ))}
-                  </GridLayout>
-                ) : null}
+                          <DynamicEngine {...value.item} isTpl={false} />
+                          {/* <div
+                            className={styles.tooltip}
+                            style={{ display: value.isMenu ? 'block' : 'none' }}
+                          >
+                            <div className="tooltipRow1">
+                              <a>恢复</a>
+                            </div>
+                            <div className="tooltipRow2">
+                              <a>删除</a>
+                            </div>
+                          </div> */}
+                        </div>
+                      ))}
+                    </GridLayout>
+                  ) : null}
+                </div>
               </div>
-            </div>
+            </MenuProvider>
           </div>
         </Draggable>
       );
@@ -356,7 +396,12 @@ const SourceBox = memo((props: SourceBoxProps) => {
     clonePointData,
   ]);
 
-  return <>{render}</>;
+  return (
+    <>
+      {render}
+      <MyAwesomeMenu />
+    </>
+  );
 });
 
 export default connect((state: StateWithHistory<any>) => ({

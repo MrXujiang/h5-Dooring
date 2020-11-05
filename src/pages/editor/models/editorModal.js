@@ -6,6 +6,7 @@
  * @LastEditors: dragon
  * @LastEditTime: 2020-10-08 16:12:26
  */
+import { uuid } from '@/utils/tool';
 const pointData = localStorage.getItem('userData') || '[]';
 
 function overSave(name, data) {
@@ -41,6 +42,22 @@ export default {
         ...state,
         pointData,
         curPoint: payload,
+      };
+    },
+    copyPointData(state, { payload }) {
+      const { id } = payload;
+      const pointData = [];
+      state.pointData.forEach(item => {
+        pointData.push({ ...item });
+        if (item.id === id) {
+          pointData.push({ ...item, id: uuid(6, 10) });
+        }
+      });
+      overSave('userData', pointData);
+
+      return {
+        ...state,
+        pointData,
       };
     },
     delPointData(state, { payload }) {

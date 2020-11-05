@@ -142,6 +142,10 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     });
   };
 
+  const toHelp = () => {
+    window.open('/help');
+  };
+
   const toBack = () => {
     history.push('/');
   };
@@ -261,6 +265,15 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         </Button>
         <Button type="link" onClick={toPreview} disabled={!pointData.length}>
           预览
+        </Button>
+        <Button
+          type="link"
+          style={{ marginRight: '9px' }}
+          onClick={toHelp}
+          disabled={!pointData.length}
+          title="使用帮助"
+        >
+          帮助
         </Button>
       </div>
       <div className={styles.btnArea}>
