@@ -88,7 +88,7 @@ const FormEditor = (props: FormEditorProps) => {
             )}
             {item.type === 'DataList' && (
               <Form.Item label={item.name} name={item.key}>
-                <DataList />
+                <DataList cropRate={item.cropRate} />
               </Form.Item>
             )}
             {item.type === 'Color' && (

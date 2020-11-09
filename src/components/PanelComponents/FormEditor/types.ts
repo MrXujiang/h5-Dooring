@@ -43,6 +43,7 @@ export interface IDataListConfigType {
   key: string;
   name: string;
   type: 'DataList';
+  cropRate: number;
 }
 
 export type TDataListDefaultTypeItem = {

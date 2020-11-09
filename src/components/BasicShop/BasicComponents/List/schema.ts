@@ -33,6 +33,7 @@ const List: IListSchema = {
       key: 'sourceData',
       name: '数据源',
       type: 'DataList',
+      cropRate: 1,
     },
     {
       key: 'round',

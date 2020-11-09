@@ -23,10 +23,11 @@ export type EditorModalProps = {
   onCancel: ((e: React.MouseEvent<HTMLElement, MouseEvent>) => void) | undefined;
   item?: TDataListDefaultTypeItem;
   onSave: Function;
+  cropRate: number;
 };
 
 const EditorModal: FC<EditorModalProps> = props => {
-  const { item, onSave, visible, onCancel } = props;
+  const { item, onSave, visible, onCancel, cropRate } = props;
   const onFinish = (values: Store) => {
     console.log(values);
     onSave && onSave(values);
@@ -112,7 +113,7 @@ const EditorModal: FC<EditorModalProps> = props => {
               valuePropName="fileList"
               getValueFromEvent={normFile}
             >
-              <Upload />
+              <Upload cropRate={cropRate} isCrop />
             </Form.Item>
           </Form>
         </Modal>

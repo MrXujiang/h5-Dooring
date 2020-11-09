@@ -129,6 +129,7 @@ const DndItem = DropTarget(
 export type DataListMemo = {
   onChange?: (v: TDataListDefaultType) => void;
   value?: TDataListDefaultType;
+  cropRate: number;
 };
 
 export type DataListType = DataListMemo & {
@@ -136,7 +137,7 @@ export type DataListType = DataListMemo & {
 };
 
 const List = function(props: DataListType) {
-  const { onChange, value, connectDropTarget } = props;
+  const { onChange, value, connectDropTarget, cropRate } = props;
   const [list, setList] = useState(value);
   const [visible, setVisible] = useState(false);
   const [curItem, setCurItem] = useState<TDataListDefaultTypeItem>();
@@ -230,7 +231,13 @@ const List = function(props: DataListType) {
           添加
         </Button>
       </div>
-      <EditorModal visible={visible} onCancel={handleCancel} item={curItem} onSave={handleSave} />
+      <EditorModal
+        visible={visible}
+        onCancel={handleCancel}
+        item={curItem}
+        onSave={handleSave}
+        cropRate={cropRate}
+      />
     </div>,
   );
 };
