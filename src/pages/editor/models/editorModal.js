@@ -44,6 +44,14 @@ export default {
         curPoint: payload,
       };
     },
+    importTplData(state, { payload }) {
+      overSave('userData', payload);
+      return {
+        ...state,
+        pointData: payload,
+        curPoint: null,
+      };
+    },
     copyPointData(state, { payload }) {
       const { id } = payload;
       const pointData = [];

@@ -89,55 +89,70 @@ const SourceBox = memo((props: SourceBoxProps) => {
 
   const dragStop: ItemCallback = useMemo(() => {
     return (layout, oldItem, newItem, placeholder, e, element) => {
-      if (context.theme === 'h5') {
-        const curPointData = pointData.filter(item => item.id === newItem.i)[0];
-        dispatch({
-          type: 'editorModal/modPointData',
-          payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
-        });
-      } else {
-        const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
-        dispatch({
-          type: 'editorPcModal/modPointData',
-          payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
-        });
-      }
+      const curPointData = pointData.filter(item => item.id === newItem.i)[0];
+      dispatch({
+        type: 'editorModal/modPointData',
+        payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
+      });
+      // if (context.theme === 'h5') {
+      //   const curPointData = pointData.filter(item => item.id === newItem.i)[0];
+      //   dispatch({
+      //     type: 'editorModal/modPointData',
+      //     payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
+      //   });
+      // } else {
+      //   const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
+      //   dispatch({
+      //     type: 'editorPcModal/modPointData',
+      //     payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
+      //   });
+      // }
     };
   }, [context.theme, cpointData, dispatch, pointData]);
 
   const onDragStart: ItemCallback = useMemo(() => {
     return (layout, oldItem, newItem, placeholder, e, element) => {
-      if (context.theme === 'h5') {
-        const curPointData = pointData.filter(item => item.id === newItem.i)[0];
-        dispatch({
-          type: 'editorModal/modPointData',
-          payload: { ...curPointData, status: 'inToCanvas' },
-        });
-      } else {
-        const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
-        dispatch({
-          type: 'editorPcModal/modPointData',
-          payload: { ...curPointData, status: 'inToCanvas' },
-        });
-      }
+      const curPointData = pointData.filter(item => item.id === newItem.i)[0];
+      dispatch({
+        type: 'editorModal/modPointData',
+        payload: { ...curPointData, status: 'inToCanvas' },
+      });
+      // if (context.theme === 'h5') {
+      //   const curPointData = pointData.filter(item => item.id === newItem.i)[0];
+      //   dispatch({
+      //     type: 'editorModal/modPointData',
+      //     payload: { ...curPointData, status: 'inToCanvas' },
+      //   });
+      // } else {
+      //   const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
+      //   dispatch({
+      //     type: 'editorPcModal/modPointData',
+      //     payload: { ...curPointData, status: 'inToCanvas' },
+      //   });
+      // }
     };
   }, [context.theme, cpointData, dispatch, pointData]);
 
   const onResizeStop: ItemCallback = useMemo(() => {
     return (layout, oldItem, newItem, placeholder, e, element) => {
-      if (context.theme === 'h5') {
-        const curPointData = pointData.filter(item => item.id === newItem.i)[0];
-        dispatch({
-          type: 'editorModal/modPointData',
-          payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
-        });
-      } else {
-        const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
-        dispatch({
-          type: 'editorPcModal/modPointData',
-          payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
-        });
-      }
+      const curPointData = pointData.filter(item => item.id === newItem.i)[0];
+      dispatch({
+        type: 'editorModal/modPointData',
+        payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
+      });
+      // if (context.theme === 'h5') {
+      //   const curPointData = pointData.filter(item => item.id === newItem.i)[0];
+      //   dispatch({
+      //     type: 'editorModal/modPointData',
+      //     payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
+      //   });
+      // } else {
+      //   const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
+      //   dispatch({
+      //     type: 'editorPcModal/modPointData',
+      //     payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
+      //   });
+      // }
     };
   }, [context.theme, cpointData, dispatch, pointData]);
   const initSelect: any = (data: any = []) => {
@@ -249,17 +264,6 @@ const SourceBox = memo((props: SourceBoxProps) => {
                           data-grid={value.point}
                         >
                           <DynamicEngine {...value.item} isTpl={false} />
-                          {/* <div
-                            className={styles.tooltip}
-                            style={{ display: value.isMenu ? 'block' : 'none' }}
-                          >
-                            <div className="tooltipRow1">
-                              <a>恢复</a>
-                            </div>
-                            <div className="tooltipRow2">
-                              <a>删除</a>
-                            </div>
-                          </div> */}
                         </div>
                       ))}
                     </GridLayout>

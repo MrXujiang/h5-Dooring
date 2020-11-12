@@ -188,6 +188,13 @@ const Container = (props: {
     };
   }, [dispatch]);
 
+  const importTpl = data => {
+    dispatch({
+      type: 'editorModal/importTplData',
+      payload: data,
+    });
+  };
+
   useEffect(() => {
     if (window.innerWidth < 1024) {
       props.history.push('/mobileTip');
@@ -440,6 +447,7 @@ const Container = (props: {
         pointData={context.theme === 'h5' ? pointData : cpointData}
         clearData={clearData}
         location={props.location}
+        importTpl={importTpl}
       />
       <div className={styles.container}>
         <div

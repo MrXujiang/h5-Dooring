@@ -1,5 +1,5 @@
-import React, { useRef, memo, useContext, useState, useEffect } from 'react';
-import { Button, Input, Modal, Select } from 'antd';
+import React, { useRef, memo, useMemo, useContext, useState, useEffect } from 'react';
+import { Button, Input, Modal, Select, Upload } from 'antd';
 import {
   ArrowLeftOutlined,
   MobileOutlined,
@@ -11,6 +11,7 @@ import {
   FileAddOutlined,
   CodeOutlined,
   SketchOutlined,
+  UploadOutlined,
 } from '@ant-design/icons';
 import { history } from 'umi';
 import QRCode from 'qrcode.react';
@@ -31,10 +32,11 @@ interface HeaderComponentProps {
   clearData: any;
   undohandler: any;
   redohandler: any;
+  importTpl: any;
 }
 
 const HeaderComponent = memo((props: HeaderComponentProps) => {
-  const { pointData, location, clearData, undohandler, redohandler } = props;
+  const { pointData, location, clearData, undohandler, redohandler, importTpl } = props;
   const [showModalIframe, setShowModalIframe] = useState(false);
   const iptRef = useRef<Input>(null);
 
@@ -185,6 +187,24 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
       setShowModalIframe(false);
     };
   }, []);
+
+  const uploadprops = useMemo(
+    () => ({
+      name: 'file',
+      showUploadList: false,
+      beforeUpload(file, fileList) {
+        // 解析并提取excel数据
+        let reader = new FileReader();
+        reader.onload = function(e: Event) {
+          let data = (e as any).target.result;
+          importTpl && importTpl(JSON.parse(data));
+        };
+        reader.readAsText(file);
+      },
+    }),
+    [],
+  );
+
   const { setTheme } = useContext(dooringContext);
   return (
     <div className={styles.header}>
@@ -206,6 +226,11 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         >
           保存模版
         </Button>
+        <Upload {...uploadprops}>
+          <Button type="link" style={{ marginRight: '8px' }}>
+            <UploadOutlined />
+          </Button>
+        </Upload>
         <Button
           type="link"
           style={{ marginRight: '9px' }}
@@ -277,7 +302,8 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         </Button>
       </div>
       <div className={styles.btnArea}>
-        <Select
+        {/* 隐藏pc端切换, 保证代码纯粹 */}
+        {/* <Select
           defaultValue="h5"
           style={{ width: 100, marginRight: 20 }}
           onChange={e => {
@@ -286,7 +312,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         >
           <Select.Option value="h5">h5模式</Select.Option>
           <Select.Option value="pc">pc模式</Select.Option>
-        </Select>
+        </Select> */}
         <Button type="primary" ghost onClick={toOnlineCoding} style={{ marginRight: '12px' }}>
           <CodeOutlined />
           在线编程

@@ -110,7 +110,7 @@ const Form: IFormSchema = {
     titColor: 'rgba(60,60,60,1)',
     titWeight: '400',
     bgColor: 'rgba(255,255,255,1)',
-    btnColor: 'rgba(129,173,173,1)',
+    btnColor: 'rgba(20,54,226,100)',
     btnTextColor: 'rgba(255,255,255,1)',
     api: '',
     formControls: [
