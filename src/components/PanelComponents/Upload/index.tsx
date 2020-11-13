@@ -128,12 +128,12 @@ class PicturesWall extends React.Component<PicturesWallType> {
   };
 
   componentDidMount() {
-    req.get(`/visible/bed/get?tid=${unParams(location.search)!.tid}`).then(res => {
-      res &&
-        this.setState({
-          imgBed: res,
-        });
-    });
+    // req.get(`/visible/bed/get?tid=${unParams(location.search)!.tid}`).then(res => {
+    //   res &&
+    //     this.setState({
+    //       imgBed: res,
+    //     });
+    // });
   }
 
   render() {

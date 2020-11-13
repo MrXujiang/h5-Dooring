@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/components/BasicPcShop/VisualComponents/Area/template.ts"],"names":["template","type","h"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,OACNC,EAAG,KAEUF","file":"93.js","sourcesContent":["const template = {\n  type: 'Area',\n  h: 108,\n};\nexport default template;\n"],"sourceRoot":""}

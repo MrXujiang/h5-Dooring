@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/components/BasicPcShop/BasicComponents/Icon/template.ts"],"names":["template","type","h"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,OACNC,EAAG,IAEUF","file":"79.js","sourcesContent":["const template = {\n  type: 'Icon',\n  h: 23,\n};\nexport default template;\n"],"sourceRoot":""}

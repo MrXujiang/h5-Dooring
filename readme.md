@@ -110,6 +110,7 @@ FileSaver.saveAs(blob, "hello world.txt");
 18. form组件文本框字段修改
 19. 清空按钮添加确认框
 20. 表单组件中添加展示型文本,用来对字段说明
+21. 支持组件复制, 右键删除
 
 ## 正在完成功能
 * 丰富组件库组件
@@ -135,12 +136,20 @@ cnpm install
 ```
 
 ## Usage
-启动应用
+本地启动应用
 ```sh
 yarn start 
 or 
 cnpm run start
 ```
+
+如发现本地启动后组件拖拽遇到奇怪的报错, 是应为第三方组件在开发环境的bug, 可以采用一下方式解决:
+```sh
+yarn dev
+or 
+cnpm run dev
+```
+前提是先安装http-server模块.
 
 ## Partner project
 * [Luckysheet - 强大的在线excel编辑器](https://github.com/mengshukeji/Luckysheet)

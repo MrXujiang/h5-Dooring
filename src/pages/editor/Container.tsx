@@ -17,14 +17,10 @@ import DynamicEngine, { componentsType } from 'components/DynamicEngine';
 import FormEditor from 'components/PanelComponents/FormEditor';
 
 import template1 from 'components/BasicShop/BasicComponents/template';
-import template2 from 'components/BasicPcShop/BasicComponents/template';
 import mediaTpl1 from 'components/BasicShop/MediaComponents/template';
-import mediaTpl2 from 'components/BasicPcShop/MediaComponents/template';
 import graphTpl1 from 'components/BasicShop/VisualComponents/template';
-import graphTpl2 from 'components/BasicPcShop/VisualComponents/template';
 
-import schema1 from 'components/BasicShop/schema';
-import schema2 from 'components/BasicPcShop/schema';
+import schemaH5 from 'components/BasicShop/schema';
 import { ActionCreators, StateWithHistory } from 'redux-undo';
 import { dooringContext } from '@/layouts';
 import { throttle } from '@/utils/tool';
@@ -58,21 +54,7 @@ const Container = (props: {
     };
   }, []);
   const context = useContext(dooringContext);
-  const curPoint = useMemo(() => {
-    if (context.theme === 'h5') {
-      return pstate ? pstate.curPoint : {};
-    } else {
-      return cstate ? cstate.curPoint : {};
-    }
-  }, [context.theme, cstate, pstate]);
-
-  const schema = useMemo(() => {
-    if (context.theme === 'h5') {
-      return schema1;
-    } else {
-      return schema2;
-    }
-  }, [context.theme]);
+  const curPoint = pstate ? pstate.curPoint : {};
 
   const template = useMemo(() => {
     if (context.theme === 'h5') {
@@ -321,7 +303,7 @@ const Container = (props: {
                 <TargetBox item={value} key={i} canvasId={canvasId}>
                   <DynamicEngine
                     {...value}
-                    config={schema[value.type as keyof typeof schema].config}
+                    config={schemaH5[value.type as keyof typeof schemaH5].config}
                     componentsType="base"
                     isTpl={true}
                   />
@@ -335,7 +317,7 @@ const Container = (props: {
               <TargetBox item={value} key={i} canvasId={canvasId}>
                 <DynamicEngine
                   {...value}
-                  config={schema[value.type as keyof typeof schema].config}
+                  config={schemaH5[value.type as keyof typeof schemaH5].config}
                   componentsType="media"
                   isTpl={true}
                 />
@@ -348,7 +330,7 @@ const Container = (props: {
               <TargetBox item={value} key={i} canvasId={canvasId}>
                 <DynamicEngine
                   {...value}
-                  config={schema[value.type as keyof typeof schema].config}
+                  config={schemaH5[value.type as keyof typeof schemaH5].config}
                   componentsType={'visible' as componentsType}
                   isTpl={true}
                 />
@@ -358,7 +340,7 @@ const Container = (props: {
         </>
       );
     }
-  }, [canvasId, collapsed, generateHeader, graphTpl, mediaTpl, schema, template]);
+  }, [canvasId, collapsed, generateHeader, graphTpl, mediaTpl, schemaH5, template]);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [diffmove, setDiffMove] = useState({
@@ -444,7 +426,7 @@ const Container = (props: {
       <HeaderComponent
         redohandler={redohandler}
         undohandler={undohandler}
-        pointData={context.theme === 'h5' ? pointData : cpointData}
+        pointData={pointData}
         clearData={clearData}
         location={props.location}
         importTpl={importTpl}

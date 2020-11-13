@@ -36,8 +36,8 @@ const SourceBox = memo((props: SourceBoxProps) => {
 
   const [canvasRect, setCanvasRect] = useState<number[]>([]);
   const [isShowTip, setIsShowTip] = useState(true);
-  const [clonePointData, setPointData] = useState(pointData);
-  const [isMenu, setIsMenu] = useState(false);
+  // const [clonePointData, setPointData] = useState(pointData);
+  // const [isMenu, setIsMenu] = useState(false);
   const [{ isOver }, drop] = useDrop({
     accept: allType,
     drop: (item: { h: number; type: string; x: number }, monitor) => {
@@ -131,7 +131,7 @@ const SourceBox = memo((props: SourceBoxProps) => {
       //   });
       // }
     };
-  }, [context.theme, cpointData, dispatch, pointData]);
+  }, [dispatch, pointData]);
 
   const onResizeStop: ItemCallback = useMemo(() => {
     return (layout, oldItem, newItem, placeholder, e, element) => {
@@ -154,7 +154,8 @@ const SourceBox = memo((props: SourceBoxProps) => {
       //   });
       // }
     };
-  }, [context.theme, cpointData, dispatch, pointData]);
+  }, [dispatch, pointData]);
+
   const initSelect: any = (data: any = []) => {
     return (
       data &&
@@ -203,12 +204,10 @@ const SourceBox = memo((props: SourceBoxProps) => {
 
   useEffect(() => {
     let { width, height } = document.getElementById(canvasId)!.getBoundingClientRect();
-    console.log(width, height);
     setCanvasRect([width, height]);
-  }, [canvasId, context.theme]);
+  }, [canvasId]);
 
   useEffect(() => {
-    setPointData(initSelect(pointData));
     let timer = window.setTimeout(() => {
       setIsShowTip(false);
     }, 3000);
@@ -219,75 +218,19 @@ const SourceBox = memo((props: SourceBoxProps) => {
   const opacity = isOver ? 0.7 : 1;
 
   const render = useMemo(() => {
-    if (context.theme === 'h5') {
-      return (
-        <Draggable
-          position={dragState}
-          handle=".js_box"
-          onStop={(e: DraggableEvent, data: DraggableData) => {
-            setDragState({ x: data.x, y: data.y });
-          }}
-        >
-          <div className={styles.canvasBox}>
-            <MenuProvider id="menu_id">
-              <div
-                style={{
-                  transform: `scale(${scaleNum})`,
-                  position: 'relative',
-                  width: '100%',
-                  height: '100%',
-                }}
-              >
-                <div
-                  id={canvasId}
-                  className={styles.canvas}
-                  style={{
-                    opacity,
-                  }}
-                  ref={drop}
-                >
-                  {pointData.length > 0 ? (
-                    <GridLayout
-                      className={styles.layout}
-                      cols={24}
-                      rowHeight={2}
-                      width={canvasRect[0] || 0}
-                      margin={[0, 0]}
-                      onDragStop={dragStop}
-                      onDragStart={onDragStart}
-                      onResizeStop={onResizeStop}
-                    >
-                      {pointData.map(value => (
-                        <div
-                          className={value.isMenu ? styles.selected : styles.dragItem}
-                          key={value.id}
-                          data-grid={value.point}
-                        >
-                          <DynamicEngine {...value.item} isTpl={false} />
-                        </div>
-                      ))}
-                    </GridLayout>
-                  ) : null}
-                </div>
-              </div>
-            </MenuProvider>
-          </div>
-        </Draggable>
-      );
-    } else {
-      //pc可能要传递宽度
-      return (
-        <Draggable
-          position={dragState}
-          handle=".js_box"
-          onStop={(e: DraggableEvent, data: DraggableData) => {
-            setDragState({ x: data.x, y: data.y });
-          }}
-        >
-          <div className={styles.canvasBox2}>
+    return (
+      <Draggable
+        position={dragState}
+        handle=".js_box"
+        onStop={(e: DraggableEvent, data: DraggableData) => {
+          setDragState({ x: data.x, y: data.y });
+        }}
+      >
+        <div className={styles.canvasBox}>
+          <MenuProvider id="menu_id">
             <div
               style={{
-                transform: `scale(${scaleNum - 0.35})`,
+                transform: `scale(${scaleNum})`,
                 position: 'relative',
                 width: '100%',
                 height: '100%',
@@ -295,70 +238,13 @@ const SourceBox = memo((props: SourceBoxProps) => {
             >
               <div
                 id={canvasId}
-                className={styles.canvas2}
+                className={styles.canvas}
                 style={{
                   opacity,
                 }}
                 ref={drop}
               >
-                <div
-                  className="js_box"
-                  style={{
-                    width: '100%',
-                    height: '10px',
-                    position: 'absolute',
-                    borderRadius: '6px 6px 0 0',
-                    backgroundColor: '#f0f0f0',
-                    boxShadow: '3px 0 6px rgba(0,0,0,.1)',
-                    top: '-10px',
-                    color: '#fff',
-                    cursor: 'move',
-                  }}
-                />
-                <div
-                  className="js_box"
-                  style={{
-                    width: '100%',
-                    height: '10px',
-                    position: 'absolute',
-                    borderRadius: '0 0 6px 6px',
-                    backgroundColor: '#f0f0f0',
-                    boxShadow: '3px 0 6px rgba(0,0,0,.1)',
-                    bottom: '-10px',
-                    color: '#fff',
-                    cursor: 'move',
-                  }}
-                />
-                <div
-                  className="js_box"
-                  style={{
-                    width: '10px',
-                    height: '100%',
-                    position: 'absolute',
-                    borderRadius: '0 6px 6px 0',
-                    backgroundColor: '#f0f0f0',
-                    boxShadow: '3px 0 6px rgba(0,0,0,.1)',
-                    right: '-10px',
-                    color: '#fff',
-                    cursor: 'move',
-                  }}
-                />
-                <div
-                  className="js_box"
-                  style={{
-                    width: '10px',
-                    height: '100%',
-                    position: 'absolute',
-                    borderRadius: '6px 0 0 6px',
-                    backgroundColor: '#f0f0f0',
-                    boxShadow: '0 0 6px rgba(0,0,0,.1)',
-                    left: '-10px',
-                    color: '#fff',
-                    cursor: 'move',
-                  }}
-                />
-
-                {cpointData.length > 0 ? (
+                {pointData.length > 0 ? (
                   <GridLayout
                     className={styles.layout}
                     cols={24}
@@ -369,8 +255,12 @@ const SourceBox = memo((props: SourceBoxProps) => {
                     onDragStart={onDragStart}
                     onResizeStop={onResizeStop}
                   >
-                    {cpointData.map(value => (
-                      <div className={styles.dragItem} key={value.id} data-grid={value.point}>
+                    {pointData.map(value => (
+                      <div
+                        className={value.isMenu ? styles.selected : styles.dragItem}
+                        key={value.id}
+                        data-grid={value.point}
+                      >
                         <DynamicEngine {...value.item} isTpl={false} />
                       </div>
                     ))}
@@ -378,15 +268,13 @@ const SourceBox = memo((props: SourceBoxProps) => {
                 ) : null}
               </div>
             </div>
-          </div>
-        </Draggable>
-      );
-    }
+          </MenuProvider>
+        </div>
+      </Draggable>
+    );
   }, [
     canvasId,
     canvasRect,
-    context.theme,
-    cpointData,
     dragState,
     dragStop,
     drop,
@@ -397,7 +285,6 @@ const SourceBox = memo((props: SourceBoxProps) => {
     pointData,
     scaleNum,
     setDragState,
-    clonePointData,
   ]);
 
   return (
