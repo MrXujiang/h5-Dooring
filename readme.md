@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="http://io.nainor.com/uploads/logo_175867b9e6b.png" width="260" alt="H5编辑器,H5制作神器">
+    <img src="http://io.nainor.com/uploads/logo_175867b9e6b.png" width="260" alt="H5编辑器,H5制作神器,H5 editor,lowcode">
 </p>
 <h1 align="center">Welcome to H5-Dooring 👋</h1>
 <p>
@@ -14,12 +14,14 @@
 
 > H5-Dooring是一款功能强大，开源免费的H5可视化页面配置解决方案，致力于提供一套简单方便、专业可靠、无限可能的H5落地页最佳实践。技术栈以react为主， 后台采用nodejs开发。
 
+> H5-Dooring is a powerful, open source, free H5 visual page configuration solution dedicated to providing a simple, convenient, professional and reliable, unlimited set of H5 landing page best practices. The technology stack is mainly react, developed in the background using nodejs.
+
 ### 🏠 [Homepage](http://io.nainor.com/h5_visible)
 
 ### ✨ [Demo](http://io.nainor.com/h5_plus/editor?tid=123456)
 
 <!-- <img src="http://io.nainor.com/uploads/face_17512320c6d.png" alt="H5可视化编辑器" /> -->
-<img src="./src/assets/h5-main.png" alt="H5可视化编辑器" />
+<img src="./src/assets/h5-main.png" alt="H5可视化编辑器 | H5 Visual Editor" />
 
 ## Author
 
@@ -27,7 +29,6 @@
 
 * Website: http://io.nainor.com/h5_visible
 * Github: [@MrXujiang](https://github.com/MrXujiang)
-* 为H5-Dooring贡献一份你的支持：[投票入口](https://www.oschina.net/p/h5-dooring)
 
 ## 🤝 Contributing
 
@@ -51,8 +52,9 @@ Give a ⭐️ if this project helped you!
 * **@koa/router** 基于koa2的服务端路由中间件
 * **ramda** 优秀的函数式js工具库
 
-### 预览功能
+### 预览功能 | Preview features
 预览功能这块比较简单, 我们只需要将用户生成的json数据丢进H5渲染器中即可, 这里我们需要做一个渲染页面单独用来预览组件. 先来看看几个预览效果:
+> The preview function is relatively simple, we just need to throw the user-generated jason data into the H5 renderer, here we need to make a rendering page for the preview components separately. Let's take a look at a few previews:
 
 <img src="http://io.nainor.com/uploads/ph_175122fb30a.png" alt="h5-editor" width="375px" />
 <br />
@@ -71,10 +73,10 @@ FileSaver.saveAs(blob, "hello world.txt");
 
 ### 后端部分
 后端部分由于涉及的知识点比较多, 不是本文考虑的重点, 所以这里大致提几个点, 大家可以用完全不同的技术来实现后台服务, 比如说**PHP**, **Java**, **Python**或者**Egg**. 笔者这里采用的是**koa**. 主要实现功能如下:
-* 保存模板
-* 真机原理的数据源存储
-* 用户相关功能
-* H5图床和静态文件托管
+* 保存模板 | Save the template
+* 真机预览的数据源存储 | The data source store for the real machine preview
+* 用户相关功能 | User-related features
+* H5图床和静态文件托管 | H5 map bed and static file hosting
 
 具体代码可以参考笔者的另一篇全栈开发文章
 
@@ -89,7 +91,7 @@ FileSaver.saveAs(blob, "hello world.txt");
 * [实现H5可视化编辑器的实时预览和真机扫码预览功能](https://github.com/MrXujiang/h5-Dooring/wiki/%E5%AE%9E%E7%8E%B0H5%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E5%AE%9E%E6%97%B6%E9%A2%84%E8%A7%88%E5%92%8C%E7%9C%9F%E6%9C%BA%E6%89%AB%E7%A0%81%E9%A2%84%E8%A7%88%E5%8A%9F%E8%83%BD)
 * [基于H5 Dooring场景下的图片 文件上传方案指南](https://github.com/MrXujiang/h5-Dooring/wiki/%E5%9F%BA%E4%BA%8EH5-Dooring%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E5%9B%BE%E7%89%87-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88%E6%8C%87%E5%8D%97)
 
-## 已完成功能
+## 已完成功能 | The functionality is complete
 1. 组件库拖拽和显示
 2. 组件库动态编辑
 3. H5页面预览功能
@@ -119,16 +121,16 @@ FileSaver.saveAs(blob, "hello world.txt");
 * 单元测试
 
 ## Install(安装)
-1. 下载代码
+1. 下载代码 | Download the code
 ```sh
 git clone https://github.com/MrXujiang/h5-Dooring.git
 ```
-2. 进入项目目录
+2. 进入项目目录 | Go to the project catalog
 ```sh
 cd ./h5-Dooring
 ```
 
-3. 安装依赖包
+3. 安装依赖包 | Install the dependency package
 ```sh
 yarn install 
 or 
@@ -136,7 +138,7 @@ cnpm install
 ```
 
 ## Usage
-本地启动应用
+本地启动应用 | Launch the app locally
 ```sh
 yarn start 
 or 
@@ -144,6 +146,8 @@ cnpm run start
 ```
 
 如发现本地启动后组件拖拽遇到奇怪的报错, 是应为第三方组件在开发环境的bug, 可以采用一下方式解决:
+> If you find that the local start-up component drag encountered strange errors, is a bug that should be a third-party component in the development environment, can be resolved in a way:
+
 ```sh
 yarn dev
 or 
@@ -154,26 +158,26 @@ cnpm run dev
 ## Partner project
 * [Luckysheet - 强大的在线excel编辑器](https://github.com/mengshukeji/Luckysheet)
 
-## 更新日志
+## 更新日志 | Update the log
 1. 添加在线编程模块（在执行代码前先启动node服务 npm run server）
 2. 添加客服机器人模块[chatbot-antd](https://www.npmjs.com/package/chatbot-antd)
 3. 添加数据可视化模块
 4. 添加表单定制模块
 
 
-## 持续升级
+## 持续升级 | Continuous upgrades
 正在升级1.5版本，敬请期待...
 
-## 赞助
+## 赞助 | Sponsored
 开源不易, 有了您的赞助, 我们会做的更好~
 
 <img src="http://io.nainor.com/uploads/WechatIMG2_1742b586c3d.jpeg" width="180px" />
 
-## 技术反馈和交流
+## 技术反馈和交流 | Technical feedback and communication
 微信：beautifulFront
 
 
 <img src="http://io.nainor.com/uploads/code_1741c445027.png" width="180px" />
 
-## 技术交流群(加作者微信进群)
+## 技术交流群(加作者微信进群) | chat whit author
 <img src="http://io.nainor.com/uploads/WechatIMG3_175231f6420.jpeg" width="180px" />
