@@ -6,6 +6,7 @@ import req from '@/utils/req';
 import styles from './index.less';
 import { useGetScrollBarWidth } from '@/utils/tool';
 import { LocationDescriptorObject } from 'history-with-query';
+
 const isMac = navigator.platform.indexOf('Mac') === 0;
 
 interface PreviewPageProps {
@@ -33,20 +34,38 @@ const PreviewPage = memo((props: PreviewPageProps) => {
     }));
   });
 
+  const [pageData, setPageData] = useState(() => {
+    let pageConfigStr = localStorage.getItem('pageConfig');
+    let pageConfig;
+
+    try {
+      pageConfig = JSON.parse(pageConfigStr!) || {};
+    } catch (err) {
+      pageConfig = {};
+    }
+    return pageConfig;
+  });
+
   const vw = window.innerWidth;
 
   useEffect(() => {
     const { tid, gf } = props.location.query!;
-    if (!gf) {
+    if (!gf && parent.window.location.pathname === '/preview') {
       req
-        .get<any, PointDataItem[]>('/visible/preview/get', { params: { tid } })
+        .get<any, any>('/xxx/xxx/你的自定义接口地址', { params: { tid } })
         .then(res => {
+          const { pageConfig, tpl } = res || { pageConfig: {}, tpl: [] };
+          // 设置标题
+          document.title = pageConfig.title || 'H5-Dooring | 强大的H5编辑神器';
+          // 设置数据源
           setPointData(
-            res.map(item => ({
+            tpl.map(item => ({
               ...item,
               point: { ...item.point, isDraggable: false, isResizable: false },
             })),
           );
+
+          setPageData(pageConfig);
         })
         .catch(err => {
           console.error(err);
@@ -62,27 +81,31 @@ const PreviewPage = memo((props: PreviewPageProps) => {
   }, [props.location.query]);
 
   const ref = useRef<HTMLDivElement>(null);
+  const refImgDom = useRef<HTMLDivElement>(null);
   const width = useGetScrollBarWidth(ref);
   const pcStyle: CSSProperties = useMemo(() => {
     return {
-      width: isMac ? 395 : 375 + width + 1, //小数会有偏差
+      width: isMac ? 382 : 375 + width + 1, //小数会有偏差
       margin: '55px auto',
       height: '684px',
       overflow: 'auto',
       position: 'relative',
       transform: 'scale(0.7) translateY(-80px)',
+      backgroundColor: pageData.bgColor,
     };
   }, [width]);
 
   const generateImg = (cb: any) => {
     domtoimage
-      .toBlob(ref.current)
+      .toBlob(refImgDom.current, {
+        bgcolor: '#fff',
+      })
       .then(function(blob: Blob) {
-        const formData = new FormData();
-        formData.append('file', blob, 'tpl.jpg');
-        req.post('/files/xxx', formData).then((res: any) => {
-          cb && cb(res.url);
-        });
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          cb && cb(e?.target?.result);
+        };
+        reader.readAsDataURL(blob);
       })
       .catch(function(error: any) {
         console.error('oops, something went wrong!', error);
@@ -91,20 +114,35 @@ const PreviewPage = memo((props: PreviewPageProps) => {
 
   return (
     <>
-      <div ref={ref} style={vw > 800 ? pcStyle : {}}>
-        <GridLayout
-          className={styles.layout}
-          cols={24}
-          rowHeight={2}
-          width={vw > 800 ? 375 : vw}
-          margin={[0, 0]}
-        >
-          {pointData.map((value: PointDataItem) => (
-            <div className={styles.dragItem} key={value.id} data-grid={value.point}>
-              <DynamicEngine {...(value.item as any)} />
-            </div>
-          ))}
-        </GridLayout>
+      <div
+        ref={ref}
+        style={
+          vw > 800
+            ? pcStyle
+            : { height: '100vh', overflow: 'auto', backgroundColor: pageData.bgColor }
+        }
+      >
+        <div ref={refImgDom}>
+          <GridLayout
+            className={styles.layout}
+            cols={24}
+            rowHeight={2}
+            width={vw > 800 ? 375 : vw}
+            margin={[0, 0]}
+            style={{
+              backgroundColor: pageData.bgColor,
+              backgroundImage: pageData.bgImage ? `url(${pageData.bgImage[0].url})` : 'initial',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+            }}
+          >
+            {pointData.map((value: PointDataItem) => (
+              <div className={styles.dragItem} key={value.id} data-grid={value.point}>
+                <DynamicEngine {...(value.item as any)} />
+              </div>
+            ))}
+          </GridLayout>
+        </div>
       </div>
 
       {vw > 800 ? (

@@ -1,5 +1,5 @@
 import React, { useRef, memo, useMemo, useContext, useState, useEffect } from 'react';
-import { Button, Input, Modal, Select, Upload } from 'antd';
+import { Button, Input, Modal, Select, Upload, Tooltip, Badge } from 'antd';
 import {
   ArrowLeftOutlined,
   MobileOutlined,
@@ -12,6 +12,7 @@ import {
   CodeOutlined,
   SketchOutlined,
   UploadOutlined,
+  InstagramOutlined,
 } from '@ant-design/icons';
 import { history } from 'umi';
 import QRCode from 'qrcode.react';
@@ -38,6 +39,8 @@ interface HeaderComponentProps {
 const HeaderComponent = memo((props: HeaderComponentProps) => {
   const { pointData, location, clearData, undohandler, redohandler, importTpl } = props;
   const [showModalIframe, setShowModalIframe] = useState(false);
+  const [showFaceModal, setShowFaceModal] = useState(false);
+  const [faceUrl, setFaceUrl] = useState('');
   const iptRef = useRef<Input>(null);
 
   const toPreview = () => {
@@ -205,6 +208,18 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     [],
   );
 
+  const generatePoster = () => {
+    localStorage.setItem('pointData', JSON.stringify(pointData));
+    setShowModalIframe(true);
+    setTimeout(() => {
+      setShowFaceModal(true);
+    }, 3600);
+  };
+
+  const handleReloadPage = () => {
+    document.getElementById('previewPage').contentWindow.location.reload();
+  };
+
   const { setTheme } = useContext(dooringContext);
   return (
     <div className={styles.header}>
@@ -288,6 +303,18 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         <Button type="link" style={{ marginRight: '9px' }} title="重做" onClick={redohandler}>
           <RedoOutlined />
         </Button>
+        <Tooltip placement="bottom" title="一键生成海报分享图">
+          <Badge dot offset={[-18, 10]}>
+            <Button
+              type="link"
+              style={{ marginRight: '6px' }}
+              onClick={generatePoster}
+              disabled={!pointData.length}
+            >
+              <InstagramOutlined />
+            </Button>
+          </Badge>
+        </Tooltip>
         <Button type="link" onClick={toPreview} disabled={!pointData.length}>
           预览
         </Button>
@@ -323,18 +350,30 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         </Button>
       </div>
       <Modal
-        title="正在生成封面..."
+        title="生成封面中...(长时间未反应请点右侧按钮重试)"
         visible={showModalIframe}
         footer={null}
-        width={420}
-        closable={false}
+        width={414}
+        closeIcon={<RedoOutlined />}
         destroyOnClose={true}
+        onCancel={handleReloadPage}
+        maskClosable={false}
       >
         <iframe
-          title="editor"
-          src={`/h5_plus/preview?tid=${props.location.query.tid}&gf=1`}
+          id="previewPage"
+          src={`/preview?tid=${props.location.query.tid}&gf=1`}
           style={{ width: '100%', border: 'none', height: '600px' }}
         ></iframe>
+      </Modal>
+      <Modal
+        title="封面图(右键复制图片)"
+        visible={showFaceModal}
+        footer={null}
+        width={414}
+        destroyOnClose={true}
+        onCancel={() => setShowFaceModal(false)}
+      >
+        <img src={faceUrl} style={{ width: '100%' }} />
       </Modal>
     </div>
   );
