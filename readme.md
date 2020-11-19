@@ -38,7 +38,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 Give a ⭐️ if this project helped you!
 
-## 技术栈
+## 技术栈 | The technology stack
 * **React** 前端主流框架(react,vue,angular)之一,更适合开发灵活度高且复杂的应用
 * **dva** 主流的react应用状态管理工具，基于redux
 * **less** css预编译语言，轻松编写结构化分明的css
@@ -62,7 +62,7 @@ Give a ⭐️ if this project helped you!
 
 前面的渲染器原理已经介绍了, 这里就不一一介绍了,感兴趣的可以交流讨论.
 
-### 实现在线下载功能
+### 实现在线下载功能 | Enable online download
 在线下载这块我们需要用到一个开源库: **file-saver**, 专门解决前端下载文件困难的窘境. 具体使用举例:
 ``` js
 var FileSaver = require('file-saver');
@@ -71,7 +71,7 @@ FileSaver.saveAs(blob, "hello world.txt");
 ```
 以上代码可以实现将传入的数据下载为txt文件, 如果是Blob, 是不是还能在线下载图片, html呢? 答案是肯定的, 所以我们的下载任务采用该方案来实现.
 
-### 后端部分
+### 后端部分 | The back-end section
 后端部分由于涉及的知识点比较多, 不是本文考虑的重点, 所以这里大致提几个点, 大家可以用完全不同的技术来实现后台服务, 比如说**PHP**, **Java**, **Python**或者**Egg**. 笔者这里采用的是**koa**. 主要实现功能如下:
 * 保存模板 | Save the template
 * 真机预览的数据源存储 | The data source store for the real machine preview
@@ -114,11 +114,11 @@ FileSaver.saveAs(blob, "hello world.txt");
 20. 表单组件中添加展示型文本,用来对字段说明
 21. 支持组件复制, 右键删除
 
-## 正在完成功能
-* 丰富组件库组件
-* 添加配置交互功能
-* 组件细分和代码优化
-* 单元测试
+## 正在完成功能 | The functionality is being completed
+* 丰富组件库组件 Enrich component library components
+* 添加配置交互功能 Add configuration interaction
+* 组件细分和代码优化 Component segmentation and code optimization
+* 单元测试 Unit tests
 
 ## Install(安装)
 1. 下载代码 | Download the code
