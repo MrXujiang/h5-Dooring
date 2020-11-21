@@ -36,6 +36,8 @@ const FormComponent = (props: IFormConfig & { isTpl: boolean }) => {
       });
     }
   };
+
+  const isEditorPage = window.location.pathname.indexOf('editor') > -1;
   return (
     <>
       {props.isTpl && (
@@ -50,6 +52,7 @@ const FormComponent = (props: IFormConfig & { isTpl: boolean }) => {
             backgroundColor: bgColor,
             overflow: 'hidden',
             position: 'absolute',
+            pointerEvents: isEditorPage ? 'none' : 'initial',
           }}
         >
           {title && (
