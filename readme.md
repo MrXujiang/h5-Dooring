@@ -138,12 +138,19 @@ cnpm install
 ```
 
 ## Usage
+
 本地启动应用 | Launch the app locally
 ```sh
 yarn start 
 or 
 cnpm run start
 ```
+
+## How to run the downloaded code ?
+
+ 1. 可以将压缩包解压直接放到服务器根目录, 访问根目录地址即可
+ 2. `vscode`安装Live Server插件, 将下载的压缩包解压成文件夹, 用`vscode`打开, 点击Live Server即可, 注意要删除启动路径的`index.html`, 改成`/`
+
 
 如发现本地启动后组件拖拽遇到奇怪的报错, 是应为第三方组件在开发环境的bug, 可以采用一下方式解决:
 > If you find that the local start-up component drag encountered strange errors, is a bug that should be a third-party component in the development environment, can be resolved in a way:
