@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="http://io.nainor.com/uploads/logo_175867b9e6b.png" width="260" alt="H5编辑器,H5制作神器,H5 editor,lowcode">
+    <img src="./public/logo.png" width="260" alt="H5编辑器,H5制作神器,H5 editor,lowcode">
 </p>
 <h1 align="center">Welcome to H5-Dooring 👋</h1>
 <p>
@@ -32,7 +32,7 @@
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/MrXujiang/h5-Dooring/issues). 
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/MrXujiang/h5-Dooring/issues).
 
 ## Show your support
 
@@ -56,9 +56,9 @@ Give a ⭐️ if this project helped you!
 预览功能这块比较简单, 我们只需要将用户生成的json数据丢进H5渲染器中即可, 这里我们需要做一个渲染页面单独用来预览组件. 先来看看几个预览效果:
 > The preview function is relatively simple, we just need to throw the user-generated jason data into the H5 renderer, here we need to make a rendering page for the preview components separately. Let's take a look at a few previews:
 
-<img src="http://io.nainor.com/uploads/ph_175122fb30a.png" alt="h5-editor" width="375px" />
+<img src="./public/h5_preview_ph.png" alt="h5_preview_pic" width="375px"/>
 <br />
-<img src="http://io.nainor.com/uploads/line_1751234232e.png" alt="h5-editor" width="375px" />
+<img src="./public/h5_preview_line.png" alt="h5_preview_pic" width="375px"/>
 
 前面的渲染器原理已经介绍了, 这里就不一一介绍了,感兴趣的可以交流讨论.
 
@@ -132,8 +132,8 @@ cd ./h5-Dooring
 
 3. 安装依赖包 | Install the dependency package
 ```sh
-yarn install 
-or 
+yarn install
+or
 cnpm install
 ```
 
@@ -141,8 +141,8 @@ cnpm install
 
 本地启动应用 | Launch the app locally
 ```sh
-yarn start 
-or 
+yarn start
+or
 cnpm run start
 ```
 
@@ -157,7 +157,7 @@ cnpm run start
 
 ```sh
 yarn dev
-or 
+or
 cnpm run dev
 ```
 前提是先安装http-server模块.
@@ -179,13 +179,12 @@ cnpm run dev
 ## 赞助 | Sponsored
 开源不易, 有了您的赞助, 我们会做的更好~
 
-<img src="http://io.nainor.com/uploads/WechatIMG2_1742b586c3d.jpeg" width="180px" />
+<img src="./public/coffee.jpeg" width="180px" />
 
 ## 技术反馈和交流 | Technical feedback and communication
 微信：beautifulFront
 
-
-<img src="http://io.nainor.com/uploads/code_1741c445027.png" width="180px" />
+<img src="./public/add_wechat_beautifulFront.png" width="180px" />
 
 ## 技术交流群(加作者微信进群) | chat whit author
-<img src="http://io.nainor.com/uploads/WechatIMG3_175231f6420.jpeg" width="180px" />
+<img src="./public/add_wechat_author.jpeg" width="180px" />
