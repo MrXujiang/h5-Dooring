@@ -1,13 +1,13 @@
 import React from 'react';
-import { Tabs, message, Button } from 'antd';
+import { Tabs, message } from 'antd';
 import { history } from 'umi';
 import {
   MobileOutlined,
   ConsoleSqlOutlined,
-  GithubOutlined,
   CodeOutlined,
   IdcardOutlined,
 } from '@ant-design/icons';
+import Zan from '@/components/Zan';
 import styles from './index.less';
 
 const { TabPane } = Tabs;
@@ -90,21 +90,30 @@ const Home = () => {
           </div>
         </div>
         <footer className={styles.footer}>
-          <div>
-            <a href="https://github.com/MrXujiang/h5-Dooring">
-              <GithubOutlined />
-            </a>
-            <p>
-              Welcome to H5-Dooring
-              <span role="img" aria-label="welcome">
-                👋
-              </span>
-            </p>
-            <p>
-              <Button type="primary">
-                <a href="https://www.oschina.net/p/h5-dooring">为dooring投票</a>
-              </Button>
-            </p>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ marginTop: '30px' }}>
+              <Zan />
+            </div>
+            <div style={{ width: '160px', marginLeft: '60px', marginTop: '32px' }}>
+              <a
+                href="http://49.234.61.19/h5?tid=B73349B8&isTpl=1"
+                style={{ marginRight: '24px' }}
+                target="_blank"
+              >
+                商务合作
+              </a>
+              <a href="http://49.234.61.19/h5?tid=7B4008F7&isTpl=1" target="_blank">
+                友情链接
+              </a>
+            </div>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ width: '360px', marginLeft: '60px', marginTop: '32px' }}>
+              <span style={{ marginRight: '24px' }}>更多产品: </span>
+              <a href="http://49.234.61.19/qt" style={{ marginRight: '24px' }} target="_blank">
+                趣图-在线gif动图制作平台
+              </a>
+            </div>
           </div>
         </footer>
       </div>

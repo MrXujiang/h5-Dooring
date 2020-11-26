@@ -5,7 +5,7 @@ import styles from './index.less';
 ///这组件写的有问题  popover会重定位
 const content = (
   <div className={styles.imgWrap}>
-    <img src="http://io.nainor.com/uploads/WechatIMG2_1742b586c3d.jpeg" alt="sponsorship" />
+    <img src="http://49.234.61.19/uploads/WechatIMG2_1742b586c3d.jpeg" alt="sponsorship" />
   </div>
 );
 

@@ -11,6 +11,7 @@ import Qrcode from './Qrcode/template';
 import Tab from './Tab/template';
 import Text from './Text/template';
 import WhiteTpl from './WhiteTpl/template';
+import RichText from './RichText/template';
 
 const basicTemplate = [
   Carousel,
@@ -26,6 +27,7 @@ const basicTemplate = [
   Tab,
   Text,
   WhiteTpl,
+  RichText,
 ];
 const BasicTemplate = basicTemplate.map(v => {
   return { ...v, category: 'base' };

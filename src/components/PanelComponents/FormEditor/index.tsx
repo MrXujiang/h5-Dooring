@@ -8,6 +8,7 @@ import CardPicker from '../CardPicker';
 import Table from '../Table';
 import Pos from '../Pos';
 import { Store } from 'antd/lib/form/interface';
+import RichText from '../XEditor';
 import FormItems from '../FormItems';
 // import styles from './index.less';
 const normFile = (e: any) => {
@@ -156,6 +157,11 @@ const FormEditor = (props: FormEditorProps) => {
             {item.type === 'FormItems' && (
               <Form.Item name={item.key} valuePropName="formList">
                 <FormItems data={item.data} rightPannelRef={rightPannelRef} />
+              </Form.Item>
+            )}
+            {item.type === 'RichText' && (
+              <Form.Item label={item.name} name={item.key} noStyle={true}>
+                <RichText />
               </Form.Item>
             )}
           </React.Fragment>
