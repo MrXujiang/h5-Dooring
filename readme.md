@@ -16,9 +16,9 @@
 
 > H5-Dooring is a powerful, open source, free H5 visual page configuration solution dedicated to providing a simple, convenient, professional and reliable, unlimited set of H5 landing page best practices. The technology stack is mainly react, developed in the background using nodejs.
 
-### 🏠 [Homepage](http://io.nainor.com/h5_visible)
+### 🏠 [Homepage](http://49.234.61.19/h5_visible)
 
-### ✨ [Demo](http://io.nainor.com/h5_plus/editor?tid=123456)
+### ✨ [Demo](http://49.234.61.19/h5_plus/editor?tid=123456)
 
 <!-- <img src="http://io.nainor.com/uploads/face_17512320c6d.png" alt="H5可视化编辑器" /> -->
 <img src="./src/assets/h5-main.png" alt="H5可视化编辑器 | H5 Visual Editor" />
@@ -27,7 +27,7 @@
 
 👤 **徐小夕**
 
-* Website: http://io.nainor.com/h5_visible
+* Website: http://49.234.61.19/h5_visible
 * Github: [@MrXujiang](https://github.com/MrXujiang)
 
 ## 🤝 Contributing
@@ -165,6 +165,7 @@ cnpm run dev
 ## Partner project
 * [Luckysheet - 强大的在线excel编辑器](https://github.com/mengshukeji/Luckysheet)
 * [Blink - 一款自定义的生成故障艺术动画的组件库](https://github.com/MrXujiang/blink)
+* [frontend-developer-roadmap | 一个能提高开发者工作效率的前端js库汇总](https://github.com/MrXujiang/frontend-developer-roadmap)
 
 ## 更新日志 | Update the log
 1. 添加在线编程模块（在执行代码前先启动node服务 npm run server）
