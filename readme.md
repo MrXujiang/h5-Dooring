@@ -38,6 +38,66 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 Give a ⭐️ if this project helped you!
 
+## ⭐️ dooring-sdk使用
+最近笔者正在开放dooring的插拔式服务, 以js-sdk的形式支持集成到外部系统中, 并提供开放API共使用者自由配置. 规划如下:
+
+![](https://imgkr2.cn-bj.ufileos.com/c0fdce66-5181-40d0-a55e-b7d0a10dc8d7.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=u%252Bcs016Dmg3VhPM20gBLhTLxNBw%253D&Expires=1606583415)
+
+### 1. 如何引用用js-sdk | How to use js-sdk
+我们可以使用两种方式来使用我们的js-sdk, 第一种是在项目脚本中引入如下script标签, 如下:
+``` js
+<script src="http://49.234.61.19/dooring-sdk.js"></script>
+```
+或者直接复制如下代码到你的script标签中, 代码如下:
+``` js
+(function(){var iframe=document.createElement("iframe");var tid=Date.now();var sdk_domain_path="http://49.234.61.19";iframe.src=sdk_domain_path+"/h5_plus/editor?tid="+tid+"&"+getDooringApiStr(dooringOpts)+"&isOpen=1";console.log(getDooringApiStr(dooringOpts));iframe.style.border="none";iframe.style.width="100vw";iframe.style.height="100vh";if(dooringOpts&&dooringOpts.iframeStyle){iframe.style.border=dooringOpts.iframeStyle.border||"none";iframe.style.width=dooringOpts.iframeStyle.width||"100vw";iframe.style.height=dooringOpts.iframeStyle.height||"100vh"}document.querySelector(dooringOpts.container||"body").appendChild(iframe);function getDooringApiStr(opt){var controls=Object.assign({gallery:false,template:false,saveTemplate:function(){},save:function(){},downCode:function(data){},isPhoneTest:false,helpPage:true,uploadApi:"",formApi:"",screenshotsApi:""},opt.controls||{});var params="";for(var key in controls){params+=key+"="+encodeURI(controls[key])+"&"}return params.slice(0,params.length-1)}})();
+```
+
+### 2. 自定义选项 | Custom options
+
+我们可以在全局定义如下配置项:
+
+``` js
+var dooringOpts = {
+    container: '',  // 挂载到哪个dom节点上
+    iframeStyle: {  // iframe自定义样式
+        width: '',
+        height: '',
+        border: ''
+    },
+    controls: {
+      gallery: false,  // 是否启动图片库
+      template: false, // 是否启用模版库
+      saveTemplate: function() {
+        // 保存模版的自定义逻辑
+      },
+      save: function() {
+        // 保存H5页面的自定义逻辑
+      },
+      downCode: function(data) {
+        // 下载代码的自定义逻辑
+      },
+      isPhoneTest: false,  // 是否显示真机预览功能
+      helpPage: true,   // false/true表示隐藏/显示帮助页面
+      uploadApi: '',  // 自定义上传api
+      formApi: '',  // 自定义表单提交api
+      screenshotsApi: ''  // 自定义截图提交api
+    }
+};
+```
+
+注: 在使用自定义配置时, 自定义配置的顺序应先于sdk引入的顺序, 所以正确的使用案例如下:
+
+``` js
+<script>
+  var dooringOpts = {
+
+  }
+</script>
+<script src="http://49.234.61.19/dooring-sdk.js"></script>
+```
+
+
 ## 技术栈 | The technology stack
 * **React** 前端主流框架(react,vue,angular)之一,更适合开发灵活度高且复杂的应用
 * **dva** 主流的react应用状态管理工具，基于redux
