@@ -41,7 +41,9 @@ Give a ⭐️ if this project helped you!
 ## ⭐️ dooring-sdk使用
 最近笔者正在开放dooring的插拔式服务, 以js-sdk的形式支持集成到外部系统中, 并提供开放API共使用者自由配置. 规划如下:
 
-![](https://imgkr2.cn-bj.ufileos.com/c0fdce66-5181-40d0-a55e-b7d0a10dc8d7.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=u%252Bcs016Dmg3VhPM20gBLhTLxNBw%253D&Expires=1606583415)
+
+![](https://imgkr2.cn-bj.ufileos.com/8b1c708d-ef44-4cc1-91c9-0ed2229074b1.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=CwdTguUoO3XOuN8H9MctW0H8Yis%253D&Expires=1606646985)
+
 
 ### 1. 如何引用用js-sdk | How to use js-sdk
 我们可以使用两种方式来使用我们的js-sdk, 第一种是在项目脚本中引入如下script标签, 如下:
@@ -50,7 +52,7 @@ Give a ⭐️ if this project helped you!
 ```
 或者直接复制如下代码到你的script标签中, 代码如下:
 ``` js
-(function(){var iframe=document.createElement("iframe");var tid=Date.now();var sdk_domain_path="http://49.234.61.19";iframe.src=sdk_domain_path+"/h5_plus/editor?tid="+tid+"&"+getDooringApiStr(dooringOpts)+"&isOpen=1";console.log(getDooringApiStr(dooringOpts));iframe.style.border="none";iframe.style.width="100vw";iframe.style.height="100vh";if(dooringOpts&&dooringOpts.iframeStyle){iframe.style.border=dooringOpts.iframeStyle.border||"none";iframe.style.width=dooringOpts.iframeStyle.width||"100vw";iframe.style.height=dooringOpts.iframeStyle.height||"100vh"}document.querySelector(dooringOpts.container||"body").appendChild(iframe);function getDooringApiStr(opt){var controls=Object.assign({gallery:false,template:false,saveTemplate:function(){},save:function(){},downCode:function(data){},isPhoneTest:false,helpPage:true,uploadApi:"",formApi:"",screenshotsApi:""},opt.controls||{});var params="";for(var key in controls){params+=key+"="+encodeURI(controls[key])+"&"}return params.slice(0,params.length-1)}})();
+(function(){var b=document.createElement("iframe");var d=Date.now();var a="http://49.234.61.19";b.src=a+"/h5_plus/editor?tid="+d+"&"+c(dooringOpts)+"&isOpen=1";console.log(c(dooringOpts));b.style.border="none";b.style.width="100vw";b.style.height="100vh";if(dooringOpts&&dooringOpts.iframeStyle){b.style.border=dooringOpts.iframeStyle.border||"none";b.style.width=dooringOpts.iframeStyle.width||"100vw";b.style.height=dooringOpts.iframeStyle.height||"100vh"}document.querySelector(dooringOpts.container||"body").appendChild(b);function c(g){var e=Object.assign({gallery:false,template:false,saveTemplate:true,save:true,downCode:true,isPhoneTest:false,helpPage:true,uploadApi:"",formApi:"",screenshotsApi:""},g.controls||{});var h="";for(var f in e){h+=f+"="+encodeURI(e[f])+"&"}return h.slice(0,h.length-1)}})();
 ```
 
 ### 2. 自定义选项 | Custom options
@@ -68,16 +70,10 @@ var dooringOpts = {
     controls: {
       gallery: false,  // 是否启动图片库
       template: false, // 是否启用模版库
-      saveTemplate: function() {
-        // 保存模版的自定义逻辑
-      },
-      save: function() {
-        // 保存H5页面的自定义逻辑
-      },
-      downCode: function(data) {
-        // 下载代码的自定义逻辑
-      },
-      isPhoneTest: false,  // 是否显示真机预览功能
+      saveTemplate: true,  // 参数可以是true/false,表示是否启动下载代码, 也可以是函数, 用来自定义下载代码逻辑
+      save: true,  // 参数可以是true/false,表示是否启动下载代码, 也可以是函数, 用来自定义下载代码逻辑
+      downCode: true, // 参数可以是true/false,表示是否启动下载代码, 也可以是函数, 用来自定义下载代码逻辑
+      isPhoneTest: false,
       helpPage: true,   // false/true表示隐藏/显示帮助页面
       uploadApi: '',  // 自定义上传api
       formApi: '',  // 自定义表单提交api
