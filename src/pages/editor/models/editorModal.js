@@ -1,12 +1,10 @@
 /*
- * @Description:
- * @Version: 2.0
- * @Autor: dragon
- * @Date: 2020-09-24 10:11:24
- * @LastEditors: dragon
- * @LastEditTime: 2020-10-08 16:12:26
+ * @Description: 添加键盘快捷键
+ * @Version: 2.1
+ * @Autor: xuxiaoxi
  */
 import { uuid } from '@/utils/tool';
+import key from 'keymaster';
 const pointData = localStorage.getItem('userData') || '[]';
 
 function overSave(name, data) {
@@ -78,6 +76,38 @@ export default {
         curPoint: null,
       };
     },
+    keyboardCopyPointData(state) {
+      if (state.curPoint) {
+        const { id } = state.curPoint;
+        const pointData = [];
+        state.pointData.forEach(item => {
+          pointData.push({ ...item });
+          if (item.id === id) {
+            pointData.push({ ...item, id: uuid(6, 10) });
+          }
+        });
+        overSave('userData', pointData);
+
+        return {
+          ...state,
+          pointData,
+        };
+      }
+      return state;
+    },
+    keyboardDelPointData(state) {
+      if (state.curPoint) {
+        const { id } = state.curPoint;
+        const pointData = state.pointData.filter(item => item.id !== id);
+        overSave('userData', pointData);
+        return {
+          ...state,
+          pointData,
+          curPoint: null,
+        };
+      }
+      return state;
+    },
     clearAll(state) {
       overSave('userData', []);
       return {
@@ -91,6 +121,20 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, query }) => {});
+    },
+    keyEvent({ dispatch, state }) {
+      // 复制
+      key('⌘+c, ctrl+c', () => {
+        dispatch({
+          type: 'editorModal/keyboardCopyPointData',
+        });
+      });
+      // 删除
+      key('delete, backspace', () => {
+        dispatch({
+          type: 'editorModal/keyboardDelPointData',
+        });
+      });
     },
   },
 };

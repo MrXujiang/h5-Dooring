@@ -16,9 +16,9 @@ import Calibration from 'components/Calibration';
 import DynamicEngine, { componentsType } from 'components/DynamicEngine';
 import FormEditor from 'components/PanelComponents/FormEditor';
 
-import template1 from 'components/BasicShop/BasicComponents/template';
-import mediaTpl1 from 'components/BasicShop/MediaComponents/template';
-import graphTpl1 from 'components/BasicShop/VisualComponents/template';
+import template from 'components/BasicShop/BasicComponents/template';
+import mediaTpl from 'components/BasicShop/MediaComponents/template';
+import graphTpl from 'components/BasicShop/VisualComponents/template';
 
 import schemaH5 from 'components/BasicShop/schema';
 import { ActionCreators, StateWithHistory } from 'redux-undo';
@@ -55,30 +55,6 @@ const Container = (props: {
   }, []);
   const context = useContext(dooringContext);
   const curPoint = pstate ? pstate.curPoint : {};
-
-  const template = useMemo(() => {
-    if (context.theme === 'h5') {
-      return template1;
-    } else {
-      return template2;
-    }
-  }, [context.theme]);
-
-  const mediaTpl = useMemo(() => {
-    if (context.theme === 'h5') {
-      return mediaTpl1;
-    } else {
-      return mediaTpl2;
-    }
-  }, [context.theme]);
-
-  const graphTpl = useMemo(() => {
-    if (context.theme === 'h5') {
-      return graphTpl1;
-    } else {
-      return graphTpl2;
-    }
-  }, [context.theme]);
 
   // 指定画布的id
   let canvasId = 'js_canvas';
@@ -170,7 +146,7 @@ const Container = (props: {
     };
   }, [dispatch]);
 
-  const importTpl = data => {
+  const importTpl = (data: any) => {
     dispatch({
       type: 'editorModal/importTplData',
       payload: data,

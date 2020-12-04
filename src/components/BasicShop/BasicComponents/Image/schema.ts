@@ -177,7 +177,7 @@ const Image: IImageSchema = {
         uid: '001',
         name: 'image.png',
         status: 'done',
-        url: 'http://io.nainor.com/uploads/bg_174e470dc22.png',
+        url: 'http://49.234.61.19/uploads/bg_174e470dc22.png',
       },
     ],
     round: 0,

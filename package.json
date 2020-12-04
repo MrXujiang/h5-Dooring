@@ -68,6 +68,7 @@
     "dom-to-image": "^2.6.0",
     "file-saver": "^2.0.2",
     "http-server": "^0.12.3",
+    "keymaster": "^1.6.2",
     "qrcode.react": "^1.0.0",
     "react": "^16.12.0",
     "react-codemirror2": "^7.2.1",
