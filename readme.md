@@ -236,12 +236,13 @@ cnpm run dev
 ## 赞助 | Sponsored
 开源不易, 有了您的赞助, 我们会做的更好~
 
-![](https://imgkr2.cn-bj.ufileos.com/d7fc3463-8ca2-43a7-813b-0acd5d87cb9a.jpeg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=aTn%252FFpw8zFHtk1wV5730JcV2nMk%253D&Expires=1607224243)
+<img src="https://imgkr2.cn-bj.ufileos.com/d7fc3463-8ca2-43a7-813b-0acd5d87cb9a.jpeg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=aTn%252FFpw8zFHtk1wV5730JcV2nMk%253D&Expires=1607224243" width="180px" />
 
 ## 技术反馈和交流 | Technical feedback and communication
 微信：beautifulFront
 
-![](https://imgkr2.cn-bj.ufileos.com/de8231d0-ab67-460e-87c6-ff1f97e2b92f.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=klJgZjv%252BLNIChP8%252FgFLoQ81FAbM%253D&Expires=1607224243)
+<img src="https://imgkr2.cn-bj.ufileos.com/de8231d0-ab67-460e-87c6-ff1f97e2b92f.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=klJgZjv%252BLNIChP8%252FgFLoQ81FAbM%253D&Expires=1607224243" width="180px" />
 
 ## 技术交流群(加作者微信进群) | chat whit author
-![](https://imgkr2.cn-bj.ufileos.com/667df51c-39d6-4c43-91fb-9504c823c3df.jpeg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=exkrceoh7vCZA%252BxpAlwWMQfW0gs%253D&Expires=1607224243)
+
+<img src="https://imgkr2.cn-bj.ufileos.com/667df51c-39d6-4c43-91fb-9504c823c3df.jpeg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=exkrceoh7vCZA%252BxpAlwWMQfW0gs%253D&Expires=1607224243" width="180px" />
