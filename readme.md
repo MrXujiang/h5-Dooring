@@ -21,7 +21,7 @@
 ### ✨ [Demo](http://49.234.61.19/h5_plus/editor?tid=123456)
 
 <!-- <img src="http://io.nainor.com/uploads/face_17512320c6d.png" alt="H5可视化编辑器" /> -->
-![](https://imgkr2.cn-bj.ufileos.com/4262527d-9319-4fee-a62d-5a4faf4c017e.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=Rh5HqzC5bO7TaWaGMcaEe4dZ0Gw%253D&Expires=1607224422)
+![](http://49.234.61.19/uploads/dooring-sdk_1763cbe7028.png)
 
 ## Author
 
@@ -42,7 +42,7 @@ Give a ⭐️ if this project helped you!
 最近笔者正在开放dooring的插拔式服务, 以js-sdk的形式支持集成到外部系统中, 并提供开放API共使用者自由配置. 规划如下:
 
 
-![](https://imgkr2.cn-bj.ufileos.com/8b1c708d-ef44-4cc1-91c9-0ed2229074b1.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=CwdTguUoO3XOuN8H9MctW0H8Yis%253D&Expires=1606646985)
+![](http://49.234.61.19/uploads/sdk_1763cc11bd5.png)
 
 
 ### 1. 如何引用用js-sdk | How to use js-sdk
@@ -112,9 +112,9 @@ var dooringOpts = {
 预览功能这块比较简单, 我们只需要将用户生成的json数据丢进H5渲染器中即可, 这里我们需要做一个渲染页面单独用来预览组件. 先来看看几个预览效果:
 > The preview function is relatively simple, we just need to throw the user-generated jason data into the H5 renderer, here we need to make a rendering page for the preview components separately. Let's take a look at a few previews:
 
-<img src="./public/h5_preview_ph.png" alt="h5_preview_pic" width="375px"/>
+<img src="http://49.234.61.19/uploads/pr_1_1763cc4184a.png" alt="h5_preview_pic" width="375px"/>
 <br />
-<img src="./public/h5_preview_line.png" alt="h5_preview_pic" width="375px"/>
+<img src="http://49.234.61.19/uploads/pr_2_1763cc49dd1.png" alt="h5_preview_pic" width="375px"/>
 
 前面的渲染器原理已经介绍了, 这里就不一一介绍了,感兴趣的可以交流讨论.
 
@@ -236,13 +236,9 @@ cnpm run dev
 ## 赞助 | Sponsored
 开源不易, 有了您的赞助, 我们会做的更好~
 
-<img src="https://imgkr2.cn-bj.ufileos.com/667df51c-39d6-4c43-91fb-9504c823c3df.jpeg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=exkrceoh7vCZA%252BxpAlwWMQfW0gs%253D&Expires=1607224243" width="180px" />
+<img src="http://49.234.61.19/uploads/WechatIMG2_1742b586c3d.jpeg" width="180px" />
 
-## 技术反馈和交流 | Technical feedback and communication
+## 技术反馈和交流群 | Technical feedback and communication
 微信：beautifulFront
 
-<img src="https://imgkr2.cn-bj.ufileos.com/de8231d0-ab67-460e-87c6-ff1f97e2b92f.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=klJgZjv%252BLNIChP8%252FgFLoQ81FAbM%253D&Expires=1607224243" width="180px" />
-
-## 技术交流群(加作者微信进群) | chat whit author
-
-<img src="https://imgkr2.cn-bj.ufileos.com/d7fc3463-8ca2-43a7-813b-0acd5d87cb9a.jpeg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=aTn%252FFpw8zFHtk1wV5730JcV2nMk%253D&Expires=1607224243" width="180px" />
+<img src="http://49.234.61.19/uploads/code_1763cc23385.png" width="180px" />
