@@ -23,6 +23,9 @@ export interface ILongTextConfig {
   indent: TNumberDefaultType;
   lineHeight: TNumberDefaultType;
   textAlign: TSelectDefaultType<TLongTextSelectKeyType>;
+  bgColor: TColorDefaultType;
+  padding: TNumberDefaultType;
+  radius: TNumberDefaultType;
 }
 
 export interface ILongTextSchema {
@@ -78,6 +81,21 @@ const LongText: ILongTextSchema = {
       type: 'Number',
       step: 0.1,
     },
+    {
+      key: 'bgColor',
+      name: '背景颜色',
+      type: 'Color',
+    },
+    {
+      key: 'padding',
+      name: '填充间距',
+      type: 'Number',
+    },
+    {
+      key: 'radius',
+      name: '背景圆角',
+      type: 'Number',
+    },
   ],
   config: {
     text: '我是长文本有一段故事，dooring可视化编辑器无限可能，赶快来体验吧，骚年们，奥利给~',
@@ -86,6 +104,9 @@ const LongText: ILongTextSchema = {
     indent: 20,
     lineHeight: 1.8,
     textAlign: 'left',
+    bgColor: 'rgba(255,255,255,0)',
+    padding: 0,
+    radius: 0,
   },
 };
 
