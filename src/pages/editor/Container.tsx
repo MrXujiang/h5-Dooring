@@ -494,9 +494,13 @@ const Container = (props: {
             padding: rightColla ? 0 : '10px',
           }}
         >
-          <Button block type="primary" onClick={() => handleDel(curPoint.id)}>
-            删除
-          </Button>
+          {curPoint?.id ? (
+            <Button block type="primary" onClick={() => handleDel(curPoint.id)}>
+              删除
+            </Button>
+          ) : (
+            ''
+          )}
         </div>
         <div
           style={{
