@@ -13,8 +13,8 @@ export default memo(function ZanPao() {
   return (
     <div className={styles.takeCat} style={{ display: 'inline-block' }}>
       <Popover placement="top" title={null} content={content} trigger="hover">
-        <Button type="primary" danger>
-          赞助作者
+        <Button type="primary" size="large">
+          支持开源, 请作者喝奶茶~
         </Button>
       </Popover>
     </div>

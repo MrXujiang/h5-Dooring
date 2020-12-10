@@ -71,6 +71,7 @@
     "keymaster": "^1.6.2",
     "qrcode.react": "^1.0.0",
     "react": "^16.12.0",
+    "react-audio-player": "^0.14.0",
     "react-codemirror2": "^7.2.1",
     "react-color": "^2.18.1",
     "react-contexify": "^4.1.1",

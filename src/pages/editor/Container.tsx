@@ -483,27 +483,6 @@ const Container = (props: {
         </div>
         <div
           style={{
-            width: rightColla ? 0 : '279px',
-            position: 'absolute',
-            transform: 'translate(0,-10%)',
-            transition: 'all ease-in-out 0.5s',
-            textAlign: 'center',
-            bottom: -5,
-            right: rightColla ? 0 : 16,
-            background: 'hsla(0,0%,88.2%,.7)',
-            padding: rightColla ? 0 : '10px',
-          }}
-        >
-          {curPoint?.id ? (
-            <Button block type="primary" onClick={() => handleDel(curPoint.id)}>
-              删除
-            </Button>
-          ) : (
-            ''
-          )}
-        </div>
-        <div
-          style={{
             width: rightColla ? 0 : '304px',
             transition: 'all ease-in-out 0.5s',
           }}

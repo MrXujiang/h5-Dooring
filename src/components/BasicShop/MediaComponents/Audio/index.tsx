@@ -1,30 +1,32 @@
 import React, { memo } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
-import './index.css';
-import { IVideoConfig } from './schema';
-import logo from '@/assets/14-视频.png';
-// import Audio from '@/assets/audio'
-const VideoPlayer = memo((props: IVideoConfig & { isTpl: boolean }) => {
-  const { poster, url, isTpl } = props;
+import styles from './index.less';
+import { IAudioConfig } from './schema';
+import logo from '@/assets/music@2x.png';
+
+const AudioPlayer = memo((props: IAudioConfig & { isTpl: boolean }) => {
+  const { height, url, isTpl } = props;
   return (
     <>
       {isTpl ? (
         <div>
-          <img src={logo} alt=""></img>
+          <img src={logo} style={{ width: '100%' }} alt="h5-dooring音频播放组件"></img>
         </div>
       ) : (
-        <div>
-          <Player
-            playsInline
-            poster={poster[0].url}
-            src={url || 'https://gossv.vcg.com/cmsUploadVideo/creative/1移轴/7月移轴.mp4'}
-          >
-            <BigPlayButton position="center" />
-          </Player>
+        <div className={styles.audioWrap}>
+          <ReactAudioPlayer
+            src={url}
+            autoPlay={false}
+            controls
+            style={{
+              width: '100%',
+              height: height + 'px',
+            }}
+          />
         </div>
       )}
     </>
   );
 });
 
-export default VideoPlayer;
+export default AudioPlayer;

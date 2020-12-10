@@ -1,45 +1,38 @@
 import {
   ITextConfigType,
-  IUploadConfigType,
+  INumberConfigType,
   TTextDefaultType,
-  TUploadDefaultType,
+  TNumberDefaultType,
 } from '@/components/PanelComponents/FormEditor/types';
 
-export type TVideoEditData = Array<IUploadConfigType | ITextConfigType>;
-export interface IVideoConfig {
-  poster: TUploadDefaultType;
+export type TAudioEditData = Array<INumberConfigType | ITextConfigType>;
+export interface IAudioConfig {
+  height: TNumberDefaultType;
   url: TTextDefaultType;
 }
 
-export interface IVideoSchema {
-  editData: TVideoEditData;
-  config: IVideoConfig;
+export interface IAudioSchema {
+  editData: TAudioEditData;
+  config: IAudioConfig;
 }
 
-const Video: IVideoSchema = {
+const Audio: IAudioSchema = {
   editData: [
     {
-      key: 'poster',
-      name: '视频封面',
-      type: 'Upload',
+      key: 'height',
+      name: '音频高度',
+      type: 'Number',
     },
     {
       key: 'url',
-      name: '视频链接',
+      name: '音频链接',
       type: 'Text',
     },
   ],
   config: {
-    poster: [
-      {
-        uid: '001',
-        name: 'image.png',
-        status: 'done',
-        url: 'http://io.nainor.com/uploads/1_1740c6fbcd9.png',
-      },
-    ],
-    url: '',
+    height: 32,
+    url: 'http://io.nainor.com/audio.mp3',
   },
 };
 
-export default Video;
+export default Audio;
