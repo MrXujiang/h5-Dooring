@@ -7,7 +7,7 @@ import {
   TNumberDefaultType,
   TSelectDefaultType,
   TTextDefaultType,
-} from '@/components/PanelComponents/FormEditor/types';
+} from '@/core/FormComponents/types';
 import { baseConfig, baseDefault, ICommonBaseType } from '../../common';
 
 export type TfooterSelectKeyType = 'left' | 'center' | 'right';

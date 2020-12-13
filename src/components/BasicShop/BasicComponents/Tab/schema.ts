@@ -7,7 +7,7 @@ import {
   TDataListDefaultType,
   TMutiTextDefaultType,
   TNumberDefaultType,
-} from '@/components/PanelComponents/FormEditor/types';
+} from '@/core/FormComponents/types';
 
 export type TTabEditData = Array<
   IMutiTextConfigType | IColorConfigType | INumberConfigType | IDataListConfigType

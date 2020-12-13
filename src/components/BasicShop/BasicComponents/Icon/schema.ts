@@ -7,7 +7,7 @@ import {
   TColorDefaultType,
   TNumberDefaultType,
   TSwitchDefaultType,
-} from '@/components/PanelComponents/FormEditor/types';
+} from '@/core/FormComponents/types';
 
 export type TIconEditData = Array<
   IColorConfigType | INumberConfigType | ISwitchConfigType | ICardPickerConfigType<IconTypes>

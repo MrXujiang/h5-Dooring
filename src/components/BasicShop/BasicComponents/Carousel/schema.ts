@@ -6,7 +6,7 @@ import {
   TDataListDefaultType,
   TRadioDefaultType,
   TSwitchDefaultType,
-} from '@/components/PanelComponents/FormEditor/types';
+} from '@/core/FormComponents/types';
 import { baseConfig, baseDefault, ICommonBaseType } from '../../common';
 
 export type CarouselDirectionKeyType = 'down' | 'left';

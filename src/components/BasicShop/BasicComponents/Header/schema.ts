@@ -7,7 +7,7 @@ import {
   TNumberDefaultType,
   TTextDefaultType,
   TUploadDefaultType,
-} from '@/components/PanelComponents/FormEditor/types';
+} from '@/core/FormComponents/types';
 import { baseConfig, baseDefault, ICommonBaseType } from '../../common';
 
 export type THeaderEditData = Array<

@@ -11,7 +11,7 @@ import {
   TPosDefaultType,
   TTextDefaultType,
   ITextConfigType,
-} from '@/components/PanelComponents/FormEditor/types';
+} from '@/core/FormComponents/types';
 import { baseConfig, baseDefault, ICommonBaseType } from '../../common';
 
 export type TTextSelectKeyType = 'left' | 'right' | 'center';

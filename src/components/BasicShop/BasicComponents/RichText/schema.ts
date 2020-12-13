@@ -7,7 +7,7 @@ import {
   TTextDefaultType,
   IRichTextConfigType,
   TRichTextDefaultType,
-} from '@/components/PanelComponents/FormEditor/types';
+} from '@/core/FormComponents/types';
 
 export type TButtonEditData = Array<
   ITextConfigType | IColorConfigType | INumberConfigType | IRichTextConfigType

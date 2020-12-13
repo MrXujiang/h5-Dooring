@@ -3,7 +3,7 @@ import {
   IUploadConfigType,
   TTextDefaultType,
   TUploadDefaultType,
-} from '@/components/PanelComponents/FormEditor/types';
+} from '@/core/FormComponents/types';
 
 export type TVideoEditData = Array<IUploadConfigType | ITextConfigType>;
 export interface IVideoConfig {

@@ -7,7 +7,7 @@ import {
   TSelectDefaultType,
   TSwitchDefaultType,
   TTextDefaultType,
-} from '@/components/PanelComponents/FormEditor/types';
+} from '@/core/FormComponents/types';
 
 export type TNoticeSelectKeyType = 'default' | 'warning' | 'primary' | 'success' | 'danger';
 export type TNoticeEditData = Array<
