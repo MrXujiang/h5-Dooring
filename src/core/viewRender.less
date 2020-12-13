@@ -1,0 +1,14 @@
+.dragItem {
+  display: inline-block;
+  position: absolute;
+  z-index: 2;
+  border: 2px solid transparent;
+  cursor: move;
+  &:hover {
+    border: 2px solid #06c;
+  }
+  :global(a) {
+    display: block;
+    pointer-events: none;
+  }
+}

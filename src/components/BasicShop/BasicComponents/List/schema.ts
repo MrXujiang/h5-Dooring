@@ -7,7 +7,7 @@ import {
   TDataListDefaultType,
   TNumberDefaultType,
   TSelectDefaultType,
-} from '@/components/PanelComponents/FormEditor/types';
+} from '@/core/FormComponents/types';
 import { baseConfig, baseDefault, ICommonBaseType } from '../../common';
 export type TListSelectKeyType = '60' | '80' | '100' | '120' | '150';
 export type TListEditData = Array<

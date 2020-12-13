@@ -1,9 +1,7 @@
 import React, { CSSProperties, memo, useEffect, useMemo, useRef, useState } from 'react';
-import GridLayout from 'react-grid-layout';
-import DynamicEngine from 'components/DynamicEngine';
+import ViewRender from '@/core/ViewRender';
 import domtoimage from 'dom-to-image';
 import req from '@/utils/req';
-import styles from './index.less';
 import { useGetScrollBarWidth } from '@/utils/tool';
 import { LocationDescriptorObject } from 'history-with-query';
 
@@ -123,25 +121,7 @@ const PreviewPage = memo((props: PreviewPageProps) => {
         }
       >
         <div ref={refImgDom}>
-          <GridLayout
-            className={styles.layout}
-            cols={24}
-            rowHeight={2}
-            width={vw > 800 ? 375 : vw}
-            margin={[0, 0]}
-            style={{
-              backgroundColor: pageData.bgColor,
-              backgroundImage: pageData.bgImage ? `url(${pageData.bgImage[0].url})` : 'initial',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-            }}
-          >
-            {pointData.map((value: PointDataItem) => (
-              <div className={styles.dragItem} key={value.id} data-grid={value.point}>
-                <DynamicEngine {...(value.item as any)} />
-              </div>
-            ))}
-          </GridLayout>
+          <ViewRender pageData={pageData} pointData={pointData} width={vw > 800 ? 375 : vw} />
         </div>
       </div>
 

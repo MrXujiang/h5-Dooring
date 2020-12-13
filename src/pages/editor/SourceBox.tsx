@@ -1,16 +1,15 @@
 import React, { memo, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { useDrop } from 'react-dnd';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
-import GridLayout, { ItemCallback } from 'react-grid-layout';
+import { ItemCallback } from 'react-grid-layout';
 import { connect } from 'dva';
-import DynamicEngine from 'components/DynamicEngine';
+import ViewRender from '@/core/ViewRender';
 import styles from './index.less';
 import { uuid } from '@/utils/tool';
 import { Dispatch } from 'umi';
 import { StateWithHistory } from 'redux-undo';
 import { Menu, Item, MenuProvider } from 'react-contexify';
 import 'react-contexify/dist/ReactContexify.min.css';
-import { dooringContext } from '@/layouts';
 interface SourceBoxProps {
   pstate: { pointData: { id: string; item: any; point: any; isMenu?: any }[]; curPoint: any };
   cstate: { pointData: { id: string; item: any; point: any }[]; curPoint: any };
@@ -29,15 +28,12 @@ interface SourceBoxProps {
 
 const SourceBox = memo((props: SourceBoxProps) => {
   const { pstate, scaleNum, canvasId, allType, dispatch, dragState, setDragState, cstate } = props;
-  const context = useContext(dooringContext);
 
   let pointData = pstate ? pstate.pointData : [];
   const cpointData = cstate ? cstate.pointData : [];
 
   const [canvasRect, setCanvasRect] = useState<number[]>([]);
   const [isShowTip, setIsShowTip] = useState(true);
-  // const [clonePointData, setPointData] = useState(pointData);
-  // const [isMenu, setIsMenu] = useState(false);
   const [{ isOver }, drop] = useDrop({
     accept: allType,
     drop: (item: { h: number; type: string; x: number }, monitor) => {
@@ -51,34 +47,15 @@ const SourceBox = memo((props: SourceBoxProps) => {
         w = item.type === 'Icon' ? 3 : col;
       // 转换成网格规则的坐标和大小
       let gridY = Math.ceil(y / cellHeight);
-      if (context.theme === 'h5') {
-        dispatch({
-          type: 'editorModal/addPointData',
-          payload: {
-            id: uuid(6, 10),
-            item,
-            point: { i: `x-${pointData.length}`, x: 0, y: gridY, w, h: item.h, isBounded: true },
-            status: 'inToCanvas',
-          },
-        });
-      } else {
-        dispatch({
-          type: 'editorPcModal/addPointData',
-          payload: {
-            id: uuid(6, 10),
-            item,
-            point: {
-              i: `x-${cpointData.length}`,
-              x: item.x || 0,
-              y: gridY,
-              w,
-              h: item.h,
-              isBounded: true,
-            },
-            status: 'inToCanvas',
-          },
-        });
-      }
+      dispatch({
+        type: 'editorModal/addPointData',
+        payload: {
+          id: uuid(6, 10),
+          item,
+          point: { i: `x-${pointData.length}`, x: 0, y: gridY, w, h: item.h, isBounded: true },
+          status: 'inToCanvas',
+        },
+      });
     },
     collect: monitor => ({
       isOver: monitor.isOver(),
@@ -94,21 +71,8 @@ const SourceBox = memo((props: SourceBoxProps) => {
         type: 'editorModal/modPointData',
         payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
       });
-      // if (context.theme === 'h5') {
-      //   const curPointData = pointData.filter(item => item.id === newItem.i)[0];
-      //   dispatch({
-      //     type: 'editorModal/modPointData',
-      //     payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
-      //   });
-      // } else {
-      //   const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
-      //   dispatch({
-      //     type: 'editorPcModal/modPointData',
-      //     payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
-      //   });
-      // }
     };
-  }, [context.theme, cpointData, dispatch, pointData]);
+  }, [cpointData, dispatch, pointData]);
 
   const onDragStart: ItemCallback = useMemo(() => {
     return (layout, oldItem, newItem, placeholder, e, element) => {
@@ -117,19 +81,6 @@ const SourceBox = memo((props: SourceBoxProps) => {
         type: 'editorModal/modPointData',
         payload: { ...curPointData, status: 'inToCanvas' },
       });
-      // if (context.theme === 'h5') {
-      //   const curPointData = pointData.filter(item => item.id === newItem.i)[0];
-      //   dispatch({
-      //     type: 'editorModal/modPointData',
-      //     payload: { ...curPointData, status: 'inToCanvas' },
-      //   });
-      // } else {
-      //   const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
-      //   dispatch({
-      //     type: 'editorPcModal/modPointData',
-      //     payload: { ...curPointData, status: 'inToCanvas' },
-      //   });
-      // }
     };
   }, [dispatch, pointData]);
 
@@ -140,31 +91,8 @@ const SourceBox = memo((props: SourceBoxProps) => {
         type: 'editorModal/modPointData',
         payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
       });
-      // if (context.theme === 'h5') {
-      //   const curPointData = pointData.filter(item => item.id === newItem.i)[0];
-      //   dispatch({
-      //     type: 'editorModal/modPointData',
-      //     payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
-      //   });
-      // } else {
-      //   const curPointData = cpointData.filter(item => item.id === newItem.i)[0];
-      //   dispatch({
-      //     type: 'editorPcModal/modPointData',
-      //     payload: { ...curPointData, point: newItem, status: 'inToCanvas' },
-      //   });
-      // }
     };
   }, [dispatch, pointData]);
-
-  const initSelect: any = (data: any = []) => {
-    return (
-      data &&
-      data.map((itemData: any) => ({
-        ...itemData,
-        isMenu: false,
-      }))
-    );
-  };
 
   const handleContextMenuDel = () => {
     if (pstate.curPoint) {
@@ -245,26 +173,13 @@ const SourceBox = memo((props: SourceBoxProps) => {
                 ref={drop}
               >
                 {pointData.length > 0 ? (
-                  <GridLayout
-                    className={styles.layout}
-                    cols={24}
-                    rowHeight={2}
+                  <ViewRender
+                    pointData={pointData}
                     width={canvasRect[0] || 0}
-                    margin={[0, 0]}
-                    onDragStop={dragStop}
+                    dragStop={dragStop}
                     onDragStart={onDragStart}
                     onResizeStop={onResizeStop}
-                  >
-                    {pointData.map(value => (
-                      <div
-                        className={value.isMenu ? styles.selected : styles.dragItem}
-                        key={value.id}
-                        data-grid={value.point}
-                      >
-                        <DynamicEngine {...value.item} isTpl={false} />
-                      </div>
-                    ))}
-                  </GridLayout>
+                  />
                 ) : null}
               </div>
             </div>
