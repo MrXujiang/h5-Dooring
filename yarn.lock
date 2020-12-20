@@ -2551,6 +2551,13 @@
     "@typescript-eslint/types" "4.1.1"
     eslint-visitor-keys "^2.0.0"
 
+"@uiw/react-baidu-map@^1.17.3":
+  version "1.17.3"
+  resolved "https://registry.yarnpkg.com/@uiw/react-baidu-map/-/react-baidu-map-1.17.3.tgz#901f31f580ff57a4ee5cc61e46339ef5822a58f0"
+  integrity sha512-J97D+2oNLPi9lSJV73oScT3KvjgwcY6nGA1QFn1EamKo1T+22yoIjH7jpzOCX/FxQA4IRd+hbY0p1/wHDGySWQ==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+
 "@umijs/ast@3.2.23":
   version "3.2.23"
   resolved "https://registry.yarnpkg.com/@umijs/ast/-/ast-3.2.23.tgz#d1efb1eff7b1ad1daa95a43882a88c362b6035d4"

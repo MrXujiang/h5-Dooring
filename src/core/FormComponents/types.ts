@@ -133,6 +133,10 @@ export interface IPosConfigType {
   key: string;
   name: string;
   type: 'Pos';
+  placeObj: {
+    text: string;
+    link: string;
+  };
 }
 
 export type TPosItem = number | undefined;
