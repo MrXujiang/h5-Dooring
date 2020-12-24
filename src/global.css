@@ -1,6 +1,5 @@
 html, body, #root {
   height: 100%;
-  width: 100vw;
   overflow: hidden;
 }
 
@@ -33,13 +32,6 @@ body {
   background: transparent !important;
   border-color: transparent !important;
 }
-
-@import '~react-grid-layout/css/styles.css'; 
-@import '~react-resizable/css/styles.css';
-@import '~zarm/dist/zarm.min.css';
-
-@import '~codemirror/lib/codemirror.css';
-@import '~codemirror/theme/material.css';
 
 .react-grid-item{
   overflow: hidden;
@@ -141,3 +133,32 @@ body {
   display: flex;
   margin-left: 30px;
 }
+
+.rotate-animate {
+  margin: 100px auto;
+  border:16px solid #f3f3f3;
+  border-radius:50%;
+  border-top:16px solid #2842d8;
+  width:130px;
+  height:130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation:rotate 2s linear infinite;
+  font-size: 12px;
+}
+@keyframes rotate{
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform:rotate(360deg);
+  }
+}
+
+@import '~react-grid-layout/css/styles.css'; 
+@import '~react-resizable/css/styles.css';
+@import '~zarm/dist/zarm.min.css';
+
+@import '~codemirror/lib/codemirror.css';
+@import '~codemirror/theme/material.css';

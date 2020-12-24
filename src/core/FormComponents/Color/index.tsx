@@ -1,7 +1,6 @@
 import React from 'react';
 import { SketchPicker, ColorResult } from 'react-color';
 import { rgba2Obj } from '@/utils/tool';
-// import styles from './index.less'
 
 export type ColorConfigType = string;
 

@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import { Progress } from 'zarm';
-import styles from './index.less';
 import { IXProgressConfig } from './schema';
 import logo from '@/assets/15-进度.png';
 const XProgress = memo((props: IXProgressConfig & { isTpl: boolean }) => {
