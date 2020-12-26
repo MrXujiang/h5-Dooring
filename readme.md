@@ -20,6 +20,8 @@
 
 ### ✨ [Demo](http://h5.dooring.cn/h5_plus/editor?tid=123456)
 
+### [视频教程 | Video tutorial](https://www.zhihu.com/zvideo/1326300284608417792)
+
 <!-- <img src="http://io.nainor.com/uploads/face_17512320c6d.png" alt="H5可视化编辑器" /> -->
 ![](http://49.234.61.19/uploads/dooring-sdk_1763cbe7028.png)
 
