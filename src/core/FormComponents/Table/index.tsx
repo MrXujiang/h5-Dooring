@@ -114,6 +114,11 @@ class EditableTable extends React.Component<any, any> {
         editable?: undefined;
       }
   )[];
+  apiForm: {
+    api: string;
+    header: string;
+    dataField: string;
+  };
 
   constructor(props: any) {
     super(props);
@@ -142,12 +147,20 @@ class EditableTable extends React.Component<any, any> {
       },
     ];
 
+    this.apiForm = {
+      api: '',
+      header: '',
+      dataField: '',
+    };
+
     const dataSource =
       props.data && props.data.map((item: any, i: number) => ({ key: i + '', ...item }));
 
     this.state = {
       dataSource: dataSource,
       visible: false,
+      apiVisible: false,
+      apiResult: '',
     };
   }
 
@@ -201,6 +214,59 @@ class EditableTable extends React.Component<any, any> {
     this.setState({
       visible: false,
     });
+  };
+
+  showApiModal = () => {
+    this.setState({
+      apiVisible: true,
+    });
+  };
+
+  handleAPIOk = () => {
+    const { dataField } = this.apiForm;
+    if (dataField) {
+      let data = this.state.apiResult[dataField];
+      if (data && data instanceof Array) {
+        data = data.map((item, i) => ({ key: i + '', ...item }));
+        this.setState({
+          dataSource: data,
+        });
+        this.props.onChange && this.props.onChange(data);
+      }
+      this.setState({
+        apiVisible: false,
+      });
+    }
+  };
+
+  handleAPICancel = () => {
+    this.setState({
+      apiVisible: false,
+    });
+  };
+
+  handleApiField = (type: 'api' | 'header' | 'dataField', v: string) => {
+    this.apiForm[type] = v;
+  };
+
+  getApiFn = () => {
+    console.log(this.apiForm);
+    const { api, header } = this.apiForm;
+    fetch(api, {
+      cache: 'no-cache',
+      headers: Object.assign(
+        { 'content-type': 'application/json' },
+        header ? JSON.parse(header) : {},
+      ),
+      method: 'GET',
+      mode: 'cors',
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          apiResult: res,
+        });
+      });
   };
 
   render() {
@@ -263,7 +329,6 @@ class EditableTable extends React.Component<any, any> {
           _this.props.onChange && _this.props.onChange(sourceData);
         };
         reader.readAsBinaryString(file);
-        return true;
       },
     };
     return (
@@ -287,10 +352,13 @@ class EditableTable extends React.Component<any, any> {
             添加行
           </Button>
           <Upload {...props}>
-            <Button type="primary" ghost>
+            <Button type="primary" ghost style={{ marginRight: 16 }}>
               导入Excel
             </Button>
           </Upload>
+          <Button type="primary" ghost onClick={this.showApiModal}>
+            第三方API
+          </Button>
           <Table
             components={components}
             rowClassName={() => 'editable-row'}
@@ -300,6 +368,51 @@ class EditableTable extends React.Component<any, any> {
             pagination={{ pageSize: 50 }}
             scroll={{ y: 240 }}
           />
+        </Modal>
+        <Modal
+          title="配置api"
+          visible={this.state.apiVisible}
+          onOk={this.handleAPIOk}
+          onCancel={this.handleAPICancel}
+          okText="确定"
+          cancelText="取消"
+        >
+          <div className={styles.apiForm}>
+            <div className={styles.formItem}>
+              <Input
+                placeholder="请输入api地址"
+                onChange={e => this.handleApiField('api', e.target.value)}
+              />
+            </div>
+            <div className={styles.formItem}>
+              <Input.TextArea
+                placeholder="请输入头信息, 如{token: 123456}, 格式必须为json对象"
+                rows={4}
+                onChange={e => this.handleApiField('header', e.target.value)}
+              />
+            </div>
+            <div className={styles.formItem}>
+              <Button type="primary" onClick={this.getApiFn}>
+                发送请求
+              </Button>
+            </div>
+            {this.state.apiResult && (
+              <>
+                <div className={styles.formItem}>
+                  <Input.TextArea rows={6} value={JSON.stringify(this.state.apiResult, null, 4)} />
+                </div>
+                <div className={styles.formItem}>
+                  <Input
+                    placeholder="设置数据源字段"
+                    onChange={e => this.handleApiField('dataField', e.target.value)}
+                  />
+                  <p style={{ color: 'red' }}>
+                    数据源字段是接口返回的图表数据对应的字段, 必填, 否则无法正确导入数据
+                  </p>
+                </div>
+              </>
+            )}
+          </div>
         </Modal>
       </div>
     );

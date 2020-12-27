@@ -1,21 +1,31 @@
 import {
   ICardPickerConfigType,
   IColorConfigType,
+  ITextConfigType,
   INumberConfigType,
   ISwitchConfigType,
   TCardPickerDefaultType,
   TColorDefaultType,
   TNumberDefaultType,
   TSwitchDefaultType,
+  TTextDefaultType,
 } from '@/core/FormComponents/types';
 
 export type TIconEditData = Array<
-  IColorConfigType | INumberConfigType | ISwitchConfigType | ICardPickerConfigType<IconTypes>
+  | IColorConfigType
+  | INumberConfigType
+  | ISwitchConfigType
+  | ICardPickerConfigType<IconTypes>
+  | ITextConfigType
 >;
 export interface IIconConfig {
   color: TColorDefaultType;
   size: TNumberDefaultType;
+  text: TTextDefaultType;
+  fontSize: TNumberDefaultType;
+  fontColor: TColorDefaultType;
   spin: TSwitchDefaultType;
+  link: TTextDefaultType;
   type: TCardPickerDefaultType<IconTypes>;
 }
 
@@ -80,6 +90,26 @@ const Icon: IIconSchema = {
       type: 'Number',
     },
     {
+      key: 'text',
+      name: '文本',
+      type: 'Text',
+    },
+    {
+      key: 'fontSize',
+      name: '文本大小',
+      type: 'Number',
+    },
+    {
+      key: 'fontColor',
+      name: '文本颜色',
+      type: 'Color',
+    },
+    {
+      key: 'link',
+      name: '跳转链接',
+      type: 'Text',
+    },
+    {
       key: 'spin',
       name: '旋转动画',
       type: 'Switch',
@@ -136,6 +166,10 @@ const Icon: IIconSchema = {
   config: {
     color: 'rgba(74,144,226,1)',
     size: 36,
+    text: '图标',
+    fontSize: 14,
+    fontColor: 'rgba(0,0,0,1)',
+    link: '',
     spin: false,
     type: 'CarTwoTone',
   },

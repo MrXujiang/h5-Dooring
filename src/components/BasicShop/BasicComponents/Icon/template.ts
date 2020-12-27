@@ -1,6 +1,6 @@
 const template = {
   type: 'Icon',
-  h: 23,
+  h: 36,
   displayName: '图标组件',
 };
 export default template;
