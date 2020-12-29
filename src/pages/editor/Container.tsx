@@ -22,7 +22,7 @@ import graphTpl from 'components/BasicShop/VisualComponents/template';
 
 import schemaH5 from 'components/BasicShop/schema';
 import { ActionCreators, StateWithHistory } from 'redux-undo';
-import { throttle } from '@/utils/tool';
+import { throttle, detectMobileBrowser, getBrowserNavigatorMetaInfo } from '@/utils/tool';
 
 import styles from './index.less';
 
@@ -130,9 +130,10 @@ const Container = (props: {
   };
 
   useEffect(() => {
-    if (window.innerWidth < 1024) {
+    // note (@livs-ops): 检测当前浏览器是否处于手机模式下
+    if (detectMobileBrowser(getBrowserNavigatorMetaInfo())) {
       props.history.push('/mobileTip');
-    } //待修改
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

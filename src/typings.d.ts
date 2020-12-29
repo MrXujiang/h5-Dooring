@@ -10,9 +10,12 @@ declare module '*.css';
 declare module '*.png';
 declare module '*.svg';
 declare module '*.less';
+
 interface Window {
   currentCates: null | Array<string>;
+  opera: string; // note (@livs-ops): fix property 'opera' does not exist on type 'Window & typeof globalThis'
 }
+
 declare module 'dom-to-image' {
   const domtoimage: any;
   export default domtoimage;
