@@ -1,27 +1,31 @@
 import {
   IDataListConfigType,
-  INumberConfigType,
   IRadioConfigType,
   ISwitchConfigType,
+  INumberConfigType,
   TDataListDefaultType,
   TRadioDefaultType,
   TSwitchDefaultType,
+  TNumberDefaultType,
 } from '@/core/FormComponents/types';
-import { baseConfig, baseDefault, ICommonBaseType } from '../../common';
+
+import { serverUrl } from '@/utils/tool';
 
 export type CarouselDirectionKeyType = 'down' | 'left';
 
 export type TCarouselEditData = Array<
-  | INumberConfigType
   | IRadioConfigType<CarouselDirectionKeyType>
   | ISwitchConfigType
   | IDataListConfigType
+  | INumberConfigType
 >;
-export interface ICarouselConfig extends ICommonBaseType {
+export interface ICarouselConfig {
   direction: TRadioDefaultType<CarouselDirectionKeyType>;
   swipeable: TSwitchDefaultType;
   autoPlay: TSwitchDefaultType;
   imgList: TDataListDefaultType;
+  tplImg: string;
+  round: TNumberDefaultType;
 }
 
 export interface ICarouselSchema {
@@ -31,8 +35,6 @@ export interface ICarouselSchema {
 
 const Carousel: ICarouselSchema = {
   editData: [
-    ...baseConfig,
-
     {
       key: 'direction',
       name: '方向',
@@ -54,6 +56,11 @@ const Carousel: ICarouselSchema = {
       type: 'Switch',
     },
     {
+      key: 'round',
+      name: '圆角',
+      type: 'Number',
+    },
+    {
       key: 'autoPlay',
       name: '是否自动播放',
       type: 'Switch',
@@ -67,6 +74,7 @@ const Carousel: ICarouselSchema = {
   config: {
     direction: 'left',
     swipeable: false,
+    round: 0,
     autoPlay: false,
     imgList: [
       {
@@ -79,7 +87,7 @@ const Carousel: ICarouselSchema = {
             uid: '001',
             name: 'image.png',
             status: 'done',
-            url: 'http://49.234.61.19/uploads/1_1740bd7c3dc.png',
+            url: `${serverUrl}/uploads/1_1740bd7c3dc.png`,
           },
         ],
       },
@@ -93,12 +101,12 @@ const Carousel: ICarouselSchema = {
             uid: '001',
             name: 'image.png',
             status: 'done',
-            url: 'http://49.234.61.19/uploads/2_1740bd8d525.png',
+            url: `${serverUrl}/uploads/2_1740bd8d525.png`,
           },
         ],
       },
     ],
-    ...baseDefault,
+    tplImg: `${serverUrl}/uploads/carousal_17442e1420f.png`,
   },
 };
 export default Carousel;

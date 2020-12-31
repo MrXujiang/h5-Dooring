@@ -1,15 +1,19 @@
-import React, { memo } from 'react';
+import React, { memo, PropsWithChildren } from 'react';
 import { Carousel } from 'zarm';
 import styles from './index.less';
 import { ICarouselConfig } from './schema';
 import logo from '@/assets/01-轮播.png';
 
-const XCarousel = memo((props: ICarouselConfig) => {
-  const { direction, swipeable, autoPlay, isTpl, imgList } = props;
+interface CarouselTypes extends ICarouselConfig {
+  isTpl: boolean;
+}
+
+const XCarousel = memo((props: PropsWithChildren<CarouselTypes>) => {
+  const { direction, swipeable, autoPlay, isTpl, imgList, round } = props;
   const contentRender = () => {
     return imgList.map((item, i) => {
       return (
-        <div className={styles.carousel__item__pic} key={+i}>
+        <div className={styles.carousel__item__pic} key={+i} style={{ borderRadius: round + 'px' }}>
           <a href={item.link}>
             <img src={item.imgUrl.length > 0 ? item.imgUrl[0].url : ''} alt="" />
           </a>
@@ -18,38 +22,25 @@ const XCarousel = memo((props: ICarouselConfig) => {
     });
   };
   return (
-    <>
+    <div style={{ width: '100%', overflow: 'hidden' }}>
       {isTpl ? (
         <div className={styles.carousel__item__pic}>
           <img src={logo} alt="" />
         </div>
       ) : (
-        <div
-          style={{
-            overflow: 'hidden',
-            position: 'absolute',
-            width: `${props.baseWidth}%`,
-            height: `${props.baseHeight}%`,
-            borderRadius: props.baseRadius,
-            transform: `translate(${props.baseLeft}px,${props.baseTop}px) 
-                        scale(${props.baseScale / 100}) 
-                        rotate(${props.baseRotate}deg)`,
+        <Carousel
+          onChange={index => {
+            // console.log(`onChange: ${index}`);
           }}
+          direction={direction}
+          swipeable={swipeable}
+          autoPlay={autoPlay}
+          loop
         >
-          <Carousel
-            onChange={index => {
-              // console.log(`onChange: ${index}`);
-            }}
-            direction={direction}
-            swipeable={swipeable}
-            autoPlay={autoPlay}
-            loop
-          >
-            {contentRender()}
-          </Carousel>
-        </div>
+          {contentRender()}
+        </Carousel>
       )}
-    </>
+    </div>
   );
 });
 
