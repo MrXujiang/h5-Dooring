@@ -1,0 +1,47 @@
+.list {
+  margin: 20px auto;
+  width: 94%;
+  .searchWrap {
+    margin-bottom: 16px;
+    display: flex;
+    width: 100%;
+    height: 36px;
+    border-radius: 30px;
+    background-color: #f0f0f0;
+    input {
+      display: inline-block;
+      padding-left: 12px;
+      flex: 1;
+      border: none;
+      background-color: transparent;
+    }
+    .searchBtn {
+      margin-left: 10px;
+      margin-right: 10px;
+      line-height: 36px;
+      font-size: 18px;
+      display: inline-block;
+      cursor: pointer;
+    }
+  }
+  .sourceList {
+    .sourceItem {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      .content {
+        margin-left: 12px;
+        .tit {
+          line-height: 2;
+        }
+      }
+      .price {
+        position: absolute;
+        right: 12px;
+        bottom: 0px;
+        color: red;
+      }
+    }
+  }
+}

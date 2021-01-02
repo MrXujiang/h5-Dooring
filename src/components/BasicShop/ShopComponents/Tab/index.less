@@ -1,0 +1,34 @@
+.tabWrap {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    .item {
+      position: relative;
+      padding: 20px 20px 0;
+      width: 50%;
+      text-align: center;
+      justify-content: center;
+      .imgWrap {
+        display: inline-block;
+        width: 80%;
+        img {
+          border-radius: 6px;
+          width: 120px;
+          height: 120px;
+          object-fit: cover;
+        }
+        .title {
+          line-height: 2.4;
+        }
+      }
+      .price {
+        position: absolute;
+        right: 26px;
+        bottom: -12px;
+        color: red;
+      }
+    }
+  }
+}
