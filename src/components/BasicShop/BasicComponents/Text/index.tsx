@@ -10,9 +10,7 @@ const Text = memo((props: ITextConfig & { isTpl: boolean }) => {
           <img src={logo} alt=""></img>
         </div>
       ) : (
-        <div className={styles.textWrap} style={{ color, textAlign: align, fontSize, lineHeight }}>
-          {text}
-        </div>
+        <div style={{ color, textAlign: align, fontSize, lineHeight }}>{text}</div>
       )}
     </>
   );

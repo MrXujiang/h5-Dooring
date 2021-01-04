@@ -22,7 +22,6 @@ const LongText = memo((props: ILongTextConfig & { isTpl: boolean }) => {
         </div>
       ) : (
         <div
-          className={styles.textWrap}
           style={{
             color,
             textIndent: indent + 'px',
