@@ -146,3 +146,5 @@ export function detectMobileBrowser(browserNavigatorMetaInfo: string): boolean {
 export function getBrowserNavigatorMetaInfo(): string {
   return window.navigator.userAgent || window.navigator.vendor || window.opera;
 }
+
+export const serverUrl = isDev ? 'http://192.16x.x.x:3000' : '你的服务器地址';
