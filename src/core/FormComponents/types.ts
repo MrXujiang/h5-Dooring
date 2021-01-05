@@ -66,6 +66,14 @@ export interface IColorConfigType {
 
 export type TColorDefaultType = string;
 
+/////////////////
+export interface IRichTextConfigType {
+  key: string;
+  name: string;
+  type: 'RichText';
+}
+export type TRichTextDefaultType = string;
+
 export interface IMutiTextConfigType {
   key: string;
   name: string;
