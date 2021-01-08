@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Tabs } from 'zarm';
 import styles from './index.less';
 import { ITabConfig } from './schema';
-import logo from '@/assets/11-切换页.png';
+import logo from '@/assets/tab.png';
 
 interface TabType extends ITabConfig {
   isTpl?: boolean;

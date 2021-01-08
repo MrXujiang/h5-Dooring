@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { IImageConfig } from './schema';
-import logo from '@/assets/06-图片组件.png';
+import logo from '@/assets/img.png';
 const Image = memo((props: IImageConfig) => {
   const {
     imgUrl,

@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Player, BigPlayButton } from 'video-react';
 import './index.css';
 import { IVideoConfig } from './schema';
-import logo from '@/assets/14-视频.png';
+import logo from '@/assets/video.png';
 const VideoPlayer = memo((props: IVideoConfig & { isTpl: boolean }) => {
   const { poster, url, isTpl } = props;
   return (

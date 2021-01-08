@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import styles from './index.less';
 import { IListConfig } from './schema';
-import logo from '@/assets/07-列表.png';
+import logo from '@/assets/list.png';
 const List = memo((props: IListConfig) => {
   const { round, sourceData, imgSize, fontSize, color } = props;
   return (
@@ -31,11 +31,7 @@ const List = memo((props: IListConfig) => {
                 <div className={styles.sourceItem} key={i}>
                   <div className={styles.imgWrap}>
                     <img
-                      src={
-                        item.imgUrl[0]
-                          ? item.imgUrl[0].url
-                          : 'http://io.nainor.com/uploads/01_173e15d3493.png'
-                      }
+                      src={item.imgUrl[0] ? item.imgUrl[0].url : ''}
                       alt={item.desc}
                       style={{
                         width: parseFloat(imgSize),

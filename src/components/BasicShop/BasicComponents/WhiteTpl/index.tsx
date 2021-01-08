@@ -2,7 +2,7 @@ import { memo } from 'react';
 import styles from './index.less';
 import React from 'react';
 import { IWhiteTplConfig } from './schema';
-import logo from '@/assets/13-空白.png';
+import logo from '@/assets/white.png';
 interface IProps extends IWhiteTplConfig {
   isTpl: boolean;
 }

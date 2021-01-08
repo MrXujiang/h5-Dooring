@@ -3,7 +3,7 @@ import { Button } from 'zarm';
 import BaseForm from './BaseForm';
 import styles from './index.less';
 import { IFormConfig } from './schema';
-import logo from '@/assets/03-表单.png';
+import logo from '@/assets/form.png';
 const FormComponent = (props: IFormConfig & { isTpl: boolean }) => {
   const {
     title,

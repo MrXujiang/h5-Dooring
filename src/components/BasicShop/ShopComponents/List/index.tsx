@@ -2,7 +2,7 @@ import React, { memo, useState, useRef } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import styles from './index.less';
 import { IListConfig } from './schema';
-import logo from '@/assets/07-列表.png';
+import logo from '@/assets/list.png';
 
 interface ListType extends IListConfig {
   isTpl?: boolean;

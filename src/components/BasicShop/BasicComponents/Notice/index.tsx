@@ -1,7 +1,7 @@
 import { NoticeBar } from 'zarm';
 import React, { memo } from 'react';
 import { INoticeConfig } from './schema';
-import logo from '@/assets/09-通知.png';
+import logo from '@/assets/notice.png';
 const Notice = memo((props: INoticeConfig & { isTpl: boolean }) => {
   const { text, speed, theme, isClose = false, isTpl } = props;
   return (

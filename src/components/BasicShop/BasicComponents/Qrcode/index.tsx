@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { IQrcodeConfig } from './schema';
-import logo from '@/assets/10-二维码.png';
+import logo from '@/assets/qrcode.png';
 const Qrcode = memo((props: IQrcodeConfig & { isTpl: boolean }) => {
   const { qrcode, text, color, fontSize = 14, isTpl } = props;
   return (

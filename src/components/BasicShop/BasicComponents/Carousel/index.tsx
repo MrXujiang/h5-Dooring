@@ -2,7 +2,7 @@ import React, { memo, PropsWithChildren } from 'react';
 import { Carousel } from 'zarm';
 import styles from './index.less';
 import { ICarouselConfig } from './schema';
-import logo from '@/assets/01-轮播.png';
+import logo from '@/assets/banner.png';
 
 interface CarouselTypes extends ICarouselConfig {
   isTpl: boolean;

@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { IFooterConfig } from './schema';
-import logo from '@/assets/02-页脚.png';
+import logo from '@/assets/footer.png';
 const Footer = memo((props: IFooterConfig) => {
   const { bgColor, text, color, align, fontSize, height } = props;
   return (

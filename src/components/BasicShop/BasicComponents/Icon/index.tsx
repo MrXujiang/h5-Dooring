@@ -3,7 +3,7 @@ import * as Icon from '@ant-design/icons';
 import { AntdIconProps } from '@ant-design/icons/lib/components/AntdIcon';
 import { AntdIconType } from './icon';
 import { IIconConfig } from './schema';
-import logo from '@/assets/05-图标.png';
+import logo from '@/assets/icon_01.png';
 
 interface IconType extends IIconConfig {
   isTpl?: boolean;

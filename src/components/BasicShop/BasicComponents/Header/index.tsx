@@ -2,7 +2,7 @@ import { memo } from 'react';
 import styles from './index.less';
 import React from 'react';
 import { IHeaderConfig } from './schema';
-import logos from '@/assets/04-页头.png';
+import logos from '@/assets/header.png';
 const Header = memo((props: IHeaderConfig) => {
   const { bgColor, logo, logoText, fontSize, color } = props;
   return (
