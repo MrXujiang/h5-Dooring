@@ -39,7 +39,7 @@ const ViewRender = memo((props: ViewProps) => {
       }}
     >
       {pointData.map((value: PointDataItem) => (
-        <div key={value.id} data-grid={value.point} className={styles.dragItem}>
+        <div key={value.id} data-grid={value.point} className={onDragStart && styles.dragItem}>
           <DynamicEngine {...(value.item as any)} isTpl={false} />
         </div>
       ))}

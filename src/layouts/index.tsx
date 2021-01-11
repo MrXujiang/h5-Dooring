@@ -1,8 +1,11 @@
-import React, { createContext, useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { library, generateRespones, RenderList, useRegister } from 'chatbot-antd';
-import { IRouteComponentProps } from 'umi';
-import { Button } from 'antd';
+import { IRouteComponentProps, history } from 'umi';
+import { Button, Modal } from 'antd';
+import Zan from '@/components/Zan';
 import { CustomerServiceOutlined } from '@ant-design/icons';
+import Draggable from 'react-draggable';
+import styles from './index.less';
 
 library.push(
   //语料库，push进去，也可以不用
@@ -14,28 +17,15 @@ library.push(
     text: (
       <div>
         <a href="https://github.com/MrXujiang">@徐小夕</a>
-        <a href="https://github.com/yehuozhili">@yehuozhili</a>
-        <a href="https://github.com/zhangjinlongll">@zhangjinlongll</a>
+        <a href="https://github.com/yehuozhili/learnsinglespa">@yehuozhili</a>
       </div>
     ),
     useReg: /(.*?)作者是谁(.*?)/,
   },
 );
 
-export type dooringContextType = 'h5' | 'pc';
-
-export interface IdooringContextType {
-  theme: dooringContextType;
-  setTheme: Function;
-}
-export const dooringContext = createContext<IdooringContextType>({
-  theme: 'h5',
-  setTheme: () => {},
-});
-
 export default function Layout({ children }: IRouteComponentProps) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [num, setNum] = useState(0);
   const callb = useCallback((v: RenderList) => {
     setTimeout(() => {
       //使用settimeout 更像机器人回话
@@ -47,21 +37,19 @@ export default function Layout({ children }: IRouteComponentProps) {
     }, 500);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleDeploy = () => {
+    window.open('http://h5.dooring.cn/uploads/WechatIMG3_1758e9753e2.jpeg');
+  };
   // 注册
   const [render, setList] = useRegister(
     modalOpen,
     callb,
     {
-      onOk: () => {
-        setModalOpen(false);
-        setNum(0);
-      },
-      onCancel: () => {
-        setModalOpen(false);
-        setNum(0);
-      },
+      onOk: () => setModalOpen(false),
+      onCancel: () => setModalOpen(false),
       title: 'h5-Dooring机器人客服',
-      width: 400,
+      width: 420,
     },
     {},
     <div>
@@ -71,72 +59,90 @@ export default function Layout({ children }: IRouteComponentProps) {
         <div>
           <div>
             &nbsp;&nbsp;1.{' '}
-            <a href="https://github.com/MrXujiang/h5-Dooring" target="_blank" rel="noreferrer">
+            <a href="https://github.com/MrXujiang/h5-Dooring" target="_blank">
               H5-Dooring源码地址
             </a>
           </div>
           <div>
             &nbsp;&nbsp;2.{' '}
-            <a
-              href="https://github.com/MrXujiang/h5-Dooring/graphs/contributors"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://github.com/MrXujiang/h5-Dooring/graphs/contributors" target="_blank">
               贡献者列表
             </a>
           </div>
+          <div>
+            &nbsp;&nbsp;3. 如果复制/删除组件不生效, 请先点击需要复制/删除组件, 再右键删除/复制
+          </div>
+          <div style={{ color: 'red' }}>
+            &nbsp;&nbsp;4. 如果二维码组件无法扫码, 请适当调小中间图标尺寸
+          </div>
           <div style={{ fontSize: '12px' }}>
-            &nbsp;&nbsp;3. dooring开源交流群(微信：Mr_xuxiaoxi)
+            &nbsp;&nbsp;5. dooring开源交流群(微信：Mr_xuxiaoxi)
+          </div>
+          <div style={{ fontSize: '12px', marginTop: '10px' }}>
+            &nbsp;&nbsp;
+            <Button type="primary" onClick={handleDeploy}>
+              私有化部署
+            </Button>
           </div>
         </div>
       </div>
     </div>,
   );
 
-  const [state, setState] = useState<dooringContextType>('h5');
-  return (
-    <dooringContext.Provider
-      value={{
-        theme: state,
-        setTheme: setState,
-      }}
-    >
-      <div style={{ height: '100%', width: '100%', overflow: 'hidden' }}>
-        <div
-          style={{
-            position: 'fixed',
-            right: `${num === 0 ? '-10px' : num === 1 ? '-100%' : '0px'}`,
-            bottom: '80px',
-            transition: 'all 0.3s ease-in-out',
-            zIndex: 2,
-          }}
-          onMouseEnter={() => {
-            //0初始，1点击 2移入
-            setNum(2);
-          }}
-          onMouseLeave={() => {
-            setNum(pre => (pre === 2 ? 0 : pre));
-          }}
-        >
-          <Button
-            type="primary"
-            style={{
-              transition: 'all 0.3s ease-in-out',
-              borderRadius: `${num === 0 ? '1000px' : '0px'}`,
-              transform: `${num === 0 ? 'scale(0.5)' : 'scale(1)'}`,
-            }}
-            onClick={() => {
-              setModalOpen(!modalOpen);
-              !modalOpen && setNum(1);
-            }}
-          >
-            <CustomerServiceOutlined></CustomerServiceOutlined>
-          </Button>
-        </div>
+  useEffect(() => {
+    setInterval(() => {
+      const timeout = +localStorage.getItem('tt');
+      if (timeout && timeout < Date.now()) {
+        localStorage.removeItem('tt');
+        Modal.info({
+          title: 'Dooring温馨提示',
+          content: <div>您的登录已过期, 请点击确认按钮重新登录</div>,
+          okText: '确认',
+          onOk() {
+            localStorage.removeItem('rp');
+            localStorage.removeItem('nickname');
+            history.push('/login');
+          },
+        });
+      }
+    }, 1000 * 15);
+  }, []);
 
-        {render}
-        {children}
+  const hackCodeStyle =
+    window.location.pathname.indexOf('preview') < 0
+      ? { height: '100%' }
+      : { height: '100%', overflow: 'auto' };
+  return (
+    <div style={hackCodeStyle}>
+      <div
+        style={{
+          position: 'fixed',
+          right: `${modalOpen ? '-100%' : '10px'}`,
+          bottom: '16px',
+          transition: 'all 0.5s ease-in-out',
+          zIndex: 2,
+        }}
+      >
+        <Button
+          type="primary"
+          style={{ padding: '0 6px' }}
+          onClick={() => setModalOpen(!modalOpen)}
+        >
+          <CustomerServiceOutlined></CustomerServiceOutlined>
+        </Button>
       </div>
-    </dooringContext.Provider>
+      {render}
+      {children}
+      {window.location.pathname.indexOf('editor') > -1 && (
+        <Draggable>
+          <div className={styles.dragPay}>
+            <div className={styles.wave}>
+              <Zan text="⛽️" />
+            </div>
+            <div className={styles.waveMask}></div>
+          </div>
+        </Draggable>
+      )}
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useRef, memo, useMemo, useContext, useState, useEffect } from 'react';
+import React, { useRef, memo, useMemo, useState, useEffect } from 'react';
 import { Button, Input, Modal, Select, Upload, Tooltip, Badge } from 'antd';
 import {
   ArrowLeftOutlined,
@@ -20,7 +20,6 @@ import { saveAs } from 'file-saver';
 import req from '@/utils/req';
 import Code from '@/assets/code.png';
 import styles from './index.less';
-import { dooringContext } from '@/layouts';
 import MyPopover from 'yh-react-popover';
 
 const { confirm } = Modal;
@@ -217,10 +216,9 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
   };
 
   const handleReloadPage = () => {
-    document.getElementById('previewPage').contentWindow.location.reload();
+    document.getElementById('previewPage')?.contentWindow.location.reload();
   };
 
-  const { setTheme } = useContext(dooringContext);
   return (
     <div className={styles.header}>
       <div className={styles.logoArea}>
