@@ -221,6 +221,7 @@ cnpm run dev
 前提是先安装http-server模块.
 
 ## Partner project
+* [rc-drag - 基于react的轻量级拖拽缩放组件](https://github.com/MrXujiang/rc-drag)
 * [Luckysheet - 强大的在线excel编辑器](https://github.com/mengshukeji/Luckysheet)
 * [Blink - 一款自定义的生成故障艺术动画的组件库](https://github.com/MrXujiang/blink)
 * [frontend-developer-roadmap | 一个能提高开发者工作效率的前端js库汇总](https://github.com/MrXujiang/frontend-developer-roadmap)
