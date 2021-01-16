@@ -134,6 +134,10 @@ body {
   margin-left: 30px;
 }
 
+img {
+  -webkit-user-drag: none;
+}
+
 .rotate-animate {
   margin: 100px auto;
   border:16px solid #f3f3f3;
