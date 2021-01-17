@@ -1,13 +1,3 @@
-/*
- * @Author: smallalso<hu141418@gmail.com>
- * @Date: 2020-12-08 18:33:27
- * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-18 16:46:50
- * @FilePath: /his-doc/docs/.vuepress/config.js
- */
-const isDev = process.env.NODE_ENV === 'development';
-// console.log(process.env.NODE_ENV === 'development', 888)
-
 module.exports = {
   base: '/',
   title: 'h5-dooring',
