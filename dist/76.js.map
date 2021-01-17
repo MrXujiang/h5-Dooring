@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/components/BasicPcShop/BasicComponents/Header/template.ts"],"names":["template","type","h","x"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,SACNC,EAAG,GACHC,EAAG,IAEUH","file":"76.js","sourcesContent":["const template = {\n  type: 'Header',\n  h: 28,\n  x: 12,\n};\nexport default template;\n"],"sourceRoot":""}

@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/components/BasicPcShop/BasicComponents/LongText/template.ts"],"names":["template","type","h"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,WACNC,EAAG,IAEUF","file":"85.js","sourcesContent":["const template = {\n  type: 'LongText',\n  h: 36,\n};\nexport default template;\n"],"sourceRoot":""}

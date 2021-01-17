@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/components/BasicShop/MediaComponents/Audio/template.ts"],"names":["template","type","h","displayName"],"mappings":"+FAAA,UAAMA,GAAW,CACfC,KAAM,QACNC,EAAG,IACHC,YAAa,QAEAH","file":"125.js","sourcesContent":["const template = {\n  type: 'Audio',\n  h: 107,\n  displayName: '音频组件',\n};\nexport default template;\n"],"sourceRoot":""}

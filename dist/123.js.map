@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/components/BasicShop/BasicComponents/WhiteTpl/template.ts"],"names":["template","type","h","displayName"],"mappings":"6FAAA,UAAMA,GAAW,CACfC,KAAM,WACNC,EAAG,GACHC,YAAa,QAEAH","file":"123.js","sourcesContent":["const template = {\n  type: 'WhiteTpl',\n  h: 20,\n  displayName: '空白组件',\n};\nexport default template;\n"],"sourceRoot":""}

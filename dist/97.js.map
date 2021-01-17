@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/components/BasicPcShop/VisualComponents/Line/template.ts"],"names":["template","type","h"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,OACNC,EAAG,KAEUF","file":"97.js","sourcesContent":["const template = {\n  type: 'Line',\n  h: 104,\n};\nexport default template;\n"],"sourceRoot":""}
