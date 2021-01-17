@@ -26,6 +26,8 @@
     "build": "umi build",
     "server": "node server.js",
     "dev": "http-server dist",
+    "docs:dev": "vuepress dev doc",
+    "docs:build": "vuepress build doc",
     "test-demo": "http-server dist",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
@@ -126,6 +128,7 @@
     "prettier": "^1.19.1",
     "redux-logger": "^3.0.6",
     "sass-loader": "^9.0.3",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "vuepress": "^1.8.0"
   }
 }

@@ -1,0 +1,18 @@
+.nav-link.external {
+    .outbound {
+        display: none;
+    }
+}
+
+.nav-link.external:last-child {
+    color: #fff;
+    background-color: #67c23a;
+    border-color: #67c23a;
+    padding: 6px 14px;
+    border-radius: 4px;
+}
+
+.doc-main {
+    padding-top: 88px;
+    padding-left: 380px;
+}

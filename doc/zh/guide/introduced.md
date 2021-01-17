@@ -1,0 +1,3 @@
+<img src="../../img/common/framework.png" alt="foo">
+
+注：灰色部分还未实现，正在更新中...

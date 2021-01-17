@@ -1,0 +1,9 @@
+[
+  {
+    "text": "指南",
+    "link": "/guide/",
+    "sort": ["index", "quick-start", "introduction", "config", "api", "issues"]
+  },
+  { "text": "工具", "link": "/tool/" },
+  { "text": "规范", "link": "/standard/" }
+]
