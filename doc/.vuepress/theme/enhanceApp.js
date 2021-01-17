@@ -1,11 +1,3 @@
-/*
- * @Author: smallalso<hu141418@gmail.com>
- * @Date: 2020-11-16 11:07:22
- * @LastEditors: smallalso<hu141418@gmail.com>
- * @LastEditTime: 2020-12-15 17:46:54
- * @FilePath: /his-doc/docs/.vuepress/theme/enhanceApp.js
- */
-
 import './styles/main.scss';
 
 // 使用异步函数也是可以的
