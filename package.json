@@ -18,7 +18,6 @@
   ],
   "contributors": [
     "徐小夕 <xujiang156@qq.com> (https://github.com/MrXujiang))",
-    "dragon <zhangjinlongll@163.com> (https://github.com/zhangjinlongll))",
     "yehuozhili <yehuozhili@outlook.com> (https://github.com/yehuozhili))"
   ],
   "scripts": {
@@ -46,7 +45,7 @@
       "prettier --parser=typescript --write"
     ]
   },
-  "homepage": "http://io.nainor.com/h5_visible",
+  "homepage": "http://h5.dooring.cn",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MrXujiang/h5-Dooring.git"

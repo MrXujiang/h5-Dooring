@@ -16,20 +16,22 @@
 
 > H5-Dooring is a powerful, open source, free H5 visual page configuration solution dedicated to providing a simple, convenient, professional and reliable, unlimited set of H5 landing page best practices. The technology stack is mainly react, developed in the background using nodejs.
 
-### 🏠 [Homepage](http://49.234.61.19/h5_visible)
+### 🏠 [Homepage](http://h5.dooring.cn)
 
 ### ✨ [Demo](http://h5.dooring.cn/h5_plus/editor?tid=123456)
+
+### 📦 doc(文档) [H5-Dooring Document](http://h5.dooring.cn/doc)
 
 ### [视频教程 | Video tutorial](https://www.zhihu.com/zvideo/1326300284608417792)
 
 <!-- <img src="http://io.nainor.com/uploads/face_17512320c6d.png" alt="H5可视化编辑器" /> -->
-![](http://49.234.61.19/uploads/dooring-sdk_1763cbe7028.png)
+![](http://h5.dooring.cn/uploads/dooring-sdk_1763cbe7028.png)
 
 ## Author
 
 👤 **徐小夕**
 
-* Website: http://49.234.61.19/h5_visible
+* Website: http://h5.dooring.cn
 * Github: [@MrXujiang](https://github.com/MrXujiang)
 
 ## 🤝 Contributing
@@ -44,13 +46,13 @@ Give a ⭐️ if this project helped you!
 最近笔者正在开放dooring的插拔式服务, 以js-sdk的形式支持集成到外部系统中, 并提供开放API共使用者自由配置. 规划如下:
 
 
-![](http://49.234.61.19/uploads/sdk_1763cc11bd5.png)
+![](http://h5.dooring.cn/uploads/sdk_1763cc11bd5.png)
 
 
 ### 1. 如何引用用js-sdk | How to use js-sdk
 我们可以使用两种方式来使用我们的js-sdk, 第一种是在项目脚本中引入如下script标签, 如下:
 ``` js
-<script src="http://49.234.61.19/dooring-sdk.js"></script>
+<script src="http://h5.dooring.cn/dooring-sdk.js"></script>
 ```
 或者直接复制如下代码到你的script标签中, 代码如下:
 ``` js

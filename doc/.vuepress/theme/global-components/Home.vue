@@ -1,56 +1,56 @@
 <template>
-    <main class="home" :aria-labelledby="data.heroText !== null ? 'main-title' : null">
-        <header class="hero">
-            <h1 v-if="data.heroText !== null" id="main-title">
-                <img src="../imgs/common/logo.svg" :alt="data.heroAlt || 'hero'" /><span>{{
-                    data.heroText || $title || "Hello"
-                }}</span>
-            </h1>
-        </header>
+  <main class="home" :aria-labelledby="data.heroText !== null ? 'main-title' : null">
+    <header class="hero">
+      <h1 v-if="data.heroText !== null" id="main-title">
+        <img src="../imgs/common/logo.svg" :alt="data.heroAlt || 'hero'" /><span>{{
+          data.heroText || $title || "Hello"
+        }}</span>
+      </h1>
+    </header>
 
-        <div v-if="data.features && data.features.length" class="features">
-            <div class="container">
-                <div v-for="(feature, index) in data.features" :key="index" class="feature">
-                    <div class="feature-index">{{ index + 1 }}</div>
-                    <h2>{{ feature.title }}</h2>
-                    <p>{{ feature.details }}</p>
-                </div>
-            </div>
+    <div v-if="data.features && data.features.length" class="features">
+      <div class="container">
+        <div v-for="(feature, index) in data.features" :key="index" class="feature">
+          <div class="feature-index">{{ index + 1 }}</div>
+          <h2>{{ feature.title }}</h2>
+          <p>{{ feature.details }}</p>
         </div>
+      </div>
+    </div>
 
-        <Content class="theme-default-content custom" />
+    <Content class="theme-default-content custom" />
 
-        <div class="hero">
-            <p v-if="data.actionText && data.actionLink" class="action">
-                <NavLink class="action-button" :item="actionLink" />
-            </p>
-        </div>
-        <div v-if="data.footer" class="footer">
-            {{ data.footer }}
-        </div>
-    </main>
+    <div class="hero">
+      <p v-if="data.actionText && data.actionLink" class="action">
+        <NavLink class="action-button" :item="actionLink" />
+      </p>
+    </div>
+    <div v-if="data.footer" class="footer">
+      {{ data.footer }}
+    </div>
+  </main>
 </template>
 
 <script>
 import NavLink from "@vuepress/theme-default/components/NavLink.vue";
 
 export default {
-    name: "Home",
+  name: "Home",
 
-    components: { NavLink },
+  components: { NavLink },
 
-    computed: {
-        data() {
-            return this.$page.frontmatter;
-        },
-
-        actionLink() {
-            return {
-                link: this.data.actionLink,
-                text: this.data.actionText,
-            };
-        },
+  computed: {
+    data() {
+      return this.$page.frontmatter;
     },
+
+    actionLink() {
+      return {
+        link: this.data.actionLink,
+        text: this.data.actionText,
+      };
+    },
+  },
 };
 </script>
 
@@ -101,7 +101,7 @@ $homePageWidth = 1080px
         background-color lighten($accentColor, 10%)
   .features
     border-top 1px solid $borderColor
-    padding 1.2rem 0
+    padding 80px 0
     background-color #fff
     margin-top 2.5rem
     .container
@@ -116,7 +116,7 @@ $homePageWidth = 1080px
     max-width 27%
     border-radius 8px
     padding 20px 22px
-    box-shadow 0 5px 4px 4px #ddd
+    box-shadow 0 0 8px rgba(0,0,0,.1)
     .feature-index
       border-radius 4px
       background-color #083ac4

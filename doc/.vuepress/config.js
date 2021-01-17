@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/',
+  base: '/doc/',
   title: 'h5-dooring',
   dest: './doc-dist',
   themeConfig: {
@@ -7,10 +7,11 @@ module.exports = {
     searchMaxSuggestions: 10,
     lastUpdated: 'Last Updated',
     nav: [
-      { text: '体验', link: '/' },
+      { text: '首页', link: '/' },
       { text: '文档', link: '/zh/guide/' },
-      { text: '1.X', link: '/zh/guide/1' },
-      { text: '语言', link: '/zh/guide/2' },
+      // { text: '1.X', link: '/zh/guide/' },
+      // { text: '语言', link: '/zh/guide/' },
+      { text: '体验', link: 'http://h5.dooring.cn' },
       { text: 'github', link: 'https://github.com/MrXujiang/h5-Dooring' },
     ],
     sidebar: [
