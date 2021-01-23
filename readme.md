@@ -223,6 +223,7 @@ cnpm run dev
 前提是先安装http-server模块.
 
 ## Partner project
+* [powerNice - 一款轻量级文档管理编辑器](http://h5.dooring.cn/powernice/views)
 * [rc-drag - 基于react的轻量级拖拽缩放组件](https://github.com/MrXujiang/rc-drag)
 * [Luckysheet - 强大的在线excel编辑器](https://github.com/mengshukeji/Luckysheet)
 * [Blink - 一款自定义的生成故障艺术动画的组件库](https://github.com/MrXujiang/blink)
