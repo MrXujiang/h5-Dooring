@@ -11,7 +11,7 @@ const XProgress = memo((props: IXProgressConfig & { isTpl: boolean }) => {
           <img src={logo} alt=""></img>
         </div>
       ) : (
-        <div className={styles.textWrap} style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center' }}>
           <Progress
             shape={shape}
             size={size}
