@@ -152,27 +152,27 @@ FileSaver.saveAs(blob, "hello world.txt");
 * [基于H5 Dooring场景下的图片 文件上传方案指南](https://github.com/MrXujiang/h5-Dooring/wiki/%E5%9F%BA%E4%BA%8EH5-Dooring%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E5%9B%BE%E7%89%87-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88%E6%8C%87%E5%8D%97)
 
 ## 已完成功能 | The functionality is complete
-1. 组件库拖拽和显示
-2. 组件库动态编辑
-3. H5页面预览功能
-4. 保存H5页面配置文件
-5. 保存为模版
-6. 移动端跨端适配
-7. 媒体组件
-8. 在线下载网站代码功能
-9. 添加typescript支持
-10. 表单设计器/自定义表单组件
-11. 可视化组件Chart实现
-12. 在线编程模块(Mini Web IDE)
-13. 新增图表组件 面积图，折线图， 饼图
-14. 添加图片库,支持用户在线选择图片素材
-15.升级图片组件为图文组件
-16. 添加模版库
-17. 添加可视化组件(基于g2)如折线图, 饼图, 面积图等
-18. form组件文本框字段修改
-19. 清空按钮添加确认框
-20. 表单组件中添加展示型文本,用来对字段说明
-21. 支持组件复制, 右键删除
+1. 组件库拖拽和显示 | Component library drag and display
+2. 组件库动态编辑 | Component library dynamic editing
+3. H5页面预览功能 | H5 page preview feature
+4. 保存H5页面配置文件 | Save the H5 page profile
+5. 保存为模版 | Save as a template
+6. 移动端跨端适配 | Mobile cross-end fit
+7. 媒体组件 | The media component
+8. 在线下载网站代码功能 | Download the website code feature online
+9. 添加typescript支持 | Add typescript support
+10. 表单设计器/自定义表单组件 | Form designer/custom form components
+11. 可视化组件Chart实现 | Visual component Chart implementation
+12. 在线编程模块(Mini Web IDE) | Online programming module
+13. 新增图表组件 面积图，折线图， 饼图 | Added chart component area chart, line chart, pie chart
+14. 添加图片库,支持用户在线选择图片素材 | Add a picture library to allow users to select picture footage online
+15. 升级图片组件为图文组件 | Upgrade the picture component to the picture component
+16. 添加模版库 | Add a template library
+17. 添加可视化组件(基于g2)如折线图, 饼图, 面积图等 | Add visualization components (based on g2) such as line charts, pie charts, area charts, etc
+18. form组件文本框字段修改 | The form component text box field is modified
+19. 清空按钮添加确认框 | Empty the button to add a confirmation box
+20. 表单组件中添加展示型文本,用来对字段说明 | Add presentation text to the form component to describe the field
+21. 支持组件复制, 右键删除 | Support for component replication, right-click deletion
 
 ## 正在完成功能 | The functionality is being completed
 * 丰富组件库组件 Enrich component library components
