@@ -112,6 +112,38 @@ module.exports = {
           },
         ],
       },
+      {
+        title: '私有化部署和二次开发',
+        collapsable: false,
+        sidebarDepth: 1,
+        type: 'group',
+        children: [
+          {
+            title: '私有化部署',
+            path: '/zh/guide/deployDev/deploy',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
+            title: '支持https',
+            path: '/zh/guide/deployDev/https',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
+            title: '接入第三方oss',
+            path: '/zh/guide/deployDev/oss',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
+            title: 'API接口文档',
+            path: '/zh/guide/deployDev/api',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+        ],
+      },
     ],
   },
 };
