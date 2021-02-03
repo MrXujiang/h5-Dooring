@@ -154,6 +154,41 @@ p {
   text-align: left;
   font-size: 1.125rem;
 }
+.pc-section-sub-title {
+  font-size: 24px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #9b9b9b;
+  margin-bottom: 22px;
+}
+.section-title-ul {
+  margin: auto;
+}
+.section-title-ul::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+.section-title-ul li {
+  font-size: 24px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #444a59;
+  float: left;
+  position: relative;
+  margin-right: 60px;
+}
+.section-title-ul li::before {
+  content: '·';
+  position: absolute;
+  left: -34px;
+}
+.section-title-ul li.first::before {
+  content: '';
+}
+.section-title-ul li.last {
+  margin-right: 0;
+}
 .section-badge {
   display: inline-block;
   margin-bottom: 10px;
@@ -164,6 +199,31 @@ p {
   background: #15db95;
   -webkit-box-shadow: 0 10px 16px 0 rgba(21, 219, 150, 0.15);
   box-shadow: 0 10px 16px 0 rgba(21, 219, 150, 0.15);
+}
+.section-sub-btn {
+  margin-top: 60px;
+  width: 226px;
+  background: #2f55ec !important;
+}
+.big-adaptation-img-container {
+}
+.big-adaptation-img-container img {
+}
+.gray-btn {
+  background: #4a547b !important;
+}
+.mb-3 {
+  width: 400px;
+}
+.form-control {
+  background: rgba(187, 192, 212, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(187, 192, 212, 0.4);
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #9b9b9b;
+  line-height: 20px;
 }
 .default-outline-btn {
   display: inline-block;
@@ -186,6 +246,9 @@ p {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   background: #12bd81;
   color: #fff !important;
+}
+.blue-text {
+  color: #0095ff !important;
 }
 .blue-btn {
   background-color: #0095ff !important;
@@ -227,7 +290,14 @@ p {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 @media only screen and (max-width: 750px) {
-  .github {
+  .github,
+  .mobile-hidden {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .pc-hidden {
     display: none !important;
   }
 }
@@ -1007,6 +1077,16 @@ p {
 .services-icon span {
   position: relative;
   display: inline-block;
+}
+.services-img {
+  background-color: initial !important;
+}
+.services-img img {
+  width: 100%;
+  height: 100%;
+}
+.not-line:before {
+  background-color: initial !important;
 }
 .box-title {
   font-size: 24px;
