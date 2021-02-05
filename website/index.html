@@ -99,7 +99,7 @@
         <div class="row align-items-center justify-content-center ">
           <div class="col-lg-4 col-md-6 col-sm-6 services-resp-margin wow fadeInUp" data-wow-delay="0.1s">
             <div class="services-item item-shadow">
-              <div class="services-icon services-blue-icon services-img">
+              <div class="services-icon services-blue-icon services-img no-shadow">
                 <img src="./img/所见即所得.png" />
               </div>
               <span class="box-title">所见即所得</span>
@@ -113,7 +113,7 @@
           <!--// .col //-->
           <div class="col-lg-4 col-md-6 col-sm-6 services-resp-margin wow fadeInUp" data-wow-delay="0.3s">
             <div class="services-item item-shadow">
-              <div class="services-icon services-img">
+              <div class="services-icon services-img no-shadow">
                 <img src="./img/代码可移植.png" />
               </div>
               <span class="box-title">代码可移植</span>
@@ -127,7 +127,7 @@
           <!--// .col //-->
           <div class="col-lg-4 col-md-6 col-sm-6 services-resp-margin wow fadeInUp" data-wow-delay="0.3s">
             <div class="services-item item-shadow">
-              <div class="services-icon services-img">
+              <div class="services-icon services-img no-shadow">
                 <img src="./img/自动云同步.png" />
               </div>
               <span class="box-title">自动云同步</span>
@@ -472,7 +472,10 @@
           </div>
           <div class="mb-3">
             <button type="button" class="btn btn-secondary btn-lg" style="width: 123px;height: 60px;background: #4A547B;margin-right: 12px;">发送</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg" style="width: 259px;height: 60px;background: #FFFFFF;border-radius: 8px;">联系我们</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg contact-us" style="width: 259px;height: 60px;background: #FFFFFF;border-radius: 8px;">联系我们</button>
+            <div class="qr-code-container bottom-top-arrow">
+                    <img class="icon-qr-code" src="./img/qtqd_code.png"/>
+                  </div>
           </div>
         </div>
       </div>
@@ -498,7 +501,7 @@
       <!--// .container //-->
     </section>
     <!--// Footer Section Start //-->
-    <footer class="footer">
+    <footer class="footer pc-hidden">
       <!--// .footer-top //-->
       <div class="copyright">
         <div class="container">
@@ -515,6 +518,74 @@
         </div>
         <!--// .container //-->
       </div>
+      <!--// .copyright //-->
+    </footer>
+
+    <footer class="footer pc-footer mobile-hidden">
+      <!--// .footer-top //-->
+
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-lg-9">
+              <ul class="pc-footer-menu text-center">
+                <li>
+                  <a href=""> 主页</a>
+                </li>
+                <li>
+                   <a href=""> 特点</a>
+                </li>
+                <li>
+                    <a href=""> 介绍</a>
+                </li>
+                <li>
+                     <a href=""> 合作</a>
+                </li>
+                <li>
+                      <a href=""> 加入</a>
+                </li>
+                <li>
+                       <a href=""> 反馈</a>
+                </li>
+              </ul>
+              <ul class="pc-footer-contact text-center">
+                <li>
+                  <img class="icon-contact" src="./img/wechat.png"/>
+                  <div class="qr-code-container bottom-center-arrow">
+                    <img class="icon-qr-code" src="./img/qtqd_code.png"/>
+                  </div>
+                </li>
+                <!-- <li>
+                  <img class="icon-contact" src="./img/qq.png"/>
+                  <div class="qr-code-container bottom-center-arrow">
+                    <img class="icon-qr-code" src="./img/wechat.png"/>
+                  </div>
+                </li> -->
+                <li>
+                  <a href="https://www.zhihu.com/people/build800">
+                    <img class="icon-contact" src="./img/zhi.png"/>
+                </a>
+                  <!-- <div class="qr-code-container bottom-center-arrow">
+                    <img class="icon-qr-code" src="./img/wechat.png"/>
+                  </div> -->
+                </li>
+                <li>
+                  <a href="https://github.com/MrXujiang/h5-Dooring"><img class="icon-contact" src="./img/github.png"/></a>
+                  <!-- <div class="qr-code-container bottom-center-arrow">
+                    <img class="icon-qr-code" src="./img/wechat.png"/>
+                  </div> -->
+                </li>
+              </ul>
+              <p class="text-center pc-footer-contact-info">
+                © Copyright <span id="fullYearCopyright"></span> - 徐小夕
+                <a style="margin-left:20px" href="https://beian.miit.gov.cn/#/Integrated/index"
+                  target="_blank">鄂ICP备18024675号-3</a>
+              </p>
+            </div>
+          </div>
+          <!--// .row //-->
+        </div>
+        <!--// .container //-->
+
       <!--// .copyright //-->
     </footer>
 
