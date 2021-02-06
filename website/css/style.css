@@ -205,10 +205,6 @@ p {
   width: 226px;
   background: #2f55ec !important;
 }
-.big-adaptation-img-container {
-}
-.big-adaptation-img-container img {
-}
 .gray-btn {
   background: #4a547b !important;
 }
@@ -2329,4 +2325,58 @@ p {
   .intro-hero-title {
     font-size: 1.6rem;
   }
+}
+
+.bg-wave {
+  position: relative;
+  background: linear-gradient(to bottom, #fff, #f9faff);
+}
+
+.bg-wave::before, .bg-wave::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  min-width: 300vw;
+  min-height: 300vw;
+  background-color: #fff;
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.bg-wave::before {
+  bottom: 3vh;
+  border-radius: 45%;
+  animation-duration: 12s;
+}
+
+.bg-wave::after {
+  bottom: 0vh;
+  opacity: .5;
+  border-radius: 47%;
+  animation-duration: 12s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, 0) rotateZ(0deg);
+  }
+  50% {
+    transform: translate(-50%, -2%) rotateZ(180deg);
+  }
+  100% {
+    transform: translate(-50%, 0%) rotateZ(360deg);
+  }
+}
+
+.bg-circle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  transform: translate(11px, -25px) rotate(13deg);
+  background: linear-gradient(160deg, #fff, #f9faff);
 }
