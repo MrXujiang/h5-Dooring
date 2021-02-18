@@ -1,3 +1,5 @@
+$accentColor: #083ac4;
+
 .nav-link.external {
     .outbound {
         display: none;
@@ -6,8 +8,8 @@
 
 .nav-link.external:last-child {
     color: #fff;
-    background-color: #67c23a;
-    border-color: #67c23a;
+    background-color: $accentColor;
+    border-color: $accentColor;
     padding: 6px 14px;
     border-radius: 4px;
 }

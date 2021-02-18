@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style lang="stylus">
-$accentColor =#45a612
+$accentColor =#083ac4
 $homePageWidth = 1080px
 .container
   max-width $homePageWidth
