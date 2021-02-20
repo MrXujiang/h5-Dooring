@@ -36,6 +36,10 @@
 * Website: http://h5.dooring.cn
 * Github: [@MrXujiang](https://github.com/MrXujiang)
 
+## 声明
+
+专有软件及代码，未获得授权的情况下，禁止对该仓库代码进行反编译、分发等行为，否则将承担相应的法律后果。
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/MrXujiang/h5-Dooring/issues).
