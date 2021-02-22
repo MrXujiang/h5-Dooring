@@ -1,7 +1,7 @@
 import Video from './Video/template';
 import Audio from './Audio/template';
 import Map from './Map/template';
-import Calendar from './Calendar/schema';
+import Calendar from './Calendar/template';
 
 const mediaTemplate = [Video, Audio, Map, Calendar];
 
