@@ -2,9 +2,9 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { library, generateRespones, RenderList, useRegister } from 'chatbot-antd';
 import { IRouteComponentProps, history } from 'umi';
 import { Button, Modal } from 'antd';
-import Zan from '@/components/Zan';
 import { CustomerServiceOutlined } from '@ant-design/icons';
 import Draggable from 'react-draggable';
+import Dooring from '@/assets/dooring.png';
 import styles from './index.less';
 
 library.push(
@@ -108,6 +108,31 @@ export default function Layout({ children }: IRouteComponentProps) {
     }, 1000 * 15);
   }, []);
 
+  const showVideo = () => {
+    Modal.info({
+      title: '秒懂H5-Dooring',
+      width: 860,
+      zIndex: 100000,
+      content: (
+        <div style={{ height: 380 }}>
+          <iframe
+            style={{ width: '100%', height: '100%' }}
+            src="//player.bilibili.com/player.html?aid=204342673&bvid=BV1jh411k7xs&cid=301889522&page=1"
+            scrolling="no"
+            border="0"
+            frameborder="no"
+            framespacing="0"
+            allowfullscreen="true"
+          >
+            {' '}
+          </iframe>
+        </div>
+      ),
+      okText: 'GET, 关闭',
+      onOk() {},
+    });
+  };
+
   const hackCodeStyle =
     window.location.pathname.indexOf('preview') < 0
       ? { height: '100%' }
@@ -136,10 +161,10 @@ export default function Layout({ children }: IRouteComponentProps) {
       {window.location.pathname.indexOf('editor') > -1 && (
         <Draggable>
           <div className={styles.dragPay}>
-            <div className={styles.wave}>
-              <Zan text="⛽️" />
+            <div className={styles.crouseBtn}>搭建技巧(可拖动)</div>
+            <div className={styles.mask} onClick={showVideo}>
+              <img src={Dooring} alt="" />
             </div>
-            <div className={styles.waveMask}></div>
           </div>
         </Draggable>
       )}
