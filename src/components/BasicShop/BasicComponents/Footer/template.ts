@@ -1,6 +1,6 @@
 const template = {
   type: 'Footer',
-  h: 24,
+  h: 10,
   displayName: '页脚组件',
 };
 export default template;

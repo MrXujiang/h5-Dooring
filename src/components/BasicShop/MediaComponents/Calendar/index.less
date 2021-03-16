@@ -1,0 +1,55 @@
+.calenderWrap {
+  position: relative;
+  // height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  :global(.za-calendar__month) {
+    color: var(--color) !important;
+  }
+  :global(.za-calendar__day--today .za-calendar__day__content) {
+    color: var(--selectColor);
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  :global(.za-calendar__day--selected .za-calendar__day__content) {
+    background-color: var(--selectColor) !important;
+  }
+  :global(.za-calendar__day--range .za-calendar__day__content),
+  :global(.za-calendar__day--range),
+  :global(.za-calendar__day--selected .za-calendar__day__content) {
+    background-color: var(--selectBgColor) !important;
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0) 50%,
+      var(--selectBgColor) 0
+    ) !important;
+  }
+  :global(.za-calendar__day--range) {
+    color: rgba(255, 255, 255, 0.7) !important;
+    :global(.za-calendar__day__content) {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+  }
+  :global(.za-calendar__day.range-start),
+  :global(.za-calendar__day.range-end) {
+    :global(.za-calendar__day__content) {
+      color: rgba(255, 255, 255, 1) !important;
+    }
+  }
+  :global(.za-calendar__day.range-start:not(.range-end):not(.d6):not(:last-child)) {
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0) 50%,
+      var(--selectBgColor) 0
+    ) !important;
+  }
+  :global(.za-calendar__day.range-end:not(.range-start):not(.d7):not(:first-child)) {
+    background-image: linear-gradient(
+      -90deg,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0) 50%,
+      var(--selectBgColor) 0
+    ) !important;
+  }
+}

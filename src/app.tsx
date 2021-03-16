@@ -1,9 +1,11 @@
+import { createLogger } from 'redux-logger';
 import { message } from 'antd';
 import undoable, { StateWithHistory } from 'redux-undo';
 import { Reducer, AnyAction } from 'redux';
 
 export const dva = {
   config: {
+    [process.env.NODE_ENV === 'development' ? 'onAction' : '']: createLogger(),
     onError(e: Error) {
       message.error(e.message, 3);
     },

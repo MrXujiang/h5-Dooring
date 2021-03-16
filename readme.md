@@ -29,12 +29,18 @@
 <!-- <img src="http://io.nainor.com/uploads/face_17512320c6d.png" alt="H5可视化编辑器" /> -->
 ![](http://h5.dooring.cn/uploads/dooring-sdk_1763cbe7028.png)
 
+相关产品: [V6.Dooring | 大屏可视化编辑器](https://github.com/MrXujiang/v6.dooring.public)
+
 ## Author
 
 👤 **徐小夕**
 
 * Website: http://h5.dooring.cn
 * Github: [@MrXujiang](https://github.com/MrXujiang)
+
+## 声明
+
+专有软件及代码，未获得授权的情况下，禁止对该仓库代码进行反编译、分发等行为，否则将承担相应的法律后果。
 
 ## 🤝 Contributing
 
