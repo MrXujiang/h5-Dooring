@@ -239,15 +239,23 @@ p {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 .merchant-list {
-  /* max-width: 210px;   */
+  width: 210px;
+  height: 210px;
 
-  border-radius: 10px;
   text-align: center;
+}
+.merchant-item {
+  width: 210px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  box-shadow: 0px 0px 40px -5px rgba(74, 84, 123, 0.15);
+  border-radius: 10px;
 }
 .merchant-list img {
   width: 100%;
-  display: inline-block;
-  box-shadow: 0px 0px 40px -5px rgba(74, 84, 123, 0.15);
+  align-items: center;
 }
 .merchant-img-container {
   width: 117vw;
@@ -1770,7 +1778,53 @@ p {
     margin-bottom: 50px;
   }
 }
-
+.team-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 40px;
+}
+.team-box {
+  width: 2600px;
+}
+.team-box::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+.team-card {
+  width: 485px;
+  height: 232px;
+  background: #ffffff;
+  box-shadow: 0px 0px 40px 0px rgba(110, 127, 193, 0.1);
+  border-radius: 20px;
+  margin-right: 32px;
+  padding: 32px;
+  float: left;
+}
+.team-card img {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+}
+.team-card .team-info {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  font-family: PingFangSC-Medium, PingFang SC;
+}
+.team-card .team-info p {
+  font-size: 32px;
+  font-weight: 500;
+  color: #232323;
+  line-height: 30px;
+  margin-bottom: 25px;
+}
+.team-card .team-info span {
+  font-size: 32px;
+  font-weight: 400;
+  color: #7a7a7a;
+  line-height: 30px;
+}
 /* ---------------------------------------------------------------- */
 /* 13.Testimonial Section
 /* ---------------------------------------------------------------- */
