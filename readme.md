@@ -20,7 +20,7 @@
 
 ### 🏠 [Homepage](http://h5.dooring.cn)
 
-### ✨ [Demo](http://h5.dooring.cn/h5_plus/editor?tid=123456)
+### ✨ [Demo](http://h5.dooring.cn/h5_plus)
 
 ### 📦 doc(文档) [H5-Dooring Document](http://h5.dooring.cn/doc)
 
