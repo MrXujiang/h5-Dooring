@@ -3,7 +3,7 @@ import { useDrop } from 'react-dnd';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import { ItemCallback } from 'react-grid-layout';
 import { connect } from 'dva';
-import ViewRender from '@/core/ViewRender';
+import { ViewRender } from '@/core';
 import styles from './index.less';
 import { uuid } from '@/utils/tool';
 import { Dispatch } from 'umi';

@@ -1,15 +1,15 @@
 import React, { memo, RefObject, useEffect } from 'react';
 import { Form, Select, InputNumber, Input, Switch, Radio } from 'antd';
-import Upload from './FormComponents/Upload';
-import DataList from './FormComponents/DataList';
-import MutiText from './FormComponents/MutiText';
-import Color from './FormComponents/Color';
-import CardPicker from './FormComponents/CardPicker';
-import Table from './FormComponents/Table';
-import Pos from './FormComponents/Pos';
+import Upload from '../FormComponents/Upload';
+import DataList from '../FormComponents/DataList';
+import MutiText from '../FormComponents/MutiText';
+import Color from '../FormComponents/Color';
+import CardPicker from '../FormComponents/CardPicker';
+import Table from '../FormComponents/Table';
+import Pos from '../FormComponents/Pos';
 import { Store } from 'antd/lib/form/interface';
-import RichText from './FormComponents/XEditor';
-import FormItems from './FormComponents/FormItems';
+import RichText from '../FormComponents/XEditor';
+import FormItems from '../FormComponents/FormItems';
 const normFile = (e: any) => {
   console.log('Upload event:', e);
   if (Array.isArray(e)) {

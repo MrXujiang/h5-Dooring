@@ -14,7 +14,7 @@ import SourceBox from './SourceBox';
 import TargetBox from './TargetBox';
 import Calibration from 'components/Calibration';
 import DynamicEngine, { componentsType } from '@/core/DynamicEngine';
-import FormRender from '@/core/FormRender';
+import { FormRender } from '@/core';
 
 import template from 'components/BasicShop/BasicComponents/template';
 import mediaTpl from 'components/BasicShop/MediaComponents/template';

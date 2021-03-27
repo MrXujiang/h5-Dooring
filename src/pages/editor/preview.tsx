@@ -1,5 +1,5 @@
 import React, { CSSProperties, memo, useEffect, useMemo, useRef, useState } from 'react';
-import ViewRender from '@/core/ViewRender';
+import { ViewRender } from '@/core';
 import domtoimage from 'dom-to-image';
 import req from '@/utils/req';
 import { useGetScrollBarWidth } from '@/utils/tool';
