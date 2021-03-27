@@ -92,7 +92,7 @@ const Container = (props: {
     return (data: any) => {
       dispatch({
         type: 'editorModal/modPointData',
-        payload: { ...curPoint, item: { ...curPoint?.item, config: data } },
+        payload: { ...curPoint, item: { ...curPoint.item, config: data } },
       });
     };
   }, [curPoint, dispatch]);
