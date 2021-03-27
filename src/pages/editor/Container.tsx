@@ -16,9 +16,9 @@ import Calibration from 'components/Calibration';
 import DynamicEngine, { componentsType } from '@/core/DynamicEngine';
 import { FormRender } from '@/core';
 
-import template from '@/materials/BasicComponents/template';
-import mediaTpl from '@/materials/MediaComponents/template';
-import graphTpl from '@/materials/VisualComponents/template';
+import template from '@/materials/base/template';
+import mediaTpl from '@/materials/media/template';
+import graphTpl from '@/materials/visual/template';
 
 import schemaH5 from '@/materials/schema';
 import { ActionCreators, StateWithHistory } from 'redux-undo';

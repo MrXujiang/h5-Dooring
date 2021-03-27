@@ -1,6 +1,6 @@
-import BasicSchema from './BasicComponents/schema';
-import MediaSchema from './MediaComponents/schema';
-import VisualSchema from './VisualComponents/schema';
+import BasicSchema from './base/schema';
+import MediaSchema from './media/schema';
+import VisualSchema from './visual/schema';
 import shopSchema from './ShopComponents/schema';
 
 const schema = {
