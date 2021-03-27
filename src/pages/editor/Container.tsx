@@ -10,8 +10,8 @@ import {
 import { connect } from 'dva';
 import HeaderComponent from './components/Header';
 import CanvasControl from './components/CanvasControl';
-import SourceBox from './SourceBox';
-import TargetBox from './TargetBox';
+import SourceBox from './TargetBox';
+import TargetBox from './SourceBox';
 import Calibration from 'components/Calibration';
 import DynamicEngine, { componentsType } from '@/core/DynamicEngine';
 import { FormRender } from '@/core';
