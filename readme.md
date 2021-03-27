@@ -57,7 +57,7 @@ Give a ⭐️ if this project helped you!
 ![](http://h5.dooring.cn/uploads/sdk_1763cc11bd5.png)
 
 
-### 1. 如何引用用js-sdk | How to use js-sdk
+### 1. 如何引用js-sdk | How to use js-sdk
 我们可以使用两种方式来使用我们的js-sdk, 第一种是在项目脚本中引入如下script标签, 如下:
 ``` js
 <script src="http://h5.dooring.cn/dooring-sdk.js"></script>
