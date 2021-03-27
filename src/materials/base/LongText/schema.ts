@@ -7,7 +7,7 @@ import {
   TNumberDefaultType,
   TSelectDefaultType,
   TTextAreaDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 export type TLongTextSelectKeyType = 'left' | 'center' | 'right';
 
 export type TLongTextEditData = Array<

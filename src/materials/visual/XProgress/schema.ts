@@ -5,7 +5,7 @@ import {
   TNumberDefaultType,
   TRadioDefaultType,
   TSelectDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 export type TXProgressSelectKeyType = 'success' | 'warning' | 'danger';
 export type TXProgressRadiotKeyType = 'circle' | 'line' | 'semi-circle';
 export type TXProgressEditData = Array<

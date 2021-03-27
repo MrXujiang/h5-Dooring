@@ -4,7 +4,7 @@ import {
   TTextDefaultType,
   TNumberDefaultType,
   IColorConfigType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 
 export type TCalendarEditData = Array<INumberConfigType | ITextConfigType | IColorConfigType>;
 export interface ICalendarConfig {

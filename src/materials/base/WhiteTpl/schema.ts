@@ -5,7 +5,7 @@ import {
   TColorDefaultType,
   TNumberDefaultType,
   TTextDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 
 export type TWhiteTplEditData = Array<IColorConfigType | INumberConfigType | ITextConfigType>;
 export interface IWhiteTplConfig {

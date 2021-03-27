@@ -9,7 +9,7 @@ import {
   TNumberDefaultType,
   TSwitchDefaultType,
   TTextDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 
 export type TIconEditData = Array<
   | IColorConfigType

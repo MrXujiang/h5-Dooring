@@ -9,7 +9,7 @@ import {
   TSelectDefaultType,
   ISelectConfigType,
   TTextDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 
 export type TTextWeightSelectKeyType = '300' | '400' | '500' | '600';
 

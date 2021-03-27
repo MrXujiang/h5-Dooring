@@ -7,7 +7,7 @@ import {
   TNumberDefaultType,
   TSelectDefaultType,
   TTextDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 
 export type TTextSelectKeyType = 'left' | 'right' | 'center';
 export type TTextEditData = Array<

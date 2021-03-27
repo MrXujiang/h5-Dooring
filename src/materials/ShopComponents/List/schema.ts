@@ -9,7 +9,7 @@ import {
   TNumberDefaultType,
   TSelectDefaultType,
   TSwitchDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 
 import { serverUrl } from '@/utils/tool';
 

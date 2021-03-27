@@ -7,7 +7,7 @@ import {
   TNumberDefaultType,
   TTextDefaultType,
   TUploadDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 
 export type TQrcodeEditData = Array<
   IUploadConfigType | ITextConfigType | IColorConfigType | INumberConfigType

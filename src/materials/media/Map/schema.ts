@@ -5,7 +5,7 @@ import {
   TTextDefaultType,
   TPosDefaultType,
   TTextAreaDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 
 export type TMapEditData = Array<ITextConfigType | ITextAreaConfigType | IPosConfigType>;
 export interface IMapConfig {

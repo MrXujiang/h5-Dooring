@@ -3,7 +3,7 @@ import {
   INumberConfigType,
   TTextDefaultType,
   TNumberDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 
 export type TAudioEditData = Array<INumberConfigType | ITextConfigType>;
 export interface IAudioConfig {

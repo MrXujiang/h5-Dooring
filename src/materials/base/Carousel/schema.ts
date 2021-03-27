@@ -7,7 +7,7 @@ import {
   TRadioDefaultType,
   TSwitchDefaultType,
   TNumberDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 
 import { serverUrl } from '@/utils/tool';
 

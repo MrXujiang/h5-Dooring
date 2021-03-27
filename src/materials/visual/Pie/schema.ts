@@ -7,7 +7,7 @@ import {
   TNumberDefaultType,
   TTableDefaultType,
   TTextDefaultType,
-} from '@/core/FormComponents/types';
+} from '@/components/FormComponents/types';
 
 export type TChartEditData = Array<
   ITextConfigType | INumberConfigType | IColorConfigType | ITableConfigType
