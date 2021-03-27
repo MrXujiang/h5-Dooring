@@ -1,9 +1,9 @@
 import { useState, useEffect, memo } from 'react';
 import classnames from 'classnames';
-import Icon from '@/components/BasicShop/BasicComponents/Icon';
+import Icon from '@/materials/BasicComponents/Icon';
 import styles from './index.less';
 import React from 'react';
-import { IconTypes } from '@/components/BasicShop/BasicComponents/Icon/schema';
+import { IconTypes } from '@/materials/BasicComponents/Icon/schema';
 import { ICardPickerConfigType } from '../types';
 
 interface CardPickerType extends Omit<ICardPickerConfigType<IconTypes>, 'type' | 'key' | 'name'> {

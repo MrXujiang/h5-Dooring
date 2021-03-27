@@ -1,6 +1,6 @@
 import React, { memo, RefObject, useCallback, useEffect, useState } from 'react';
-import BaseForm from '@/components/BasicShop/BasicComponents/Form/BaseForm';
-import BasePopoverForm from '@/components/BasicShop/BasicComponents/Form/BasePopoverForm';
+import BaseForm from '@/materials/BasicComponents/Form/BaseForm';
+import BasePopoverForm from '@/materials/BasicComponents/Form/BasePopoverForm';
 import EditorModal from './EditorModal';
 import { MinusCircleFilled, EditFilled, PlusOutlined } from '@ant-design/icons';
 import styles from './formItems.less';

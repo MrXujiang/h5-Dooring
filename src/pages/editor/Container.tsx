@@ -16,11 +16,11 @@ import Calibration from 'components/Calibration';
 import DynamicEngine, { componentsType } from '@/core/DynamicEngine';
 import { FormRender } from '@/core';
 
-import template from 'components/BasicShop/BasicComponents/template';
-import mediaTpl from 'components/BasicShop/MediaComponents/template';
-import graphTpl from 'components/BasicShop/VisualComponents/template';
+import template from '@/materials/BasicComponents/template';
+import mediaTpl from '@/materials/MediaComponents/template';
+import graphTpl from '@/materials/VisualComponents/template';
 
-import schemaH5 from 'components/BasicShop/schema';
+import schemaH5 from '@/materials/schema';
 import { ActionCreators, StateWithHistory } from 'redux-undo';
 import { throttle, detectMobileBrowser, getBrowserNavigatorMetaInfo } from '@/utils/tool';
 

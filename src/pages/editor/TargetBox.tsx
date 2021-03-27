@@ -1,8 +1,7 @@
 import React, { useMemo, memo, ReactNode, useContext, CSSProperties } from 'react';
 import { useDrag } from 'react-dnd';
-import schema from 'components/BasicShop/schema';
+import schema from '@/materials/schema';
 import styles from './index.less';
-import { dooringContext } from '@/layouts';
 
 interface TargetBoxProps {
   item: any;
