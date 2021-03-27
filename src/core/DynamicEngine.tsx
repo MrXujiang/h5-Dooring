@@ -8,18 +8,8 @@ export type componentsType = 'media' | 'base' | 'visible';
 const DynamicFunc = (type: string, componentsType: string) => {
   return dynamic({
     loader: async function() {
-      let Component: FC<{ isTpl: boolean }>;
-
-      if (componentsType === 'base') {
-        const { default: Graph } = await import(`@/components/BasicShop/BasicComponents/${type}`);
-        Component = Graph;
-      } else if (componentsType === 'media') {
-        const { default: Graph } = await import(`@/components/BasicShop/MediaComponents/${type}`);
-        Component = Graph;
-      } else {
-        const { default: Graph } = await import(`@/components/BasicShop/VisualComponents/${type}`);
-        Component = Graph;
-      }
+      const { default: Graph } = await import(`@/materials/${componentsType}/${type}`);
+      const Component = Graph;
       return (props: DynamicType) => {
         const { config, isTpl } = props;
         return <Component {...config} isTpl={isTpl} />;

@@ -10,17 +10,17 @@ import {
 import { connect } from 'dva';
 import HeaderComponent from './components/Header';
 import CanvasControl from './components/CanvasControl';
-import SourceBox from './SourceBox';
-import TargetBox from './TargetBox';
+import SourceBox from './TargetBox';
+import TargetBox from './SourceBox';
 import Calibration from 'components/Calibration';
 import DynamicEngine, { componentsType } from '@/core/DynamicEngine';
 import { FormRender } from '@/core';
 
-import template from 'components/BasicShop/BasicComponents/template';
-import mediaTpl from 'components/BasicShop/MediaComponents/template';
-import graphTpl from 'components/BasicShop/VisualComponents/template';
+import template from '@/materials/base/template';
+import mediaTpl from '@/materials/media/template';
+import graphTpl from '@/materials/visual/template';
 
-import schemaH5 from 'components/BasicShop/schema';
+import schemaH5 from '@/materials/schema';
 import { ActionCreators, StateWithHistory } from 'redux-undo';
 import { throttle, detectMobileBrowser, getBrowserNavigatorMetaInfo } from '@/utils/tool';
 
