@@ -6,6 +6,7 @@ import {
   HighlightOutlined,
   DoubleRightOutlined,
   DoubleLeftOutlined,
+  AppstoreOutlined,
 } from '@ant-design/icons';
 import { connect } from 'dva';
 import HeaderComponent from './components/Header';
@@ -19,6 +20,7 @@ import { FormRender } from '@/core';
 import template from '@/materials/base/template';
 import mediaTpl from '@/materials/media/template';
 import graphTpl from '@/materials/visual/template';
+import shopTpl from '@/materials/shop/template';
 
 import schemaH5 from '@/materials/schema';
 import { ActionCreators, StateWithHistory } from 'redux-undo';
@@ -66,6 +68,7 @@ const Container = (props: {
     base: <HighlightOutlined />,
     media: <PlayCircleOutlined />,
     visible: <PieChartOutlined />,
+    shop: <AppstoreOutlined />,
   };
 
   const generateHeader = useMemo(() => {
@@ -154,8 +157,11 @@ const Container = (props: {
     graphTpl.forEach(v => {
       arr.push(v.type);
     });
+    shopTpl.forEach(v => {
+      arr.push(v.type);
+    });
     return arr;
-  }, [graphTpl, mediaTpl, template]);
+  }, [graphTpl, mediaTpl, template, shopTpl]);
 
   const [dragstate, setDragState] = useState({ x: 0, y: 0 });
 
@@ -198,6 +204,7 @@ const Container = (props: {
           <TabPane tab={generateHeader('base', '')} key="1"></TabPane>
           <TabPane tab={generateHeader('media', '')} key="2"></TabPane>
           <TabPane tab={generateHeader('visible', '')} key="3"></TabPane>
+          <TabPane tab={generateHeader('shop', '')} key="4"></TabPane>
         </>
       );
     } else {
@@ -244,10 +251,23 @@ const Container = (props: {
               </TargetBox>
             ))}
           </TabPane>
+          <TabPane tab={generateHeader('shop', '')} key="4">
+            <div className={styles.ctitle}>营销组件</div>
+            {shopTpl.map((value, i) => (
+              <TargetBox item={value} key={i} canvasId={canvasId}>
+                <DynamicEngine
+                  {...value}
+                  config={schemaH5[value.type as keyof typeof schemaH5].config}
+                  componentsType={'shop' as componentsType}
+                  isTpl={true}
+                />
+              </TargetBox>
+            ))}
+          </TabPane>
         </>
       );
     }
-  }, [canvasId, collapsed, generateHeader, graphTpl, mediaTpl, schemaH5, template]);
+  }, [canvasId, collapsed, generateHeader, graphTpl, mediaTpl, schemaH5, template, shopTpl]);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [diffmove, setDiffMove] = useState({
