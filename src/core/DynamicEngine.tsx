@@ -3,7 +3,7 @@ import Loading from '../components/LoadingCp';
 import { useMemo, memo, FC } from 'react';
 import React from 'react';
 
-export type componentsType = 'media' | 'base' | 'visible';
+export type componentsType = 'media' | 'base' | 'visible' | 'shop';
 
 const DynamicFunc = (type: string, componentsType: string) => {
   return dynamic({
