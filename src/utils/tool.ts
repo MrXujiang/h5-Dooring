@@ -148,3 +148,9 @@ export function getBrowserNavigatorMetaInfo(): string {
 }
 
 export const serverUrl = isDev ? 'http://192.16x.x.x:3000' : '你的服务器地址';
+
+// 宽度适配器
+export const _gaw = (w: number) => {
+  const vw = window.innerWidth > 800 ? 375 : window.innerWidth;
+  return (vw / 375) * w;
+};

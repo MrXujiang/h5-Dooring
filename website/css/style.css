@@ -259,8 +259,9 @@ p {
 }
 .merchant-img-container {
   width: 117vw;
-  margin-left: -8vw;
   margin-bottom: 31px;
+  margin-left: 20px;
+  text-align: center;
 }
 .merchant-img-container .col-lg-2 {
   flex: 0 0 14.285714%;

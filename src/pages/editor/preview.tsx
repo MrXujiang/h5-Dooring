@@ -97,6 +97,8 @@ const PreviewPage = memo((props: PreviewPageProps) => {
     domtoimage
       .toBlob(refImgDom.current, {
         bgcolor: '#fff',
+        //  支持跨域截图
+        cacheBust: true,
       })
       .then(function(blob: Blob) {
         const reader = new FileReader();

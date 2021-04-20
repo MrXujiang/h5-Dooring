@@ -49,30 +49,30 @@
               {
                 2: '693230f5',
                 3: '0105453b',
-                4: '7985c0ed',
+                4: 'd198a40c',
                 5: '82171d89',
-                6: '133c066e',
-                7: '1ca3fdb8',
-                8: '83a09fe6',
-                9: '90abe1c9',
-                10: 'b0d462d3',
-                11: 'a817ab83',
-                12: '7537ddc3',
-                13: 'c7b7a778',
+                6: 'a3c1a71a',
+                7: 'e7b0462e',
+                8: '66884c30',
+                9: 'c9c11d43',
+                10: '57c980fd',
+                11: 'a47e2d9b',
+                12: '9eddd902',
+                13: '663fc48e',
                 14: 'eff270f4',
                 15: '2cabc303',
                 16: 'ebc27227',
                 17: 'e2c644fa',
                 18: '8be51919',
-                19: '5b05b8ec',
-                20: '3fd45382',
+                19: 'c5cc8e35',
+                20: '09f15f46',
                 21: '390bb49b',
-                22: 'dd7423cf',
-                23: '3c312dd7',
-                24: '70cc97c3',
-                25: 'e47f5b3c',
+                22: 'da6fbe43',
+                23: '9bda2ced',
+                24: '96d82a87',
+                25: 'e454a69e',
                 26: 'bf8cc2c2',
-                27: '9151272d',
+                27: '18814355',
               }[t] +
               '.js'
             );
@@ -11040,56 +11040,56 @@
         },
       },
       Ca = {
-        'v-77cb6b9f': function() {
-          return n.e(9).then(n.bind(null, 382));
-        },
         'v-27f2dbac': function() {
-          return n.e(19).then(n.bind(null, 383));
+          return n.e(19).then(n.bind(null, 382));
+        },
+        'v-77cb6b9f': function() {
+          return n.e(9).then(n.bind(null, 383));
         },
         'v-11d3734f': function() {
           return n.e(18).then(n.bind(null, 384));
         },
-        'v-50357228': function() {
-          return n.e(20).then(n.bind(null, 385));
+        'v-358de850': function() {
+          return n.e(10).then(n.bind(null, 385));
         },
         'v-2c7961a6': function() {
           return n.e(21).then(n.bind(null, 386));
         },
-        'v-358de850': function() {
-          return n.e(10).then(n.bind(null, 387));
-        },
-        'v-6be2680e': function() {
-          return n.e(22).then(n.bind(null, 388));
-        },
-        'v-1c499b2c': function() {
-          return n.e(11).then(n.bind(null, 389));
+        'v-50357228': function() {
+          return n.e(20).then(n.bind(null, 387));
         },
         'v-3e53f828': function() {
-          return n.e(23).then(n.bind(null, 390));
+          return n.e(23).then(n.bind(null, 388));
         },
-        'v-25c71eb8': function() {
-          return n.e(24).then(n.bind(null, 391));
+        'v-6be2680e': function() {
+          return n.e(22).then(n.bind(null, 389));
         },
         'v-1995786c': function() {
-          return n.e(12).then(n.bind(null, 392));
+          return n.e(12).then(n.bind(null, 390));
         },
         'v-f3d01ce0': function() {
-          return n.e(7).then(n.bind(null, 393));
+          return n.e(7).then(n.bind(null, 391));
+        },
+        'v-1c499b2c': function() {
+          return n.e(11).then(n.bind(null, 392));
+        },
+        'v-25c71eb8': function() {
+          return n.e(24).then(n.bind(null, 393));
         },
         'v-76fd0d8c': function() {
           return n.e(26).then(n.bind(null, 394));
         },
-        'v-31643a8c': function() {
-          return n.e(13).then(n.bind(null, 395));
-        },
         'v-0be2f96c': function() {
-          return n.e(27).then(n.bind(null, 396));
+          return n.e(27).then(n.bind(null, 395));
         },
-        'v-a9b10980': function() {
-          return n.e(8).then(n.bind(null, 397));
+        'v-31643a8c': function() {
+          return n.e(13).then(n.bind(null, 396));
         },
         'v-4574ee28': function() {
-          return n.e(25).then(n.bind(null, 398));
+          return n.e(25).then(n.bind(null, 397));
+        },
+        'v-a9b10980': function() {
+          return n.e(8).then(n.bind(null, 398));
         },
         'v-c2ed5468': function() {
           return n.e(14).then(n.bind(null, 399));
@@ -11458,6 +11458,14 @@
     })(fu, 'mixins', uu);
     var lu = [
         {
+          name: 'v-27f2dbac',
+          path: '/zh/guide/building.html',
+          component: fu,
+          beforeEnter: function(t, e, n) {
+            Wa('Layout', 'v-27f2dbac').then(n);
+          },
+        },
+        {
           name: 'v-77cb6b9f',
           path: '/zh/guide/',
           component: fu,
@@ -11466,14 +11474,6 @@
           },
         },
         { path: '/zh/guide/index.html', redirect: '/zh/guide/' },
-        {
-          name: 'v-27f2dbac',
-          path: '/zh/guide/building.html',
-          component: fu,
-          beforeEnter: function(t, e, n) {
-            Wa('Layout', 'v-27f2dbac').then(n);
-          },
-        },
         {
           name: 'v-11d3734f',
           path: '/',
@@ -11484,11 +11484,11 @@
         },
         { path: '/index.html', redirect: '/' },
         {
-          name: 'v-50357228',
-          path: '/zh/guide/componentDev/DSLAnalysis.html',
+          name: 'v-358de850',
+          path: '/zh/guide/componentDev/dynamicLoading.html',
           component: fu,
           beforeEnter: function(t, e, n) {
-            Wa('Layout', 'v-50357228').then(n);
+            Wa('Layout', 'v-358de850').then(n);
           },
         },
         {
@@ -11500,27 +11500,11 @@
           },
         },
         {
-          name: 'v-358de850',
-          path: '/zh/guide/componentDev/dynamicLoading.html',
+          name: 'v-50357228',
+          path: '/zh/guide/componentDev/DSLAnalysis.html',
           component: fu,
           beforeEnter: function(t, e, n) {
-            Wa('Layout', 'v-358de850').then(n);
-          },
-        },
-        {
-          name: 'v-6be2680e',
-          path: '/zh/guide/deployDev/api.html',
-          component: fu,
-          beforeEnter: function(t, e, n) {
-            Wa('Layout', 'v-6be2680e').then(n);
-          },
-        },
-        {
-          name: 'v-1c499b2c',
-          path: '/zh/guide/deployDev/deploy.html',
-          component: fu,
-          beforeEnter: function(t, e, n) {
-            Wa('Layout', 'v-1c499b2c').then(n);
+            Wa('Layout', 'v-50357228').then(n);
           },
         },
         {
@@ -11532,11 +11516,11 @@
           },
         },
         {
-          name: 'v-25c71eb8',
-          path: '/zh/guide/deployDev/oss.html',
+          name: 'v-6be2680e',
+          path: '/zh/guide/deployDev/api.html',
           component: fu,
           beforeEnter: function(t, e, n) {
-            Wa('Layout', 'v-25c71eb8').then(n);
+            Wa('Layout', 'v-6be2680e').then(n);
           },
         },
         {
@@ -11556,19 +11540,27 @@
           },
         },
         {
+          name: 'v-1c499b2c',
+          path: '/zh/guide/deployDev/deploy.html',
+          component: fu,
+          beforeEnter: function(t, e, n) {
+            Wa('Layout', 'v-1c499b2c').then(n);
+          },
+        },
+        {
+          name: 'v-25c71eb8',
+          path: '/zh/guide/deployDev/oss.html',
+          component: fu,
+          beforeEnter: function(t, e, n) {
+            Wa('Layout', 'v-25c71eb8').then(n);
+          },
+        },
+        {
           name: 'v-76fd0d8c',
           path: '/zh/guide/functionRealization/revocation.html',
           component: fu,
           beforeEnter: function(t, e, n) {
             Wa('Layout', 'v-76fd0d8c').then(n);
-          },
-        },
-        {
-          name: 'v-31643a8c',
-          path: '/zh/guide/functionRealization/screenshot.html',
-          component: fu,
-          beforeEnter: function(t, e, n) {
-            Wa('Layout', 'v-31643a8c').then(n);
           },
         },
         {
@@ -11580,11 +11572,11 @@
           },
         },
         {
-          name: 'v-a9b10980',
-          path: '/zh/guide/functionRealization/templateLibrary.html',
+          name: 'v-31643a8c',
+          path: '/zh/guide/functionRealization/screenshot.html',
           component: fu,
           beforeEnter: function(t, e, n) {
-            Wa('Layout', 'v-a9b10980').then(n);
+            Wa('Layout', 'v-31643a8c').then(n);
           },
         },
         {
@@ -11593,6 +11585,14 @@
           component: fu,
           beforeEnter: function(t, e, n) {
             Wa('Layout', 'v-4574ee28').then(n);
+          },
+        },
+        {
+          name: 'v-a9b10980',
+          path: '/zh/guide/functionRealization/templateLibrary.html',
+          component: fu,
+          beforeEnter: function(t, e, n) {
+            Wa('Layout', 'v-a9b10980').then(n);
           },
         },
         {
@@ -11621,6 +11621,14 @@
         pages: [
           {
             frontmatter: {},
+            regularPath: '/zh/guide/building.html',
+            relativePath: 'zh/guide/building.md',
+            key: 'v-27f2dbac',
+            path: '/zh/guide/building.html',
+            lastUpdated: '1/17/2021, 11:22:04 PM',
+          },
+          {
+            frontmatter: {},
             regularPath: '/zh/guide/',
             relativePath: 'zh/guide/README.md',
             key: 'v-77cb6b9f',
@@ -11630,14 +11638,6 @@
               { level: 2, title: '为什么选择 Dooring', slug: '为什么选择-dooring' },
             ],
             lastUpdated: '3/22/2021, 10:16:35 AM',
-          },
-          {
-            frontmatter: {},
-            regularPath: '/zh/guide/building.html',
-            relativePath: 'zh/guide/building.md',
-            key: 'v-27f2dbac',
-            path: '/zh/guide/building.html',
-            lastUpdated: '1/17/2021, 11:22:04 PM',
           },
           {
             title: 'Home',
@@ -11670,12 +11670,12 @@
             lastUpdated: '1/17/2021, 11:22:04 PM',
           },
           {
-            title: 'DSL设计',
             frontmatter: {},
-            regularPath: '/zh/guide/componentDev/DSLAnalysis.html',
-            relativePath: 'zh/guide/componentDev/DSLAnalysis.md',
-            key: 'v-50357228',
-            path: '/zh/guide/componentDev/DSLAnalysis.html',
+            regularPath: '/zh/guide/componentDev/dynamicLoading.html',
+            relativePath: 'zh/guide/componentDev/dynamicLoading.md',
+            key: 'v-358de850',
+            path: '/zh/guide/componentDev/dynamicLoading.html',
+            headers: [{ level: 2, title: 'umi3提供的dynamic', slug: 'umi3提供的dynamic' }],
             lastUpdated: '1/17/2021, 9:57:34 PM',
           },
           {
@@ -11691,13 +11691,25 @@
             lastUpdated: '1/17/2021, 9:57:34 PM',
           },
           {
+            title: 'DSL设计',
             frontmatter: {},
-            regularPath: '/zh/guide/componentDev/dynamicLoading.html',
-            relativePath: 'zh/guide/componentDev/dynamicLoading.md',
-            key: 'v-358de850',
-            path: '/zh/guide/componentDev/dynamicLoading.html',
-            headers: [{ level: 2, title: 'umi3提供的dynamic', slug: 'umi3提供的dynamic' }],
+            regularPath: '/zh/guide/componentDev/DSLAnalysis.html',
+            relativePath: 'zh/guide/componentDev/DSLAnalysis.md',
+            key: 'v-50357228',
+            path: '/zh/guide/componentDev/DSLAnalysis.html',
             lastUpdated: '1/17/2021, 9:57:34 PM',
+          },
+          {
+            frontmatter: {},
+            regularPath: '/zh/guide/deployDev/https.html',
+            relativePath: 'zh/guide/deployDev/https.md',
+            key: 'v-3e53f828',
+            path: '/zh/guide/deployDev/https.html',
+            headers: [
+              { level: 3, title: '前端工程', slug: '前端工程' },
+              { level: 3, title: '服务器工程', slug: '服务器工程' },
+            ],
+            lastUpdated: '1/31/2021, 1:25:02 AM',
           },
           {
             frontmatter: {},
@@ -11735,36 +11747,6 @@
           },
           {
             frontmatter: {},
-            regularPath: '/zh/guide/deployDev/deploy.html',
-            relativePath: 'zh/guide/deployDev/deploy.md',
-            key: 'v-1c499b2c',
-            path: '/zh/guide/deployDev/deploy.html',
-            headers: [{ level: 3, title: '部署架构图', slug: '部署架构图' }],
-            lastUpdated: '1/31/2021, 1:25:02 AM',
-          },
-          {
-            frontmatter: {},
-            regularPath: '/zh/guide/deployDev/https.html',
-            relativePath: 'zh/guide/deployDev/https.md',
-            key: 'v-3e53f828',
-            path: '/zh/guide/deployDev/https.html',
-            headers: [
-              { level: 3, title: '前端工程', slug: '前端工程' },
-              { level: 3, title: '服务器工程', slug: '服务器工程' },
-            ],
-            lastUpdated: '1/31/2021, 1:25:02 AM',
-          },
-          {
-            frontmatter: {},
-            regularPath: '/zh/guide/deployDev/oss.html',
-            relativePath: 'zh/guide/deployDev/oss.md',
-            key: 'v-25c71eb8',
-            path: '/zh/guide/deployDev/oss.html',
-            headers: [{ level: 3, title: '前端上传文件到oss', slug: '前端上传文件到oss' }],
-            lastUpdated: '1/31/2021, 1:25:02 AM',
-          },
-          {
-            frontmatter: {},
             regularPath: '/zh/guide/functionRealization/machinePreview.html',
             relativePath: 'zh/guide/functionRealization/machinePreview.md',
             key: 'v-1995786c',
@@ -11781,10 +11763,39 @@
           },
           {
             frontmatter: {},
+            regularPath: '/zh/guide/deployDev/deploy.html',
+            relativePath: 'zh/guide/deployDev/deploy.md',
+            key: 'v-1c499b2c',
+            path: '/zh/guide/deployDev/deploy.html',
+            headers: [
+              { level: 3, title: '部署架构图', slug: '部署架构图' },
+              { level: 3, title: '步骤3.4详细流程', slug: '步骤3-4详细流程' },
+            ],
+            lastUpdated: '3/24/2021, 3:07:39 AM',
+          },
+          {
+            frontmatter: {},
+            regularPath: '/zh/guide/deployDev/oss.html',
+            relativePath: 'zh/guide/deployDev/oss.md',
+            key: 'v-25c71eb8',
+            path: '/zh/guide/deployDev/oss.html',
+            headers: [{ level: 3, title: '前端上传文件到oss', slug: '前端上传文件到oss' }],
+            lastUpdated: '1/31/2021, 1:25:02 AM',
+          },
+          {
+            frontmatter: {},
             regularPath: '/zh/guide/functionRealization/revocation.html',
             relativePath: 'zh/guide/functionRealization/revocation.md',
             key: 'v-76fd0d8c',
             path: '/zh/guide/functionRealization/revocation.html',
+            lastUpdated: '1/17/2021, 9:57:34 PM',
+          },
+          {
+            frontmatter: {},
+            regularPath: '/zh/guide/functionRealization/saveJson.html',
+            relativePath: 'zh/guide/functionRealization/saveJson.md',
+            key: 'v-0be2f96c',
+            path: '/zh/guide/functionRealization/saveJson.html',
             lastUpdated: '1/17/2021, 9:57:34 PM',
           },
           {
@@ -11797,11 +11808,11 @@
           },
           {
             frontmatter: {},
-            regularPath: '/zh/guide/functionRealization/saveJson.html',
-            relativePath: 'zh/guide/functionRealization/saveJson.md',
-            key: 'v-0be2f96c',
-            path: '/zh/guide/functionRealization/saveJson.html',
-            lastUpdated: '1/17/2021, 9:57:34 PM',
+            regularPath: '/zh/guide/directoryStructure.html',
+            relativePath: 'zh/guide/directoryStructure.md',
+            key: 'v-4574ee28',
+            path: '/zh/guide/directoryStructure.html',
+            lastUpdated: '1/17/2021, 7:12:02 PM',
           },
           {
             frontmatter: {},
@@ -11815,14 +11826,6 @@
               { level: 3, title: '模板后台展示：', slug: '模板后台展示' },
             ],
             lastUpdated: '1/17/2021, 9:57:34 PM',
-          },
-          {
-            frontmatter: {},
-            regularPath: '/zh/guide/directoryStructure.html',
-            relativePath: 'zh/guide/directoryStructure.md',
-            key: 'v-4574ee28',
-            path: '/zh/guide/directoryStructure.html',
-            lastUpdated: '1/17/2021, 7:12:02 PM',
           },
           {
             frontmatter: {},
@@ -11992,11 +11995,11 @@
       Ro.component('CodeBlock', function() {
         return Promise.all([n.e(0), n.e(5)]).then(n.bind(null, 380));
       }),
-      Ro.component('CodeGroup', function() {
-        return Promise.all([n.e(0), n.e(6)]).then(n.bind(null, 381));
-      }),
       Ro.component('Badge', function() {
         return Promise.all([n.e(0), n.e(4)]).then(n.bind(null, 401));
+      }),
+      Ro.component('CodeGroup', function() {
+        return Promise.all([n.e(0), n.e(6)]).then(n.bind(null, 381));
       });
     n(302);
     var hu = [
@@ -12493,7 +12496,7 @@
         var e = this.$site.base;
         return '/' === t.charAt(0) ? e + t.slice(1) : t;
       }),
-      (window.__VUEPRESS__ = { version: '1.8.0', hash: '98900b0' }),
+      (window.__VUEPRESS__ = { version: '1.8.0', hash: 'c24264e' }),
       (function(t) {
         return $u.apply(this, arguments);
       })(!1).then(function(t) {
