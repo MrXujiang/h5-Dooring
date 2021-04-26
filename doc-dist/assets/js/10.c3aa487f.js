@@ -1,10 +1,10 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [10],
   {
-    359: function(t, r, a) {
+    360: function(t, r, a) {
       t.exports = a.p + 'assets/img/dynamic.15a5303a.png';
     },
-    385: function(t, r, a) {
+    387: function(t, r, a) {
       'use strict';
       a.r(r);
       var n = a(42),
@@ -41,7 +41,7 @@
                 ),
               ]),
               t._v(' '),
-              n('img', { attrs: { src: a(359), alt: 'foo' } }),
+              n('img', { attrs: { src: a(360), alt: 'foo' } }),
               t._v(' '),
               n('p', [
                 t._v('具体代码可以参考Dooring的Github地址：'),
