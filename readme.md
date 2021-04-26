@@ -237,6 +237,7 @@ cnpm run dev
 * [Blink - 一款自定义的生成故障艺术动画的组件库](https://github.com/MrXujiang/blink)
 * [frontend-developer-roadmap | 一个能提高开发者工作效率的前端js库汇总](https://github.com/MrXujiang/frontend-developer-roadmap)
 * [lucky-canvas 抽奖插件 | 一个支持H5, 微信小程序, React的抽奖插件](https://github.com/LuckDraw/lucky-canvas)
+* [基于antd开箱即用的后台管理模版ant-simple-pro](https://github.com/lgf196/ant-simple-pro)
 
 ## 更新日志 | Update the log
 1. 添加在线编程模块（在执行代码前先启动node服务 npm run server）
