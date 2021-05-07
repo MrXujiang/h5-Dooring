@@ -454,14 +454,14 @@
       };
     },
     332: function(t, n, e) {},
-    369: function(t, n, e) {
+    370: function(t, n, e) {
       t.exports = e.p + 'assets/img/logo.001d04e6.svg';
     },
-    370: function(t, n, e) {
+    371: function(t, n, e) {
       'use strict';
       e(332);
     },
-    379: function(t, n, e) {
+    380: function(t, n, e) {
       'use strict';
       e.r(n);
       var r = {
@@ -476,7 +476,7 @@
             },
           },
         },
-        i = (e(370), e(42)),
+        i = (e(371), e(42)),
         a = Object(i.a)(
           r,
           function() {
@@ -493,7 +493,7 @@
                 r('header', { staticClass: 'hero' }, [
                   null !== t.data.heroText
                     ? r('h1', { attrs: { id: 'main-title' } }, [
-                        r('img', { attrs: { src: e(369), alt: t.data.heroAlt || 'hero' } }),
+                        r('img', { attrs: { src: e(370), alt: t.data.heroAlt || 'hero' } }),
                         r('span', [t._v(t._s(t.data.heroText || t.$title || 'Hello'))]),
                       ])
                     : t._e(),

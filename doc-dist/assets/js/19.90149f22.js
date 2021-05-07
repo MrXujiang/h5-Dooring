@@ -8,11 +8,10 @@
         l = Object(s.a)(
           {},
           function() {
-            var t = this.$createElement,
-              e = this._self._c || t;
-            return e('ContentSlotsDistributor', { attrs: { 'slot-key': this.$parent.slotKey } }, [
-              e('p', [this._v('正在建设中...')]),
-            ]);
+            var t = this.$createElement;
+            return (this._self._c || t)('ContentSlotsDistributor', {
+              attrs: { 'slot-key': this.$parent.slotKey },
+            });
           },
           [],
           !1,

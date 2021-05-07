@@ -1,5 +1,10 @@
 # 快速上手
 
+## 从零搭建一个H5表单页面
+
+<iframe src="//player.bilibili.com/player.html?aid=715343955&bvid=BV1QQ4y1Z725&cid=332145157&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%;height: 420px; margin-top: 20px"> </iframe>
+
+
 ## 环境准备
 
 首先得有 node，并确保 node 版本是 `10.13` 或以上，（mac/win 下推荐使用 n 来管理 node 版本）

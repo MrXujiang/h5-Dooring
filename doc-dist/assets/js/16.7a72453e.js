@@ -1,14 +1,14 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
-  [15],
+  [16],
   {
-    368: function(t, a, s) {
-      t.exports = s.p + 'assets/img/home.f76105db.png';
+    369: function(t, a, r) {
+      t.exports = r.p + 'assets/img/home.f76105db.png';
     },
-    400: function(t, a, s) {
+    402: function(t, a, r) {
       'use strict';
-      s.r(a);
-      var e = s(42),
-        r = Object(e.a)(
+      r.r(a);
+      var e = r(42),
+        s = Object(e.a)(
           {},
           function() {
             var t = this,
@@ -19,6 +19,28 @@
                 e('a', { staticClass: 'header-anchor', attrs: { href: '#快速上手' } }, [t._v('#')]),
                 t._v(' 快速上手'),
               ]),
+              t._v(' '),
+              e('h2', { attrs: { id: '从零搭建一个h5表单页面' } }, [
+                e(
+                  'a',
+                  { staticClass: 'header-anchor', attrs: { href: '#从零搭建一个h5表单页面' } },
+                  [t._v('#')],
+                ),
+                t._v(' 从零搭建一个H5表单页面'),
+              ]),
+              t._v(' '),
+              e('iframe', {
+                staticStyle: { width: '100%', height: '420px', 'margin-top': '20px' },
+                attrs: {
+                  src:
+                    '//player.bilibili.com/player.html?aid=715343955&bvid=BV1QQ4y1Z725&cid=332145157&page=1',
+                  scrolling: 'no',
+                  border: '0',
+                  frameborder: 'no',
+                  framespacing: '0',
+                  allowfullscreen: 'true',
+                },
+              }),
               t._v(' '),
               e('h2', { attrs: { id: '环境准备' } }, [
                 e('a', { staticClass: 'header-anchor', attrs: { href: '#环境准备' } }, [t._v('#')]),
@@ -78,7 +100,7 @@
                 t._v('2.其次本地启动 h5_plus,启动完毕在浏览器打开对应的启动地址即可查看，如下：'),
               ]),
               t._v(' '),
-              e('img', { attrs: { src: s(368), alt: 'foo' } }),
+              e('img', { attrs: { src: r(369), alt: 'foo' } }),
             ]);
           },
           [],
@@ -87,7 +109,7 @@
           null,
           null,
         );
-      a.default = r.exports;
+      a.default = s.exports;
     },
   },
 ]);

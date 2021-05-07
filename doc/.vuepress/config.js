@@ -125,6 +125,12 @@ module.exports = {
             sidebarDepth: 1,
           },
           {
+            title: 'v6.dooring私有化部署(临时)',
+            path: '/zh/guide/deployDev/deploy_v6',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
             title: '支持https',
             path: '/zh/guide/deployDev/https',
             collapsable: false,

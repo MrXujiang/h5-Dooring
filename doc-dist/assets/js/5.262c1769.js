@@ -2,18 +2,18 @@
   [5],
   {
     334: function(e, t, c) {},
-    372: function(e, t, c) {
+    373: function(e, t, c) {
       'use strict';
       c(334);
     },
-    380: function(e, t, c) {
+    381: function(e, t, c) {
       'use strict';
       c.r(t);
       var i = {
           name: 'CodeBlock',
           props: { title: { type: String, required: !0 }, active: { type: Boolean, default: !1 } },
         },
-        n = (c(372), c(42)),
+        n = (c(373), c(42)),
         s = Object(n.a)(
           i,
           function() {
