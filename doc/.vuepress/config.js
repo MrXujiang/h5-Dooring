@@ -131,6 +131,12 @@ module.exports = {
             sidebarDepth: 1,
           },
           {
+            title: '服务端数据说明',
+            path: '/zh/guide/deployDev/dir',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
             title: '支持https',
             path: '/zh/guide/deployDev/https',
             collapsable: false,
