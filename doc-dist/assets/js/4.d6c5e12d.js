@@ -6,7 +6,7 @@
       'use strict';
       n(333);
     },
-    404: function(t, e, n) {
+    405: function(t, e, n) {
       'use strict';
       n.r(e);
       var i = {

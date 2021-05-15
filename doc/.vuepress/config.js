@@ -154,6 +154,12 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 1,
           },
+          {
+            title: '更新日志',
+            path: '/zh/guide/deployDev/log',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
         ],
       },
     ],

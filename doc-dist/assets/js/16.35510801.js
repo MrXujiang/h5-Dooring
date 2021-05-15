@@ -4,7 +4,7 @@
     369: function(t, a, r) {
       t.exports = r.p + 'assets/img/home.f76105db.png';
     },
-    403: function(t, a, r) {
+    404: function(t, a, r) {
       'use strict';
       r.r(a);
       var e = r(42),

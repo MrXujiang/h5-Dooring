@@ -1,6 +1,5 @@
-import React, { memo, ReactElement, ReactNode } from 'react';
+import React, { memo } from 'react';
 import { Button, Popover } from 'antd';
-import { serverUrl } from '@/utils/tool';
 import styles from './index.less';
 
 interface IProps {
@@ -10,7 +9,7 @@ interface IProps {
 ///这组件写的有问题  popover会重定位
 const content = (
   <div className={styles.imgWrap}>
-    <img src={`${serverUrl}/uploads/WechatIMG2_1742b586c3d.jpeg`} alt="sponsorship" />
+    <img src={`http://h5.dooring.cn/uploads/WechatIMG2_17969ccfe40.jpeg`} alt="sponsorship" />
   </div>
 );
 
