@@ -87,6 +87,12 @@ module.exports = {
             sidebarDepth: 1,
           },
           {
+            title: '下载源码',
+            path: '/zh/guide/functionRealization/download',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
             title: '网页预览',
             path: '/zh/guide/functionRealization/pagePreview',
             collapsable: false,
