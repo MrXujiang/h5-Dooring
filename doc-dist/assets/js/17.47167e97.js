@@ -1,10 +1,10 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [17],
   {
-    370: function(t, a, r) {
+    369: function(t, a, r) {
       t.exports = r.p + 'assets/img/home.f76105db.png';
     },
-    406: function(t, a, r) {
+    405: function(t, a, r) {
       'use strict';
       r.r(a);
       var e = r(42),
@@ -100,7 +100,7 @@
                 t._v('2.其次本地启动 h5_plus,启动完毕在浏览器打开对应的启动地址即可查看，如下：'),
               ]),
               t._v(' '),
-              e('img', { attrs: { src: r(370), alt: 'foo' } }),
+              e('img', { attrs: { src: r(369), alt: 'foo' } }),
             ]);
           },
           [],

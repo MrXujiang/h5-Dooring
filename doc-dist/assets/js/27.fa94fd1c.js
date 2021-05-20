@@ -1,11 +1,11 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [27],
   {
-    396: function(_, v, t) {
+    395: function(_, v, t) {
       'use strict';
       t.r(v);
       var a = t(42),
-        l = Object(a.a)(
+        i = Object(a.a)(
           {},
           function() {
             var _ = this,
@@ -15,6 +15,23 @@
               t('h3', { attrs: { id: '更新日志' } }, [
                 t('a', { staticClass: 'header-anchor', attrs: { href: '#更新日志' } }, [_._v('#')]),
                 _._v(' 更新日志'),
+              ]),
+              _._v(' '),
+              t('h4', { attrs: { id: '_1-95' } }, [
+                t('a', { staticClass: 'header-anchor', attrs: { href: '#_1-95' } }, [_._v('#')]),
+                _._v(' 1.95'),
+              ]),
+              _._v(' '),
+              t('ol', [
+                t('li', [_._v('dooring文档添加更新日志模块')]),
+                _._v(' '),
+                t('li', [_._v('dooring增报错监控函数, 提供一键清空缓存按钮和自动重载功能')]),
+                _._v(' '),
+                t('li', [_._v('新增电商商品H5模版')]),
+                _._v(' '),
+                t('li', [_._v('页面配置增加背景模式和背景重复')]),
+                _._v(' '),
+                t('li', [_._v('表单添加字段名配置项')]),
               ]),
               _._v(' '),
               t('h4', { attrs: { id: '_1-94' } }, [
@@ -79,7 +96,7 @@
           null,
           null,
         );
-      v.default = l.exports;
+      v.default = i.exports;
     },
   },
 ]);

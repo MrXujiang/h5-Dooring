@@ -1,7 +1,7 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [24],
   {
-    391: function(t, s, a) {
+    390: function(t, s, a) {
       'use strict';
       a.r(s);
       var n = a(42),
@@ -410,6 +410,115 @@
                     a('span', { pre: !0, attrs: { class: 'token operator' } }, [t._v(':')]),
                     t._v(' '),
                     a('span', { pre: !0, attrs: { class: 'token number' } }, [t._v('3')]),
+                    t._v('\n'),
+                    a('span', { pre: !0, attrs: { class: 'token punctuation' } }, [t._v('}')]),
+                    t._v('\n'),
+                  ]),
+                ]),
+              ]),
+              a('h3', { attrs: { id: '生成登录码' } }, [
+                a('a', { staticClass: 'header-anchor', attrs: { href: '#生成登录码' } }, [
+                  t._v('#'),
+                ]),
+                t._v(' 生成登录码'),
+              ]),
+              t._v(' '),
+              a('p', [t._v('生成登录码接口')]),
+              t._v(' '),
+              a('ul', [a('li', [a('code', [t._v('GET')]), t._v(' /vip/gcode')])]),
+              t._v(' '),
+              a('p', [t._v('先决条件:')]),
+              t._v(' '),
+              a('ul', [a('li', [t._v('用户已登陆')]), t._v(' '), a('li', [t._v('为超级管理员')])]),
+              t._v(' '),
+              a('p', [
+                t._v('注: 生成登录码是由笔者写的'),
+                a('code', [t._v('加密算法')]),
+                t._v('实现, 不需要手动实现, 如果有自定义需求, 可以自行二次开发实现.'),
+              ]),
+              t._v(' '),
+              a('p', [t._v('返回示例')]),
+              t._v(' '),
+              a('div', { staticClass: 'language-json extra-class' }, [
+                a('pre', { pre: !0, attrs: { class: 'language-json' } }, [
+                  a('code', [
+                    a('span', { pre: !0, attrs: { class: 'token punctuation' } }, [t._v('{')]),
+                    t._v('\n    '),
+                    a('span', { pre: !0, attrs: { class: 'token property' } }, [t._v('"co"')]),
+                    a('span', { pre: !0, attrs: { class: 'token operator' } }, [t._v(':')]),
+                    t._v(' '),
+                    a('span', { pre: !0, attrs: { class: 'token string' } }, [
+                      t._v('"1x2fgggteee3456_zdd4"'),
+                    ]),
+                    a('span', { pre: !0, attrs: { class: 'token punctuation' } }, [t._v(',')]),
+                    t._v('\n'),
+                    a('span', { pre: !0, attrs: { class: 'token punctuation' } }, [t._v('}')]),
+                    t._v('\n'),
+                  ]),
+                ]),
+              ]),
+              a('p', [
+                a('code', [t._v('说明:')]),
+                t._v(' 为了保护用户信息安全, 返回的登录码是加密后的密文, 会调用笔者写的'),
+                a('code', [t._v('xib.xip')]),
+                t._v('方法进行加密, 如果想看到原始密码, 需要调用'),
+                a('code', [t._v('xib.uxip')]),
+                t._v('进行解密.'),
+              ]),
+              t._v(' '),
+              a('h3', { attrs: { id: '获取用户真实密码' } }, [
+                a('a', { staticClass: 'header-anchor', attrs: { href: '#获取用户真实密码' } }, [
+                  t._v('#'),
+                ]),
+                t._v(' 获取用户真实密码'),
+              ]),
+              t._v(' '),
+              a('p', [t._v('获取用户真实密码接口')]),
+              t._v(' '),
+              a('ul', [a('li', [a('code', [t._v('GET')]), t._v(' /vip/gcode/get')])]),
+              t._v(' '),
+              a('p', [t._v('先决条件:')]),
+              t._v(' '),
+              a('ul', [a('li', [t._v('用户已登陆')]), t._v(' '), a('li', [t._v('为超级管理员')])]),
+              t._v(' '),
+              a('table', [
+                a('thead', [
+                  a('tr', [
+                    a('th', [t._v('参数名')]),
+                    t._v(' '),
+                    a('th', { staticStyle: { 'text-align': 'center' } }, [t._v('是否必选')]),
+                    t._v(' '),
+                    a('th', { staticStyle: { 'text-align': 'center' } }, [t._v('类型')]),
+                    t._v(' '),
+                    a('th', { staticStyle: { 'text-align': 'right' } }, [t._v('说明')]),
+                  ]),
+                ]),
+                t._v(' '),
+                a('tbody', [
+                  a('tr', [
+                    a('td', [t._v('co')]),
+                    t._v(' '),
+                    a('td', { staticStyle: { 'text-align': 'center' } }, [t._v('true')]),
+                    t._v(' '),
+                    a('td', { staticStyle: { 'text-align': 'center' } }, [t._v('string')]),
+                    t._v(' '),
+                    a('td', { staticStyle: { 'text-align': 'right' } }, [t._v('加密后的密码')]),
+                  ]),
+                ]),
+              ]),
+              t._v(' '),
+              a('p', [t._v('返回示例')]),
+              t._v(' '),
+              a('div', { staticClass: 'language-json extra-class' }, [
+                a('pre', { pre: !0, attrs: { class: 'language-json' } }, [
+                  a('code', [
+                    a('span', { pre: !0, attrs: { class: 'token punctuation' } }, [t._v('{')]),
+                    t._v('\n    '),
+                    a('span', { pre: !0, attrs: { class: 'token property' } }, [t._v('"co"')]),
+                    a('span', { pre: !0, attrs: { class: 'token operator' } }, [t._v(':')]),
+                    t._v(' '),
+                    a('span', { pre: !0, attrs: { class: 'token string' } }, [t._v('"12345678"')]),
+                    a('span', { pre: !0, attrs: { class: 'token punctuation' } }, [t._v(',')]),
                     t._v('\n'),
                     a('span', { pre: !0, attrs: { class: 'token punctuation' } }, [t._v('}')]),
                     t._v('\n'),
