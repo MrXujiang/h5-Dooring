@@ -1,7 +1,7 @@
 > 让H5制作像搭积木一样简单!
 
 <p align="center">
-    <img src="./public/logo.png" width="260" alt="H5编辑器,H5制作神器,H5 editor,lowcode">
+    <img src="./logo.ff7fc6bb.png" width="260" alt="H5编辑器,H5制作神器,H5 editor,lowcode">
 </p>
 <h1 align="center">Welcome to H5-Dooring 👋</h1>
 <p>
@@ -27,7 +27,7 @@
 ### [视频教程 | Video tutorial](https://www.zhihu.com/zvideo/1326300284608417792)
 
 <!-- <img src="http://io.nainor.com/uploads/face_17512320c6d.png" alt="H5可视化编辑器" /> -->
-![](http://h5.dooring.cn/uploads/dooring-sdk_1763cbe7028.png)
+![](http://h5.dooring.cn/uploads/face_179ac70dd56.png)
 
 相关产品: [V6.Dooring | 大屏可视化编辑器](https://github.com/MrXujiang/v6.dooring.public)
 
