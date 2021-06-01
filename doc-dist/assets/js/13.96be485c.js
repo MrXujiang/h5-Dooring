@@ -1,10 +1,10 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [13],
   {
-    370: function(s, a, t) {
+    362: function(s, a, t) {
       s.exports = t.p + 'assets/img/down.75812dab.png';
     },
-    406: function(s, a, t) {
+    395: function(s, a, t) {
       'use strict';
       t.r(a);
       var n = t(42),
@@ -24,7 +24,7 @@
                 s._v(
                   '目前Dooring已支持下载源码功能, 我们可以使用编辑器页面头部的下载按钮来实现下载用户搭建的H5源码.\n',
                 ),
-                n('img', { attrs: { src: t(370), alt: 'foo' } }),
+                n('img', { attrs: { src: t(362), alt: 'foo' } }),
               ]),
               s._v(' '),
               n('p', [

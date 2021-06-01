@@ -155,6 +155,12 @@ module.exports = {
             sidebarDepth: 1,
           },
           {
+            title: '获取Form组件的值数据',
+            path: '/zh/guide/deployDev/form',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
             title: 'API接口文档',
             path: '/zh/guide/deployDev/api',
             collapsable: false,

@@ -1,10 +1,10 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [12],
   {
-    361: function(t, v, _) {
+    360: function(t, v, _) {
       t.exports = _.p + 'assets/img/v6.deploy.43cbe0de.png';
     },
-    393: function(t, v, _) {
+    388: function(t, v, _) {
       'use strict';
       _.r(v);
       var e = _(42),
@@ -48,7 +48,7 @@
                 t._v(' 部署架构图'),
               ]),
               t._v(' '),
-              e('img', { attrs: { src: _(361), alt: 'H5-dooring部署' } }),
+              e('img', { attrs: { src: _(360), alt: 'H5-dooring部署' } }),
               t._v(' '),
               e('p', [t._v('部署流程如下:')]),
               t._v(' '),

@@ -1,7 +1,7 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [24],
   {
-    390: function(t, s, a) {
+    389: function(t, s, a) {
       'use strict';
       a.r(s);
       var n = a(42),
@@ -28,9 +28,9 @@
                 t._v(' 用户相关'),
               ]),
               t._v(' '),
-              a('h3', { attrs: { id: '登录' } }, [
-                a('a', { staticClass: 'header-anchor', attrs: { href: '#登录' } }, [t._v('#')]),
-                t._v(' 登录'),
+              a('h3', { attrs: { id: '用户登录' } }, [
+                a('a', { staticClass: 'header-anchor', attrs: { href: '#用户登录' } }, [t._v('#')]),
+                t._v(' 用户登录'),
               ]),
               t._v(' '),
               a('p', [t._v('用户登录接口')]),

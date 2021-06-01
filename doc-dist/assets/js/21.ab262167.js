@@ -1,5 +1,5 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
-  [20],
+  [21],
   {
     385: function(t, e, n) {
       'use strict';
@@ -8,10 +8,11 @@
         l = Object(s.a)(
           {},
           function() {
-            var t = this.$createElement;
-            return (this._self._c || t)('ContentSlotsDistributor', {
-              attrs: { 'slot-key': this.$parent.slotKey },
-            });
+            var t = this.$createElement,
+              e = this._self._c || t;
+            return e('ContentSlotsDistributor', { attrs: { 'slot-key': this.$parent.slotKey } }, [
+              e('p', [this._v('正在建设中...')]),
+            ]);
           },
           [],
           !1,

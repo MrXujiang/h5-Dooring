@@ -1,10 +1,10 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [14],
   {
-    362: function(t, e, s) {
+    365: function(t, e, s) {
       t.exports = s.p + 'assets/img/preview-machine.895a0711.png';
     },
-    398: function(t, e, s) {
+    401: function(t, e, s) {
       'use strict';
       s.r(e);
       var a = s(42),
@@ -22,7 +22,7 @@
               t._v(' '),
               a('p', [t._v('真机预览和网页预览的流程类似，工作流程如下：')]),
               t._v(' '),
-              a('img', { attrs: { src: s(362), alt: 'foo' } }),
+              a('img', { attrs: { src: s(365), alt: 'foo' } }),
               t._v(' '),
               a('p', [t._v('由于不同机型预览的效果有些许不同，最终效果以实际看到的为主。')]),
             ]);
