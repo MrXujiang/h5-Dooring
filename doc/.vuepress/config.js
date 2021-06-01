@@ -87,6 +87,12 @@ module.exports = {
             sidebarDepth: 1,
           },
           {
+            title: '下载源码',
+            path: '/zh/guide/functionRealization/download',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
             title: '网页预览',
             path: '/zh/guide/functionRealization/pagePreview',
             collapsable: false,
@@ -145,6 +151,12 @@ module.exports = {
           {
             title: '接入第三方oss',
             path: '/zh/guide/deployDev/oss',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
+            title: '获取Form组件的值数据',
+            path: '/zh/guide/deployDev/form',
             collapsable: false,
             sidebarDepth: 1,
           },

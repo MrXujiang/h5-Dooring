@@ -1,7 +1,7 @@
 > 让H5制作像搭积木一样简单!
 
 <p align="center">
-    <img src="./public/logo.png" width="260" alt="H5编辑器,H5制作神器,H5 editor,lowcode">
+    <img src="./logo.ff7fc6bb.png" width="260" alt="H5编辑器,H5制作神器,H5 editor,lowcode">
 </p>
 <h1 align="center">Welcome to H5-Dooring 👋</h1>
 <p>
@@ -14,7 +14,7 @@
   </a>
 </p>
 
-> H5-Dooring是一款功能强大，专业可靠的H5可视化页面配置解决方案，致力于提供一套简单方便、专业可靠、无限可能的H5落地页最佳实践。技术栈以react为主， 后台采用nodejs开发。
+> H5-Dooring是一款功能强大，专业可靠的H5可视化页面配置解决方案，致力于提供一套简单方便、专业可靠、无限可能的H5落地页最佳实践。技术栈以react和typescript为主， 后台采用nodejs开发, 正在探索h5-lowcode解决方案。
 
 > H5-Dooring is a powerful, open source, free H5 visual page configuration solution dedicated to providing a simple, convenient, professional and reliable, unlimited set of H5 landing page best practices. The technology stack is mainly react, developed in the background using nodejs.
 
@@ -27,7 +27,7 @@
 ### [视频教程 | Video tutorial](https://www.zhihu.com/zvideo/1326300284608417792)
 
 <!-- <img src="http://io.nainor.com/uploads/face_17512320c6d.png" alt="H5可视化编辑器" /> -->
-![](http://h5.dooring.cn/uploads/dooring-sdk_1763cbe7028.png)
+![](http://h5.dooring.cn/uploads/face_179ac70dd56.png)
 
 相关产品: [V6.Dooring | 大屏可视化编辑器](https://github.com/MrXujiang/v6.dooring.public)
 
