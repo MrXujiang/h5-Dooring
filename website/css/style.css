@@ -110,8 +110,7 @@ p {
   padding-bottom: 52px;
 }
 .preview-container img {
-  width: 120px;
-  height: 270px;
+  height: 370px;
 }
 .section-padding {
   padding: 65px 0;
@@ -433,6 +432,9 @@ p {
   .github,
   .mobile-hidden {
     display: none !important;
+  }
+  .team-box .team-card{
+    width: 40%;
   }
 }
 
@@ -1785,7 +1787,8 @@ p {
   margin-bottom: 40px;
 }
 .team-box {
-  width: 2600px;
+  text-align: center;
+  padding-top: 20px;
 }
 .team-box::after {
   clear: both;
@@ -1793,18 +1796,21 @@ p {
   display: block;
 }
 .team-card {
-  width: 485px;
-  height: 232px;
+  width: 220px;
+  font-size: 14px;
+  height: 130px;
   background: #ffffff;
-  box-shadow: 0px 0px 40px 0px rgba(110, 127, 193, 0.1);
+  box-shadow: 0px 0px 40px 0px rgb(110 127 193 / 10%);
   border-radius: 20px;
   margin-right: 32px;
-  padding: 32px;
-  float: left;
+  padding: 30px 12px;
+  display: inline-block;
+  margin-bottom: 20px;
+  text-align: inherit;
 }
 .team-card img {
-  width: 168px;
-  height: 168px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 .team-card .team-info {
@@ -1814,14 +1820,14 @@ p {
   font-family: PingFangSC-Medium, PingFang SC;
 }
 .team-card .team-info p {
-  font-size: 32px;
+  font-size: 16px;
   font-weight: 500;
   color: #232323;
   line-height: 30px;
-  margin-bottom: 25px;
+  margin-bottom: 2px;
 }
 .team-card .team-info span {
-  font-size: 32px;
+  font-size: 16px;
   font-weight: 400;
   color: #7a7a7a;
   line-height: 30px;
