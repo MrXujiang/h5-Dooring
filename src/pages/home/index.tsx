@@ -17,7 +17,7 @@ const Home = () => {
     if (type === 'H5') {
       history.push('/editor?tid=123456');
     } else if (type === 'PC') {
-      message.error('该功能暂未开放, 敬请关注...');
+      window.open('http://v6.dooring.cn/beta');
     } else {
       history.push('/ide');
     }
@@ -98,15 +98,11 @@ const Home = () => {
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div style={{ width: '500px', marginLeft: '40px', marginTop: '32px' }}>
               <span style={{ marginRight: '24px' }}>更多产品: </span>
-              <a href="http://49.234.61.19/qt" style={{ marginRight: '24px' }} target="_blank">
-                趣图-在线gif动图制作平台
+              <a href="http://v6.dooring.cn/beta" style={{ marginRight: '24px' }} target="_blank">
+                v6.dooring可视化大屏编辑器
               </a>
-              <a
-                href="http://49.234.61.19/tool/cssTriangle"
-                style={{ marginRight: '24px' }}
-                target="_blank"
-              >
-                在线css三角形生成器
+              <a href="http://h5.dooring.cn/qt" style={{ marginRight: '24px' }} target="_blank">
+                在线gif动图制作平台
               </a>
             </div>
           </div>

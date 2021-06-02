@@ -1,5 +1,4 @@
 import Carousel from './Carousel/template';
-import Footer from './Footer/template';
 import Form from './Form/template';
 import Header from './Header/template';
 import Icon from './Icon/template';
@@ -15,7 +14,6 @@ import RichText from './RichText/template';
 
 const basicTemplate = [
   Carousel,
-  Footer,
   Form,
   Header,
   Icon,

@@ -3,7 +3,7 @@ import { Controlled } from 'react-codemirror2';
 import { useState } from 'react';
 import { Button, message } from 'antd';
 import { saveAs } from 'file-saver';
-import Logo from '@/assets/logo.svg';
+import Logo from '@/assets/logo.png';
 import styles from './index.less';
 import { isDev, useGetRect } from 'utils/tool';
 import { SaveOutlined } from '@ant-design/icons';
@@ -135,7 +135,7 @@ export default function() {
       <div className={styles.header}>
         <div className={styles.logoArea}>
           <div className={styles.logo} title="Dooring">
-            <a href="http://io.nainor.com/h5_visible">
+            <a href="http://h5.dooring.cn">
               <img src={Logo} alt="Dooring-强大的h5编辑器" />
             </a>
           </div>
