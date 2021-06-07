@@ -1,4 +1,4 @@
-import { INumberConfigType, TNumberDefaultType } from '../PanelComponents/FormEditor/types';
+import { INumberConfigType, TNumberDefaultType } from '@/components/FormComponents/types';
 
 ///提取所有公用设置，传来时加到这里，约定公用类型
 //公用配置需满足条件，所有组件初始值统一，否则不放公用设置

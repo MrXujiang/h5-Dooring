@@ -11,7 +11,7 @@
 - Dooring管理后台(Dooring-Admin)
 - 服务端项目(Server)
 
-获取以上四个核心源码工程需要满足商业授权协议, 具体可参考[商业授权方案](http://h5.dooring.cn/h5_plus/price)
+获取以上四个核心源码工程需要满足商业授权协议, 具体可联系作者[徐小夕](http://h5.dooring.cn/uploads/WechatIMG3_1758e9753e2.jpeg) 
 
 ### 部署架构图
 
