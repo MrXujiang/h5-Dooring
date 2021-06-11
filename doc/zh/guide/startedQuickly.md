@@ -31,3 +31,9 @@ v10.13.0
 2.其次本地启动 h5_plus,启动完毕在浏览器打开对应的启动地址即可查看，如下：
 
 <img src="../../img/common/home.png" alt="foo">
+
+## 项目路径说明
+
+- `/h5_plus` H5编辑器项目
+- `/iH5` Dooring后台管理系统
+- `/doc` Dooring文档

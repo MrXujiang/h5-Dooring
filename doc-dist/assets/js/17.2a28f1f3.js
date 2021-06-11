@@ -1,10 +1,10 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [17],
   {
-    366: function(t, a, r) {
+    369: function(t, a, r) {
       t.exports = r.p + 'assets/img/home.f76105db.png';
     },
-    400: function(t, a, r) {
+    406: function(t, a, r) {
       'use strict';
       r.r(a);
       var e = r(42),
@@ -100,7 +100,22 @@
                 t._v('2.其次本地启动 h5_plus,启动完毕在浏览器打开对应的启动地址即可查看，如下：'),
               ]),
               t._v(' '),
-              e('img', { attrs: { src: r(366), alt: 'foo' } }),
+              e('img', { attrs: { src: r(369), alt: 'foo' } }),
+              t._v(' '),
+              e('h2', { attrs: { id: '项目路径说明' } }, [
+                e('a', { staticClass: 'header-anchor', attrs: { href: '#项目路径说明' } }, [
+                  t._v('#'),
+                ]),
+                t._v(' 项目路径说明'),
+              ]),
+              t._v(' '),
+              e('ul', [
+                e('li', [e('code', [t._v('/h5_plus')]), t._v(' H5编辑器项目')]),
+                t._v(' '),
+                e('li', [e('code', [t._v('/iH5')]), t._v(' Dooring后台管理系统')]),
+                t._v(' '),
+                e('li', [e('code', [t._v('/doc')]), t._v(' Dooring文档')]),
+              ]),
             ]);
           },
           [],

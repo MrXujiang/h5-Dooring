@@ -18,6 +18,7 @@ import { history } from 'umi';
 import QRCode from 'qrcode.react';
 import { saveAs } from 'file-saver';
 import req from '@/utils/req';
+import { uuid } from '@/utils/tool';
 import Code from '@/assets/code.png';
 import styles from './index.less';
 import MyPopover from 'yh-react-popover';
@@ -67,6 +68,10 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     return (
       <QRCode value={`${window.location.protocol}//${window.location.host}/preview?tid=${tid}`} />
     );
+  };
+
+  const generateFace = (type: number) => {
+    // 自定义生成封面逻辑, 可以采用html2canvas 或 dom-to-image
   };
 
   const handleSaveTpl = () => {
@@ -130,11 +135,6 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     saveAs(blob, 'template.json');
   };
 
-  const toLogin = () => {
-    const { tid } = props.location.query || '';
-    window.location.href = `/h5_plus/login?tid=${tid}`;
-  };
-
   const deleteAll = () => {
     Modal.confirm({
       title: '确认清空画布?',
@@ -155,16 +155,8 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
   };
 
   const newPage = () => {
-    let prev = localStorage.getItem('myH5');
-    try {
-      localStorage.setItem(
-        'myH5',
-        JSON.stringify(prev ? [...Array.from(prev), pointData] : [pointData]),
-      );
-    } catch (err) {
-      console.error(err);
-    }
     clearData();
+    history.push(`/editor?tid=${uuid(8, 16)}`);
   };
 
   const savePreview = () => {
@@ -184,7 +176,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
 
   useEffect(() => {
     // 定义截图子页面句柄函数
-    window.getFaceUrl = url => {
+    window.getFaceUrl = (url: string) => {
       setFaceUrl(url);
       setShowModalIframe(false);
     };
@@ -194,7 +186,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     () => ({
       name: 'file',
       showUploadList: false,
-      beforeUpload(file, fileList) {
+      beforeUpload(file: File) {
         // 解析并提取excel数据
         let reader = new FileReader();
         reader.onload = function(e: Event) {
@@ -327,17 +319,6 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         </Button>
       </div>
       <div className={styles.btnArea}>
-        {/* 隐藏pc端切换, 保证代码纯粹 */}
-        {/* <Select
-          defaultValue="h5"
-          style={{ width: 100, marginRight: 20 }}
-          onChange={e => {
-            setTheme(e);
-          }}
-        >
-          <Select.Option value="h5">h5模式</Select.Option>
-          <Select.Option value="pc">pc模式</Select.Option>
-        </Select> */}
         <Button type="primary" ghost onClick={toOnlineCoding} style={{ marginRight: '12px' }}>
           <CodeOutlined />
           在线编程

@@ -1,18 +1,17 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
-  [21],
+  [20],
   {
-    402: function(t, e, n) {
+    385: function(t, e, n) {
       'use strict';
       n.r(e);
       var s = n(42),
         l = Object(s.a)(
           {},
           function() {
-            var t = this.$createElement,
-              e = this._self._c || t;
-            return e('ContentSlotsDistributor', { attrs: { 'slot-key': this.$parent.slotKey } }, [
-              e('p', [this._v('正在建设中...')]),
-            ]);
+            var t = this.$createElement;
+            return (this._self._c || t)('ContentSlotsDistributor', {
+              attrs: { 'slot-key': this.$parent.slotKey },
+            });
           },
           [],
           !1,

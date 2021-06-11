@@ -1,10 +1,10 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [9],
   {
-    368: function(t, o, r) {
+    358: function(t, o, r) {
       t.exports = r.p + 'assets/img/logo.001d04e6.svg';
     },
-    404: function(t, o, r) {
+    386: function(t, o, r) {
       'use strict';
       r.r(o);
       var s = r(42),
@@ -15,7 +15,7 @@
               o = t.$createElement,
               s = t._self._c || o;
             return s('ContentSlotsDistributor', { attrs: { 'slot-key': t.$parent.slotKey } }, [
-              s('img', { attrs: { src: r(368), alt: 'foo' } }),
+              s('img', { attrs: { src: r(358), alt: 'foo' } }),
               t._v(' '),
               s('p', [
                 t._v(
