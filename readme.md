@@ -26,7 +26,7 @@
 
 ### [视频教程 | Video tutorial](https://www.zhihu.com/zvideo/1326300284608417792)
 
-![](http://h5.dooring.cn/uploads/face_179ac70dd56.png)
+![](http://cdn.dooring.cn/dr/2.png)
 
 相关产品: [V6.Dooring | 大屏可视化编辑器](https://github.com/MrXujiang/v6.dooring.public)
 
