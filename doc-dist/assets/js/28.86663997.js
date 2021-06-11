@@ -1,7 +1,7 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [28],
   {
-    397: function(_, v, i) {
+    390: function(_, v, i) {
       'use strict';
       i.r(v);
       var l = i(42),
@@ -15,6 +15,25 @@
               i('h3', { attrs: { id: '更新日志' } }, [
                 i('a', { staticClass: 'header-anchor', attrs: { href: '#更新日志' } }, [_._v('#')]),
                 _._v(' 更新日志'),
+              ]),
+              _._v(' '),
+              i('h4', { attrs: { id: '_2-0' } }, [
+                i('a', { staticClass: 'header-anchor', attrs: { href: '#_2-0' } }, [_._v('#')]),
+                _._v(' 2.0'),
+              ]),
+              _._v(' '),
+              i('ol', [
+                i('li', [_._v('完善数据源功能')]),
+                _._v(' '),
+                i('li', [_._v('轮播图/图片列表/List/文字跑马灯/横向滚动组件数据源对接完毕')]),
+                _._v(' '),
+                i('li', [_._v('组件库支持搜索功能')]),
+                _._v(' '),
+                i('li', [_._v('组件列表支持分页, 提高渲染性能')]),
+                _._v(' '),
+                i('li', [_._v('赞助墙交互优化')]),
+                _._v(' '),
+                i('li', [_._v('界面局部优化')]),
               ]),
               _._v(' '),
               i('h4', { attrs: { id: '_1-99' } }, [

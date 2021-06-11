@@ -1,7 +1,7 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [15],
   {
-    368: function(t, s, e) {
+    369: function(t, s, e) {
       t.exports = e.p + 'assets/img/screenshot.daeecedd.png';
     },
     405: function(t, s, e) {
@@ -27,7 +27,7 @@
                 ),
               ]),
               this._v(' '),
-              s('img', { attrs: { src: e(368), alt: 'foo' } }),
+              s('img', { attrs: { src: e(369), alt: 'foo' } }),
             ]);
           },
           [],

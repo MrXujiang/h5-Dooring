@@ -1,13 +1,13 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [8],
   {
-    366: function(t, s, a) {
+    364: function(t, s, a) {
       t.exports = a.p + 'assets/img/template-ft.4f6e0d14.png';
     },
-    367: function(t, s, a) {
+    365: function(t, s, a) {
       t.exports = a.p + 'assets/img/template-bg.244b9ac7.png';
     },
-    404: function(t, s, a) {
+    399: function(t, s, a) {
       'use strict';
       a.r(s);
       var e = a(42),
@@ -38,7 +38,7 @@
                 t._v(' 模板前台展示：'),
               ]),
               t._v(' '),
-              e('img', { attrs: { src: a(366), alt: 'foo' } }),
+              e('img', { attrs: { src: a(364), alt: 'foo' } }),
               t._v(' '),
               e('h3', { attrs: { id: '模板后台展示' } }, [
                 e('a', { staticClass: 'header-anchor', attrs: { href: '#模板后台展示' } }, [
@@ -47,7 +47,7 @@
                 t._v(' 模板后台展示：'),
               ]),
               t._v(' '),
-              e('img', { attrs: { src: a(367), alt: 'foo' } }),
+              e('img', { attrs: { src: a(365), alt: 'foo' } }),
             ]);
           },
           [],

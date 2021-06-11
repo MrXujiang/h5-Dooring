@@ -13,8 +13,6 @@ import {
   TRichTextDefaultType,
 } from '@/components/FormComponents/types';
 
-import { serverUrl } from '@/utils/tool';
-
 export type TZLEditData = Array<
   | IUploadConfigType
   | ITextConfigType
@@ -114,7 +112,7 @@ const ZhuanLan: ICardSchema = {
         uid: '001',
         name: 'image.png',
         status: 'done',
-        url: `${serverUrl}/uploads/code_173e1705e0c.png`,
+        url: 'http://cdn.dooring.cn/dr/qtqd_code.png',
       },
     ],
     title: '趣谈前端',

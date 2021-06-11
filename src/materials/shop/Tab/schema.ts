@@ -9,8 +9,6 @@ import {
   TNumberDefaultType,
 } from '@/components/FormComponents/types';
 
-import { serverUrl } from '@/utils/tool';
-
 export type TTabEditData = Array<
   IMutiTextConfigType | IColorConfigType | INumberConfigType | IDataListConfigType
 >;
@@ -80,7 +78,7 @@ const Tab: ITabSchema = {
             uid: '001',
             name: 'image.png',
             status: 'done',
-            url: `${serverUrl}/uploads/1_1740c6fbcd9.png`,
+            url: 'http://cdn.dooring.cn/dr/logo.ff7fc6bb.png',
           },
         ],
       },
@@ -96,7 +94,7 @@ const Tab: ITabSchema = {
             uid: '001',
             name: 'image.png',
             status: 'done',
-            url: `${serverUrl}/uploads/2_1740c7033a9.png`,
+            url: 'http://cdn.dooring.cn/dr/logo.ff7fc6bb.png',
           },
         ],
       },
@@ -112,7 +110,7 @@ const Tab: ITabSchema = {
             uid: '001',
             name: 'image.png',
             status: 'done',
-            url: `${serverUrl}/uploads/1_1740c6fbcd9.png`,
+            url: 'http://cdn.dooring.cn/dr/logo.ff7fc6bb.png',
           },
         ],
       },
