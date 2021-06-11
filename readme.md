@@ -1,7 +1,7 @@
 > 让H5制作像搭积木一样简单!
 
 <p align="center">
-    <img src="./logo.ff7fc6bb.png" width="260" alt="H5编辑器,H5制作神器,H5 editor,lowcode">
+    <img src="http://cdn.dooring.cn/dr/logo.ff7fc6bb.png" width="260" alt="H5编辑器,H5制作神器,H5 editor,lowcode">
 </p>
 <h1 align="center">Welcome to H5-Dooring 👋</h1>
 <p>
