@@ -26,7 +26,6 @@
 
 ### [视频教程 | Video tutorial](https://www.zhihu.com/zvideo/1326300284608417792)
 
-<!-- <img src="http://io.nainor.com/uploads/face_17512320c6d.png" alt="H5可视化编辑器" /> -->
 ![](http://h5.dooring.cn/uploads/face_179ac70dd56.png)
 
 相关产品: [V6.Dooring | 大屏可视化编辑器](https://github.com/MrXujiang/v6.dooring.public)
@@ -45,10 +44,12 @@
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/MrXujiang/h5-Dooring/issues).
+欢迎提供问题和功能需求, 如果大家有好的点子和优化建议, 也欢迎提pr参与我们的共建.
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+如果觉得项目还不错, 就点个star吧~
 
 ## ⭐️ dooring-sdk使用
 最近笔者正在开放dooring的插拔式服务, 以js-sdk的形式支持集成到外部系统中, 并提供开放API共使用者自由配置. 规划如下:
@@ -252,9 +253,9 @@ cnpm run dev
 ## 赞助 | Sponsored
 开源不易, 有了您的赞助, 我们会做的更好~
 
-<img src="http://49.234.61.19/uploads/WechatIMG2_1742b586c3d.jpeg" width="180px" />
+<img src="http://cdn.dooring.cn/dr/WechatIMG2.jpeg" width="180px" />
 
 ## 技术反馈和交流群 | Technical feedback and communication
 微信：beautifulFront
 
-<img src="http://49.234.61.19/uploads/code_1763cc23385.png" width="180px" />
+<img src="http://cdn.dooring.cn/dr/qtqd_code.png" width="180px" />
