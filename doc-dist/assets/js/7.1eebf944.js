@@ -1,13 +1,13 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [7],
   {
-    363: function(t, s, e) {
+    364: function(t, s, e) {
       t.exports = e.p + 'assets/img/preview-flow.b37c7798.png';
     },
-    364: function(t, s, e) {
+    365: function(t, s, e) {
       t.exports = e.p + 'assets/img/preview-page.3ec86df5.png';
     },
-    400: function(t, s, e) {
+    403: function(t, s, e) {
       'use strict';
       e.r(s);
       var r = e(42),
@@ -25,11 +25,11 @@
               t._v(' '),
               r('p', [t._v('我们看看网页预览的工作流程：')]),
               t._v(' '),
-              r('img', { attrs: { src: e(363), alt: 'foo' } }),
+              r('img', { attrs: { src: e(364), alt: 'foo' } }),
               t._v(' '),
               r('p', [t._v('前端预览界面：')]),
               t._v(' '),
-              r('img', { attrs: { src: e(364), alt: 'foo' } }),
+              r('img', { attrs: { src: e(365), alt: 'foo' } }),
             ]);
           },
           [],

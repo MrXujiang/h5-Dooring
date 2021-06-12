@@ -1,44 +1,42 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
-  [11],
+  [12],
   {
-    360: function(t, _, v) {
-      t.exports = v.p + 'assets/img/deploy.d1b1d698.png';
+    361: function(t, v, _) {
+      t.exports = _.p + 'assets/img/v6.deploy.43cbe0de.png';
     },
-    391: function(t, _, v) {
+    392: function(t, v, _) {
       'use strict';
-      v.r(_);
-      var e = v(42),
+      _.r(v);
+      var e = _(42),
         a = Object(e.a)(
           {},
           function() {
             var t = this,
-              _ = t.$createElement,
-              e = t._self._c || _;
+              v = t.$createElement,
+              e = t._self._c || v;
             return e('ContentSlotsDistributor', { attrs: { 'slot-key': t.$parent.slotKey } }, [
-              e('p', [t._v('私有化部署需要获取4个核心项目包, 包括')]),
+              e('p', [t._v('私有化部署需要获取3个核心项目包, 包括')]),
               t._v(' '),
               e('ul', [
-                e('li', [t._v('H5编辑器(h5_plus)')]),
+                e('li', [t._v('可视化大屏编辑器(v6.dooring/)')]),
                 t._v(' '),
-                e('li', [t._v('H5基座(h5)')]),
+                e('li', [t._v('v6管理后台(v6.dooring/manage)')]),
                 t._v(' '),
-                e('li', [t._v('Dooring管理后台(Dooring-Admin)')]),
-                t._v(' '),
-                e('li', [t._v('服务端项目(Server)')]),
+                e('li', [t._v('服务端项目(v6.dooring/server)')]),
               ]),
               t._v(' '),
               e('p', [
-                t._v('获取以上四个核心源码工程需要满足商业授权协议, 具体可联系作者'),
+                t._v('获取以上三个核心源码工程需要满足商业授权协议, 具体可参考'),
                 e(
                   'a',
                   {
                     attrs: {
-                      href: 'http://h5.dooring.cn/uploads/WechatIMG3_1758e9753e2.jpeg',
+                      href: 'http://h5.dooring.cn/h5_plus/price',
                       target: '_blank',
                       rel: 'noopener noreferrer',
                     },
                   },
-                  [t._v('徐小夕'), e('OutboundLink')],
+                  [t._v('商业授权方案'), e('OutboundLink')],
                   1,
                 ),
               ]),
@@ -50,15 +48,15 @@
                 t._v(' 部署架构图'),
               ]),
               t._v(' '),
-              e('img', { attrs: { src: v(360), alt: 'H5-dooring部署' } }),
+              e('img', { attrs: { src: _(361), alt: 'H5-dooring部署' } }),
               t._v(' '),
               e('p', [t._v('部署流程如下:')]),
               t._v(' '),
               e('ol', [
-                e('li', [t._v('下载4个源码工程, 安装依赖(npm install 或 yarn)')]),
+                e('li', [t._v('下载3个源码工程, 安装依赖(npm install 或 yarn)')]),
                 t._v(' '),
                 e('li', [
-                  t._v('打包3个前端工程至'),
+                  t._v('打包2个前端工程至'),
                   e('code', [t._v('server')]),
                   t._v('的static目录下'),
                 ]),
@@ -173,7 +171,7 @@
           null,
           null,
         );
-      _.default = a.exports;
+      v.default = a.exports;
     },
   },
 ]);

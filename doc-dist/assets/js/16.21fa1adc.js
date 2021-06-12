@@ -1,7 +1,7 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [16],
   {
-    368: function(t, s, e) {
+    367: function(t, s, e) {
       t.exports = e.p + 'assets/img/framework.1c9c696b.png';
     },
     405: function(t, s, e) {
@@ -14,7 +14,7 @@
             var t = this.$createElement,
               s = this._self._c || t;
             return s('ContentSlotsDistributor', { attrs: { 'slot-key': this.$parent.slotKey } }, [
-              s('img', { attrs: { src: e(368), alt: 'foo' } }),
+              s('img', { attrs: { src: e(367), alt: 'foo' } }),
               this._v(' '),
               s('p', [this._v('注：灰色部分还未实现，正在更新中...')]),
             ]);

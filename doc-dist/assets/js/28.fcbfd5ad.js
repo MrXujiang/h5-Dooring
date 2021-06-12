@@ -1,11 +1,11 @@
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [28],
   {
-    395: function(_, v, i) {
+    397: function(_, v, i) {
       'use strict';
       i.r(v);
       var l = i(42),
-        t = Object(l.a)(
+        a = Object(l.a)(
           {},
           function() {
             var _ = this,
@@ -15,6 +15,27 @@
               i('h3', { attrs: { id: '更新日志' } }, [
                 i('a', { staticClass: 'header-anchor', attrs: { href: '#更新日志' } }, [_._v('#')]),
                 _._v(' 更新日志'),
+              ]),
+              _._v(' '),
+              i('h4', { attrs: { id: '_2-01' } }, [
+                i('a', { staticClass: 'header-anchor', attrs: { href: '#_2-01' } }, [_._v('#')]),
+                _._v(' 2.01'),
+              ]),
+              _._v(' '),
+              i('ol', [
+                i('li', [_._v('优化编辑器加载性能')]),
+                _._v(' '),
+                i('li', [_._v('iframe容器组件添加边框等属性')]),
+                _._v(' '),
+                i('li', [_._v('富文本组件添加背景色配置')]),
+                _._v(' '),
+                i('li', [_._v('修复真机预览时空数据还能显示二维码bug')]),
+                _._v(' '),
+                i('li', [_._v('优化页面高度适配问题, 添加高度适配器')]),
+                _._v(' '),
+                i('li', [_._v('优化组件交互时空链接点击出现message bug')]),
+                _._v(' '),
+                i('li', [_._v('更新dooring文档')]),
               ]),
               _._v(' '),
               i('h4', { attrs: { id: '_2-0' } }, [
@@ -180,7 +201,7 @@
           null,
           null,
         );
-      v.default = t.exports;
+      v.default = a.exports;
     },
   },
 ]);
