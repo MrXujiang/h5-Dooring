@@ -28,7 +28,10 @@
 
 ![](http://cdn.dooring.cn/dr/2.png)
 
-相关产品: [V6.Dooring | 大屏可视化编辑器](https://github.com/MrXujiang/v6.dooring.public)
+相关产品: 
+
+- [V6.Dooring | 大屏可视化编辑器](https://github.com/MrXujiang/v6.dooring.public)
+- [dooring-electron-lowcode | dooring桌面端软件](https://github.com/MrXujiang/dooring-electron-lowcode)
 
 ## Author
 
