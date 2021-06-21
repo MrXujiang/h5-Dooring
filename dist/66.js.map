@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/materials/base/RichText/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,WACNC,EAAG,IACHC,YAAa,SAEAH","file":"66.js","sourcesContent":["const template = {\n  type: 'RichText',\n  h: 120,\n  displayName: '富文本组件',\n};\nexport default template;\n"],"sourceRoot":""}

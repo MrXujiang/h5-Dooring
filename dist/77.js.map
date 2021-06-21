@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/materials/media/Calendar/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,WACNC,EAAG,IACHC,YAAa,QAEAH","file":"77.js","sourcesContent":["const template = {\n  type: 'Calendar',\n  h: 185,\n  displayName: '日历组件',\n};\nexport default template;\n"],"sourceRoot":""}

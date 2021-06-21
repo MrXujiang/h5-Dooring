@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/materials/media/Map/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,MACNC,EAAG,IACHC,YAAa,QAEAH","file":"79.js","sourcesContent":["const template = {\n  type: 'Map',\n  h: 120,\n  displayName: '地图组件',\n};\nexport default template;\n"],"sourceRoot":""}

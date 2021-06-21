@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/materials/base/Icon/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,OACNC,EAAG,GACHC,YAAa,QAEAH","file":"56.js","sourcesContent":["const template = {\n  type: 'Icon',\n  h: 36,\n  displayName: '图标组件',\n};\nexport default template;\n"],"sourceRoot":""}

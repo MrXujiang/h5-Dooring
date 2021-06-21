@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/materials/base/Form/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,OACNC,EAAG,IACHC,YAAa,QAEAH","file":"52.js","sourcesContent":["const template = {\n  type: 'Form',\n  h: 172,\n  displayName: '表格组件',\n};\nexport default template;\n"],"sourceRoot":""}

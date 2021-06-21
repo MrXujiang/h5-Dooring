@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/materials/visual/XProgress/template.ts"],"names":["template","type","h","displayName"],"mappings":"6FAAA,UAAMA,GAAW,CACfC,KAAM,YACNC,EAAG,IACHC,YAAa,SAEAH","file":"101.js","sourcesContent":["const template = {\n  type: 'XProgress',\n  h: 102,\n  displayName: '进度条组件',\n};\nexport default template;\n"],"sourceRoot":""}

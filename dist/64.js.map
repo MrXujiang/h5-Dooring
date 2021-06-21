@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/materials/base/Qrcode/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,SACNC,EAAG,IACHC,YAAa,SAEAH","file":"64.js","sourcesContent":["const template = {\n  type: 'Qrcode',\n  h: 150,\n  displayName: '二维码组件',\n};\nexport default template;\n"],"sourceRoot":""}

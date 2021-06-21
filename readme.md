@@ -103,7 +103,7 @@ var dooringOpts = {
 
   }
 </script>
-<script src="http://49.234.61.19/dooring-sdk.js"></script>
+<script src="http://cdn.dooring.cn/dr/dooring-sdk.js"></script>
 ```
 
 
@@ -125,9 +125,7 @@ var dooringOpts = {
 预览功能这块比较简单, 我们只需要将用户生成的json数据丢进H5渲染器中即可, 这里我们需要做一个渲染页面单独用来预览组件. 先来看看几个预览效果:
 > The preview function is relatively simple, we just need to throw the user-generated jason data into the H5 renderer, here we need to make a rendering page for the preview components separately. Let's take a look at a few previews:
 
-<img src="http://49.234.61.19/uploads/pr_1_1763cc4184a.png" alt="h5_preview_pic" width="375px"/>
-<br />
-<img src="http://49.234.61.19/uploads/pr_2_1763cc49dd1.png" alt="h5_preview_pic" width="375px"/>
+<img src="hhttp://cdn.dooring.cn/dr/WX20210621-234448%402x.png" alt="h5_preview_pic" width="375px"/>
 
 前面的渲染器原理已经介绍了, 这里就不一一介绍了,感兴趣的可以交流讨论.
 
@@ -185,7 +183,6 @@ FileSaver.saveAs(blob, "hello world.txt");
 
 ## 正在完成功能 | The functionality is being completed
 * 丰富组件库组件 Enrich component library components
-* 添加配置交互功能 Add configuration interaction
 * 组件细分和代码优化 Component segmentation and code optimization
 * 单元测试 Unit tests
 
@@ -248,7 +245,7 @@ cnpm run dev
 
 
 ## 持续升级 | Continuous upgrades
-正在升级1.5版本，敬请期待...
+正在升级3.0版本，敬请期待...
 
 ## 赞助 | Sponsored
 开源不易, 有了您的赞助, 我们会做的更好~

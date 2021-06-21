@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/materials/shop/ZhuanLan/template.ts"],"names":["template","type","h","displayName"],"mappings":"8FAAA,UAAMA,GAAW,CACfC,KAAM,WACNC,EAAG,IACHC,YAAa,QAEAH","file":"91.js","sourcesContent":["const template = {\n  type: 'ZhuanLan',\n  h: 120,\n  displayName: '专栏组件',\n};\nexport default template;\n"],"sourceRoot":""}
