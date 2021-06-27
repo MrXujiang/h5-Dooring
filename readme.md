@@ -47,6 +47,7 @@
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/MrXujiang/h5-Dooring/issues).
+
 欢迎提供问题和功能需求, 如果大家有好的点子和优化建议, 也欢迎提pr参与我们的共建.
 
 ## Show your support
@@ -54,60 +55,46 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 Give a ⭐️ if this project helped you!
 如果觉得项目还不错, 就点个star吧~
 
-## ⭐️ dooring-sdk使用
-最近笔者正在开放dooring的插拔式服务, 以js-sdk的形式支持集成到外部系统中, 并提供开放API共使用者自由配置. 规划如下:
+### Features
+1. 编辑器
+    - [x] 参考线
+    - [x] 基础组件
+    - [x] 可视化组件
+    - [x] 媒体组件
+    - [x] 商品组件
+    - [x] 拖拽器
+    - [x] 配置面板
+    - [x] 表单设计器
+    - [x] (多)页面管理(复制,编辑, 删除, 新建)
+    - [x] 组件动画
+    - [x] 组件交互
+    - [x] 数据源管理
+    - [x] 快速预览
+    - [x] 真机预览
+    - [x] 撤销、重做
+    - [x] 微信分享
+    - [x] 快捷键
+    - [x] 模版库
+    - [x] 桌面端软件Dooring-electron, 支持离线使用
 
 
-![](http://h5.dooring.cn/uploads/sdk_1763cc11bd5.png)
+2. 增强功能
+    - [x] 上传 json，一键转换为 H5
+    - [x] 图片库
+    - [x] 出码能力(下载源码, 下载dist包)
 
-
-### 1. 如何引用js-sdk | How to use js-sdk
-我们可以使用两种方式来使用我们的js-sdk, 第一种是在项目脚本中引入如下script标签, 如下:
-``` js
-<script src="http://h5.dooring.cn/dooring-sdk.js"></script>
-```
-或者直接复制如下代码到你的script标签中, 代码如下:
-``` js
-(function(){var b=document.createElement("iframe");var d=Date.now();var a="http://49.234.61.19";b.src=a+"/h5_plus/editor?tid="+d+"&"+c(dooringOpts)+"&isOpen=1";console.log(c(dooringOpts));b.style.border="none";b.style.width="100vw";b.style.height="100vh";if(dooringOpts&&dooringOpts.iframeStyle){b.style.border=dooringOpts.iframeStyle.border||"none";b.style.width=dooringOpts.iframeStyle.width||"100vw";b.style.height=dooringOpts.iframeStyle.height||"100vh"}document.querySelector(dooringOpts.container||"body").appendChild(b);function c(g){var e=Object.assign({gallery:false,template:false,saveTemplate:true,save:true,downCode:true,isPhoneTest:false,helpPage:true,uploadApi:"",formApi:"",screenshotsApi:""},g.controls||{});var h="";for(var f in e){h+=f+"="+encodeURI(e[f])+"&"}return h.slice(0,h.length-1)}})();
-```
-
-### 2. 自定义选项 | Custom options
-
-我们可以在全局定义如下配置项:
-
-``` js
-var dooringOpts = {
-    container: '',  // 挂载到哪个dom节点上
-    iframeStyle: {  // iframe自定义样式
-        width: '',
-        height: '',
-        border: ''
-    },
-    controls: {
-      gallery: false,  // 是否启动图片库
-      template: false, // 是否启用模版库
-      saveTemplate: true,  // 参数可以是true/false,表示是否启动下载代码, 也可以是函数, 用来自定义下载代码逻辑
-      save: true,  // 参数可以是true/false,表示是否启动下载代码, 也可以是函数, 用来自定义下载代码逻辑
-      downCode: true, // 参数可以是true/false,表示是否启动下载代码, 也可以是函数, 用来自定义下载代码逻辑
-      isPhoneTest: false,
-      helpPage: true,   // false/true表示隐藏/显示帮助页面
-      uploadApi: '',  // 自定义上传api
-      formApi: '',  // 自定义表单提交api
-      screenshotsApi: ''  // 自定义截图提交api
-    }
-};
-```
-
-注: 在使用自定义配置时, 自定义配置的顺序应先于sdk引入的顺序, 所以正确的使用案例如下:
-
-``` js
-<script>
-  var dooringOpts = {
-
-  }
-</script>
-<script src="http://cdn.dooring.cn/dr/dooring-sdk.js"></script>
-```
+4. 后端 API
+    - [x] 创建、保存、更新作品
+    - [x] 用户管理, 权限管理
+    - [x] 一键智能分析
+    - [x] 数据看版
+    - [x] 表单数据收集
+    - [x] 表单数据展示
+    - [x] 表单数据分析, 一键导出excel, 表单多条件搜索
+    - [x] 在线预览
+    - [x] 二维码预览
+    - [x] 模版管理
+    - [x] 出码接口
 
 
 ## 技术栈 | The technology stack
@@ -124,33 +111,14 @@ var dooringOpts = {
 * **@koa/router** 基于koa2的服务端路由中间件
 * **ramda** 优秀的函数式js工具库
 
-### 预览功能 | Preview features
-预览功能这块比较简单, 我们只需要将用户生成的json数据丢进H5渲染器中即可, 这里我们需要做一个渲染页面单独用来预览组件. 先来看看几个预览效果:
-> The preview function is relatively simple, we just need to throw the user-generated jason data into the H5 renderer, here we need to make a rendering page for the preview components separately. Let's take a look at a few previews:
-
-<img src="hhttp://cdn.dooring.cn/dr/WX20210621-234448%402x.png" alt="h5_preview_pic" width="375px"/>
-
-前面的渲染器原理已经介绍了, 这里就不一一介绍了,感兴趣的可以交流讨论.
-
-### 实现在线下载功能 | Enable online download
-在线下载这块我们需要用到一个开源库: **file-saver**, 专门解决前端下载文件困难的窘境. 具体使用举例:
-``` js
-var FileSaver = require('file-saver');
-var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
-FileSaver.saveAs(blob, "hello world.txt");
-```
-以上代码可以实现将传入的数据下载为txt文件, 如果是Blob, 是不是还能在线下载图片, html呢? 答案是肯定的, 所以我们的下载任务采用该方案来实现.
-
 ### 后端部分 | The back-end section
-后端部分由于涉及的知识点比较多, 不是本文考虑的重点, 所以这里大致提几个点, 大家可以用完全不同的技术来实现后台服务, 比如说**PHP**, **Java**, **Python**或者**Egg**. 笔者这里采用的是**koa**. 主要实现功能如下:
-* 保存模板 | Save the template
-* 真机预览的数据源存储 | The data source store for the real machine preview
-* 用户相关功能 | User-related features
-* H5图床和静态文件托管 | H5 map bed and static file hosting
+后端部分由于涉及的知识点比较多, 不是本文考虑的重点, 所以这里大致提几个点, 大家可以用完全不同的技术来实现后台服务, 比如说**PHP**, **Java**, **Python**或者**Egg**. 笔者这里采用的是**koa**. 
+
+[Dooring后台接口文档](http://h5.dooring.cn/doc/zh/guide/deployDev/api.html)
 
 具体代码可以参考笔者的另一篇全栈开发文章
 
-[基于nodeJS从0到1实现一个CMS全栈项目](https://juejin.im/post/6844903952761225230)
+[基于Koa + React + TS从零开发全栈文档编辑器](https://mp.weixin.qq.com/s?__biz=MzU2Mzk1NzkwOA==&mid=2247486910&idx=2&sn=7ce865dd8a8f6769439f0e8eebb72212&chksm=fc531445cb249d534a7d8a362ad40d26bc90f2d2e867385768ee19575e32826fcbe419fcbe0b&token=297396546&lang=zh_CN#rd)
 
 模式基本一致.
 
@@ -161,33 +129,6 @@ FileSaver.saveAs(blob, "hello world.txt");
 * [实现H5可视化编辑器的实时预览和真机扫码预览功能](https://github.com/MrXujiang/h5-Dooring/wiki/%E5%AE%9E%E7%8E%B0H5%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E5%AE%9E%E6%97%B6%E9%A2%84%E8%A7%88%E5%92%8C%E7%9C%9F%E6%9C%BA%E6%89%AB%E7%A0%81%E9%A2%84%E8%A7%88%E5%8A%9F%E8%83%BD)
 * [基于H5 Dooring场景下的图片 文件上传方案指南](https://github.com/MrXujiang/h5-Dooring/wiki/%E5%9F%BA%E4%BA%8EH5-Dooring%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E5%9B%BE%E7%89%87-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88%E6%8C%87%E5%8D%97)
 
-## 已完成功能 | The functionality is complete
-1. 组件库拖拽和显示 | Component library drag and display
-2. 组件库动态编辑 | Component library dynamic editing
-3. H5页面预览功能 | H5 page preview feature
-4. 保存H5页面配置文件 | Save the H5 page profile
-5. 保存为模版 | Save as a template
-6. 移动端跨端适配 | Mobile cross-end fit
-7. 媒体组件 | The media component
-8. 在线下载网站代码功能 | Download the website code feature online
-9. 添加typescript支持 | Add typescript support
-10. 表单设计器/自定义表单组件 | Form designer/custom form components
-11. 可视化组件Chart实现 | Visual component Chart implementation
-12. 在线编程模块(Mini Web IDE) | Online programming module
-13. 新增图表组件 面积图，折线图， 饼图 | Added chart component area chart, line chart, pie chart
-14. 添加图片库,支持用户在线选择图片素材 | Add a picture library to allow users to select picture footage online
-15. 升级图片组件为图文组件 | Upgrade the picture component to the picture component
-16. 添加模版库 | Add a template library
-17. 添加可视化组件(基于g2)如折线图, 饼图, 面积图等 | Add visualization components (based on g2) such as line charts, pie charts, area charts, etc
-18. form组件文本框字段修改 | The form component text box field is modified
-19. 清空按钮添加确认框 | Empty the button to add a confirmation box
-20. 表单组件中添加展示型文本,用来对字段说明 | Add presentation text to the form component to describe the field
-21. 支持组件复制, 右键删除 | Support for component replication, right-click deletion
-
-## 正在完成功能 | The functionality is being completed
-* 丰富组件库组件 Enrich component library components
-* 组件细分和代码优化 Component segmentation and code optimization
-* 单元测试 Unit tests
 
 ## Install(安装)
 1. 下载代码 | Download the code
