@@ -156,7 +156,7 @@ or
 cnpm run start
 ```
 
-## How to run the downloaded code ?
+## 如何运行下载后的代码? | How to run the downloaded code ?
 
  1. 可以将压缩包解压直接放到服务器根目录, 访问根目录地址即可
  2. `vscode`安装Live Server插件, 将下载的压缩包解压成文件夹, 用`vscode`打开, 点击Live Server即可, 注意要删除启动路径的`index.html`, 改成`/`

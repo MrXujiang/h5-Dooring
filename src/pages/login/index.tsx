@@ -1,7 +1,6 @@
 import { Form, Input, Button, Popover } from 'antd';
 import React from 'react';
 import req from '@/utils/req';
-import CodeImg from '@/assets/code.png';
 import { history } from 'umi';
 import styles from './index.less';
 
@@ -22,7 +21,11 @@ const tailLayout = {
 const content = (
   <>
     <div style={{ textAlign: 'center' }}>
-      <img style={{ width: '180px' }} src={CodeImg} alt="趣谈前端-徐小夕" />
+      <img
+        style={{ width: '180px' }}
+        src="http://cdn.dooring.cn/dr/qtqd_code.png"
+        alt="趣谈前端-徐小夕"
+      />
     </div>
     <p style={{ width: '240px' }}>扫描上方二维码，关注【趣谈前端】公众号，回复"登录码" 即可获取</p>
   </>

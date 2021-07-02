@@ -19,7 +19,6 @@ import QRCode from 'qrcode.react';
 import { saveAs } from 'file-saver';
 import req from '@/utils/req';
 import { uuid } from '@/utils/tool';
-import Code from '@/assets/code.png';
 import styles from './index.less';
 import MyPopover from 'yh-react-popover';
 
@@ -119,10 +118,14 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
 
   const useTemplate = () => {
     Modal.info({
-      title: '该功能正在升级，可以关注下方公众号实时查看动态',
+      title: '该功能属于企业版功能，可以关注下方公众号获取线上版登录码体验',
       content: (
         <div style={{ textAlign: 'center' }}>
-          <img src={Code} alt="趣谈前端" style={{ width: '180px' }} />
+          <img
+            src="http://cdn.dooring.cn/dr/qtqd_code.png"
+            alt="趣谈前端"
+            style={{ width: '180px' }}
+          />
         </div>
       ),
       okText: '客官知道啦',
@@ -217,7 +220,12 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         <div className={styles.backBtn} onClick={toBack}>
           <ArrowLeftOutlined />
         </div>
-        <div className={styles.logo}></div>
+        <div className={styles.logo} title="Dooring">
+          <a href="/">
+            <img src="http://cdn.dooring.cn/dr/logo.ff7fc6bb.png" alt="Dooring-强大的h5编辑器" />
+          </a>
+        </div>
+        <p>再硬的🚪也抵不过傻瓜般的坚持!</p>
       </div>
       <div className={styles.controlArea}>
         <Button type="primary" style={{ marginRight: '9px' }} onClick={useTemplate}>

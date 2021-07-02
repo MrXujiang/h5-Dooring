@@ -9,25 +9,30 @@
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   .logoArea {
-    width: 300px;
+    position: relative;
+    width: 258px;
     .backBtn {
       display: inline-block;
-      padding: 12px 10px;
-      margin-right: 22px;
+      padding: 12px 6px;
+      margin-right: 18px;
       cursor: pointer;
     }
     .logo {
-      position: fixed;
       display: inline-block;
       width: 120px;
-      height: 35px;
-      border-radius: 3px;
       overflow: hidden;
-      background: url(../../../../assets/logo.png) no-repeat;
-      background-size: contain;
-      line-height: 50px;
-      margin-top: 7px;
-      margin-left: -20px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-top: -10px;
+      img {
+        width: 100%;
+      }
+    }
+    p {
+      position: absolute;
+      color: #888;
+      font-size: 12px;
+      transform: scale(0.9) translate(88px, -15px);
     }
   }
   .controlArea {
