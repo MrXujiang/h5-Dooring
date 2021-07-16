@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/materials/base/Carousel/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,WACNC,EAAG,GACHC,YAAa,SAEAH","file":"50.js","sourcesContent":["const template = {\n  type: 'Carousel',\n  h: 82,\n  displayName: '轮播图组件',\n};\nexport default template;\n"],"sourceRoot":""}

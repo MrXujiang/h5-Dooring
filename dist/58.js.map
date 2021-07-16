@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/materials/base/List/template.ts"],"names":["template","type","h","displayName"],"mappings":"8FAAA,UAAMA,GAAW,CACfC,KAAM,OACNC,EAAG,IACHC,YAAa,QAEAH","file":"58.js","sourcesContent":["const template = {\n  type: 'List',\n  h: 110,\n  displayName: '列表组件',\n};\nexport default template;\n"],"sourceRoot":""}

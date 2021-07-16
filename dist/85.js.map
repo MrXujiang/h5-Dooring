@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/materials/shop/Coupons/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,UACNC,EAAG,GACHC,YAAa,SAEAH","file":"85.js","sourcesContent":["const template = {\n  type: 'Coupons',\n  h: 72,\n  displayName: '优惠券组件',\n};\nexport default template;\n"],"sourceRoot":""}

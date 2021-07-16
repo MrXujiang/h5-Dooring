@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/materials/media/Video/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,QACNC,EAAG,IACHC,YAAa,QAEAH","file":"81.js","sourcesContent":["const template = {\n  type: 'Video',\n  h: 107,\n  displayName: '视频组件',\n};\nexport default template;\n"],"sourceRoot":""}

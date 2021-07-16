@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/materials/visual/Pie/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,MACNC,EAAG,IACHC,YAAa,QAEAH","file":"99.js","sourcesContent":["const template = {\n  type: 'Pie',\n  h: 106,\n  displayName: '饼图组件',\n};\nexport default template;\n"],"sourceRoot":""}

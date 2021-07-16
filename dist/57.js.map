@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/materials/base/Image/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,QACNC,EAAG,GACHC,YAAa,QAEAH","file":"57.js","sourcesContent":["const template = {\n  type: 'Image',\n  h: 80,\n  displayName: '图片组件',\n};\nexport default template;\n"],"sourceRoot":""}

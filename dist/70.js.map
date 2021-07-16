@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/materials/base/Text/template.ts"],"names":["template","type","h","displayName"],"mappings":"8FAAA,UAAMA,GAAW,CACfC,KAAM,OACNC,EAAG,GACHC,YAAa,QAEAH","file":"70.js","sourcesContent":["const template = {\n  type: 'Text',\n  h: 20,\n  displayName: '文本组件',\n};\nexport default template;\n"],"sourceRoot":""}

@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/materials/visual/Area/template.ts"],"names":["template","type","h","displayName"],"mappings":"4FAAA,UAAMA,GAAW,CACfC,KAAM,OACNC,EAAG,IACHC,YAAa,SAEAH","file":"93.js","sourcesContent":["const template = {\n  type: 'Area',\n  h: 108,\n  displayName: '面积图组件',\n};\nexport default template;\n"],"sourceRoot":""}
