@@ -119,6 +119,35 @@ module.exports = {
         ],
       },
       {
+        title: '组件商店',
+        collapsable: false,
+        sidebarDepth: 1,
+        type: 'group',
+        children: [
+          {
+            name: 'intro',
+            title: '基本介绍',
+            path: '/zh/guide/componentShop/intro',
+            collapsable: false,
+            sidebarDepth: 2,
+          },
+          {
+            name: 'uploadCp',
+            title: '上传组件',
+            path: '/zh/guide/componentShop/uploadCp',
+            collapsable: false,
+            sidebarDepth: 2,
+          },
+          {
+            name: 'cpManage',
+            title: '组件审核',
+            path: '/zh/guide/componentShop/cpManage',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+        ],
+      },
+      {
         title: '私有化部署和二次开发',
         collapsable: false,
         sidebarDepth: 1,
