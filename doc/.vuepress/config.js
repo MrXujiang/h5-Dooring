@@ -203,6 +203,12 @@ module.exports = {
           },
         ],
       },
+      {
+        title: 'FAQ',
+        path: '/zh/guide/FAQ',
+        collapsable: false,
+        sidebarDepth: 1,
+      },
     ],
   },
 };

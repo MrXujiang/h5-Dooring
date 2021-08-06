@@ -13,6 +13,7 @@ import {
   SketchOutlined,
   UploadOutlined,
   InstagramOutlined,
+  WechatOutlined,
 } from '@ant-design/icons';
 import { history } from 'umi';
 import QRCode from 'qrcode.react';
@@ -160,6 +161,14 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
   const newPage = () => {
     clearData();
     history.push(`/editor?tid=${uuid(8, 16)}`);
+  };
+
+  const toShare = () => {
+    Modal.info({
+      title: '一键将海报分享到朋友圈, 为Dooring助力',
+      content: <img src="http://cdn.dooring.cn/dr/h5door.png" width="300" />,
+      okText: '知道了',
+    });
   };
 
   const savePreview = () => {
@@ -315,6 +324,15 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         </Tooltip>
         <Button type="link" onClick={toPreview} disabled={!pointData.length}>
           预览
+        </Button>
+        <Button
+          type="link"
+          style={{ marginRight: '5px' }}
+          title="一键分享"
+          onClick={toShare}
+          disabled={!pointData.length}
+        >
+          <WechatOutlined />
         </Button>
         <Button
           type="link"

@@ -57,7 +57,7 @@ const PreviewPage = memo((props: PreviewPageProps) => {
           document.title = pageConfig.title || 'H5-Dooring | 强大的H5编辑神器';
           // 设置数据源
           setPointData(
-            tpl.map(item => ({
+            tpl.map((item: any) => ({
               ...item,
               point: { ...item.point, isDraggable: false, isResizable: false },
             })),

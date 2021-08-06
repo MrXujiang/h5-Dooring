@@ -3,7 +3,7 @@ import { Button, Popover } from 'antd';
 import styles from './index.less';
 
 interface IProps {
-  text: any;
+  text?: any;
 }
 
 ///这组件写的有问题  popover会重定位
