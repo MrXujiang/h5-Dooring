@@ -24,6 +24,8 @@
 
 ### 📦 doc(文档) [H5-Dooring Document](http://h5.dooring.cn/doc)
 
+### 国内加速版github地址: [H5-Dooring](https://gitee.com/zhonxue/h5_-dooring)
+
 ### [视频教程 | Video tutorial](https://www.zhihu.com/zvideo/1326300284608417792)
 
 ![](http://cdn.dooring.cn/dr/2.png)
