@@ -18,15 +18,9 @@
 
 > H5-Dooring is a powerful, open source, free H5 visual page configuration solution dedicated to providing a simple, convenient, professional and reliable, unlimited set of H5 landing page best practices. The technology stack is mainly react, developed in the background using nodejs.
 
-### 🏠 [Homepage](http://h5.dooring.cn)
-
-### ✨ [Demo](http://h5.dooring.cn/h5_plus)
-
-### 📦 doc(文档) [H5-Dooring Document](http://h5.dooring.cn/doc)
-
-### 国内加速版github地址: [H5-Dooring](https://gitee.com/zhonxue/h5_-dooring)
-
-### [视频教程 | Video tutorial](https://www.zhihu.com/zvideo/1326300284608417792)
+| 主页🏠(home)      | 演示✨(demo) |  文档📦(doc)   |  教程(tutorial) |  wiki |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| [website](http://h5.dooring.cn) | [Demo](http://h5.dooring.cn/h5_plus) | [Document](http://h5.dooring.cn/doc) | [视频&Video](https://www.zhihu.com/zvideo/1406394315950653440) | [wiki](https://github.com/MrXujiang/h5-Dooring/wiki)
 
 相关产品: 
 
@@ -104,13 +98,10 @@ Give a ⭐️ if this project helped you!
 
 具体代码可以参考全栈开发文章:
 
-[基于Koa + React + TS从零开发全栈文档编辑器](https://mp.weixin.qq.com/s?__biz=MzU2Mzk1NzkwOA==&mid=2247486910&idx=2&sn=7ce865dd8a8f6769439f0e8eebb72212&chksm=fc531445cb249d534a7d8a362ad40d26bc90f2d2e867385768ee19575e32826fcbe419fcbe0b&token=297396546&lang=zh_CN#rd)
+- [基于Koa + React + TS从零开发全栈文档编辑器](https://mp.weixin.qq.com/s?__biz=MzU2Mzk1NzkwOA==&mid=2247486910&idx=2&sn=7ce865dd8a8f6769439f0e8eebb72212&chksm=fc531445cb249d534a7d8a362ad40d26bc90f2d2e867385768ee19575e32826fcbe419fcbe0b&token=297396546&lang=zh_CN#rd)
 
 - [Dooring后台接口文档](http://h5.dooring.cn/doc/zh/guide/deployDev/api.html)
 - [私有化部署](http://h5.dooring.cn/h5_plus/price)
-
-
-## [wiki(技术实现参考文档)](https://github.com/MrXujiang/h5-Dooring/wiki)
 
 
 ## Install(安装)
@@ -156,6 +147,8 @@ cnpm run dev
 前提是先安装http-server模块.
 
 ## Partner project
+
+* [mitu-editor - 轻量级且强大的图片编辑器](https://github.com/H5-Dooring/mitu-editor)
 * [powerNice - 一款轻量级文档管理编辑器](http://h5.dooring.cn/powernice/views)
 * [rc-drag - 基于react的轻量级拖拽缩放组件](https://github.com/MrXujiang/rc-drag)
 * [Luckysheet - 强大的在线excel编辑器](https://github.com/mengshukeji/Luckysheet)
