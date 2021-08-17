@@ -28,8 +28,6 @@
 
 ### [视频教程 | Video tutorial](https://www.zhihu.com/zvideo/1326300284608417792)
 
-![](http://cdn.dooring.cn/dr/2.png)
-
 相关产品: 
 
 - [V6.Dooring | 大屏可视化编辑器](https://github.com/MrXujiang/v6.dooring.public)
@@ -42,20 +40,16 @@
 * Website: http://h5.dooring.cn
 * Github: [@MrXujiang](https://github.com/MrXujiang)
 
-## 声明
-
-未获得授权的情况下，禁止对该仓库代码进行反编译、分发等行为，否则将承担相应的法律后果。
-
-## 🤝 Contributing
+## 🤝 Contributing and support
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/MrXujiang/h5-Dooring/issues).
 
-欢迎提供问题和功能需求, 如果大家有好的点子和优化建议, 也欢迎提pr参与我们的共建.
-
-## Show your support
+> 欢迎提供问题和功能需求, 如果大家有好的点子和优化建议, 也欢迎提pr参与我们的共建.
 
 Give a ⭐️ if this project helped you!
-如果觉得项目还不错, 就点个star吧~
+
+> 如果觉得项目还不错, 就点个star吧~
+
 
 ### Features
 1. 编辑器
@@ -98,6 +92,12 @@ Give a ⭐️ if this project helped you!
     - [x] 模版管理
     - [x] 出码接口
 
+## 更新日志 | Update the log
+1. 视频组件添加播放时是否全屏配置项
+2. 修复icon组件点击失效问题
+3. 编辑器支持多尺寸切换, 支持画布尺寸自定义
+4. 修复后台管理分析表单的多语言问题
+5. 组件库支持用户自定义选择
 
 ## 技术栈 | The technology stack
 * **React** 前端主流框架(react,vue,angular)之一,更适合开发灵活度高且复杂的应用
@@ -182,16 +182,6 @@ cnpm run dev
 * [frontend-developer-roadmap | 一个能提高开发者工作效率的前端js库汇总](https://github.com/MrXujiang/frontend-developer-roadmap)
 * [lucky-canvas 抽奖插件 | 一个支持H5, 微信小程序, React的抽奖插件](https://github.com/LuckDraw/lucky-canvas)
 * [基于antd开箱即用的后台管理模版ant-simple-pro](https://github.com/lgf196/ant-simple-pro)
-
-## 更新日志 | Update the log
-1. 添加在线编程模块（在执行代码前先启动node服务 npm run server）
-2. 添加客服机器人模块[chatbot-antd](https://www.npmjs.com/package/chatbot-antd)
-3. 添加数据可视化模块
-4. 添加表单定制模块
-
-
-## 持续升级 | Continuous upgrades
-正在升级3.0版本，敬请期待...
 
 ## 赞助 | Sponsored
 开源不易, 有了您的赞助, 我们会做的更好~
