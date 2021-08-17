@@ -99,37 +99,18 @@ Give a ⭐️ if this project helped you!
 4. 修复后台管理分析表单的多语言问题
 5. 组件库支持用户自定义选择
 
-## 技术栈 | The technology stack
-* **React** 前端主流框架(react,vue,angular)之一,更适合开发灵活度高且复杂的应用
-* **dva** 主流的react应用状态管理工具，基于redux
-* **less** css预编译语言，轻松编写结构化分明的css
-* **umi** 基于react的前端集成解决方案
-* **antd** 地球人都知道的react组件库
-* **axios** 强大的前端请求库
-* **react-dnd** 基于react的拖拽组件解决方案，具有优秀的设计哲学
-* **qrcode.react** 基于react的二维码生成插件
-* **zarm** 基于react的移动端ui库，轻松实现美观的H5应用
-* **koa** 基于nodejs的上一代开发框架，轻松实现基于nodejs的后端开发
-* **@koa/router** 基于koa2的服务端路由中间件
-* **ramda** 优秀的函数式js工具库
-
 ### 后端部分 | The back-end section
 后端部分由于涉及的知识点比较多, 不是本文考虑的重点, 所以这里大致提几个点, 大家可以用完全不同的技术来实现后台服务, 比如说**PHP**, **Java**, **Python**或者**Egg**. 笔者这里采用的是**koa**. 
 
-[Dooring后台接口文档](http://h5.dooring.cn/doc/zh/guide/deployDev/api.html)
-
-具体代码可以参考笔者的另一篇全栈开发文章
+具体代码可以参考全栈开发文章:
 
 [基于Koa + React + TS从零开发全栈文档编辑器](https://mp.weixin.qq.com/s?__biz=MzU2Mzk1NzkwOA==&mid=2247486910&idx=2&sn=7ce865dd8a8f6769439f0e8eebb72212&chksm=fc531445cb249d534a7d8a362ad40d26bc90f2d2e867385768ee19575e32826fcbe419fcbe0b&token=297396546&lang=zh_CN#rd)
 
-模式基本一致.
+- [Dooring后台接口文档](http://h5.dooring.cn/doc/zh/guide/deployDev/api.html)
+- [私有化部署](http://h5.dooring.cn/h5_plus/price)
 
-## wiki(参考文档)
-* [H5可视化编辑器(H5 Dooring)介绍](https://github.com/MrXujiang/h5-Dooring/wiki/H5%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%99%A8(H5-Dooring)%E4%BB%8B%E7%BB%8D)
-* [Form Editor(动态表单设计器)](https://github.com/MrXujiang/h5-Dooring/wiki/Form-Editor(%E5%8A%A8%E6%80%81%E8%A1%A8%E5%8D%95%E8%AE%BE%E8%AE%A1%E5%99%A8))
-* [基于f2实现移动端可视化编辑器(dooring升级版)](https://github.com/MrXujiang/h5-Dooring/wiki/%E5%9F%BA%E4%BA%8Ef2%E5%AE%9E%E7%8E%B0%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%99%A8(dooring%E5%8D%87%E7%BA%A7%E7%89%88))
-* [实现H5可视化编辑器的实时预览和真机扫码预览功能](https://github.com/MrXujiang/h5-Dooring/wiki/%E5%AE%9E%E7%8E%B0H5%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E5%AE%9E%E6%97%B6%E9%A2%84%E8%A7%88%E5%92%8C%E7%9C%9F%E6%9C%BA%E6%89%AB%E7%A0%81%E9%A2%84%E8%A7%88%E5%8A%9F%E8%83%BD)
-* [基于H5 Dooring场景下的图片 文件上传方案指南](https://github.com/MrXujiang/h5-Dooring/wiki/%E5%9F%BA%E4%BA%8EH5-Dooring%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E5%9B%BE%E7%89%87-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88%E6%8C%87%E5%8D%97)
+
+## [wiki(技术实现参考文档)](https://github.com/MrXujiang/h5-Dooring/wiki)
 
 
 ## Install(安装)
