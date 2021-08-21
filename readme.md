@@ -18,6 +18,8 @@
 
 > H5-Dooring is a powerful, open source, free H5 visual page configuration solution dedicated to providing a simple, convenient, professional and reliable, unlimited set of H5 landing page best practices. The technology stack is mainly react, developed in the background using nodejs.
 
+<img src="http://cdn.dooring.cn/dr/123.png" alt="H5-Dooring编辑器预览图" width="100%" />
+
 | 主页🏠(home)      | 演示✨(demo) |  文档📦(doc)   |  教程(tutorial) |  wiki |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | [website](http://h5.dooring.cn) | [Demo](http://h5.dooring.cn/h5_plus) | [Document](http://h5.dooring.cn/doc) | [视频&Video](https://www.zhihu.com/zvideo/1406394315950653440) | [wiki](https://github.com/MrXujiang/h5-Dooring/wiki)
