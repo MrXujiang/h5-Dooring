@@ -154,3 +154,17 @@ export const _gaw = (w: number) => {
   const vw = window.innerWidth > 800 ? 375 : window.innerWidth;
   return (vw / 375) * w;
 };
+
+// 代码运行环境判断
+export function IsPC() {
+  var userAgentInfo = navigator.userAgent;
+  var Agents = new Array('Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod');
+  var flag = true;
+  for (var v = 0; v < Agents.length; v++) {
+    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+      flag = false;
+      break;
+    }
+  }
+  return flag;
+}
