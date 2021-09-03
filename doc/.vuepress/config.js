@@ -12,7 +12,7 @@ module.exports = {
       // { text: '1.X', link: '/zh/guide/' },
       // { text: '语言', link: '/zh/guide/' },
       { text: '体验', link: 'http://h5.dooring.cn' },
-      { text: 'github', link: 'https://github.com/MrXujiang/h5-Dooring' },
+      { text: '私有化部署', link: 'http://h5.dooring.cn/h5_plus/price' },
     ],
     sidebar: [
       {
@@ -24,6 +24,12 @@ module.exports = {
       {
         title: 'doring如何工作',
         path: '/zh/guide/introduced',
+        collapsable: false,
+        sidebarDepth: 1,
+      },
+      {
+        title: '产品介绍',
+        path: '/zh/guide/product',
         collapsable: false,
         sidebarDepth: 1,
       },
