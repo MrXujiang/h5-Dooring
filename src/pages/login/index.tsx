@@ -1,7 +1,8 @@
-import { Form, Input, Button, Popover } from 'antd';
-import React from 'react';
+import { Form, Input, Button, Popover, message } from 'antd';
+import React, { useState } from 'react';
 import req from '@/utils/req';
 import { history } from 'umi';
+import { Vertify } from '@alex_xu/react-slider-vertify';
 import styles from './index.less';
 
 interface FormValues {
@@ -32,12 +33,33 @@ const content = (
 );
 
 const Login = () => {
+  const [visible, setVisible] = useState(false);
+  const [isVertify, setVertify] = useState(false);
   const onFinish = (values: FormValues) => {
+    if (!isVertify) {
+      setVisible(true);
+      return;
+    }
     const { n, co } = values;
-    req.post('/vip/check', { n, co }).then((res: any) => {
-      localStorage.setItem('nickname', res.n);
-      localStorage.setItem('h5', JSON.stringify(res.h5));
-      history.push('/');
+    req
+      .post('/vip/check', { n, co })
+      .then((res: any) => {
+        localStorage.setItem('nickname', res.n);
+        localStorage.setItem('h5', JSON.stringify(res.h5));
+        history.push('/');
+      })
+      .catch(err => {
+        // 模拟, 需要上真实验证接口
+        localStorage.setItem('nickname', 'test');
+        localStorage.setItem('h5', JSON.stringify([]));
+        history.push('/');
+      });
+  };
+
+  const handleSuccess = () => {
+    message.success('验证成功', 1, () => {
+      setVisible(false);
+      setVertify(true);
     });
   };
 
@@ -68,15 +90,15 @@ const Login = () => {
           </Popover>
         </div>
 
+        <div style={{ margin: '-16px 0 12px 76px' }}>
+          <Vertify width={330} height={160} visible={visible} l={36} onSuccess={handleSuccess} />
+        </div>
+
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit" block>
             登录
           </Button>
         </Form.Item>
-        <div className={styles.safeWrap}>
-          登录后即代表您已经遵循
-          <Button type="link">《Dooring平台使用安全声明》</Button>
-        </div>
       </Form>
     </div>
   );
