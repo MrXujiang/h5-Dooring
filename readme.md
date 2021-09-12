@@ -1,4 +1,4 @@
-> 让H5制作像搭积木一样简单!
+> Make H5 as easy as building blocks!
 
 <p align="center">
     <img src="http://cdn.dooring.cn/dr/logo.ff7fc6bb.png" width="260" alt="H5编辑器,H5制作神器,H5 editor,lowcode">
