@@ -26,8 +26,8 @@ English | [简体中文](./zh.md)
 
 Related products: 
 
-- [V6.Dooring | 大屏可视化编辑器](https://github.com/MrXujiang/v6.dooring.public)
-- [dooring-electron-lowcode | dooring桌面端软件](https://github.com/MrXujiang/dooring-electron-lowcode)
+- [V6.Dooring | Large screen visual editor](https://github.com/MrXujiang/v6.dooring.public)
+- [dooring-electron-lowcode | Dooring desktop software](https://github.com/MrXujiang/dooring-electron-lowcode)
 
 ## Author
 
