@@ -91,19 +91,19 @@ const Home = () => {
         </div>
         <footer className={styles.footer}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ marginTop: '30px' }}>
-              <Zan />
-            </div>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ width: '500px', marginLeft: '40px', marginTop: '32px' }}>
+            <div style={{ width: '560px', marginLeft: '40px', marginTop: '32px' }}>
               <span style={{ marginRight: '24px' }}>更多产品: </span>
+              <a href="http://lowcode.dooring.cn" style={{ marginRight: '24px' }} target="_blank">
+                lowcode低代码可视化社区
+              </a>
               <a href="http://v6.dooring.cn/beta" style={{ marginRight: '24px' }} target="_blank">
                 v6.dooring可视化大屏编辑器
               </a>
-              <a href="http://h5.dooring.cn/qt" style={{ marginRight: '24px' }} target="_blank">
-                在线gif动图制作平台
-              </a>
+            </div>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ marginTop: '30px' }}>
+              <Zan />
             </div>
           </div>
         </footer>
