@@ -54,7 +54,7 @@
     "url": "https://github.com/MrXujiang/h5-Dooring/issues"
   },
   "dependencies": {
-    "@alex_xu/react-slider-vertify": "^1.0.3",
+    "@alex_xu/react-slider-vertify": "^1.1.7",
     "@ant-design/icons": "^4.2.1",
     "@antv/f2": "^3.7.7",
     "@uiw/react-baidu-map": "^1.17.3",

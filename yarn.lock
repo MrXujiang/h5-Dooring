@@ -10,13 +10,12 @@
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
 
-"@alex_xu/react-slider-vertify@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@alex_xu/react-slider-vertify/-/react-slider-vertify-1.0.3.tgz#dfc39713e71561cfa9a8863be7a89ff51e978bc6"
-  integrity sha512-0hI1Sx//HcPMkGEXaZQ9BLp6H7tjouLQqMYDW6tSz+JmqDyTxtJp1H2QopBJe67sOpAD6TI9CvvTqPAKx9q4pw==
+"@alex_xu/react-slider-vertify@^1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@alex_xu/react-slider-vertify/-/react-slider-vertify-1.1.7.tgz#aad424fbf5e5854d629f77b0898f51b454366a59"
+  integrity sha512-QLYL77J4hjtkrBEkdZN+TwsXhO7aqiaZESBllacrME1UzlRj9U+fC/Eu5H3xESchjM3jjPU/9hcbPfSHm9AmPQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
-    react "^16.9.23"
 
 "@ant-design/colors@^3.1.0":
   version "3.2.2"
@@ -14167,15 +14166,6 @@ react@^16.12.0, react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-
-react@^16.9.23:
-  version "16.14.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
-  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
