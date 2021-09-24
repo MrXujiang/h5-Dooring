@@ -35,7 +35,16 @@ const Home = () => {
             }
             key="1"
           >
-            正在开发...
+            <div style={{ textAlign: 'center', display: 'flex', marginTop: '120px' }}>
+              <div>
+                <img width="146" src="http://cdn.dooring.cn/dr/lowcode.jpeg" alt="" />
+                <div>进低代码交流群</div>
+              </div>
+              <div>
+                <img width="146" src="http://cdn.dooring.cn/dr/qtqd_code.png" alt="" />
+                <div>dooring技术分享</div>
+              </div>
+            </div>
           </TabPane>
           <TabPane
             tab={

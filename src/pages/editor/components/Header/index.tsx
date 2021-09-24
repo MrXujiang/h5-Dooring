@@ -119,7 +119,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
 
   const useTemplate = () => {
     Modal.info({
-      title: '该功能属于企业版功能，可以关注下方公众号获取线上版登录码体验',
+      title: '该功能属于企业版功能，可以关注下方公众号回复【登录码】体验',
       content: (
         <div style={{ textAlign: 'center' }}>
           <img
@@ -234,7 +234,9 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
             <img src="http://cdn.dooring.cn/dr/logo.ff7fc6bb.png" alt="Dooring-强大的h5编辑器" />
           </a>
         </div>
-        <p>再硬的🚪也抵不过傻瓜般的坚持!</p>
+        <a href="http://h5.dooring.cn/h5_plus" target="_blank" className={styles.goPro}>
+          前往专业版
+        </a>
       </div>
       <div className={styles.controlArea}>
         <Button type="primary" style={{ marginRight: '9px' }} onClick={useTemplate}>
