@@ -163,6 +163,7 @@ const Container = (props: {
     return arr;
   }, [graphTpl, mediaTpl, template, shopTpl]);
 
+  // 当前画布的位置
   const [dragstate, setDragState] = useState({ x: 0, y: 0 });
 
   const ref = useRef<HTMLDivElement>(null);
@@ -270,55 +271,54 @@ const Container = (props: {
   }, [canvasId, collapsed, generateHeader, graphTpl, mediaTpl, schemaH5, template, shopTpl]);
 
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // down和up时候调用,移动过程无需调用 记录拖拽的信息,canvas(当前画布),mouse(鼠标点击位置)
   const [diffmove, setDiffMove] = useState({
-    start: { x: 0, y: 0 },
+    canvas: { x: 0, y: 0 },
+    mouse: { x: 0, y: 0 },
     move: false,
   });
 
-  const mousedownfn = useMemo(() => {
-    return (e: React.MouseEvent<HTMLDivElement>) => {
+  // 尝试使用useCallback创建函数,方便理解
+  const mousedownfn = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
       if (e.target === containerRef.current) {
+        // 鼠标点击时候缓存当前鼠标位置和画布位置
         setDiffMove({
-          start: {
+          canvas: {
+            x: dragstate.x,
+            y: dragstate.y,
+          },
+          mouse: {
             x: e.clientX,
             y: e.clientY,
           },
           move: true,
         });
       }
-    };
-  }, []);
+    },
+    [dragstate],
+  );
 
   const mousemovefn = useMemo(() => {
     return (e: React.MouseEvent<HTMLDivElement>) => {
       if (diffmove.move) {
-        let diffx: number;
-        let diffy: number;
-        const newX = e.clientX;
-        const newY = e.clientY;
-        diffx = newX - diffmove.start.x;
-        diffy = newY - diffmove.start.y;
-        setDiffMove({
-          start: {
-            x: newX,
-            y: newY,
-          },
-          move: true,
-        });
-        setDragState(prev => {
-          return {
-            x: prev.x + diffx,
-            y: prev.y + diffy,
-          };
+        const diffx: number = e.clientX - diffmove.mouse.x + diffmove.canvas.x;
+        const diffy: number = e.clientY - diffmove.mouse.y + diffmove.canvas.y;
+
+        setDragState({
+          x: diffx,
+          y: diffy,
         });
       }
     };
-  }, [diffmove.move, diffmove.start.x, diffmove.start.y]);
+  }, [diffmove.move]);
 
   const mouseupfn = useMemo(() => {
     return () => {
       setDiffMove({
-        start: { x: 0, y: 0 },
+        canvas: { x: 0, y: 0 },
+        mouse: { x: 0, y: 0 },
         move: false,
       });
     };
@@ -398,7 +398,7 @@ const Container = (props: {
           className={styles.tickMark}
           id="calibration"
           ref={containerRef}
-          onMouseDown={mousedownfn}
+          onMouseDown={e => mousedownfn(e)}
           onMouseMove={throttle(mousemovefn, 500)}
           onMouseUp={mouseupfn}
           onMouseLeave={mouseupfn}
