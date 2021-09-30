@@ -57,7 +57,7 @@ const PreviewPage = memo((props: PreviewPageProps) => {
           document.title = pageConfig.title || 'H5-Dooring | 强大的H5编辑神器';
           // 设置数据源
           setPointData(
-            tpl.map(item => ({
+            tpl.map((item: any) => ({
               ...item,
               point: { ...item.point, isDraggable: false, isResizable: false },
             })),
@@ -97,6 +97,8 @@ const PreviewPage = memo((props: PreviewPageProps) => {
     domtoimage
       .toBlob(refImgDom.current, {
         bgcolor: '#fff',
+        //  支持跨域截图
+        cacheBust: true,
       })
       .then(function(blob: Blob) {
         const reader = new FileReader();

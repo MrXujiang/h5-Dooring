@@ -17,7 +17,7 @@ const Home = () => {
     if (type === 'H5') {
       history.push('/editor?tid=123456');
     } else if (type === 'PC') {
-      message.error('该功能暂未开放, 敬请关注...');
+      window.open('http://v6.dooring.cn/beta');
     } else {
       history.push('/ide');
     }
@@ -35,7 +35,16 @@ const Home = () => {
             }
             key="1"
           >
-            正在开发...
+            <div style={{ textAlign: 'center', display: 'flex', marginTop: '120px' }}>
+              <div>
+                <img width="146" src="http://cdn.dooring.cn/dr/lowcode.jpeg" alt="" />
+                <div>进低代码交流群</div>
+              </div>
+              <div>
+                <img width="146" src="http://cdn.dooring.cn/dr/qtqd_code.png" alt="" />
+                <div>dooring技术分享</div>
+              </div>
+            </div>
           </TabPane>
           <TabPane
             tab={
@@ -70,7 +79,7 @@ const Home = () => {
             可视化编辑器
           </div>
           <p style={{ display: 'inline-block', width: '520px', fontSize: '16px', lineHeight: '2' }}>
-            H5-Dooring是一款功能强大，开源免费的H5可视化页面配置解决方案，
+            H5-Dooring是一款功能强大，高扩展性的H5可视化页面配置解决方案，
             致力于提供一套简单方便、专业可靠、无限可能的H5落地页最佳实践。 技术栈以react为主，
             后台采用nodejs开发。
           </p>
@@ -91,23 +100,19 @@ const Home = () => {
         </div>
         <footer className={styles.footer}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ marginTop: '30px' }}>
-              <Zan />
+            <div style={{ width: '560px', marginLeft: '40px', marginTop: '32px' }}>
+              <span style={{ marginRight: '24px' }}>更多产品: </span>
+              <a href="http://lowcode.dooring.cn" style={{ marginRight: '24px' }} target="_blank">
+                lowcode低代码可视化社区
+              </a>
+              <a href="http://v6.dooring.cn/beta" style={{ marginRight: '24px' }} target="_blank">
+                v6.dooring可视化大屏编辑器
+              </a>
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ width: '500px', marginLeft: '40px', marginTop: '32px' }}>
-              <span style={{ marginRight: '24px' }}>更多产品: </span>
-              <a href="http://49.234.61.19/qt" style={{ marginRight: '24px' }} target="_blank">
-                趣图-在线gif动图制作平台
-              </a>
-              <a
-                href="http://49.234.61.19/tool/cssTriangle"
-                style={{ marginRight: '24px' }}
-                target="_blank"
-              >
-                在线css三角形生成器
-              </a>
+            <div style={{ marginTop: '30px' }}>
+              <Zan />
             </div>
           </div>
         </footer>

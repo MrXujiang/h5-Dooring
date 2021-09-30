@@ -1,5 +1,5 @@
 import React, { useRef, memo, useMemo, useState, useEffect } from 'react';
-import { Button, Input, Modal, Select, Upload, Tooltip, Badge } from 'antd';
+import { Button, Input, Modal, Upload, Tooltip, Badge } from 'antd';
 import {
   ArrowLeftOutlined,
   MobileOutlined,
@@ -13,12 +13,13 @@ import {
   SketchOutlined,
   UploadOutlined,
   InstagramOutlined,
+  WechatOutlined,
 } from '@ant-design/icons';
 import { history } from 'umi';
 import QRCode from 'qrcode.react';
 import { saveAs } from 'file-saver';
 import req from '@/utils/req';
-import Code from '@/assets/code.png';
+import { uuid } from '@/utils/tool';
 import styles from './index.less';
 import MyPopover from 'yh-react-popover';
 
@@ -69,6 +70,10 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     );
   };
 
+  const generateFace = (type: number) => {
+    // 自定义生成封面逻辑, 可以采用html2canvas 或 dom-to-image
+  };
+
   const handleSaveTpl = () => {
     confirm({
       title: '确定要保存吗？',
@@ -114,10 +119,14 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
 
   const useTemplate = () => {
     Modal.info({
-      title: '该功能正在升级，可以关注下方公众号实时查看动态',
+      title: '该功能属于企业版功能，可以关注下方公众号回复【登录码】体验',
       content: (
         <div style={{ textAlign: 'center' }}>
-          <img src={Code} alt="趣谈前端" style={{ width: '180px' }} />
+          <img
+            src="http://cdn.dooring.cn/dr/qtqd_code.png"
+            alt="趣谈前端"
+            style={{ width: '180px' }}
+          />
         </div>
       ),
       okText: '客官知道啦',
@@ -128,11 +137,6 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     const jsonStr = JSON.stringify(pointData);
     const blob = new Blob([jsonStr], { type: 'text/plain;charset=utf-8' });
     saveAs(blob, 'template.json');
-  };
-
-  const toLogin = () => {
-    const { tid } = props.location.query || '';
-    window.location.href = `/h5_plus/login?tid=${tid}`;
   };
 
   const deleteAll = () => {
@@ -155,16 +159,16 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
   };
 
   const newPage = () => {
-    let prev = localStorage.getItem('myH5');
-    try {
-      localStorage.setItem(
-        'myH5',
-        JSON.stringify(prev ? [...Array.from(prev), pointData] : [pointData]),
-      );
-    } catch (err) {
-      console.error(err);
-    }
     clearData();
+    history.push(`/editor?tid=${uuid(8, 16)}`);
+  };
+
+  const toShare = () => {
+    Modal.info({
+      title: '一键将海报分享到朋友圈, 为Dooring助力',
+      content: <img src="http://cdn.dooring.cn/dr/h5door.png" width="300" />,
+      okText: '知道了',
+    });
   };
 
   const savePreview = () => {
@@ -184,7 +188,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
 
   useEffect(() => {
     // 定义截图子页面句柄函数
-    window.getFaceUrl = url => {
+    window.getFaceUrl = (url: string) => {
       setFaceUrl(url);
       setShowModalIframe(false);
     };
@@ -194,7 +198,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     () => ({
       name: 'file',
       showUploadList: false,
-      beforeUpload(file, fileList) {
+      beforeUpload(file: File) {
         // 解析并提取excel数据
         let reader = new FileReader();
         reader.onload = function(e: Event) {
@@ -225,7 +229,14 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         <div className={styles.backBtn} onClick={toBack}>
           <ArrowLeftOutlined />
         </div>
-        <div className={styles.logo}></div>
+        <div className={styles.logo} title="Dooring">
+          <a href="/">
+            <img src="http://cdn.dooring.cn/dr/logo.ff7fc6bb.png" alt="Dooring-强大的h5编辑器" />
+          </a>
+        </div>
+        <a href="http://h5.dooring.cn/h5_plus" target="_blank" className={styles.goPro}>
+          前往专业版
+        </a>
       </div>
       <div className={styles.controlArea}>
         <Button type="primary" style={{ marginRight: '9px' }} onClick={useTemplate}>
@@ -318,6 +329,15 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         </Button>
         <Button
           type="link"
+          style={{ marginRight: '5px' }}
+          title="一键分享"
+          onClick={toShare}
+          disabled={!pointData.length}
+        >
+          <WechatOutlined />
+        </Button>
+        <Button
+          type="link"
           style={{ marginRight: '9px' }}
           onClick={toHelp}
           disabled={!pointData.length}
@@ -327,17 +347,6 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         </Button>
       </div>
       <div className={styles.btnArea}>
-        {/* 隐藏pc端切换, 保证代码纯粹 */}
-        {/* <Select
-          defaultValue="h5"
-          style={{ width: 100, marginRight: 20 }}
-          onChange={e => {
-            setTheme(e);
-          }}
-        >
-          <Select.Option value="h5">h5模式</Select.Option>
-          <Select.Option value="pc">pc模式</Select.Option>
-        </Select> */}
         <Button type="primary" ghost onClick={toOnlineCoding} style={{ marginRight: '12px' }}>
           <CodeOutlined />
           在线编程

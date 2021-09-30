@@ -31,10 +31,11 @@ const ViewRender = memo((props: ViewProps) => {
       onDragStart={onDragStart}
       onResizeStop={onResizeStop}
       style={{
+        minHeight: '100vh',
         backgroundColor: pageData && pageData.bgColor,
         backgroundImage:
           pageData && pageData.bgImage ? `url(${pageData.bgImage[0].url})` : 'initial',
-        backgroundSize: 'contain',
+        backgroundSize: '100%',
         backgroundRepeat: 'no-repeat',
       }}
     >

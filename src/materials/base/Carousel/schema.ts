@@ -9,8 +9,6 @@ import {
   TNumberDefaultType,
 } from '@/components/FormComponents/types';
 
-import { serverUrl } from '@/utils/tool';
-
 export type CarouselDirectionKeyType = 'down' | 'left';
 
 export type TCarouselEditData = Array<
@@ -87,7 +85,7 @@ const Carousel: ICarouselSchema = {
             uid: '001',
             name: 'image.png',
             status: 'done',
-            url: `${serverUrl}/uploads/1_1740bd7c3dc.png`,
+            url: 'http://h5.dooring.cn/uploads/1_1740bd7c3dc.png',
           },
         ],
       },
@@ -101,12 +99,12 @@ const Carousel: ICarouselSchema = {
             uid: '001',
             name: 'image.png',
             status: 'done',
-            url: `${serverUrl}/uploads/2_1740bd8d525.png`,
+            url: 'http://h5.dooring.cn/uploads/1_1740bd7c3dc.png',
           },
         ],
       },
     ],
-    tplImg: `${serverUrl}/uploads/carousal_17442e1420f.png`,
+    tplImg: 'http://h5.dooring.cn/uploads/1_1740bd7c3dc.png',
   },
 };
 export default Carousel;

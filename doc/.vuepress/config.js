@@ -12,7 +12,7 @@ module.exports = {
       // { text: '1.X', link: '/zh/guide/' },
       // { text: '语言', link: '/zh/guide/' },
       { text: '体验', link: 'http://h5.dooring.cn' },
-      { text: 'github', link: 'https://github.com/MrXujiang/h5-Dooring' },
+      { text: '私有化部署', link: 'http://h5.dooring.cn/h5_plus/price' },
     ],
     sidebar: [
       {
@@ -24,6 +24,12 @@ module.exports = {
       {
         title: 'doring如何工作',
         path: '/zh/guide/introduced',
+        collapsable: false,
+        sidebarDepth: 1,
+      },
+      {
+        title: '产品介绍',
+        path: '/zh/guide/product',
         collapsable: false,
         sidebarDepth: 1,
       },
@@ -87,6 +93,12 @@ module.exports = {
             sidebarDepth: 1,
           },
           {
+            title: '下载源码',
+            path: '/zh/guide/functionRealization/download',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
             title: '网页预览',
             path: '/zh/guide/functionRealization/pagePreview',
             collapsable: false,
@@ -113,6 +125,35 @@ module.exports = {
         ],
       },
       {
+        title: '组件商店',
+        collapsable: false,
+        sidebarDepth: 1,
+        type: 'group',
+        children: [
+          {
+            name: 'intro',
+            title: '基本介绍',
+            path: '/zh/guide/componentShop/intro',
+            collapsable: false,
+            sidebarDepth: 2,
+          },
+          {
+            name: 'uploadCp',
+            title: '上传组件',
+            path: '/zh/guide/componentShop/uploadCp',
+            collapsable: false,
+            sidebarDepth: 2,
+          },
+          {
+            name: 'cpManage',
+            title: '组件审核',
+            path: '/zh/guide/componentShop/cpManage',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+        ],
+      },
+      {
         title: '私有化部署和二次开发',
         collapsable: false,
         sidebarDepth: 1,
@@ -121,6 +162,18 @@ module.exports = {
           {
             title: '私有化部署',
             path: '/zh/guide/deployDev/deploy',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
+            title: 'v6.dooring私有化部署(临时)',
+            path: '/zh/guide/deployDev/deploy_v6',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
+            title: '服务端数据说明',
+            path: '/zh/guide/deployDev/dir',
             collapsable: false,
             sidebarDepth: 1,
           },
@@ -137,12 +190,30 @@ module.exports = {
             sidebarDepth: 1,
           },
           {
+            title: '获取Form组件的值数据',
+            path: '/zh/guide/deployDev/form',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
+          {
             title: 'API接口文档',
             path: '/zh/guide/deployDev/api',
             collapsable: false,
             sidebarDepth: 1,
           },
+          {
+            title: '更新日志',
+            path: '/zh/guide/deployDev/log',
+            collapsable: false,
+            sidebarDepth: 1,
+          },
         ],
+      },
+      {
+        title: 'FAQ',
+        path: '/zh/guide/FAQ',
+        collapsable: false,
+        sidebarDepth: 1,
       },
     ],
   },

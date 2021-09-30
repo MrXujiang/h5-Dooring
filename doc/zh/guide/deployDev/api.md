@@ -11,7 +11,7 @@
 
 ## 用户相关
 
-### 登录
+### 用户登录
 
 用户登录接口
 - `POST` /vip/check
@@ -116,6 +116,47 @@
     "rp": "AAAAA",
     "h5Num": 10,
     "tplNum": 3
+}
+```
+
+### 生成登录码
+
+生成登录码接口
+- `GET` /vip/gcode
+
+先决条件:
+- 用户已登陆
+- 为超级管理员
+
+
+注: 生成登录码是由笔者写的`加密算法`实现, 不需要手动实现, 如果有自定义需求, 可以自行二次开发实现.
+
+返回示例
+``` json
+{
+    "co": "1x2fgggteee3456_zdd4",
+}
+```
+
+`说明:` 为了保护用户信息安全, 返回的登录码是加密后的密文, 会调用笔者写的`xib.xip`方法进行加密, 如果想看到原始密码, 需要调用`xib.uxip`进行解密.
+
+### 获取用户真实密码
+
+获取用户真实密码接口
+- `GET` /vip/gcode/get
+
+先决条件:
+- 用户已登陆
+- 为超级管理员
+
+| 参数名        |  是否必选  |   类型   |    说明    |
+| ------------- |:-------------:|:-----:| -------------:|
+| co      | true | string | 加密后的密码 |
+
+返回示例
+``` json
+{
+    "co": "12345678",
 }
 ```
 
@@ -521,8 +562,230 @@
 
 ## 文件上传
 
+- `POST` /files/upload/free
+
+先决条件:
+- 用户已登陆
+
+| 参数名        |  是否必选  |   类型   |    说明    |
+| ------------- |:-------------:|:-----:| -------------:|
+| File    | true | File | 文件对象 |
+
+返回示例
+``` json
+{
+    "state": 200,
+    "result": {
+        "filename": "H5-Dooring",
+        "url": "http://h5.dooring.cn/uploads/1_17ac208480d.png",
+        "size": 261972
+    },
+    "msg": "文件上传成功"
+}
+```
+
 ## 数据统计
 
 ### 数据大盘接口
 
-### 页面埋点
+- `GET` /vip/dashboard
+
+先决条件:
+- 用户已登陆
+
+返回示例
+``` json
+{
+    "state": 200,
+    "result": {
+        "userNums": 1300, 
+        "pageNums": 808,
+        "tplNums": 86,
+        "views": 60235,
+        "userList": []
+    }
+}
+```
+
+## 组件商店
+
+### 组件上传
+
+- `POST` /visible/cp/save
+
+先决条件:
+- 用户已登陆
+
+| 参数名        |  是否必选  |   类型   |    说明    |
+| ------------- |:-------------:|:-----:| -------------:|
+| react    | true | string | react字符串 |
+| css    | true | string | css字符串 |
+| schema    | true | string | schema字符串 |
+| form    | true | object | 表单对象 |
+
+返回示例
+``` json
+{
+    "state": 200,
+    "result": null,
+    "msg": "提交成功, 请等待审核..."
+}
+```
+
+### 获取组件上传列表
+
+- `GET` /visible/cp/list
+
+先决条件:
+- 用户已登陆
+
+返回示例
+``` json
+{
+    "state": 200,
+    "result": [
+        {
+            "cpName":"test",
+            "cpField":"test",
+            "cate":"base",
+            "width":3,
+            "height":6,
+            "icon":"http://196.345.0.345:3000/uploads/1_17a8a4eaedf.png",
+            "ispass":3
+        },
+        {
+            "cpName":"test2",
+            "cpField":"test2",
+            "cate":"media",
+            "width":4,
+            "height":20,
+            "icon":"http://196.345.0.345:3000/uploads/1_17a8a4eaedf.png",
+            "ispass":1
+        }
+    ],
+}
+```
+
+### 获取组件详情
+
+- `GET` /visible/cp/get
+
+先决条件:
+- 用户已登陆
+
+| 参数名        |  是否必选  |   类型   |    说明    |
+| ------------- |:-------------:|:-----:| -------------:|
+| cate    | true | string | 组件分类 |
+| cpField    | true | string | 组件英文名字段 |
+
+返回示例
+``` json
+{
+    "state": 200,
+    "result": {
+        "react": "react代码",
+        "css": "css/less代码",
+        "schema": "schema的js/ts代码"
+    }
+}
+```
+
+### 更新组件审批状态
+
+- `POST` /visible/cp/update
+
+先决条件:
+- 用户已登陆
+
+| 参数名        |  是否必选  |   类型   |    说明    |
+| ------------- |:-------------:|:-----:| -------------:|
+| cate    | true | string | 组件分类 |
+| cpField    | true | string | 组件英文名字段 |
+| ispass    | true | number | 组件审核状态, 0 待处理 1 审核中 2 审核通过 3 审核不通过 |
+
+
+返回示例
+``` json
+{
+    "state": 200,
+    "result": null,
+    "msg": "审批成功"
+}
+```
+
+### 删除组件
+
+- `DELETE` /visible/cp/del
+
+先决条件:
+- 用户已登陆
+
+| 参数名        |  是否必选  |   类型   |    说明    |
+| ------------- |:-------------:|:-----:| -------------:|
+| cate    | true | string | 组件分类 |
+| cpField    | true | string | 组件英文名字段 |
+
+返回示例
+``` json
+{
+    "state": 200,
+    "result": null,
+    "msg": "删除成功"
+}
+```
+
+### 下载组件源码
+
+- `POST` /visible/cp/download
+
+先决条件:
+- 用户已登陆
+
+| 参数名        |  是否必选  |   类型   |    说明    |
+| ------------- |:-------------:|:-----:| -------------:|
+| cate    | true | string | 组件分类 |
+| cpField    | true | string | 组件英文名字段 |
+
+返回示例
+``` json
+{
+    "state": 200,
+    "result": "组件压缩包地址"
+}
+```
+
+## 数据源管理
+
+### 获取用户数据源
+
+- `GET` /vip/sourcedata/get
+
+先决条件:
+- 用户已登陆
+
+返回示例
+``` json
+{
+    "state": 200,
+    "result": [],
+}
+```
+
+### 保存用户数据源
+
+- `POST` /vip/sourcedata/save
+
+先决条件:
+- 用户已登陆
+
+| 参数名        |  是否必选  |   类型   |    说明    |
+| ------------- |:-------------:|:-----:| -------------:|
+| sourcedata  | true | array | 用户数据源集合 |
+
+返回示例
+``` json
+{
+    "state": 200,
+    "result": []
+}
+```

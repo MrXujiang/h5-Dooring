@@ -10,6 +10,13 @@
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
 
+"@alex_xu/react-slider-vertify@^1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@alex_xu/react-slider-vertify/-/react-slider-vertify-1.1.7.tgz#aad424fbf5e5854d629f77b0898f51b454366a59"
+  integrity sha512-QLYL77J4hjtkrBEkdZN+TwsXhO7aqiaZESBllacrME1UzlRj9U+fC/Eu5H3xESchjM3jjPU/9hcbPfSHm9AmPQ==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+
 "@ant-design/colors@^3.1.0":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@ant-design/colors/-/colors-3.2.2.tgz#5ad43d619e911f3488ebac303d606e66a8423903"
@@ -1893,6 +1900,13 @@
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.15.4":
+  version "7.15.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
+  integrity sha512-99catp6bHCaxr4sJ/DbTGgHS4+Rs2RVd2g7iOap6SLGPDknRK9ztKNsE/Fg6QhSeh1FGE5f6gHGQmvvn3I3xhw==
   dependencies:
     regenerator-runtime "^0.13.4"
 

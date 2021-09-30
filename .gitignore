@@ -104,3 +104,7 @@ typings/
 
 .umi/
 .umi-production/
+
+# production
+/dist
+/doc-dist

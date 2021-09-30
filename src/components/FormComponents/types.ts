@@ -43,7 +43,7 @@ export interface IDataListConfigType {
   key: string;
   name: string;
   type: 'DataList';
-  cropRate: number;
+  cropRate?: number;
 }
 
 export type TDataListDefaultTypeItem = {
@@ -51,8 +51,9 @@ export type TDataListDefaultTypeItem = {
   title: string;
   desc: string;
   link: string;
-  type?: number;
   imgUrl: TUploadDefaultType;
+  type?: number;
+  price?: string;
 };
 
 export type TDataListDefaultType = Array<TDataListDefaultTypeItem>;

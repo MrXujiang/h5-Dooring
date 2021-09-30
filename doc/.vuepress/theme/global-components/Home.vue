@@ -2,9 +2,10 @@
   <main class="home" :aria-labelledby="data.heroText !== null ? 'main-title' : null">
     <header class="hero">
       <h1 v-if="data.heroText !== null" id="main-title">
-        <img src="../imgs/common/logo.svg" :alt="data.heroAlt || 'hero'" /><span>{{
-          data.heroText || $title || "Hello"
-        }}</span>
+        <img
+          src="http://cdn.dooring.cn/dr/logo.ff7fc6bb.png"
+          :alt="data.heroAlt || 'hero'"
+        /><span>{{ data.heroText || $title || "Hello" }}</span>
       </h1>
     </header>
 
@@ -71,12 +72,11 @@ $homePageWidth = 1080px
     text-align center
     img
       width: 190px
-      height 50px
       display inline-block
       margin initial
       margin-bottom 0
       margin-right 20px
-      vertical-align sub
+      vertical-align -21px
     h1
       font-size 1.5rem
       font-weight 600

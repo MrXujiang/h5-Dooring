@@ -5,22 +5,21 @@
  * @FilePath: /github-h5-Dooring/doc/zh/guide/deployDev/deploy.md
 -->
 
-私有化部署需要获取4个核心项目包, 包括
-- H5编辑器(h5_plus) 
-- H5基座(h5)
-- Dooring管理后台(Dooring-Admin)
-- 服务端项目(Server)
+私有化部署需要获取3个核心项目包, 包括
+- 可视化大屏编辑器(v6.dooring/) 
+- v6管理后台(v6.dooring/manage)
+- 服务端项目(v6.dooring/server)
 
-获取以上四个核心源码工程需要满足商业授权协议, 具体可联系作者[徐小夕](http://h5.dooring.cn/uploads/WechatIMG3_1758e9753e2.jpeg) 
+获取以上三个核心源码工程需要满足商业授权协议, 具体可参考[商业授权方案](http://h5.dooring.cn/h5_plus/price)
 
 ### 部署架构图
 
-<img src="../../../img/common/deploy.png" alt="H5-dooring部署">
+<img src="../../../img/common/v6.deploy.png" alt="H5-dooring部署">
 
 部署流程如下:
 
-1. 下载4个源码工程, 安装依赖(npm install 或 yarn)
-2. 打包3个前端工程至`server`的static目录下
+1. 下载3个源码工程, 安装依赖(npm install 或 yarn)
+2. 打包2个前端工程至`server`的static目录下
 3. 在`server`下本地运行 `yarn start` 或 `npm start` 启动服务端进行本地测试
 4. 打包服务端代码, `yarn build` 生成 `dist` 目录, 建议使用 `pm2` 做`nodejs`服务的负载均衡, 运行 `pm2 start dist/index.js`启动生产环境代码
 

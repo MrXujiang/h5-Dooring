@@ -3,6 +3,7 @@ import { Button } from 'zarm';
 import BaseForm from './BaseForm';
 import styles from './index.less';
 import { IFormConfig } from './schema';
+import { IsPC } from '@/utils/tool';
 import logo from '@/assets/form.png';
 const FormComponent = (props: IFormConfig & { isTpl: boolean }) => {
   const {
@@ -52,7 +53,7 @@ const FormComponent = (props: IFormConfig & { isTpl: boolean }) => {
             backgroundColor: bgColor,
             overflow: 'hidden',
             position: 'absolute',
-            pointerEvents: isEditorPage ? 'none' : 'initial',
+            pointerEvents: isEditorPage || IsPC() ? 'none' : 'initial',
           }}
         >
           {title && (

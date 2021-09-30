@@ -1,5 +1,4 @@
 import Carousel from './Carousel/schema';
-import Footer from './Footer/schema';
 import Form from './Form/schema';
 import Header from './Header/schema';
 import Icon from './Icon/schema';
@@ -15,7 +14,6 @@ import RichText from './RichText/schema';
 
 const basicSchema = {
   Carousel,
-  Footer,
   Form,
   Header,
   Icon,
