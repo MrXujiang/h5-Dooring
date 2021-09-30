@@ -58,11 +58,7 @@ const PreviewPage = memo((props: PreviewPageProps) => {
           document.title = pageConfig.title || 'H5-Dooring | 强大的H5编辑神器';
           // 设置数据源
           setPointData(
-<<<<<<< Updated upstream:src/pages/editor/preview.tsx
-            tpl.map((item: any) => ({
-=======
             tpl.map((item: { point: Record<string, unknown> }) => ({
->>>>>>> Stashed changes:packages/ui/src/pages/preview/index.tsx
               ...item,
               point: { ...item.point, isDraggable: false, isResizable: false },
             })),
