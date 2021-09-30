@@ -1,10 +1,4 @@
-<<<<<<< Updated upstream:src/materials/common.ts
-import { INumberConfigType, TNumberDefaultType } from '@/components/FormComponents/types';
-
-///提取所有公用设置，传来时加到这里，约定公用类型
-=======
 //提取所有公用设置，传来时加到这里，约定公用类型
->>>>>>> Stashed changes:packages/ui/src/ui-component/common.ts
 //公用配置需满足条件，所有组件初始值统一，否则不放公用设置
 type TNumberDefaultType = number | string;
 type INumberConfigType = Record<string, unknown>;

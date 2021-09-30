@@ -87,7 +87,8 @@
     "xlsx": "^0.16.7",
     "yh-react-popover": "^0.3.0",
     "yorkie": "^2.0.0",
-    "zarm": "^2.5.1"
+    "zarm": "^2.5.1",
+    "@alex_xu/react-slider-vertify": "^1.1.7"
   },
   "license": "GPL-3.0",
   "devDependencies": {

@@ -14,16 +14,7 @@ import SourceBox from './TargetBox';
 import TargetBox from './SourceBox';
 import Calibration from 'components/Calibration';
 import { FormRender } from '@/core';
-<<<<<<< Updated upstream:src/pages/editor/Container.tsx
-
-import template from '@/materials/base/template';
-import mediaTpl from '@/materials/media/template';
-import graphTpl from '@/materials/visual/template';
-
-import schemaH5 from '@/materials/schema';
-=======
 import dooringCompt from 'dooringUI/components';
->>>>>>> Stashed changes:packages/editor/src/pages/editor/Container.tsx
 import { ActionCreators, StateWithHistory } from 'redux-undo';
 import { throttle, detectMobileBrowser, getBrowserNavigatorMetaInfo } from '@/utils/tool';
 import styles from './index.less';
@@ -157,12 +148,9 @@ const Container = (props: {
     graphTpl.forEach((v: { type: string }) => {
       arr.push(v.type);
     });
-<<<<<<< Updated upstream:src/pages/editor/Container.tsx
-=======
     shopTpl.forEach((v: { type: string }) => {
       arr.push(v.type);
     });
->>>>>>> Stashed changes:packages/editor/src/pages/editor/Container.tsx
     return arr;
   }, [graphTpl, mediaTpl, template]);
 
@@ -265,8 +253,6 @@ const Container = (props: {
               ),
             )}
           </TabPane>
-<<<<<<< Updated upstream:src/pages/editor/Container.tsx
-=======
           <TabPane tab={generateHeader('shop', '')} key="4">
             <div className={styles.ctitle}>营销组件</div>
             {shopTpl.map(
@@ -284,7 +270,6 @@ const Container = (props: {
               ),
             )}
           </TabPane>
->>>>>>> Stashed changes:packages/editor/src/pages/editor/Container.tsx
         </>
       );
     }
