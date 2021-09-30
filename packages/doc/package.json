@@ -1,0 +1,27 @@
+{
+  "name": "@h5-dooring/doc",
+  "version": "0.0.1",
+  "description": "文档",
+  "author": "mokinzhao <zhaoyl3@yonghui.cn>",
+  "homepage": "https://github.com/mokinzhao/h5-Dooring#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev doc",
+    "build": "vuepress build doc"
+  },
+  "devDependencies": {
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-autobar": "github:boboidream/vuepress-bar"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mokinzhao/h5-Dooring.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mokinzhao/h5-Dooring/issues"
+  }
+}
