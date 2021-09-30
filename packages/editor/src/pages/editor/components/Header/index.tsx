@@ -46,12 +46,15 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
   const toPreview = () => {
     localStorage.setItem('pointData', JSON.stringify(pointData));
     savePreview();
-    setTimeout(() => {
-      window.open(
-        isDev
-          ? `/preview?tid=${props.location.query.tid}`
-          : `/preview?tid=${props.location.query.tid}`,
-      );
+    // setTimeout(() => {
+    //   window.open(
+    //     isDev
+    //       ? `/preview?tid=${props.location.query.tid}`
+    //       : `/preview?tid=${props.location.query.tid}`,
+    //   );
+    // }, 600);
+     setTimeout(() => {
+      window.open(`http://localhost:8008/preview?tid=${props.location.query.tid}&pointData=${JSON.stringify(pointData)}`);
     }, 600);
   };
 
