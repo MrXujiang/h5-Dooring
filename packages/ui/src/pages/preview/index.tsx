@@ -3,7 +3,7 @@ import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 import ViewRender from '../../renderer/ViewRender';
 import domtoimage from 'dom-to-image';
 import req from '@/utils/req';
-import { useGetScrollBarWidth } from '@/utils/tool';
+import { getQueryString, useGetScrollBarWidth } from '@/utils/tool';
 import type { LocationDescriptorObject } from 'history-with-query';
 
 const isMac = navigator.platform.indexOf('Mac') === 0;
@@ -13,13 +13,13 @@ interface PreviewPageProps {
 }
 interface PointDataItem {
   id: string;
-  item: Record<string, any>;
-  point: Record<string, any>;
+  item: Record<string, unknown>;
+  point: Record<string, unknown>;
 }
 
 const PreviewPage = memo((props: PreviewPageProps) => {
   const [pointData, setPointData] = useState(() => {
-    const pointDataStr = localStorage.getItem('pointData');
+    const pointDataStr = getQueryString('pointData') || localStorage.getItem('pointData');
     let points;
 
     try {
@@ -74,7 +74,7 @@ const PreviewPage = memo((props: PreviewPageProps) => {
 
     setTimeout(() => {
       generateImg((url: string) => {
-        parent.window.getFaceUrl(url);
+        (parent as any)?.(window as unknown).getFaceUrl(url);
       });
     }, 3000);
   }, [props.location.query]);

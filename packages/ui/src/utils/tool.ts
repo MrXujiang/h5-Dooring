@@ -1,21 +1,22 @@
-import { RefObject, useEffect, useLayoutEffect, useState } from 'react';
-import { RGBColor } from 'react-color';
+/* eslint-disable no-param-reassign */
+import type { RefObject } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import type { RGBColor } from 'react-color';
 
 // 生成uuid
 function uuid(len: number, radix: number) {
-  let chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
-  let uuid = [],
-    i;
-  radix = radix || chars.length;
+  const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+  const uuid = [];
+  const _radix = radix || chars.length;
 
   if (len) {
-    for (i = 0; i < len; i++) uuid[i] = chars[0 | (Math.random() * radix)];
+    for (let i = 0; i < len; i++) uuid[i] = chars[0 | (Math.random() * _radix)];
   } else {
     let r;
     uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
     uuid[14] = '4';
 
-    for (i = 0; i < 36; i++) {
+    for (let i = 0; i < 36; i++) {
       if (!uuid[i]) {
         r = 0 | (Math.random() * 16);
         uuid[i] = chars[i === 19 ? (r & 0x3) | 0x8 : r];
@@ -28,7 +29,7 @@ function uuid(len: number, radix: number) {
 
 // 将rgba字符串对象转化为rgba对象
 function rgba2Obj(rgba = '') {
-  let reg = /rgba\((\d+),(\d+),(\d+),(\d+)\)/g;
+  const reg = /rgba\((\d+),(\d+),(\d+),(\d+)\)/g;
   let rgbaObj: RGBColor = { r: 0, g: 0, b: 0, a: 0 };
 
   rgba.replace(reg, (_m, r, g, b, a) => {
@@ -83,12 +84,10 @@ export function useAnimation(state: boolean, delay: number) {
 }
 
 export function unParams(params = '?a=1&b=2&c=3') {
-  let obj: any = {};
-  params &&
-    // eslint-disable-next-line no-useless-escape
-    params.replace(/((\w*)=([\.a-z0-9A-Z]*)?)?/g, (m, a, b, c): any => {
-      if (b || c) obj[b] = c;
-    });
+  const obj: any = {};
+  params?.replace(/((\w*)=([\.a-z0-9A-Z]*)?)?/g, (m, a, b, c): any => {
+    if (b || c) obj[b] = c;
+  });
   return obj;
 }
 
@@ -119,7 +118,7 @@ export function formatTime(fmt: string, dateObj: any) {
   if (/(y+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
   }
-  for (var k in o) {
+  for (const k in o) {
     if (new RegExp('(' + k + ')').test(fmt)) {
       fmt = fmt.replace(
         RegExp.$1,
@@ -144,7 +143,16 @@ export function detectMobileBrowser(browserNavigatorMetaInfo: string): boolean {
 
 // note (@livs-ops): 获取浏览器元信息
 export function getBrowserNavigatorMetaInfo(): string {
-  return window.navigator.userAgent || window.navigator.vendor || window.opera;
+  return window.navigator.userAgent || window.navigator.vendor || (window as any)?.opera;
 }
 
 export const serverUrl = isDev ? 'http://192.16x.x.x:3000' : '你的服务器地址';
+
+export function getQueryString(name: string) {
+  const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, 'i');
+  const r = window.location.search.substr(1).match(reg);
+  if (r != null) {
+    return decodeURIComponent(r[2]);
+  }
+  return null;
+}

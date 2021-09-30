@@ -66,7 +66,7 @@ const Container = (props: {
     return (type: any, text: string) => {
       return (
         <div>
-          {CpIcon[type]} {text}
+          {(CpIcon as any)[type]} {text}
         </div>
       );
     };
