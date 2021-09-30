@@ -34,17 +34,7 @@
     "test:coverage": "umi-test --coverage",
     "nocompress": "cross-env RM_TMPDIR=none COMPRESS=none umi build"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
-      "prettier --write"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write"
-    ]
-  },
+
   "homepage": "http://h5.dooring.cn",
   "repository": {
     "type": "git",
