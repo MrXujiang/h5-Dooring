@@ -107,6 +107,8 @@ var dooringOpts = {
 
 
 ## 技术栈 | The technology stack
+
+* **Lerna** MonoRepo 多包管理工具之一
 * **React** 前端主流框架(react,vue,angular)之一,更适合开发灵活度高且复杂的应用
 * **dva** 主流的react应用状态管理工具，基于redux
 * **less** css预编译语言，轻松编写结构化分明的css
@@ -189,6 +191,9 @@ FileSaver.saveAs(blob, "hello world.txt");
 * 单元测试 Unit tests
 
 ## Install(安装)
+
+
+
 1. 下载代码 | Download the code
 ```sh
 git clone https://github.com/MrXujiang/h5-Dooring.git
@@ -200,9 +205,7 @@ cd ./h5-Dooring
 
 3. 安装依赖包 | Install the dependency package
 ```sh
-yarn install
-or
-cnpm install
+npx lerna bootstrap
 ```
 
 ## Usage
@@ -213,6 +216,21 @@ yarn start
 or
 cnpm run start
 ```
+## 模块及目录说明
+
+本项目使用 lerna多包管理，采用模块联邦共用渲染器，巧妙解耦项目编辑器和C端展示器；增强组件健壮性和提升预览页加载性能
+
+- editor
+
+可视化编辑器;负责拖拽组件，编辑属性，保存发布
+
+- ui
+
+组件库和渲染器;负责各种组件物料和画布引擎加载
+
+- doc 
+
+使用手册和开发文档
 
 ## How to run the downloaded code ?
 
