@@ -69,7 +69,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
   const content = () => {
     const { tid } = location.query || '';
     return (
-      <QRCode value={`${window.location.protocol}//${window.location.host}/preview?tid=${tid}`} />
+      <QRCode value={`${window.location.protocol}//http://localhost:8008/preview?tid=${props.location.query.tid}&pointData=${JSON.stringify(pointData)}`} />
     );
   };
 
@@ -197,7 +197,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     };
   }, []);
 
-  const uploadprops = useMemo(
+  const uploadprops = useMemo<any>(
     () => ({
       name: 'file',
       showUploadList: false,
@@ -223,7 +223,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
   };
 
   const handleReloadPage = () => {
-    document.getElementById('previewPage')?.contentWindow.location.reload();
+    (document.getElementById('previewPage') as any).contentWindow.location.reload();
   };
 
   return (
