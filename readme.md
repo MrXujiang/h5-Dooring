@@ -115,9 +115,7 @@ cd ./h5-Dooring
 
 3. Install the dependency package
 ```sh
-yarn install
-or
-cnpm install
+npx lerna bootstrap
 ```
 
 ## Usage
@@ -128,6 +126,7 @@ yarn start
 or
 cnpm run start
 ```
+
 
 ## How to run the downloaded code ?
 

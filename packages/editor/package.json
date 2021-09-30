@@ -1,0 +1,128 @@
+{
+  "name": "@h5-dooring/editor",
+  "version": "0.0.1",
+  "description": "编辑器",
+  "private": false,
+  "author": {
+    "name": "徐小夕",
+    "email": "xujiang156@qq.com",
+    "url": "http://h5.dooring.cn/h5_visible"
+  },
+  "keywords": [
+    "h5 editor",
+    "h5",
+    "react",
+    "antd",
+    "react-dnd",
+    "web visible"
+  ],
+  "contributors": [
+    "徐小夕 <xujiang156@qq.com> (https://github.com/MrXujiang))",
+    "yehuozhili <yehuozhili@outlook.com> (https://github.com/yehuozhili))"
+  ],
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "server": "node server.js",
+    "dev": "http-server dist",
+    "test-demo": "http-server dist",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "nocompress": "cross-env RM_TMPDIR=none COMPRESS=none umi build"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "homepage": "http://h5.dooring.cn",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrXujiang/h5-Dooring.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MrXujiang/h5-Dooring/issues"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.2.1",
+
+    "@umijs/plugin-esbuild": "^1.0.1",
+    "@umijs/plugin-sass": "^1.1.1",
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.2.19",
+    "antd": "^4.7.0",
+    "antd-img-crop": "^3.10.0",
+    "axios": "^0.19.2",
+    "braft-editor": "^2.3.9",
+    "chatbot-antd": "^0.6.0",
+    "codemirror": "^5.57.0",
+    "dom-to-image": "^2.6.0",
+    "file-saver": "^2.0.2",
+    "http-server": "^0.12.3",
+    "keymaster": "^1.6.2",
+    "qrcode.react": "^1.0.0",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "react-codemirror2": "^7.2.1",
+    "react-color": "^2.18.1",
+    "react-contexify": "^4.1.1",
+    "react-dnd": "^11.1.3",
+    "react-dnd-html5-backend": "^11.1.3",
+    "react-draggable": "^4.4.3",
+    "react-draggable-ball": "^0.1.0",
+    "react-grid-layout": "^1.0.0",
+    "react-hotkeys-hook": "^2.3.1",
+    "react-text-loop": "^2.3.0",
+    "redux-undo": "^1.0.1",
+    "socket.io-client": "^2.3.0",
+    "umi": "^3.5.13",
+    "xlsx": "^0.16.7",
+    "yh-react-popover": "^0.3.0",
+    "yorkie": "^2.0.0",
+    "zarm": "^2.5.1"
+  },
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/codemirror": "^0.0.98",
+    "@types/events": "^3.0.0",
+    "@types/file-saver": "^2.0.1",
+    "@types/node": "^14.6.2",
+    "@types/qrcode.react": "^1.0.1",
+    "@types/react-color": "^3.0.4",
+    "@types/react-grid-layout": "^1.1.0",
+    "@types/redux-logger": "^3.0.8",
+    "@types/xlsx": "^0.0.36",
+    "@typescript-eslint/eslint-plugin": "4.1.1",
+    "@typescript-eslint/parser": "4.1.1",
+    "babel-eslint": "10.x",
+    "babel-plugin-import": "^1.13.0",
+    "cross-env": "^7.0.2",
+    "eslint": "6.x",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "4.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "2.x",
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-logger": "^3.2.1",
+    "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "redux-logger": "^3.0.6",
+    "sass-loader": "^9.0.3",
+    "typescript": "^4.0.2",
+    "vuepress": "^1.8.0"
+  }
+}

@@ -112,9 +112,7 @@ cd ./h5-Dooring
 
 3. 安装依赖包
 ```sh
-yarn install
-or
-cnpm install
+npx lerna bootstrap
 ```
 
 ## 使用
@@ -125,6 +123,22 @@ yarn start
 or
 cnpm run start
 ```
+
+## 模块及目录说明
+
+本项目使用 lerna多包管理，采用模块联邦共用渲染器，巧妙解耦项目编辑器和C端展示器；增强组件健壮性和提升预览页加载性能
+
+- editor
+
+可视化编辑器;负责拖拽组件，编辑属性，保存发布
+
+- ui
+
+组件库和渲染器;负责各种组件物料和画布引擎加载
+
+- doc 
+
+使用手册和开发文档
 
 ## 如何运行下载后的代码?
 
