@@ -3,20 +3,22 @@ import { defineConfig } from 'umi';
 const { ModuleFederationPlugin } = require("webpack").container;
 
 export default defineConfig({
+  nodeModulesTransform: {
+    type: 'none',
+  },
   dynamicImport: {
     loading: '@/components/LoadingCp',
   },
   dva: {
     immer: true,
   },
-  devtool: 'source-map',
+  // devtool: 'source-map',
   antd: {},
   title: 'h5-dooring',
   // exportStatic: {},
   base: '/',
   publicPath: '/',
   outputPath: 'dist',
-  esbuild: {},
   routes: [
     {
       exact: false,
