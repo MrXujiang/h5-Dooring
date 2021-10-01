@@ -22,6 +22,7 @@ import req from '@/utils/req';
 import { uuid } from '@/utils/tool';
 import styles from './index.less';
 import MyPopover from 'yh-react-popover';
+import { encode } from 'querystring';
 
 const { confirm } = Modal;
 
@@ -54,7 +55,7 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     //   );
     // }, 600);
      setTimeout(() => {
-      window.open(`http://localhost:8008/preview?tid=${props.location.query.tid}&pointData=${JSON.stringify(pointData)}`);
+      window.open(`http://localhost:8008/preview?tid=${props.location.query.tid}&pointData=${encodeURI(JSON.stringify(pointData))}`);
     }, 600);
   };
 
