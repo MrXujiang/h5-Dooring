@@ -1,7 +1,8 @@
-import React, { memo, PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
+import React, { memo } from 'react';
 import { Carousel } from 'zarm';
 import styles from './index.less';
-import { ICarouselConfig } from './schema';
+import type { ICarouselConfig } from './schema';
 import logo from '@/assets/banner.png';
 
 interface CarouselTypes extends ICarouselConfig {
@@ -29,7 +30,7 @@ const XCarousel = memo((props: PropsWithChildren<CarouselTypes>) => {
         </div>
       ) : (
         <Carousel
-          onChange={index => {
+          onChange={(index) => {
             // console.log(`onChange: ${index}`);
           }}
           direction={direction}
