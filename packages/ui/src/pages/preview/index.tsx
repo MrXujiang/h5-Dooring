@@ -19,7 +19,8 @@ interface PointDataItem {
 
 const PreviewPage = memo((props: PreviewPageProps) => {
   const [pointData, setPointData] = useState(() => {
-    const pointDataStr = getQueryString('pointData') || localStorage.getItem('pointData');
+    const pointDataStr =
+      decodeURI(getQueryString('pointData') ?? '') ?? localStorage.getItem('pointData');
     let points;
 
     try {
