@@ -6,9 +6,9 @@
 -->
 
 私有化部署需要获取4个核心项目包, 包括
-- H5编辑器(h5_plus) 
+- H5编辑器(editor) 
 - H5基座(h5)
-- Dooring管理后台(Dooring-Admin)
+- Dooring管理后台(iH5)
 - 服务端项目(Server)
 
 获取以上四个核心源码工程需要满足商业授权协议, 具体可联系作者[徐小夕](http://h5.dooring.cn/uploads/WechatIMG3_1758e9753e2.jpeg) 
