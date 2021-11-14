@@ -139,26 +139,42 @@ img {
 }
 
 .rotate-animate {
-  margin: 100px auto;
-  border:16px solid #f3f3f3;
-  border-radius:50%;
-  border-top:16px solid #2842d8;
-  width:130px;
-  height:130px;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation:rotate 2s linear infinite;
   font-size: 12px;
 }
-@keyframes rotate{
-  0%{
-      transform: rotate(0deg);
-  }
-  100%{
-      transform:rotate(360deg);
-  }
-}
+
+@keyframes line-scale-pulse-out {
+  0% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1); }
+  50% {
+    -webkit-transform: scaley(0.4);
+            transform: scaley(0.4); }
+  100% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1); } }
+
+.line-scale-pulse-out > div {
+  background-color: #2842d8;
+  width: 4px;
+  height: 35px;
+  border-radius: 2px;
+  margin: 2px;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  display: inline-block;
+  -webkit-animation: line-scale-pulse-out 0.9s -0.6s infinite cubic-bezier(0.85, 0.25, 0.37, 0.85);
+          animation: line-scale-pulse-out 0.9s -0.6s infinite cubic-bezier(0.85, 0.25, 0.37, 0.85); }
+  .line-scale-pulse-out > div:nth-child(2), .line-scale-pulse-out > div:nth-child(4) {
+    -webkit-animation-delay: -0.4s !important;
+            animation-delay: -0.4s !important; }
+  .line-scale-pulse-out > div:nth-child(1), .line-scale-pulse-out > div:nth-child(5) {
+    -webkit-animation-delay: -0.2s !important;
+            animation-delay: -0.2s !important; }
 
 @import '~react-grid-layout/css/styles.css'; 
 @import '~react-resizable/css/styles.css';

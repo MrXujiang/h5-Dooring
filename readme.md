@@ -127,7 +127,6 @@ or
 cnpm run start
 ```
 
-
 ## How to run the downloaded code ?
 
  1. The compression package can be unzipped directly to the server root, and access to the root address is sufficient

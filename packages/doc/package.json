@@ -2,8 +2,6 @@
   "name": "@h5-dooring/doc",
   "version": "0.0.1",
   "description": "文档",
-  "author": "mokinzhao <zhaoyl3@yonghui.cn>",
-  "homepage": "https://github.com/mokinzhao/h5-Dooring#readme",
   "license": "ISC",
   "main": "index.js",
   "scripts": {
