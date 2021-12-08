@@ -115,7 +115,7 @@ cd ./h5-Dooring
 
 3. Install the dependency package
 ```sh
-npx lerna bootstrap
+yarn pkg
 ```
 
 ## Usage

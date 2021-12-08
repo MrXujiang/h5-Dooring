@@ -110,9 +110,9 @@ git clone https://github.com/MrXujiang/h5-Dooring.git
 cd ./h5-Dooring
 ```
 
-3. 安装依赖包
+3. 安装依赖包(需要提前安装yarn)
 ```sh
-npx lerna bootstrap
+yarn pkg
 ```
 
 ## 使用

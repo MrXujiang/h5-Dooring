@@ -22,6 +22,7 @@
     "yehuozhili <yehuozhili@outlook.com> (https://github.com/yehuozhili))"
   ],
   "scripts": {
+    "pkg": "bash install.sh",
     "start": "npm run start:ui & npm run start:editor",
     "start:editor": "npx lerna exec --scope @h5-dooring/editor -- npm run start",
     "start:ui": "npx lerna exec --scope @h5-dooring/ui -- npm run start",
