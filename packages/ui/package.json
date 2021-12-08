@@ -2,7 +2,6 @@
   "name": "@h5-dooring/ui",
   "version": "0.0.1",
   "description": "组件库及渲染器",
-  "author": "mokinzhao <zhaoyl3@yonghui.cn>",
   "homepage": "",
   "license": "ISC",
   "private": true,
