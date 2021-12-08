@@ -14,12 +14,5 @@
   },
   "files": [
     "lib"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mokinzhao/h5-Dooring.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mokinzhao/h5-Dooring/issues"
-  }
+  ]
 }
