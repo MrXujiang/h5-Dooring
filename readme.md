@@ -127,6 +127,8 @@ or
 cnpm run start
 ```
 
+注意: 如果window系统下无法启动, 请移步 [dooring-electron](https://github.com/H5-Dooring/dooring-electron-lowcode)
+
 ## How to run the downloaded code ?
 
  1. The compression package can be unzipped directly to the server root, and access to the root address is sufficient
