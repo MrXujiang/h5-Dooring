@@ -40,6 +40,10 @@
 
 > 如果觉得项目还不错, 就点个star吧~
 
+## 私有化部署文档
+
+地址: http://h5.dooring.cn/docz
+
 
 ### 特点
 1. 编辑器
@@ -174,6 +178,7 @@ cnpm run dev
 * [lucky-canvas 抽奖插件 | 一个支持H5, 微信小程序, React的抽奖插件](https://github.com/LuckDraw/lucky-canvas)
 * [vue-admin-box | 免费并且开源的中后台管理系统模板](https://github.com/cmdparkour/vue-admin-box)
 * [基于antd开箱即用的后台管理模版ant-simple-pro](https://github.com/lgf196/ant-simple-pro)
+* [使用gin+vue进行极速开发的全栈开发基础平台](https://github.com/flipped-aurora/gin-vue-admin)
 
 ## 赞助
 开源不易, 有了您的赞助, 我们会做的更好~

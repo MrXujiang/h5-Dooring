@@ -43,6 +43,10 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 Give a ⭐️ if this project helped you!
 
+## Privatization Deployment documentation
+
+address: http://h5.dooring.cn/docz
+
 
 ### Features
 1. editor
@@ -164,6 +168,7 @@ The premise is to install the http-server module first.
 * [lucky-canvas 抽奖插件 | 一个支持H5, 微信小程序, React的抽奖插件](https://github.com/LuckDraw/lucky-canvas)
 * [vue-admin-box | 免费并且开源的中后台管理系统模板](https://github.com/cmdparkour/vue-admin-box)
 * [基于antd开箱即用的后台管理模版ant-simple-pro](https://github.com/lgf196/ant-simple-pro)
+* [使用gin+vue进行极速开发的全栈开发基础平台](https://github.com/flipped-aurora/gin-vue-admin)
 
 ## Sponsored
 Open source is not easy, with your sponsorship, we will do better
