@@ -45,8 +45,8 @@ Give a ⭐️ if this project helped you!
 
 ## Privatization Deployment documentation
 
-address: http://h5.dooring.cn/docz
-⭐️ lowcode component list: http://h5.dooring.cn/docz/components/intro
+- address: http://h5.dooring.cn/docz
+- ⭐️ lowcode component list: http://h5.dooring.cn/docz/components/intro
 
 
 ### Features
