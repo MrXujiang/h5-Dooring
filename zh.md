@@ -39,7 +39,8 @@
 > 欢迎提供问题和功能需求, 如果大家有好的点子和优化建议, 也欢迎提pr参与我们的共建. [issues page](https://github.com/MrXujiang/h5-Dooring/issues).
 
 > 如果觉得项目还不错, 就点个star吧~
-> 答疑清单: http://h5.dooring.cn/docz/source-list/H5-Dooring/guide
+
+答疑清单: http://h5.dooring.cn/docz/source-list/H5-Dooring/guide
 
 ## 私有化部署文档
 
