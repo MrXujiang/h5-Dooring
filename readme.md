@@ -47,6 +47,7 @@ Give a ⭐️ if this project helped you!
 
 - address: http://h5.dooring.cn/docz
 - ⭐️ lowcode component list: http://h5.dooring.cn/docz/components/intro
+- List of answers: http://h5.dooring.cn/docz/source-list/H5-Dooring/guide
 
 
 ### Features
