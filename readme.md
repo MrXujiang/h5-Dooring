@@ -159,6 +159,12 @@ The premise is to install the http-server module first.
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Edge                                                         | last 2 versions                                              | last 2 versions                                              | last 2 versions                                              |
 
+## Contact us
+<img src="http://cdn.dooring.cn/dr%2Fline.jpeg" alt="line" width=120 />
+
+Twitter Account：@H5Dooring
+
+
 ## Partner project
 
 * [mitu-editor - 轻量级且强大的图片编辑器](https://github.com/H5-Dooring/mitu-editor)
