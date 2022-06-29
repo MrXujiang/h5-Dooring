@@ -36,6 +36,7 @@ Related products:
 
 * Website: http://h5.dooring.cn
 * Github: [@MrXujiang](https://github.com/MrXujiang)
+* new tech sahre: [Dooring2.7+最新技术分享&复盘](https://github.com/MrXujiang/h5-Dooring/issues/145)
 
 ## 🤝 Contributing and support
 
