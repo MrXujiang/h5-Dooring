@@ -178,6 +178,7 @@ Twitter Account：@H5Dooring
 * [vue-admin-box | 免费并且开源的中后台管理系统模板](https://github.com/cmdparkour/vue-admin-box)
 * [基于antd开箱即用的后台管理模版ant-simple-pro](https://github.com/lgf196/ant-simple-pro)
 * [使用gin+vue进行极速开发的全栈开发基础平台](https://github.com/flipped-aurora/gin-vue-admin)
+* [DevUI中后台产品开源前端解决方案](https://github.com/DevCloudFE/ng-devui)
 
 ## Sponsored
 Open source is not easy, with your sponsorship, we will do better
