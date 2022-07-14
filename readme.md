@@ -168,6 +168,7 @@ Twitter Account：@H5Dooring
 
 ## Partner project
 
+* [ react-cropper-pro - 轻量强大的图片上传/裁切/压缩组件](https://github.com/MrXujiang/react-cropper-pro)
 * [mitu-editor - 轻量级且强大的图片编辑器](https://github.com/H5-Dooring/mitu-editor)
 * [powerNice - 一款轻量级文档管理编辑器](http://h5.dooring.cn/powernice/views)
 * [rc-drag - 基于react的轻量级拖拽缩放组件](https://github.com/MrXujiang/rc-drag)

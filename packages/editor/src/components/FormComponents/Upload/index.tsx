@@ -1,6 +1,8 @@
 import React from 'react';
 import { Upload, Modal, message, Tabs, Result } from 'antd';
 import { PlusOutlined, CheckCircleFilled } from '@ant-design/icons';
+// 图片上传考虑使用作者最新发布的组件库react-cropper-pro, 支持上传,自由裁切, 压缩等功能
+// import ImgCrop from 'react-cropper-pro';
 import ImgCrop from 'antd-img-crop';
 import classnames from 'classnames';
 import { UploadFile, UploadChangeParam, RcFile } from 'antd/lib/upload/interface';

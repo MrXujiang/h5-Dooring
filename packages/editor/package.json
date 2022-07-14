@@ -60,6 +60,7 @@
     "axios": "^0.19.2",
     "braft-editor": "^2.3.9",
     "chatbot-antd": "^0.6.0",
+    "react-cropper-pro": "1.0.4",
     "codemirror": "^5.57.0",
     "dom-to-image": "^2.6.0",
     "file-saver": "^2.0.2",
