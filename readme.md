@@ -22,6 +22,8 @@
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | [website](http://h5.dooring.cn) | [Demo](http://h5.dooring.cn/h5_plus) | [Document](http://h5.dooring.cn/doc) | [视频&Video](https://www.zhihu.com/zvideo/1406394315950653440) | [wiki](https://github.com/MrXujiang/h5-Dooring/wiki)
 
+> ✨ note: If the official visit is too slow, visit the [H5-Dooring for Singapore](http://h5.dooring.vip)
+
 English | [简体中文](./zh.md)
 
 Related products: 
