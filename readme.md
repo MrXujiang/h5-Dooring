@@ -26,6 +26,8 @@
 
 English | [简体中文](./zh.md)
 
+new doc: [private deployment process](http://h5.dooring.cn/docz/source-list/H5-Dooring/deploy_en)
+
 Related products: 
 
 - [V6.Dooring | Large screen visual editor](https://github.com/MrXujiang/v6.dooring.public)
