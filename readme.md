@@ -43,6 +43,11 @@ Related products:
 * Github: [@MrXujiang](https://github.com/MrXujiang)
 * new tech share: [Dooring2.7+最新技术分享&复盘](https://github.com/MrXujiang/h5-Dooring/issues/145)
 
+  ## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=MrXujiang/h5-Dooring&type=Date)](https://star-history.com/#MrXujiang/h5-Dooring&Date)
+
+
 ## 🤝 Contributing and support
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/MrXujiang/h5-Dooring/issues).
