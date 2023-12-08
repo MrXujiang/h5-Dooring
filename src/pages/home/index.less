@@ -1,0 +1,62 @@
+.homeWrap {
+  display: flex;
+  height: 100%;
+  .leftArea {
+    padding: 10px 0 10px 20px;
+    // width: 320px;
+    border-right: 1px solid #f0f0f0;
+  }
+  .contentArea {
+    flex: 1;
+    margin-right: 60px;
+    .logoTip {
+      padding-top: 100px;
+      text-align: center;
+      .logo {
+        margin-bottom: 20px;
+        width: 100%;
+        font-size: 30px;
+        .logoText {
+          font-weight: bold;
+          color: #2f54eb;
+        }
+      }
+    }
+    .operation {
+      margin-top: 30px;
+      text-align: center;
+      .card {
+        display: inline-flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 220px;
+        height: 220px;
+        border-radius: 6px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0);
+        font-size: 56px;
+        border: 1px solid #f0f0f0;
+        margin-right: 30px;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        div {
+          margin-top: 10px;
+          font-size: 20px;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    .footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 15px;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}

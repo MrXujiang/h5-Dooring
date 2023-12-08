@@ -1,0 +1,168 @@
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+:root {
+  --sk-size: 40px;
+  --sk-color: #06c;
+}
+
+.ant-btn-primary {
+  color: #fff;
+  background: #2F54EB !important;
+  border-color: #2F54EB !important;
+}
+
+.ant-btn.ant-btn-link {
+  color: #2F54EB !important;
+}
+
+.ant-btn-background-ghost.ant-btn-primary {
+  color: #2F54EB !important;
+  border-color: #2F54EB !important;
+}
+
+.ant-btn-link[disabled], .ant-btn-link[disabled]:active, .ant-btn-link[disabled]:focus, .ant-btn-link[disabled]:hover {
+  color: rgba(0,0,0,.25) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+.react-grid-item{
+  overflow: hidden;
+}
+.ant-tabs-left.editorTabclass 
+.ant-tabs-nav , .ant-tabs-left.editorTabclass .ant-tabs-nav-list{
+  width: 40px!important;
+  min-width: 40px!important;
+}
+.ant-tabs-left.editorTabclass{
+  height: 100%;
+}
+
+.ant-tabs-left.editorTabclass > .ant-tabs-nav .ant-tabs-tab{
+  padding:20px 0px !important;
+ 
+}
+.ant-tabs-left.editorTabclass .ant-tabs-tab{
+  margin:auto!important;
+}
+.ant-tabs-left.editorTabclass .ant-tabs-tab   div{
+  display: inline-block;
+}
+.ant-tabs-left.editorTabclass .ant-tabs-content-holder{
+  overflow: auto;
+  padding:8px;
+}
+.ant-tabs-left.editorTabclass .ant-tabs-tabpane{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 10px!important;
+  padding-right: 10px!important;
+  padding-bottom: 40px;
+}
+#form_editor {
+  margin-bottom: 100px;
+}
+#form_editor .ant-form-item-label > label {
+  position: fixed;
+  color: #4A4A4A;
+}
+#form_editor .ant-form-item-label {
+  text-align: start
+}
+#form_editor .ant-form-item-control {
+  text-align: end;
+}
+#form_editor .ant-form-item {
+  margin-bottom: 20px;
+}
+#form_editor .ant-input-number-handler-wrap {
+  width: 12px;
+}
+#form_editor .ant-input, #form_editor .ant-input-number,#form_editor .ant-select-selector {
+  background-color: #f6f6f6;
+  width: 160px;
+}
+#form_editor .ant-form-item .ant-select {
+  width: 87%;
+  text-align: center;
+}
+#form_editor .ant-radio-wrapper {
+  margin-right: 0;
+}
+#form_editor .ant-input-number {
+  width: 42px;
+  height: 24px;
+  border: 1px solid #DBDBDB;
+}
+#form_editor .ant-input-number-handler-down-inner  {
+  text-align: right;
+  transform: translateY(-50%) translateX(13%);
+}
+#form_editor .ant-input-number-handler-up-inner  {
+  text-align: right;
+  transform: translateY(-26%) translateX(15%);
+}
+#form_editor .ant-input-number-input  {
+  height: 20px;
+  line-height: 20px;
+  padding-left: 4px;
+}
+#form_editor .ant-form-item-control-input-content  {
+  line-height: 14px;
+}
+#form_editor .ant-form-item-label > label::after {
+  content: '';
+}
+#form_editor .za-cell:after {
+  border-top: 0px;
+}
+#form_editor .za-cell__content {
+  font-size: 14px;
+}
+#form_editor .za-select--arrow .za-select__input:after {
+  display: none;
+}
+#form_editor .ant-upload-list-picture-card-container {
+  display: flex;
+  margin-left: 30px;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+.rotate-animate {
+  margin: 100px auto;
+  border:16px solid #f3f3f3;
+  border-radius:50%;
+  border-top:16px solid #2842d8;
+  width:130px;
+  height:130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation:rotate 2s linear infinite;
+  font-size: 12px;
+}
+@keyframes rotate{
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform:rotate(360deg);
+  }
+}
+
+@import '~react-grid-layout/css/styles.css'; 
+@import '~react-resizable/css/styles.css';
+@import '~zarm/dist/zarm.min.css';
+
+@import '~codemirror/lib/codemirror.css';
+@import '~codemirror/theme/material.css';

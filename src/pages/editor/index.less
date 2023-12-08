@@ -1,0 +1,283 @@
+.layout {
+  height: 100%;
+  width: 100%;
+  div::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  div::-webkit-scrollbar-thumb {
+    background: #bfbfbf;
+    border-radius: 10px;
+  }
+  div::-webkit-scrollbar-thumb:hover {
+    background: #2f54eb;
+  }
+  .editorWrap {
+    background-color: rgba(245, 245, 245, 1);
+    height: 100%;
+    width: 100%;
+  }
+  .container {
+    // height: 100vh;
+    height: calc(100% - 56px);
+    display: flex;
+    .list {
+      width: 350px;
+      height: 100%;
+      padding: 10px 0 10px 10px;
+      box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      background-color: #fff;
+      & > div:nth-child(1) {
+        height: 100%;
+      }
+      .ctitle {
+        font-weight: bold;
+        line-height: 50px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        width: 100%;
+      }
+      .collapsed {
+        cursor: pointer;
+        &:hover {
+          color: #06c;
+        }
+      }
+      .searchBar {
+        margin-bottom: 20px;
+      }
+      &Wrap {
+        width: 50%;
+        &:nth-child(even) {
+          padding-left: 0px;
+        }
+        &:nth-child(odd) {
+          padding-left: 8px;
+        }
+      }
+      .module {
+        position: relative;
+        margin-bottom: 10px;
+        width: 100%;
+        overflow: hidden;
+        user-select: none;
+        border: 2px solid #9e9e9e3d;
+        transition: border 0.3s;
+        &:hover {
+          border: 2px solid #06c;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: 99;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+    .tickMark {
+      overflow: hidden;
+      height: 100%;
+      position: relative;
+      flex: 1;
+      .tickMarkTop {
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .tickMarkLeft {
+        width: 50px;
+        height: calc(100% - 50px);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .canvasBox {
+        width: 375px;
+        min-height: 664px;
+        height: 664px;
+        position: relative;
+        left: 50%;
+        margin-left: -200px;
+        top: 80px;
+        .canvas {
+          position: relative;
+          width: 375px;
+          min-height: 664px;
+          background-color: #fff;
+          box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+          position: absolute;
+          left: 0;
+          top: 0;
+          transition: transform 300ms ease-out;
+          .dragItem {
+            display: inline-block;
+            position: absolute;
+            z-index: 2;
+            border: 2px solid transparent;
+            cursor: move;
+            &:hover {
+              border: 2px solid #06c;
+            }
+            :global(a) {
+              display: block;
+              pointer-events: none;
+            }
+          }
+          .selected {
+            display: inline-block;
+            position: absolute;
+            z-index: 2;
+            cursor: move;
+            :global(a) {
+              display: block;
+              pointer-events: none;
+            }
+            border: 2px solid #06c;
+            .tooltip {
+              position: relative;
+              // z-index: 999999;
+              width: 388px;
+              text-align: right;
+            }
+          }
+        }
+      }
+      .canvasBox2 {
+        width: 1200px;
+        min-height: 800px;
+        height: 800px;
+        left: 15%;
+        position: relative;
+        margin-left: -200px;
+        top: 20px;
+        .canvas2 {
+          position: relative;
+          width: 1200px;
+          min-height: 800px;
+          background-color: #fff;
+          box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+          position: absolute;
+          left: 0;
+          top: 0;
+          transition: transform 300ms ease-out;
+          .dragItem {
+            display: inline-block;
+            position: absolute;
+            z-index: 2;
+            border: 2px solid transparent;
+            cursor: move;
+            &:hover {
+              border: 2px solid #06c;
+            }
+            :global(a) {
+              display: block;
+              pointer-events: none;
+            }
+          }
+        }
+      }
+      .resetBall {
+        position: absolute;
+        right: 24px;
+        bottom: 445px;
+      }
+      .controllBall {
+        position: absolute;
+        bottom: 380px;
+        right: 5px;
+      }
+    }
+    .attrSetting {
+      width: 304px;
+      padding: 23px 0 60px 20px;
+      background: #fff;
+      height: 100%;
+      box-shadow: -2px 0px 4px 0px rgba(0, 0, 0, 0.1);
+      overflow: auto;
+      position: fixed;
+      right: 0;
+      .tit {
+        margin-bottom: 16px;
+        color: #000;
+        font-weight: bold;
+      }
+      .posWrap {
+        padding: 20px;
+        .posItem {
+          margin-bottom: 12px;
+          font-size: 14px;
+          color: rgba(0, 0, 0, 0.5);
+          .posTit {
+            margin-right: 50px;
+          }
+          .pos {
+            margin-right: 40px;
+            color: #000;
+            &::before {
+              content: attr(data-flag);
+              color: rgba(0, 0, 0, 0.4);
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+      .graphWrap {
+        .graphTable {
+          .iptControl {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+            .iptLabel {
+              width: 108px;
+              flex-shrink: 0;
+              color: rgba(0, 0, 0, 0.5);
+            }
+            .cpSelector {
+              img {
+                width: 100%;
+              }
+            }
+            .colorSelector {
+              span {
+                display: inline-block;
+                margin-right: 10px;
+                width: 42px;
+                height: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .rightcolla {
+      width: 20px;
+      height: 80px;
+      background: #ffffff;
+      box-shadow: -2px 0px 4px 0px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      right: 304px;
+      top: 50%;
+      cursor: pointer;
+      &:hover {
+        color: #2f54eb;
+      }
+    }
+  }
+}
+
+.saveForm {
+  padding-top: 10px;
+  .formIpt {
+    span {
+      display: block;
+      line-height: 2.4em;
+    }
+  }
+}

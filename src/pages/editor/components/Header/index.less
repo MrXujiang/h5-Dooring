@@ -1,0 +1,57 @@
+.header {
+  position: relative;
+  z-index: 201;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .logoArea {
+    width: 300px;
+    .backBtn {
+      display: inline-block;
+      padding: 12px 10px;
+      margin-right: 22px;
+      cursor: pointer;
+    }
+    .logo {
+      position: fixed;
+      display: inline-block;
+      width: 120px;
+      height: 35px;
+      border-radius: 3px;
+      overflow: hidden;
+      background: url(../../../../assets/logo.png) no-repeat;
+      background-size: contain;
+      line-height: 50px;
+      margin-top: 7px;
+      margin-left: -20px;
+    }
+  }
+  .controlArea {
+    flex: 1;
+    text-align: center;
+  }
+  .btnArea {
+    width: 250px;
+    margin-left: 20px;
+    text-align: right;
+  }
+}
+.saveForm {
+  .formIpt {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header {
+    .logoArea {
+      width: 17%;
+    }
+    .controlArea {
+      width: auto;
+    }
+  }
+}
