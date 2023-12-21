@@ -1,4 +1,4 @@
-<img width="961" alt="image" src="https://github.com/MrXujiang/h5-Dooring/assets/28833634/41f0ce3d-f13e-4ace-b0da-b5407e7d0a86">> Make H5 as easy as building blocks!
+>> Make H5 as easy as building blocks!
 
 <p align="center">
     <img src="http://cdn.dooring.cn/dr/logo.ff7fc6bb.png" width="260" alt="H5编辑器,H5制作神器,H5 editor,lowcode">
