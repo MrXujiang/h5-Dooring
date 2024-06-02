@@ -30,6 +30,8 @@ new doc: [private deployment process](http://h5.dooring.cn/docz/source-list/H5-D
 
 website: [H5-Dooring](https://dooring.net)
 
+tech blog: [sharing of technology](https://dev.to/alex_xu/we-made-a-page-visualization-to-build-an-open-source-project-1l1p)
+
 Related products:
 
 - [V6.Dooring | Large screen visual editor](https://github.com/MrXujiang/v6.dooring.public)
