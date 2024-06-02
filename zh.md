@@ -46,6 +46,10 @@
 
 地址: http://h5.dooring.cn/docz
 
+## 联系作者
+
+<img src="http://next-admin.com/tech.png" width=120 />
+
 
 ### 特点
 1. 编辑器
