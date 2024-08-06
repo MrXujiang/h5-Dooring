@@ -22,8 +22,10 @@
     "yehuozhili <yehuozhili@outlook.com> (https://github.com/yehuozhili))"
   ],
   "scripts": {
-    "start": "umi dev",
-    "build": "umi build",
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && umi dev -- editor",
+    "start:win": "set NODE_OPTIONS=--openssl-legacy-provider && umi dev -- editor",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && umi build",
+    "build:win": "set NODE_OPTIONS=--openssl-legacy-provider && umi build",
     "server": "node server.js",
     "dev": "http-server dist",
     "docs:dev": "vuepress dev doc",

@@ -36,8 +36,9 @@ Related products:
 
 - [V6.Dooring | Large screen visual editor](https://github.com/MrXujiang/v6.dooring.public)
 - [dooring-electron-lowcode | Dooring desktop software](https://github.com/MrXujiang/dooring-electron-lowcode)
-- [Lowcode community](http://lowcode.dooring.cn)
+- [Nocode/WEP](http://doc.dooring.vip)
 - [Dooring-Saas](https://dooring.vip)
+- [Dooring 智图](https://magic.dooring.vip)
 
 ## Author
 
