@@ -132,7 +132,7 @@ export default function Layout({ children }: IRouteComponentProps) {
         <div style={{ height: 380 }}>
           <iframe
             style={{ width: "100%", height: "100%" }}
-            src="//player.bilibili.com/player.html?aid=204342673&bvid=BV1jh411k7xs&cid=301889522&page=1"
+            src="//player.bilibili.com/player.html?isOutside=true&aid=113028657906637&bvid=BV1shsJeDEZh&cid=500001663189447&p=1"
             scrolling="no"
             border="0"
             frameborder="no"

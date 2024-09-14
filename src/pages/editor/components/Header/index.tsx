@@ -61,12 +61,8 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
     }, 600);
   };
 
-  const toOnlineCoding = () => {
-    window.open("/ide");
-  };
-
   const toVipLogin = () => {
-    window.open("/login");
+    window.open("http://doc.dooring.vip");
   };
 
   const content = () => {
@@ -362,20 +358,10 @@ const HeaderComponent = memo((props: HeaderComponentProps) => {
         <Button
           type="primary"
           ghost
-          onClick={toOnlineCoding}
-          style={{ marginRight: "12px" }}
-        >
-          <CodeOutlined />
-          在线编程
-        </Button>
-        <Button
-          type="primary"
-          ghost
           onClick={toVipLogin}
           style={{ marginRight: "12px" }}
         >
-          <SketchOutlined />
-          会员登录
+          多模态文档编辑器
         </Button>
       </div>
       <Modal

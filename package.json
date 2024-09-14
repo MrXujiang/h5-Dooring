@@ -59,6 +59,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@antv/f2": "^3.7.7",
+    "@visactor/vchart": "^1.12.1",
     "@uiw/react-baidu-map": "^1.17.3",
     "@umijs/plugin-esbuild": "^1.0.1",
     "@umijs/plugin-sass": "^1.1.1",
