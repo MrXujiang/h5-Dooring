@@ -36,7 +36,7 @@ Related products:
 
 - [V6.Dooring | Large screen visual editor](https://github.com/MrXujiang/v6.dooring.public)
 - [dooring-electron-lowcode | Dooring desktop software](https://github.com/MrXujiang/dooring-electron-lowcode)
-- [Nocode/WEP](http://doc.dooring.vip)
+- [flowmix/docx | 多模态文档引擎](http://flowmix.tunrtip.cn/docx)
 - [Dooring-Saas](https://dooring.vip)
 - [Dooring 智图](https://magic.dooring.vip)
 
@@ -159,6 +159,12 @@ Launch the app locally
 yarn start
 or
 cnpm run start
+```
+
+local visit:
+
+```
+http://localhost:port/h5_plus
 ```
 
 注意: 如果 window 系统下无法启动, 请移步 [dooring-electron](https://github.com/H5-Dooring/dooring-electron-lowcode)
