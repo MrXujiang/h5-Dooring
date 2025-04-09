@@ -1,0 +1,58 @@
+:global(.ant-upload-select-picture-card i) {
+  color: #999;
+  font-size: 14px;
+}
+
+:global(.ant-upload-select-picture-card .ant-upload-text) {
+  margin-top: 8px;
+  color: #666;
+}
+
+.avatarUploader {
+  display: inline-block;
+  text-align: left;
+}
+
+.wallBtn {
+  position: absolute;
+  left: 140px;
+  bottom: 56px;
+  display: inline-block;
+  color: #2f54eb;
+  cursor: pointer;
+  border-bottom: 1px solid #2f54eb;
+}
+
+.imgBox {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 520px;
+  overflow: auto;
+  .imgItem {
+    position: relative;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    width: 320px;
+    max-height: 220px;
+    overflow: hidden;
+    cursor: pointer;
+    img {
+      width: 100%;
+    }
+    &:hover,
+    &.seleted {
+      .iconBtn {
+        visibility: visible;
+      }
+    }
+
+    .iconBtn {
+      position: absolute;
+      visibility: hidden;
+      top: 6px;
+      right: 10px;
+      font-size: 18px;
+      color: rgb(8, 156, 8);
+    }
+  }
+}
