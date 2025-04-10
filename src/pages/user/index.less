@@ -1,0 +1,66 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  .header {
+    position: relative;
+    z-index: 10;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+    height: 42px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    .logoArea {
+      display: contents;
+      width: 300px;
+      font-size: 18px;
+      color: #2f54eb;
+      .backBtn {
+        display: inline-block;
+        padding: 12px 10px;
+        margin-right: 22px;
+        cursor: pointer;
+      }
+      .logo {
+        display: flex;
+        overflow: hidden;
+        border-radius: 3px;
+        vertical-align: middle;
+        img {
+          width: 108px;
+          height: auto;
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+      .logoText {
+        margin-left: 12px;
+        margin-top: 5px;
+      }
+    }
+    .operationBar {
+      margin-left: auto;
+    }
+  }
+}
+.contentWrap {
+  display: flex;
+}
+.codeWrap {
+  width: calc(100vw - 440px);
+  min-height: 560px;
+  height: 100%;
+}
+:global(.cm-s-material.CodeMirror) {
+  height: 100%;
+}
+.previewWrap {
+  margin: 0 30px;
+  margin-top: 30px;
+  width: 375px;
+  min-width: 375px;
+  overflow: auto;
+  border: 12px solid #000;
+  border-radius: 20px;
+}
