@@ -1,6 +1,5 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState, useCallback } from "react";
 import { Controlled } from "react-codemirror2";
-import { useState } from "react";
 import { Button, message } from "antd";
 import { saveAs } from "file-saver";
 import Logo from "@/assets/logo.png";
@@ -13,7 +12,7 @@ require("codemirror/mode/javascript/javascript");
 
 const serverUrl = isDev ? "http://localhost:3000" : "http://localhost:3000";
 
-let html = `<!DOCTYPE html>
+const defaultHtml = `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -48,97 +47,97 @@ let html = `<!DOCTYPE html>
 </html>
 `;
 
-export default function() {
-  const [isUpdate, setUpdate] = useState(false);
-  const [cursor, setCursor] = useState<CodeMirror.Position>({ line: 1, ch: 1 });
-  const [data, setData] = useState<{ data: string }>({ data: html });
-  const handleChange = (
+export default function CodeEditor() {
+  const [htmlContent, setHtmlContent] = useState(defaultHtml);
+  const [cursorPosition, setCursorPosition] = useState({ line: 1, ch: 1 });
+  const [isUpdated, setIsUpdated] = useState(false);
+
+  const rect = useGetRect();
+
+  // 计算高度
+  const contentHeight = useMemo(() => {
+    const baseHeight = rect.height - 42 - 1; // 减去顶部高度和滚动条防溢出
+    return Math.max(baseHeight, 694); // 最小高度为 694
+  }, [rect.height]);
+
+  const phoneHeight = 694; // 固定高度，避免大屏幕问题
+  const iframeHeight = phoneHeight - 30 - 24; // 上边距 30，上下 padding 各 12
+
+  // 保存页面
+  const savePage = useCallback(
+    (content?: string) => {
+      const contentToSave = content ?? htmlContent;
+      fetch(`${serverUrl}/dooring/render`, {
+        method: "POST",
+        body: contentToSave,
+      }).then(() => {
+        message.success("已保存");
+        setIsUpdated((prev) => !prev); // 触发重新渲染
+      });
+    },
+    [htmlContent]
+  );
+
+  // 下载 HTML 文件
+  const downloadHtml = useCallback(() => {
+    const file = new File([htmlContent], `${Date.now()}.html`, {
+      type: "text/html;charset=utf-8",
+    });
+    saveAs(file);
+  }, [htmlContent]);
+
+  // 快捷键保存
+  useHotkeys(
+    "ctrl+s",
+    (event) => {
+      savePage();
+      event.preventDefault();
+    },
+    [savePage]
+  );
+
+  // CodeMirror 编辑器事件处理
+  const handleCodeChange = (
     _editor: CodeMirror.Editor,
     _data: CodeMirror.EditorChange,
     value: string
   ) => {
-    setData({ data: value });
-  };
-  const fetchPage = useMemo(() => {
-    return (v?: string) => {
-      let res = v ?? data.data;
-      fetch(`${serverUrl}/dooring/render`, { method: "POST", body: res }).then(
-        () => {
-          html = res;
-          message.success("已保存");
-          setUpdate(prev => !prev);
-        }
-      );
-    };
-  }, [data]);
-  const downLoadHtml = () => {
-    var file = new File([data.data], `${Date.now()}.html`, {
-      type: "text/html;charset=utf-8"
-    });
-    saveAs(file);
+    setHtmlContent(value);
   };
 
-  const onCursorChange = (
+  const handleCursorChange = (
     _editor: CodeMirror.Editor,
-    data1: CodeMirror.Position
+    position: CodeMirror.Position
   ) => {
-    const { line, ch } = data1;
-    setCursor({ line, ch });
+    setCursorPosition(position);
   };
 
-  useHotkeys<HTMLDivElement>(
-    "ctrl+s",
-    event => {
-      fetchPage();
+  const handleEditorKeyDown = (editor: CodeMirror.Editor, event: KeyboardEvent) => {
+    if (event.ctrlKey && event.key === "s") {
+      savePage(editor.getValue());
       event.preventDefault();
-    },
-    [data]
-  );
+    }
+  };
 
-  const editHotKey = useMemo(() => {
-    return (editor: CodeMirror.Editor, event: KeyboardEvent) => {
-      if (event.ctrlKey && event.key === "s") {
-        fetchPage(editor.getValue());
-        event.preventDefault();
-      }
-    };
-  }, [fetchPage]);
-
-  const CodeMirrorRender = useMemo(() => {
-    return (
-      <Controlled
-        className={styles.codeWrap}
-        value={data.data}
-        options={{
-          mode: "xml",
-          theme: "material",
-          lineNumbers: true
-        }}
-        onBeforeChange={handleChange}
-        cursor={cursor}
-        onCursor={onCursorChange}
-        onKeyDown={editHotKey}
-      />
-    );
-  }, [cursor, data.data, editHotKey]);
-
-  const rect = useGetRect();
-  const height = useMemo(() => {
-    let res = rect.height - 42 - 1; //-1防止差值产生滚动条
-    return res < 694 ? 694 : res;
-  }, [rect.height]);
-
-  const phoneHeight = useMemo(() => {
-    //let res = rect.height - 42 - 30 - 1; //30是其上边距
-    //return res < 694 ? 694 : res;
-    return 694; //大屏幕过长，维持高度，需要变高另外处理
-  }, []);
-  const iframeHeight = useMemo(() => {
-    return phoneHeight - 30 - 12 - 12; //上边距30 上下padding 12
-  }, [phoneHeight]);
+  // CodeMirror 渲染
+  const codeMirrorRender = useMemo(() => (
+    <Controlled
+      className={styles.codeWrap}
+      value={htmlContent}
+      options={{
+        mode: "xml",
+        theme: "material",
+        lineNumbers: true,
+      }}
+      onBeforeChange={handleCodeChange}
+      onCursor={handleCursorChange}
+      onKeyDown={handleEditorKeyDown}
+    />
+  ), [htmlContent]);
 
   return (
     <div className={styles.wrap}>
+      {/* Header */}
       <div className={styles.header}>
         <div className={styles.logoArea}>
           <div className={styles.logo} title="Dooring">
@@ -149,50 +148,36 @@ export default function() {
           <div className={styles.logoText}>| 在线代码编辑器</div>
         </div>
         <div className={styles.operationBar}>
-          <Button
-            type="primary"
-            title="保存（ctrl+s）"
-            onClick={() => fetchPage()}
-            style={{ marginRight: "10px" }}
-          >
+          <Button type="primary" title="保存（ctrl+s）" onClick={savePage} style={{ marginRight: "10px" }}>
             <SaveOutlined />
           </Button>
-          <Button
-            type="primary"
-            onClick={downLoadHtml}
-            style={{ marginRight: "10px" }}
-          >
+          <Button type="primary" onClick={downloadHtml} style={{ marginRight: "10px" }}>
             下载页面
           </Button>
-          <Button danger onClick={downLoadHtml}>
+          <Button danger onClick={downloadHtml}>
             一键部署
           </Button>
         </div>
       </div>
-      <div
-        className={styles.contentWrap}
-        style={{ height: `${height}px`, position: "relative" }}
-      >
-        <div
-          className={styles.codeWrap}
-          style={{ height: `${height}px`, position: "relative" }}
-        >
-          {CodeMirrorRender}
+
+      {/* 内容区域 */}
+      <div className={styles.contentWrap} style={{ height: `${contentHeight}px`, position: "relative" }}>
+        {/* 代码编辑器 */}
+        <div className={styles.codeWrap} style={{ height: `${contentHeight}px`, position: "relative" }}>
+          {codeMirrorRender}
         </div>
 
-        <div
-          className={styles.previewWrap}
-          style={{ height: `${phoneHeight}px` }}
-        >
+        {/* 预览区域 */}
+        <div className={styles.previewWrap} style={{ height: `${phoneHeight}px` }}>
           <iframe
             title="preview"
-            src={`${serverUrl}/html?flag=${isUpdate}`}
+            src={`${serverUrl}/html?flag=${isUpdated}`}
             style={{
               width: "100%",
               height: `${iframeHeight}px`,
               margin: 0,
               padding: 0,
-              border: "none"
+              border: "none",
             }}
           ></iframe>
         </div>
