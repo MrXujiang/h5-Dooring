@@ -86,6 +86,13 @@ export default function CodeEditor() {
     saveAs(file);
   }, [htmlContent]);
 
+  const downloadcss = useCallback(() => {
+    const file = new File([htmlContent], `${Date.now()}.html`, {
+      type: "text/css;charset=utf-8",
+    });
+    saveAs(file);
+  }, [htmlContent]);
+
   // 快捷键保存
   useHotkeys(
     "ctrl+s",
