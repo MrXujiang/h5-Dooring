@@ -22,7 +22,11 @@
 | ------------------------------- | ------------------------------------ | ------------------------------------ | -------------------------------------------------------------- | ---------------------------------------------------- |
 | [website](http://h5.dooring.cn) | [Demo](http://h5.dooring.cn/h5_plus) | [Document](http://h5.dooring.cn/doc) | [视频&Video](https://www.zhihu.com/zvideo/1406394315950653440) | [wiki](https://github.com/MrXujiang/h5-Dooring/wiki) |
 
-> ✨ note: If the official visit is too slow, visit the [H5-Dooring for Singapore](http://h5.dooring.vip)
+> ✨ note: If the official visit is too slow, visit the [H5-Dooring for Singapore](https://dooring.vip)
+
+🎉福利🎉: 最近基于nextjs实现的多维表格正式上线, 前100名用户仅需399元, 感兴趣可以参考体验一下.
+
+- 多维表格编辑器: http://mute.turntip.cn
 
 English | [简体中文](./zh.md)
 
