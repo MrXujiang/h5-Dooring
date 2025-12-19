@@ -1,352 +1,326 @@
-import React, { useMemo, useState, useCallback, useEffect } from "react";
-import { Button, message, Table, Space, Tag, Input, Modal, Form, Select } from "antd";
-import { SearchOutlined, PlusOutlined, EditOutlined, DeleteOutlined, SaveOutlined } from "@ant-design/icons";
-import type { ColumnsType } from "antd/es/table";
-import styles from "./index.module.less";
+import React, { useMemo, useState, useCallback, useRef, useEffect } from 'react';
+import { Controlled as CodeMirrorControlled } from 'react-codemirror2';
+import { Button, message } from 'antd';
+import { saveAs } from 'file-saver';
+import Logo from '@/assets/logo.png';
+import { isDev, useGetRect } from 'utils/tool';
+import { SaveOutlined, DownloadOutlined, RocketOutlined } from '@ant-design/icons';
+import { useHotkeys } from 'react-hotkeys-hook';
 
-const { Search } = Input;
-const { Option } = Select;
+// 导入样式
+import { 
+  wrapStyle, 
+  headerStyle, 
+  logoAreaStyle, 
+  logoStyle, 
+  logoImgStyle, 
+  logoTextStyle, 
+  operationBarStyle, 
+  contentWrapStyle, 
+  codeWrapStyle, 
+  previewWrapStyle, 
+  iframeStyle 
+} from './styles';
 
-interface UserData {
-  id: string;
-  username: string;
-  email: string;
-  phone: string;
-  status: "active" | "inactive" | "suspended";
-  createTime: string;
-  lastLoginTime: string;
-}
+// 导入CodeMirror样式和模式
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/material.css';
+import 'codemirror/mode/xml/xml';
+import 'codemirror/mode/javascript/javascript';
 
-const defaultUsers: UserData[] = [
-  {
-    id: "1",
-    username: "admin",
-    email: "admin@example.com",
-    phone: "13800138000",
-    status: "active",
-    createTime: "2024-01-01 10:00:00",
-    lastLoginTime: "2024-01-15 14:30:00",
-  },
-  {
-    id: "2",
-    username: "user001",
-    email: "user001@example.com",
-    phone: "13800138001",
-    status: "active",
-    createTime: "2024-01-02 11:00:00",
-    lastLoginTime: "2024-01-14 09:20:00",
-  },
-  {
-    id: "3",
-    username: "user002",
-    email: "user002@example.com",
-    phone: "13800138002",
-    status: "inactive",
-    createTime: "2024-01-03 12:00:00",
-    lastLoginTime: "2024-01-10 16:45:00",
-  },
-];
+// 定义服务器URL
+const serverUrl = isDev ? 'http://localhost:3000' : 'http://localhost:3000';
 
-export default function UserPage() {
-  const [users, setUsers] = useState<UserData[]>(defaultUsers);
-  const [loading, setLoading] = useState(false);
-  const [searchText, setSearchText] = useState("");
-  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [editingUser, setEditingUser] = useState<UserData | null>(null);
-  const [form] = Form.useForm();
+// 默认HTML内容
+const defaultHtml = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      html,body {
+        margin: 0;
+        padding: 0;
+      }
+      #root {
+        padding-top: 200px;
+        text-align: center;
+      }
+      p {
+        padding: 0 10px;
+        color: #06c;
+        line-height: 1.8;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <img src="http://io.nainor.com/uploads/logo_1747374040f.png" />
+      <p>
+        (H5编辑器)H5-Dooring是一款功能强大，开源免费的H5可视化页面配置解决方案，
+        致力于提供一套简单方便、专业可靠、无限可能的H5落地页最佳实践。
+      </p>
+    </div>
+  </body>
+</html>`;
 
-  // 过滤用户列表
-  const filteredUsers = useMemo(() => {
-    if (!searchText) return users;
-    return users.filter(
-      (user) =>
-        user.username.toLowerCase().includes(searchText.toLowerCase()) ||
-        user.email.toLowerCase().includes(searchText.toLowerCase()) ||
-        user.phone.includes(searchText)
-    );
-  }, [users, searchText]);
+/**
+ * H5-Dooring在线代码编辑器组件
+ */
+export default function CodeEditor() {
+  // 状态管理
+  const [htmlContent, setHtmlContent] = useState<string>(defaultHtml);
+  const [cursorPosition, setCursorPosition] = useState<{ line: number; ch: number }>({ line: 1, ch: 1 });
+  const [isUpdated, setIsUpdated] = useState<boolean>(false);
+  const editorRef = useRef<CodeMirror.Editor | null>(null);
 
-  // 表格列定义
-  const columns: ColumnsType<UserData> = useMemo(
-    () => [
-      {
-        title: "用户名",
-        dataIndex: "username",
-        key: "username",
-        width: 150,
-      },
-      {
-        title: "邮箱",
-        dataIndex: "email",
-        key: "email",
-        width: 200,
-      },
-      {
-        title: "手机号",
-        dataIndex: "phone",
-        key: "phone",
-        width: 150,
-      },
-      {
-        title: "状态",
-        dataIndex: "status",
-        key: "status",
-        width: 120,
-        render: (status: string) => {
-          const statusMap = {
-            active: { color: "green", text: "活跃" },
-            inactive: { color: "default", text: "未激活" },
-            suspended: { color: "red", text: "已暂停" },
-          };
-          const statusInfo = statusMap[status as keyof typeof statusMap] || statusMap.inactive;
-          return <Tag color={statusInfo.color}>{statusInfo.text}</Tag>;
+  // 获取窗口尺寸
+  const rect = useGetRect();
+
+  // 计算高度
+  const contentHeight = useMemo(() => {
+    const baseHeight = rect.height - 42 - 1; // 减去顶部高度和滚动条防溢出
+    return Math.max(baseHeight, 694); // 最小高度为 694
+  }, [rect.height]);
+
+  const phoneHeight = 694; // 固定高度，避免大屏幕问题
+  const iframeHeight = phoneHeight - 30 - 24; // 上边距 30，上下 padding 各 12
+
+  /**
+   * 保存页面到服务器
+   * @param content - 可选的HTML内容，如果未提供则使用当前内容
+   */
+  const savePage = useCallback(async (content?: string) => {
+    try {
+      const contentToSave = content ?? htmlContent;
+      const response = await fetch(`${serverUrl}/dooring/render`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/html;charset=utf-8',
         },
-      },
-      {
-        title: "创建时间",
-        dataIndex: "createTime",
-        key: "createTime",
-        width: 180,
-      },
-      {
-        title: "最后登录",
-        dataIndex: "lastLoginTime",
-        key: "lastLoginTime",
-        width: 180,
-      },
-      {
-        title: "操作",
-        key: "action",
-        width: 200,
-        fixed: "right",
-        render: (_, record) => (
-          <Space size="middle">
-            <Button
-              type="link"
-              icon={<EditOutlined />}
-              onClick={() => handleEdit(record)}
-            >
-              编辑
-            </Button>
-            <Button
-              type="link"
-              danger
-              icon={<DeleteOutlined />}
-              onClick={() => handleDelete(record.id)}
-            >
-              删除
-            </Button>
-          </Space>
-        ),
-      },
-    ],
+        body: contentToSave,
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      message.success('已保存');
+      setIsUpdated(prev => !prev); // 触发重新渲染
+    } catch (error) {
+      console.error('保存失败:', error);
+      message.error('保存失败，请稍后重试');
+    }
+  }, [htmlContent]);
+
+  /**
+   * 下载HTML文件
+   */
+  const downloadHtml = useCallback(() => {
+    try {
+      const file = new File([htmlContent], `${Date.now()}.html`, {
+        type: 'text/html;charset=utf-8',
+      });
+      saveAs(file);
+      message.success('HTML文件下载成功');
+    } catch (error) {
+      console.error('下载HTML失败:', error);
+      message.error('下载HTML失败，请稍后重试');
+    }
+  }, [htmlContent]);
+
+  /**
+   * 下载CSS文件（从HTML内容中提取CSS）
+   */
+  const downloadCss = useCallback(() => {
+    try {
+      // 从HTML中提取CSS内容
+      const styleMatch = htmlContent.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
+      const cssContent = styleMatch ? styleMatch[1] : '';
+      
+      const file = new File([cssContent], `${Date.now()}.css`, {
+        type: 'text/css;charset=utf-8',
+      });
+      saveAs(file);
+      message.success('CSS文件下载成功');
+    } catch (error) {
+      console.error('下载CSS失败:', error);
+      message.error('下载CSS失败，请稍后重试');
+    }
+  }, [htmlContent]);
+
+  /**
+   * 一键部署功能
+   */
+  const deployWebsite = useCallback(() => {
+    try {
+      // 这里应该是实际的部署逻辑
+      message.success('部署功能开发中...');
+    } catch (error) {
+      console.error('部署失败:', error);
+      message.error('部署失败，请稍后重试');
+    }
+  }, []);
+
+  // 快捷键保存
+  useHotkeys(
+    'ctrl+s',
+    (event) => {
+      savePage();
+      event.preventDefault();
+    },
+    [savePage]
+  );
+
+  /**
+   * 处理代码变化
+   */
+  const handleCodeChange = useCallback(
+    (_editor: CodeMirror.Editor, _data: CodeMirror.EditorChange, value: string) => {
+      setHtmlContent(value);
+    },
     []
   );
 
-  // 编辑用户
-  const handleEdit = useCallback((user: UserData) => {
-    setEditingUser(user);
-    form.setFieldsValue(user);
-    setIsModalVisible(true);
-  }, [form]);
+  /**
+   * 处理光标位置变化
+   */
+  const handleCursorChange = useCallback(
+    (_editor: CodeMirror.Editor, position: CodeMirror.Position) => {
+      setCursorPosition(position);
+    },
+    []
+  );
 
-  // 删除用户
-  const handleDelete = useCallback((id: string) => {
-    Modal.confirm({
-      title: "确认删除",
-      content: "确定要删除这个用户吗？",
-      onOk: () => {
-        setUsers((prev) => prev.filter((user) => user.id !== id));
-        message.success("删除成功");
-      },
-    });
+  /**
+   * 处理编辑器按键事件
+   */
+  const handleEditorKeyDown = useCallback(
+    (editor: CodeMirror.Editor, event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key === 's') {
+        savePage(editor.getValue());
+        event.preventDefault();
+      }
+    },
+    [savePage]
+  );
+
+  /**
+   * 处理编辑器挂载
+   */
+  const handleEditorDidMount = useCallback((editor: CodeMirror.Editor) => {
+    editorRef.current = editor;
   }, []);
 
-  // 保存用户
-  const handleSave = useCallback(async () => {
-    try {
-      const values = await form.validateFields();
-      if (editingUser) {
-        // 更新用户
-        setUsers((prev) =>
-          prev.map((user) =>
-            user.id === editingUser.id ? { ...user, ...values } : user
-          )
-        );
-        message.success("更新成功");
-      } else {
-        // 新增用户
-        const newUser: UserData = {
-          id: Date.now().toString(),
-          ...values,
-          createTime: new Date().toLocaleString("zh-CN"),
-          lastLoginTime: "-",
-        };
-        setUsers((prev) => [...prev, newUser]);
-        message.success("创建成功");
-      }
-      setIsModalVisible(false);
-      setEditingUser(null);
-      form.resetFields();
-    } catch (error) {
-      console.error("表单验证失败:", error);
-    }
-  }, [editingUser, form]);
-
-  // 取消编辑
-  const handleCancel = useCallback(() => {
-    setIsModalVisible(false);
-    setEditingUser(null);
-    form.resetFields();
-  }, [form]);
-
-  // 批量删除
-  const handleBatchDelete = useCallback(() => {
-    if (selectedRowKeys.length === 0) {
-      message.warning("请选择要删除的用户");
-      return;
-    }
-    Modal.confirm({
-      title: "确认删除",
-      content: `确定要删除选中的 ${selectedRowKeys.length} 个用户吗？`,
-      onOk: () => {
-        setUsers((prev) => prev.filter((user) => !selectedRowKeys.includes(user.id)));
-        setSelectedRowKeys([]);
-        message.success("删除成功");
-      },
-    });
-  }, [selectedRowKeys]);
-
-  // 行选择配置
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: (keys: React.Key[]) => {
-      setSelectedRowKeys(keys);
-    },
-  };
+  // CodeMirror 编辑器配置
+  const codeMirrorOptions = useMemo(() => ({
+    mode: 'xml',
+    theme: 'material',
+    lineNumbers: true,
+    lineWrapping: true,
+    autoCloseBrackets: true,
+    matchBrackets: true,
+    indentUnit: 2,
+    tabSize: 2,
+    indentWithTabs: false,
+  }), []);
 
   return (
-    <div className={styles.wrap}>
+    <div style={wrapStyle}>
       {/* Header */}
-      <div className={styles.header}>
-        <div className={styles.titleArea}>
-          <h2 className={styles.title}>用户管理</h2>
-          <p className={styles.description}>可管理所有用户的账号信息</p>
+      <div style={headerStyle}>
+        <div style={logoAreaStyle}>
+          <div style={logoStyle} title="Dooring">
+            <a href="http://h5.dooring.cn" target="_blank" rel="noopener noreferrer">
+              <img src={Logo} alt="Dooring-强大的h5编辑器" style={logoImgStyle} />
+            </a>
+          </div>
+          <div style={logoTextStyle}>| 在线代码编辑器</div>
         </div>
-        <div className={styles.operationBar}>
-          <Button
-            type="primary"
-            icon={<PlusOutlined />}
-            onClick={() => {
-              setEditingUser(null);
-              form.resetFields();
-              setIsModalVisible(true);
-            }}
-            style={{ marginRight: "10px" }}
+        <div style={operationBarStyle}>
+          <Button 
+            type="primary" 
+            icon={<SaveOutlined />}
+            title="保存（ctrl+s）" 
+            onClick={savePage} 
+            style={{ marginRight: '10px' }}
           >
-            新增用户
+            保存
           </Button>
-          <Button
-            danger
-            onClick={handleBatchDelete}
-            disabled={selectedRowKeys.length === 0}
+          <Button 
+            type="primary" 
+            icon={<DownloadOutlined />}
+            onClick={downloadHtml} 
+            style={{ marginRight: '10px' }}
           >
-            批量删除
+            下载HTML
+          </Button>
+          <Button 
+            type="default" 
+            icon={<DownloadOutlined />}
+            onClick={downloadCss} 
+            style={{ marginRight: '10px' }}
+          >
+            下载CSS
+          </Button>
+          <Button 
+            type="primary" 
+            danger 
+            icon={<RocketOutlined />}
+            onClick={deployWebsite}
+          >
+            一键部署
           </Button>
         </div>
       </div>
 
-      {/* 搜索栏 */}
-      <div className={styles.searchBar}>
-        <Search
-          placeholder="搜索用户名、邮箱或手机号"
-          allowClear
-          enterButton={<SearchOutlined />}
-          size="large"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          style={{ width: 400 }}
-        />
-      </div>
+      {/* 内容区域 */}
+      <div style={contentWrapStyle(contentHeight)}>
+        {/* 代码编辑器 */}
+        <div style={codeWrapStyle(contentHeight)}>
+          <CodeMirrorControlled
+            value={htmlContent}
+            options={codeMirrorOptions}
+            onBeforeChange={handleCodeChange}
+            onCursor={handleCursorChange}
+            onKeyDown={handleEditorKeyDown}
+            onReady={handleEditorDidMount}
+          />
+        </div>
 
-      {/* 表格区域 */}
-      <div className={styles.tableWrap}>
-        <Table
-          columns={columns}
-          dataSource={filteredUsers}
-          rowKey="id"
-          loading={loading}
-          rowSelection={rowSelection}
-          scroll={{ x: 1200 }}
-          pagination={{
-            total: filteredUsers.length,
-            pageSize: 10,
-            showSizeChanger: true,
-            showQuickJumper: true,
-            showTotal: (total) => `共 ${total} 条`,
-          }}
-        />
+        {/* 预览区域 */}
+        <div style={previewWrapStyle(phoneHeight)}>
+          <iframe
+            title="H5预览"
+            src={`${serverUrl}/html?flag=${isUpdated}`}
+            style={iframeStyle(iframeHeight)}
+            sandbox="allow-same-origin allow-scripts"
+            loading="lazy"
+          />
+        </div>
       </div>
-
-      {/* 编辑/新增弹窗 */}
-      <Modal
-        title={editingUser ? "编辑用户" : "新增用户"}
-        open={isModalVisible}
-        onOk={handleSave}
-        onCancel={handleCancel}
-        okText="保存"
-        cancelText="取消"
-        width={600}
-      >
-        <Form
-          form={form}
-          layout="vertical"
-          initialValues={{
-            status: "active",
-          }}
-        >
-          <Form.Item
-            name="username"
-            label="用户名"
-            rules={[{ required: true, message: "请输入用户名" }]}
-          >
-            <Input placeholder="请输入用户名" />
-          </Form.Item>
-          <Form.Item
-            name="email"
-            label="邮箱"
-            rules={[
-              { required: true, message: "请输入邮箱" },
-              { type: "email", message: "请输入有效的邮箱地址" },
-            ]}
-          >
-            <Input placeholder="请输入邮箱" />
-          </Form.Item>
-          <Form.Item
-            name="phone"
-            label="手机号"
-            rules={[
-              { required: true, message: "请输入手机号" },
-              { pattern: /^1[3-9]\d{9}$/, message: "请输入有效的手机号" },
-            ]}
-          >
-            <Input placeholder="请输入手机号" />
-          </Form.Item>
-          <Form.Item
-            name="status"
-            label="状态"
-            rules={[{ required: true, message: "请选择状态" }]}
-          >
-            <Select placeholder="请选择状态">
-              <Option value="active">活跃</Option>
-              <Option value="inactive">未激活</Option>
-              <Option value="suspended">已暂停</Option>
-            </Select>
-          </Form.Item>
-        </Form>
-      </Modal>
     </div>
   );
 }
 
+// 声明CodeMirror全局类型
+declare global {
+  namespace CodeMirror {
+    interface Editor {
+      getValue(): string;
+    }
+    interface EditorChange {
+      from: Position;
+      to: Position;
+      text: string[];
+      removed: string[];
+      origin: string | undefined;
+    }
+    interface Position {
+      line: number;
+      ch: number;
+    }
+  }
+}
