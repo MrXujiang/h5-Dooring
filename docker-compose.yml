@@ -1,0 +1,55 @@
+# docker-compose definition for self-hosting h5-Dooring locally.
+#
+# This file addresses the long-standing feature request to make the
+# project easy to self-host without manually installing Node, yarn,
+# webpack and friends.  See upstream issue #162:
+#   https://github.com/MrXujiang/h5-Dooring/issues/162
+#
+# Usage:
+#   docker compose up --build
+#   # or detached:
+#   docker compose up -d --build
+#
+# Then open http://localhost:8080/ in a browser.
+#
+# The image is multi-stage: the `builder` service produces the static
+# SPA, and the `web` service serves it with a hardened nginx config
+# that is also aware of HTML5 history routing (see default.conf).
+
+name: h5-dooring
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: h5-dooring:latest
+    container_name: h5-dooring
+    restart: unless-stopped
+    ports:
+      # Map host:container.  Change the left-hand side if 8080 is taken.
+      - "8080:80"
+    # Read-only root filesystem for a small security uplift; the only
+    # place nginx needs to write is /var/cache/nginx and /var/run, both
+    # of which are already tmpfs in the official nginx:alpine image.
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx:size=32m
+      - /var/run:size=4m
+    healthcheck:
+      # curl lives in the nginx:alpine image and we use the official
+      # entrypoint behaviour: hit / which is served as the SPA shell.
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    # Drop all Linux capabilities and run as the unprivileged nginx
+    # user that ships with the base image.  This is the recommended
+    # hardening for any container that only needs to listen on a port.
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
