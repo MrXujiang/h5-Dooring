@@ -1,0 +1,67 @@
+# Anything that ends up in a Docker build context but is not needed to
+# produce a runnable image.  Keeping this list accurate dramatically
+# speeds up `docker build` and avoids leaking local state into images.
+
+# VCS metadata
+.git
+.gitignore
+.gitattributes
+
+# Docker artefacts (we don't want the previous build context inside a
+# build context, that way lies recursion)
+Dockerfile
+default.conf
+docker-compose.yml
+.dockerignore
+
+# Dependencies — installed fresh inside the build stage
+node_modules
+**/node_modules
+
+# Build output — produced inside the build stage, never copy from host
+dist
+doc-dist
+.vuepress/dist
+.umi
+.umi-production
+lib-cov
+coverage
+.nyc_output
+
+# Logs, caches, editor & OS junk
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.cache
+.parcel-cache
+.eslintcache
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+.history
+tmp
+temp
+
+# Tests
+__tests__
+*.test.js
+*.test.ts
+*.test.tsx
+*.spec.js
+*.spec.ts
+*.spec.tsx
+coverage
+.nyc_output
+
+# CI / release files that have no business inside a runtime image
+.github
+.husky
+CODEOWNERS
+*.md
+!readme.md
+!zh.md
+!CHANGELOG.md
+!DOCKER.md
