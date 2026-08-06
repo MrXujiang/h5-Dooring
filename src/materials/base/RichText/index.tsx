@@ -7,6 +7,27 @@ interface IProps extends IButtonConfig {
   isTpl: boolean;
 }
 
+const sanitizeHtml = (html = "") => {
+  if (typeof document === "undefined") {
+    return html;
+  }
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  div
+    .querySelectorAll("script,iframe,object,embed,link,style,meta")
+    .forEach((node) => node.remove());
+  div.querySelectorAll("*").forEach((node) => {
+    Array.from(node.attributes).forEach((attr) => {
+      const name = attr.name.toLowerCase();
+      const value = attr.value.trim().toLowerCase();
+      if (name.indexOf("on") === 0 || value.indexOf("javascript:") === 0) {
+        node.removeAttribute(attr.name);
+      }
+    });
+  });
+  return div.innerHTML;
+};
+
 const XButton = memo((props: IProps) => {
   const { isTpl, borderColor, borderWidth, round, padding, content } = props;
 
@@ -23,7 +44,7 @@ const XButton = memo((props: IProps) => {
         padding: padding + "px"
       }}
     >
-      <div dangerouslySetInnerHTML={{ __html: content }}></div>
+      <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }}></div>
     </div>
   );
 });
